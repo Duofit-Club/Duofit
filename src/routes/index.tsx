@@ -6,17 +6,17 @@ import heroImg from "@/assets/hero-lifestyle-new.jpg";
 import heroMobileImg from "@/assets/hero-lifestyle-mobile.jpg";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
-import assestance  from "@/assets/slideshow/assestance.jpeg";
-import drill1      from "@/assets/slideshow/drill.jpg";
-import drill2      from "@/assets/slideshow/drill_2.jpg";
-import cert1       from "@/assets/slideshow/certificate_1.jpeg";
-import cert2       from "@/assets/slideshow/certificate_2.jpeg";
-import cert3       from "@/assets/slideshow/certificate_3.jpeg";
-import groupPhoto  from "@/assets/slideshow/group photo.jpeg";
-import review1     from "@/assets/slideshow/review_1.jpg";
-import review2     from "@/assets/slideshow/review_2.jpg";
-import review3     from "@/assets/slideshow/review_3.jpg";
-import review4     from "@/assets/slideshow/review_4.jpg";
+import assestance from "@/assets/slideshow/assestance.jpeg";
+import drill1 from "@/assets/slideshow/drill.jpg";
+import drill2 from "@/assets/slideshow/drill_2.jpg";
+import cert1 from "@/assets/slideshow/certificate_1.jpeg";
+import cert2 from "@/assets/slideshow/certificate_2.jpeg";
+import cert3 from "@/assets/slideshow/certificate_3.jpeg";
+import groupPhoto from "@/assets/slideshow/group photo.jpeg";
+import review1 from "@/assets/slideshow/review_1.jpg";
+import review2 from "@/assets/slideshow/review_2.jpg";
+import review3 from "@/assets/slideshow/review_3.jpg";
+import review4 from "@/assets/slideshow/review_4.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,23 +47,23 @@ type GallerySlide =
   | { kind: "video"; thumb: string; src: string; caption: string };
 
 const SLIDES: GallerySlide[] = [
-  { kind: "image", src: assestance,  caption: "Nikitha coaching kids — morning session" },
-  { kind: "image", src: drill1,      caption: "Physical drills and movement activities" },
-  { kind: "image", src: drill2,      caption: "Kids giving their best effort every day" },
-  { kind: "image", src: cert1,       caption: "Certificate presentation — camp closing day" },
-  { kind: "image", src: cert2,       caption: "Every child recognised for their dedication" },
-  { kind: "image", src: cert3,       caption: "Celebrating each child's achievement" },
-  { kind: "image", src: groupPhoto,  caption: "The DUOFIT Summer Camp family — May 2025" },
-  { kind: "image", src: review1,     caption: "Parent feedback — Yadadri Kotireddy" },
-  { kind: "image", src: review2,     caption: "Parent feedback — Prabhakar" },
-  { kind: "image", src: review3,     caption: "Parent feedback — Yadadri Praveen" },
-  { kind: "image", src: review4,     caption: "A heartfelt letter from Rueyansh 💚" },
+  { kind: "image", src: assestance, caption: "Nikitha coaching kids — morning session" },
+  { kind: "image", src: drill1, caption: "Physical drills and movement activities" },
+  { kind: "image", src: drill2, caption: "Kids giving their best effort every day" },
+  { kind: "image", src: cert1, caption: "Certificate presentation — camp closing day" },
+  { kind: "image", src: cert2, caption: "Every child recognised for their dedication" },
+  { kind: "image", src: cert3, caption: "Celebrating each child's achievement" },
+  { kind: "image", src: groupPhoto, caption: "The DUOFIT Summer Camp family — May 2025" },
+  { kind: "image", src: review1, caption: "Parent feedback — Yadadri Kotireddy" },
+  { kind: "image", src: review2, caption: "Parent feedback — Prabhakar" },
+  { kind: "image", src: review3, caption: "Parent feedback — Yadadri Praveen" },
+  { kind: "image", src: review4, caption: "A heartfelt letter from Rueyansh 💚" },
 ];
 
 function MediaGallery() {
-  const [current, setCurrent]   = useState(0);
+  const [current, setCurrent] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
-  const [isPaused, setIsPaused]  = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const total = SLIDES.length;
@@ -86,9 +86,9 @@ function MediaGallery() {
   // Keyboard navigation
   useEffect(() => {
     const fn = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft")  go(current - 1);
+      if (e.key === "ArrowLeft") go(current - 1);
       if (e.key === "ArrowRight") go(current + 1);
-      if (e.key === "Escape")     setVideoOpen(false);
+      if (e.key === "Escape") setVideoOpen(false);
     };
     window.addEventListener("keydown", fn);
     return () => window.removeEventListener("keydown", fn);
@@ -198,11 +198,10 @@ function MediaGallery() {
           <button
             key={i}
             onClick={() => go(i)}
-            className={`rounded-full transition-all duration-300 ${
-              i === current
+            className={`rounded-full transition-all duration-300 ${i === current
                 ? "w-6 h-2 bg-primary"
                 : "w-2 h-2 bg-border hover:bg-muted-foreground/40"
-            }`}
+              }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
@@ -284,9 +283,9 @@ function VennDiagram() {
   const displayItems =
     active !== null
       ? [
-          ...items.filter((_, i) => i !== active),
-          items[active],
-        ]
+        ...items.filter((_, i) => i !== active),
+        items[active],
+      ]
       : items;
 
   return (
@@ -354,8 +353,8 @@ function VennDiagram() {
                     isActive
                       ? 0.95
                       : isInactive
-                      ? 0.45
-                      : 0.78
+                        ? 0.45
+                        : 0.78
                   }
                   style={{
                     transition: "all .35s ease",
@@ -428,15 +427,15 @@ function VennDiagram() {
             />
 
             <text
-  x={CX}
-  y={CY + 6}
-  textAnchor="middle"
-  fill="#15803d"
-  fontSize="20"
-  fontWeight="800"
->
-  HEALTH
-</text>
+              x={CX}
+              y={CY + 6}
+              textAnchor="middle"
+              fill="#15803d"
+              fontSize="20"
+              fontWeight="800"
+            >
+              HEALTH
+            </text>
           </g>
         </svg>
       </div>
@@ -510,7 +509,10 @@ function Home() {
 
         {/* Text block — absolute overlay on both mobile and desktop */}
         <div className="absolute inset-0 z-10 flex items-center">
-          <div className="container-editorial w-full">
+          <div
+            className="container-editorial w-full"
+            style={{ transform: "translateX(-60px)" }}
+          >
             <div className="max-w-[78%] sm:max-w-[65%] md:max-w-[380px] lg:max-w-[440px] text-left">
               <Reveal>
                 <h1
@@ -537,7 +539,7 @@ function Home() {
 
 
 
-{/* WHY DUOFIT */}
+      {/* WHY DUOFIT */}
       <section className="bg-cream border-y border-border">
         <div className="container-editorial py-14 md:py-24 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -560,106 +562,106 @@ function Home() {
         </div>
       </section>
 
-{/* GALLERY */}
-<section className="container-editorial py-14 md:py-20">
-  <Reveal>
-    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-      <div>
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-          — Kids Summer Camp · Pragathi Nagar · May 2025
-        </span>
-        <h2 className="mt-3 text-2xl md:text-4xl font-bold tracking-tight">
-          Where healthy habits begin.
-        </h2>
-      </div>
-      <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-        A month of movement, fun and learning — real kids building real habits.
-      </p>
-    </div>
-  </Reveal>
-  <Reveal delay={120}>
-    <MediaGallery />
-  </Reveal>
-</section>
-
-{/* CAMP STATS */}
-<section className="bg-cream border-y border-border">
-  <div className="container-editorial py-12 md:py-16">
-
-    {/* Stats row */}
-    <Reveal>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        {[
-          { value: "11",        label: "Children Coached",    sub: "Aged 6–14" },
-          { value: "31 Days",   label: "Duration",            sub: "May 1 — May 31" },
-          { value: "100%",      label: "Certified",           sub: "Every child recognised" },
-          { value: "Pragathi",  label: "Nagar, Hyderabad",    sub: "Community programme" },
-        ].map((s) => (
-          <div key={s.label} className="text-center p-5 md:p-6 rounded-sm border border-border bg-card">
-            <p className="text-xl md:text-2xl font-bold text-primary">{s.value}</p>
-            <p className="text-xs font-semibold uppercase tracking-widest text-foreground mt-1">{s.label}</p>
-            <p className="text-[10px] text-muted-foreground mt-0.5">{s.sub}</p>
+      {/* GALLERY */}
+      <section className="container-editorial py-14 md:py-20">
+        <Reveal>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                — Kids Summer Camp · Pragathi Nagar · May 2025
+              </span>
+              <h2 className="mt-3 text-2xl md:text-4xl font-bold tracking-tight">
+                Where healthy habits begin.
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
+              A month of movement, fun and learning — real kids building real habits.
+            </p>
           </div>
-        ))}
-      </div>
-    </Reveal>
+        </Reveal>
+        <Reveal delay={120}>
+          <MediaGallery />
+        </Reveal>
+      </section>
 
-    {/* Newspaper feature */}
-    <Reveal delay={120}>
-      <a
-        href="https://suryanews.in/duofit-summer-camp-concludes-in-pragathi-nagar/"
-        target="_blank"
-        rel="noreferrer"
-        className="flex items-center gap-4 p-5 md:p-6 border border-border bg-card rounded-sm hover:border-primary/50 hover:translate-x-1 active:scale-[0.98] transition-all group"
-      >
-        {/* Newspaper icon */}
-        <div className="h-12 w-12 md:h-14 md:w-14 rounded-sm bg-primary/10 flex items-center justify-center shrink-0 text-xl">
-          📰
+      {/* CAMP STATS */}
+      <section className="bg-cream border-y border-border">
+        <div className="container-editorial py-12 md:py-16">
+
+          {/* Stats row */}
+          <Reveal>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {[
+                { value: "11", label: "Children Coached", sub: "Aged 6–14" },
+                { value: "31 Days", label: "Duration", sub: "May 1 — May 31" },
+                { value: "100%", label: "Certified", sub: "Every child recognised" },
+                { value: "Pragathi", label: "Nagar, Hyderabad", sub: "Community programme" },
+              ].map((s) => (
+                <div key={s.label} className="text-center p-5 md:p-6 rounded-sm border border-border bg-card">
+                  <p className="text-xl md:text-2xl font-bold text-primary">{s.value}</p>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-foreground mt-1">{s.label}</p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">{s.sub}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Newspaper feature */}
+          <Reveal delay={120}>
+            <a
+              href="https://suryanews.in/duofit-summer-camp-concludes-in-pragathi-nagar/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-4 p-5 md:p-6 border border-border bg-card rounded-sm hover:border-primary/50 hover:translate-x-1 active:scale-[0.98] transition-all group"
+            >
+              {/* Newspaper icon */}
+              <div className="h-12 w-12 md:h-14 md:w-14 rounded-sm bg-primary/10 flex items-center justify-center shrink-0 text-xl">
+                📰
+              </div>
+
+              <div className="flex-1 min-w-0">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-1">
+                  As featured in — Surya News
+                </p>
+                <h4 className="font-bold text-foreground text-sm md:text-base leading-snug">
+                  DUOFIT Summer Camp Concludes in Pragathi Nagar
+                </h4>
+                <p className="text-xs text-muted-foreground mt-1 hidden md:block">
+                  suryanews.in · Read the full feature story
+                </p>
+              </div>
+
+              <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
+            </a>
+          </Reveal>
+
         </div>
-
-        <div className="flex-1 min-w-0">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-1">
-            As featured in — Surya News
-          </p>
-          <h4 className="font-bold text-foreground text-sm md:text-base leading-snug">
-            DUOFIT Summer Camp Concludes in Pragathi Nagar
-          </h4>
-          <p className="text-xs text-muted-foreground mt-1 hidden md:block">
-            suryanews.in · Read the full feature story
-          </p>
-        </div>
-
-        <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
-      </a>
-    </Reveal>
-
-  </div>
-</section>
+      </section>
 
       {/* REALITY TEASER */}
-<section className="bg-cream border-y border-border">
-  <div className="container-editorial py-20 md:py-28 text-center">
-    <Reveal>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl mx-auto leading-tight tracking-tight text-foreground">
-        Do you want to know why most health journeys fail?
-      </h2>
-    </Reveal>
-    <Reveal delay={120}>
-      <p className="mt-5 text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
-        Health becomes difficult when it is built around shortcuts, extreme routines and temporary motivation.
-      </p>
-    </Reveal>
-    <Reveal delay={200}>
-      <Link
-        to="/reality"
-        className="mt-8 inline-flex items-center gap-2 bg-foreground text-background px-7 py-3.5 text-sm font-medium uppercase tracking-widest hover:bg-primary hover:text-foreground active:scale-95 transition-all rounded-sm min-h-[44px]"
-      >
-        Explore Reality Check <ArrowRight className="h-4 w-4" />
-      </Link>
-    </Reveal>
-  </div>
-</section>
-      
+      <section className="bg-cream border-y border-border">
+        <div className="container-editorial py-20 md:py-28 text-center">
+          <Reveal>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl mx-auto leading-tight tracking-tight text-foreground">
+              Do you want to know why most health journeys fail?
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="mt-5 text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+              Health becomes difficult when it is built around shortcuts, extreme routines and temporary motivation.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <Link
+              to="/reality"
+              className="mt-8 inline-flex items-center gap-2 bg-foreground text-background px-7 py-3.5 text-sm font-medium uppercase tracking-widest hover:bg-primary hover:text-foreground active:scale-95 transition-all rounded-sm min-h-[44px]"
+            >
+              Explore Reality Check <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
 
     </SiteLayout>
   );
