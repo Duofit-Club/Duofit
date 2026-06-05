@@ -484,14 +484,14 @@ function Home() {
           <img
             src={heroMobileImg}
             alt="Real people, real results"
-            className="w-full h-full object-cover animate-slow-zoom" />
+             className="w-full h-full object-cover object-[50%_30%] md:object-[70%_25%]" />
         </picture>
 
         {/* Mobile overlay: left-to-right gradient to protect text, and vertical gradient */}
         <div
           className="absolute inset-0 md:hidden pointer-events-none"
           style={{
-            background: "linear-gradient(90deg, oklch(0.12 0.04 145 / 0.82) 0%, oklch(0.12 0.04 145 / 0.40) 60%, transparent 100%), linear-gradient(180deg, oklch(0.12 0.04 145 / 0.15) 0%, oklch(0.12 0.04 145 / 0.45) 100%)"
+            background: "linear-gradient(90deg, oklch(0.12 0.04 145 / 0.75) 0%, oklch(0.12 0.04 145 / 0.35) 35%, transparent 70%)"
           }}
         />
 
@@ -506,7 +506,7 @@ function Home() {
         />
 
         {/* Text block — absolute overlay on both mobile and desktop */}
-        <div className="absolute inset-0 z-10 flex items-end md:items-center pb-24 md:pb-0">
+        <div className="absolute inset-0 z-10 flex items-end md:items-center pb-28 md:pb-0">
           <div
             className="container-editorial w-full"
             style={{ transform: "translateX(-60px)" }}
@@ -515,7 +515,7 @@ function Home() {
               <Reveal>
                 <h1
                   className="font-display leading-[1.05] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]"
-                  style={{ color: "var(--color-accent)", fontSize: "clamp(1.75rem, 7vw, 5.25rem)", fontWeight: 500 }}
+                  style={{ color: "var(--color-accent)", fontSize: "clamp(2rem, 6vw, 5.25rem)", fontWeight: 500 }}
                 >
                   <span className="block">Built around</span>
                   <span className="block italic">your life</span>
