@@ -475,36 +475,38 @@ function Home() {
   return (
     <SiteLayout>
 
-      {/* HERO — full photo visible, text left-aligned away from people */}
-      <section className="relative w-full overflow-hidden">
-        {/* Image container: auto height to show the full photo without cropping */}
-        <div className="relative w-full">
-          <img
-            src={heroImg}
-            alt="Real people, real results"
-            className="w-full h-[60vh] md:h-[85vh] lg:h-[90vh] block animate-slow-zoom object-cover"
-            style={{ objectPosition: "70% center" }}
-            loading="eager"
-          />
-          {/* Full overlay tint */}
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, oklch(0.18 0.04 145 / 0.18) 0%, oklch(0.18 0.04 145 / 0.45) 100%)" }}
-          />
-          {/* Desktop: left-side shade so text is readable, fades to transparent on right where people are */}
-          <div
-            className="absolute inset-0 hidden md:block"
-            style={{ background: "linear-gradient(90deg, oklch(0.12 0.04 145 / 0.82) 0%, oklch(0.14 0.04 145 / 0.60) 30%, oklch(0.14 0.04 145 / 0.18) 55%, transparent 72%)" }}
-          />
-          {/* Mobile: left-side shade (text stays left, people stay visible) */}
-          <div
-            className="absolute inset-0 md:hidden"
-            style={{ background: "linear-gradient(90deg, oklch(0.12 0.04 145 / 0.78) 0%, oklch(0.14 0.04 145 / 0.55) 40%, oklch(0.14 0.04 145 / 0.10) 70%, transparent 90%)" }}
-          />
-          {/* Text block — pinned bottom-left on mobile, center-left on desktop */}
-          <div className="absolute inset-0 z-10 flex items-end md:items-center pb-6 md:pb-0">
-            <div className="container-editorial w-full">
-              <div className="max-w-[70%] sm:max-w-[60%] md:max-w-[380px] lg:max-w-[440px] text-left">
+      {/* HERO — responsive layout: stacked on mobile, overlay on desktop */}
+      <section className="relative w-full overflow-hidden bg-foreground">
+        <div className="flex flex-col md:block relative w-full">
+          {/* Image wrapper */}
+          <div className="relative w-full aspect-[1.5] md:aspect-auto md:h-[85vh] lg:h-[90vh] overflow-hidden">
+            <img
+              src={heroImg}
+              alt="Real people, real results"
+              className="w-full h-full object-cover animate-slow-zoom object-[55%_center] md:object-[70%_25%]"
+              loading="eager"
+            />
+            {/* Mobile-only overlay: very subtle tint at the bottom edge */}
+            <div
+              className="absolute inset-0 md:hidden"
+              style={{ background: "linear-gradient(180deg, rgba(18,28,23,0.1) 0%, rgba(18,28,23,0.25) 100%)" }}
+            />
+            
+            {/* Desktop-only overlays */}
+            <div
+              className="absolute inset-0 hidden md:block"
+              style={{ background: "linear-gradient(180deg, oklch(0.18 0.04 145 / 0.18) 0%, oklch(0.18 0.04 145 / 0.45) 100%)" }}
+            />
+            <div
+              className="absolute inset-0 hidden md:block"
+              style={{ background: "linear-gradient(90deg, oklch(0.12 0.04 145 / 0.82) 0%, oklch(0.14 0.04 145 / 0.60) 30%, oklch(0.14 0.04 145 / 0.18) 55%, transparent 72%)" }}
+            />
+          </div>
+
+          {/* Text block — absolute overlay on desktop, static block layout on mobile */}
+          <div className="relative md:absolute md:inset-0 md:z-10 flex items-center bg-foreground md:bg-transparent px-6 py-10 md:p-0">
+            <div className="container-editorial w-full p-0 md:px-10">
+              <div className="max-w-full md:max-w-[380px] lg:max-w-[440px] text-left">
                 <Reveal>
                   <h1
                     className="font-display leading-[1.05] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]"
@@ -515,7 +517,7 @@ function Home() {
                   </h1>
                 </Reveal>
                 <Reveal delay={200}>
-                  <p className="mt-3 md:mt-6 text-xs md:text-lg leading-[1.6] md:leading-[1.8] drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]" style={{ color: "oklch(0.97 0.018 85)" }}>
+                  <p className="mt-4 md:mt-6 text-xs md:text-lg leading-[1.6] md:leading-[1.8] drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]" style={{ color: "oklch(0.97 0.018 85)" }}>
                     Helping people stay healthy through practical{" "}
                     <span className="font-semibold" style={{ color: "var(--color-accent)" }}>Nutrition</span>,{" "}
                     <span className="font-semibold" style={{ color: "var(--color-accent)" }}>Movement</span> and{" "}
