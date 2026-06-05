@@ -1,0 +1,176 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", "Source Sans 3", ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-cream: var(--cream);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-ink: var(--ink);
+
+  --animate-fade-in: fade-in 0.8s ease-out both;
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-slow-zoom: slow-zoom 14s ease-out both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slow-zoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Getting Unstuck — warm cream, deep forest green, antique gold */
+  --background: oklch(0.93 0.018 85);           /* warm beige cream #ebe5d3 */
+  --foreground: oklch(0.28 0.025 145);          /* deep forest ink */
+  --ink: oklch(0.24 0.03 145);
+
+  --cream: oklch(0.95 0.018 85);                /* lifted cream surface */
+  --sage: oklch(0.36 0.045 145);                /* deep muted forest green */
+  --sage-soft: oklch(0.78 0.04 140);
+
+  --card: oklch(0.95 0.018 85);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.96 0.015 85);
+  --popover-foreground: var(--foreground);
+
+  --primary: oklch(0.36 0.045 145);             /* deep forest green */
+  --primary-foreground: oklch(0.95 0.018 85);
+
+  --secondary: oklch(0.88 0.022 85);
+  --secondary-foreground: var(--foreground);
+
+  --muted: oklch(0.9 0.018 85);
+  --muted-foreground: oklch(0.45 0.025 140);
+
+  --accent: oklch(0.68 0.08 80);                /* antique gold #b89968 */
+  --accent-foreground: oklch(0.22 0.02 145);
+
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.97 0 0);
+
+  --border: oklch(0.82 0.022 85);
+  --input: oklch(0.86 0.02 85);
+  --ring: oklch(0.68 0.08 80);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.005em !important;
+    line-height: 1.1;
+    color: var(--color-accent);
+    text-transform: none !important;
+  }
+  h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); }
+  p  { font-family: var(--font-sans); }
+}
+
+/* === Getting-Unstuck theme overrides — applied site-wide === */
+@layer utilities {
+  /* Override Tailwind uppercase on headings only */
+  h1.uppercase, h2.uppercase, h3.uppercase, h4.uppercase {
+    text-transform: none !important;
+  }
+  /* Heading color overrides: any hardcoded text-primary/text-foreground on headings becomes gold */
+  h1.text-primary, h2.text-primary, h3.text-primary,
+  h1.text-foreground, h2.text-foreground, h3.text-foreground {
+    color: var(--color-accent) !important;
+  }
+
+  /* Primary CTA buttons -> outlined gold pill, like Getting Unstuck "BOOK A CALL" */
+  a.bg-foreground, button.bg-foreground,
+  a.bg-primary, button.bg-primary {
+    background-color: transparent !important;
+    color: var(--color-accent) !important;
+    border: 1.5px solid var(--color-accent) !important;
+    border-radius: 2px !important;
+    letter-spacing: 0.18em !important;
+    transition: background-color .25s, color .25s !important;
+  }
+  a.bg-foreground:hover, button.bg-foreground:hover,
+  a.bg-primary:hover, button.bg-primary:hover {
+    background-color: var(--color-accent) !important;
+    color: var(--color-primary-foreground) !important;
+  }
+
+  /* Subtle paper-texture cream feel on top-level sections */
+  section { background-color: transparent; }
+
+  /* Dark forest-green band utility for hero-like sections */
+  .bg-foreground { /* legacy use as bg */ }
+}
+
+@utility container-editorial {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  max-width: 1240px;
+}
+@media (min-width: 768px) {
+  .container-editorial { padding-inline: 2.5rem; }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
