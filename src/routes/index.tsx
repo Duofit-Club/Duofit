@@ -199,8 +199,8 @@ function MediaGallery() {
             key={i}
             onClick={() => go(i)}
             className={`rounded-full transition-all duration-300 ${i === current
-                ? "w-6 h-2 bg-primary"
-                : "w-2 h-2 bg-border hover:bg-muted-foreground/40"
+              ? "w-6 h-2 bg-primary"
+              : "w-2 h-2 bg-border hover:bg-muted-foreground/40"
               }`}
             aria-label={`Go to slide ${i + 1}`}
           />
@@ -482,16 +482,16 @@ function Home() {
           <source media="(max-width: 767px)" srcSet={heroMobileImg} />
           <source media="(min-width: 768px)" srcSet={heroImg} />
           <img
-  src={heroMobileImg}
-  alt="Real people, real results"
-  className="
+            src={heroMobileImg}
+            alt="Real people, real results"
+            className="
     w-full
     h-auto
     md:h-full
     object-contain
     md:object-cover
   "
-/>
+          />
         </picture>
 
         {/* Mobile overlay: left-to-right gradient to protect text, and vertical gradient */}
@@ -513,7 +513,7 @@ function Home() {
         />
 
         {/* Text block — absolute overlay on both mobile and desktop */}
-        <div className="absolute inset-0 z-10 flex items-center">
+        <div className="absolute inset-0 z-10 flex items-end md:items-center pb-24 md:pb-0">
           <div
             className="container-editorial w-full"
             style={{ transform: "translateX(-60px)" }}
