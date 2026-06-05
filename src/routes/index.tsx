@@ -507,11 +507,10 @@ function Home() {
 
         {/* Text block — absolute overlay on both mobile and desktop */}
         <div className="absolute inset-0 z-10 flex items-end md:items-center pb-28 md:pb-0">
-          <div
-            className="container-editorial w-full"
-            style={{ transform: "translateX(-60px)" }}
-          >
-            <div className="max-w-[78%] sm:max-w-[65%] md:max-w-[380px] lg:max-w-[440px] text-left">
+          // AFTER
+<div className="container-editorial w-full">
+            // AFTER
+<div className="max-w-[78%] sm:max-w-[65%] md:max-w-[380px] lg:max-w-[440px] text-left md:-translate-x-[60px]">
               <Reveal>
                 <h1
                   className="font-display leading-[1.05] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]"
