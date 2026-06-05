@@ -476,7 +476,7 @@ function Home() {
     <SiteLayout>
 
       {/* HERO — responsive height, separate mobile/desktop crops */}
-      <section className="relative w-full min-h-screen md:h-[85vh] lg:h-[90vh] overflow-hidden">
+      <section className="relative w-full h-screen md:h-[85vh] lg:h-[90vh] overflow-hidden bg-foreground text-background">
         {/* Responsive picture */}
         <picture className="absolute inset-0 block w-full h-full">
           <source media="(max-width: 767px)" srcSet={heroMobileImg} />
@@ -484,14 +484,7 @@ function Home() {
           <img
             src={heroMobileImg}
             alt="Real people, real results"
-            className="
-    w-full
-    h-auto
-    md:h-full
-    object-contain
-    md:object-cover
-  "
-          />
+            className="w-full h-full object-cover animate-slow-zoom" />
         </picture>
 
         {/* Mobile overlay: left-to-right gradient to protect text, and vertical gradient */}
