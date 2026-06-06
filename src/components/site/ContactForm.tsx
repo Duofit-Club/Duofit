@@ -128,8 +128,10 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-full bg-foreground text-background py-4 text-sm font-medium uppercase tracking-widest hover:bg-primary hover:text-foreground transition-colors disabled:opacity-50"
+        className="group relative w-full rounded-full py-4 text-sm font-semibold uppercase tracking-widest min-h-[48px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95 disabled:opacity-50 disabled:hover:scale-100 disabled:hover:brightness-100"
+        style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
       >
+        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
         {loading ? "Sending…" : "Start the Conversation"}
       </button>
 

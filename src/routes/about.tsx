@@ -343,11 +343,14 @@ function About() {
           </Reveal>
           <Reveal delay={200}>
             <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-foreground text-background px-8 py-4 text-sm font-medium uppercase tracking-widest hover:bg-primary hover:text-foreground active:scale-95 transition-all rounded-sm min-h-[48px]"
-            >
-              Start your journey <ArrowRight className="h-4 w-4" />
-            </Link>
+            to="/contact"
+            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] rounded-full min-h-[48px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
+            style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
+          >
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
+            Start Your Journey
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
           </Reveal>
         </div>
       </section>

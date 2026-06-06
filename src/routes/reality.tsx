@@ -168,11 +168,6 @@ function Reality() {
 
       {/* Hero */}
       <section className="container-editorial pt-16 md:pt-24 pb-12 md:pb-16 text-center">
-        <Reveal>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            — Reality Check
-          </span>
-        </Reveal>
         <Reveal delay={120}>
           <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] text-foreground">
             Why most health<br />journeys fail.
@@ -184,14 +179,6 @@ function Reality() {
             because health is often approached through shortcuts, extreme
             routines and habits that don't fit their schedules,
             responsibilities or lifestyle.
-          </p>
-        </Reveal>
-        <Reveal delay={300}>
-          <p className="mt-3 text-sm text-primary font-medium md:hidden">
-            👆 Tap any card to reveal
-          </p>
-          <p className="mt-3 text-sm text-primary font-medium hidden md:block">
-            Hover or click any card to reveal
           </p>
         </Reveal>
       </section>
@@ -228,9 +215,12 @@ function Reality() {
         <Reveal delay={120}>
           <Link
             to="/programs"
-            className="inline-flex items-center justify-center gap-2 bg-foreground text-background px-7 py-4 text-sm font-medium uppercase tracking-widest hover:bg-primary hover:text-foreground active:scale-95 transition-all rounded-sm min-h-[48px]"
+            className="group relative inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-semibold uppercase tracking-widest rounded-full min-h-[48px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
+            style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
           >
-            Explore Programs <ArrowRight className="h-4 w-4" />
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
+            Explore Programs
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </Reveal>
       </section>

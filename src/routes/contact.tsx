@@ -118,29 +118,6 @@ function Contact() {
                 </Reveal>
               );
             })}
-
-            {/* <Reveal delay={380}>
-              <div className="grid grid-cols-3 gap-3 mt-2">
-                {[
-                  { v: "PERSONAL", l: "Response" },
-                  { v: "PRACTICAL", l: "Guidance" },
-                  { v: "NO PRESSURE", l: "Just a Conversation" },
-                ].map((s) => (
-                  <div
-                    key={s.l}
-                    className="text-center border border-border rounded-sm p-3 md:p-4 bg-card"
-                  >
-                    <span className="block text-base md:text-lg font-bold text-primary">
-                      {s.v}
-                    </span>
-
-                    <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {s.l}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </Reveal> */}
           </div>
 
         </div>

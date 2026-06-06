@@ -418,19 +418,18 @@ function VennDiagram() {
               cy={CY}
               r="70"
               fill="#ffffff"
-              stroke="#16a34a"
+              stroke="var(--color-primary)"
               strokeWidth="4"
               style={{
                 filter:
                   "drop-shadow(0 8px 18px rgba(0,0,0,0.15))",
               }}
             />
-
             <text
               x={CX}
               y={CY + 6}
               textAnchor="middle"
-              fill="#15803d"
+              fill="var(--color-primary)"
               fontSize="20"
               fontWeight="800"
             >
@@ -514,7 +513,7 @@ function Home() {
               <Reveal>
                 <h1
                   className="font-display leading-[1.05] drop-shadow-[0_2px_18px_rgba(0,0,0,0.9)]"
-                  style={{ color: "#ffffff", fontSize: "clamp(2.4rem, 7vw, 5.25rem)", fontWeight: 700 }}
+                  style={{ color: "#f5f0e8", fontSize: "clamp(2.4rem, 7vw, 5.25rem)", fontWeight: 700 }}
                 >
                   <span className="block">Built around</span>
                   <span className="block italic">your life</span>
@@ -522,10 +521,10 @@ function Home() {
               </Reveal>
               <Reveal delay={200}>
                 <p className="mt-4 md:mt-6 text-sm md:text-lg leading-[1.6] md:leading-[1.8] drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]" style={{ color: "#ffffff" }}>
-                  Helping people stay healthy through practical{" "}
-                  <span className="font-semibold" style={{ color: "var(--color-accent)" }}>Nutrition</span>,{" "}
-                  <span className="font-semibold" style={{ color: "var(--color-accent)" }}>Movement</span> and{" "}
-                  <span className="font-semibold" style={{ color: "var(--color-accent)" }}>Healthy Habits</span>.
+                   Helping people stay healthy through practical{" "}
+                  <span className="font-semibold underline decoration-primary/60 underline-offset-2">Nutrition</span>,{" "}
+                  <span className="font-semibold underline decoration-primary/60 underline-offset-2">Movement</span> and{" "}
+                  <span className="font-semibold underline decoration-primary/60 underline-offset-2">Healthy Habits</span>.
                 </p>
               </Reveal>
             </div>
@@ -577,28 +576,27 @@ function Home() {
           <Reveal delay={200}>
             <Link
               to="/reality"
-              className="mt-8 inline-flex items-center gap-2 bg-foreground text-background px-7 py-3.5 text-sm font-medium uppercase tracking-widest hover:bg-primary hover:text-foreground active:scale-95 transition-all rounded-sm min-h-[44px]"
+              className="group mt-8 relative inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold uppercase tracking-widest rounded-full min-h-[44px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
+              style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
             >
-              Explore Reality Check <ArrowRight className="h-4 w-4" />
+              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
+              Explore Reality Check
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </Reveal>
         </div>
       </section>
-
       {/* GALLERY */}
       <section className="container-editorial py-14 md:py-20">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                — Kids Summer Camp · Pragathi Nagar · May 2025
-              </span>
               <h2 className="mt-3 text-2xl md:text-4xl font-bold tracking-tight">
                 Where healthy habits begin.
               </h2>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              A month of movement, fun and learning — real kids building real habits.
+              A month of movement, fun and learning.
             </p>
           </div>
         </Reveal>

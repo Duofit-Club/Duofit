@@ -3,11 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import {
-  Salad, PersonStanding, Moon, Repeat, LineChart, HeartPulse,
-  UtensilsCrossed, Users, Apple, Bike, Sprout, Home,
   Search, ClipboardList, Compass, TrendingUp, Sparkles,
 } from "lucide-react";
-
 export const Route = createFileRoute("/programs")({
   head: () => ({
     meta: [
@@ -28,12 +25,42 @@ const programs = [
     tagline: "A holistic approach for individuals",
     desc: "At DUOFIT, we believe health is interconnected. Factors like fat loss, sleep, stress, energy levels, food habits, movement and lifestyle all influence each other. Instead of focusing on one problem in isolation, we take a more holistic approach to understand the root causes and create practical health strategies that fit your everyday life.",
     nodes: [
-      { label: "Nutrition", Icon: Salad, hint: "Personalised food guidance" },
-      { label: "Movement", Icon: PersonStanding, hint: "Fitness & activity plan" },
-      { label: "Sleep", Icon: Moon, hint: "Recovery & energy" },
-      { label: "Fat Loss", Icon: LineChart, hint: "Body composition" },
-      { label: "Habits", Icon: Repeat, hint: "Daily consistency" },
-      { label: "Accountability", Icon: HeartPulse, hint: "Coach by your side" },
+      {
+        label: "Nutrition",
+        hint: "Personalised food guidance",
+        // colourful bowl of fruits, vegetables, healthy meal
+        img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Movement",
+        hint: "Fitness & activity plan",
+        // person running / jogging outdoors
+        img: "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Sleep & Recovery",
+        hint: "Rest & energy levels",
+        // person sleeping peacefully in bed
+        img: "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Fat Loss",
+        hint: "Body composition",
+        // tape measure around waist — directly shows fat loss concept
+        img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Healthy Habits",
+        hint: "Daily consistency",
+        // person writing in journal / habit tracker notebook
+        img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Accountability",
+        hint: "Coach by your side",
+        // coach and client discussing / working together one-on-one
+        img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=280&fit=crop&crop=center",
+      },
     ],
   },
   {
@@ -41,12 +68,42 @@ const programs = [
     tagline: "Healthier living, together",
     desc: "A family-focused health coaching program designed to help families improve eating habits, routines, activity levels and healthier living together in a practical and sustainable way.",
     nodes: [
-      { label: "Family Meals", Icon: UtensilsCrossed, hint: "Eat well together" },
-      { label: "Kids Routines", Icon: Users, hint: "Healthy daily rhythm" },
-      { label: "Less Junk", Icon: Apple, hint: "Cleaner choices" },
-      { label: "Active Together", Icon: Bike, hint: "Move as a family" },
-      { label: "Daily Habits", Icon: Sprout, hint: "Small, sustainable wins" },
-      { label: "Healthy Home", Icon: Home, hint: "Supportive environment" },
+      {
+        label: "Family Meals",
+        hint: "Eat well together",
+        // family sitting together eating a healthy meal
+        img: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Kids Routines",
+        hint: "Healthy daily rhythm",
+        // child doing morning stretches or exercise routine
+        img: "https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Less Junk Food",
+        hint: "Cleaner choices",
+        // fresh fruits and vegetables replacing junk food
+        img: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Active Together",
+        hint: "Move as a family",
+        // family cycling, walking or doing outdoor activity together
+        img: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Daily Habits",
+        hint: "Small sustainable wins",
+        // parent and child doing simple morning routine together
+        img: "https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Healthy Home",
+        hint: "Supportive environment",
+        // bright clean kitchen with fresh produce on counter
+        img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=280&fit=crop&crop=center",
+      },
     ],
   },
 ];
@@ -110,9 +167,6 @@ function Programs() {
               {/* Left — text */}
               <Reveal delay={80}>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                    — Program 0{i + 1}
-                  </span>
                   <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[1.05]">
                     {p.title}
                   </h2>
@@ -134,31 +188,37 @@ function Programs() {
               <Reveal delay={160}>
                 <div className="flex flex-col gap-5">
                   <div className="flex items-center gap-2">
-                    <span className="h-px w-6 bg-primary shrink-0" />
                     <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
                       What We Cover
                     </h3>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
-                    {p.nodes.map(({ label, Icon, hint }) => (
+                    {p.nodes.map(({ label, hint, img }) => (
                       <div
                         key={label}
-                        className="group flex flex-col items-center text-center gap-3 px-4 py-5 rounded-2xl border-2 border-border bg-white shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 cursor-default"
+                        className="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-default aspect-[3/2]"
                       >
-                        <div className="h-11 w-11 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
-                          <Icon className="h-5 w-5" strokeWidth={1.8} />
+                        <img
+                          src={img}
+                          alt={label}
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-colors duration-300" />
+                        <div className="absolute bottom-0 left-0 right-0 p-3">
+                          <span className="block text-xs font-bold uppercase tracking-widest text-white drop-shadow">
+                            {label}
+                          </span>
+                          <span className="block text-[10px] text-white/80 mt-1 leading-snug max-h-0 overflow-hidden group-hover:max-h-10 transition-all duration-300">
+                            {hint}
+                          </span>
                         </div>
-                        <span className="text-xs font-bold uppercase tracking-wide text-foreground leading-snug">
-                          {label}
-                        </span>
-                        <span className="text-[11px] text-muted-foreground leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 min-h-0">
-                          {hint}
-                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
               </Reveal>
+
 
             </div>
           </div>
@@ -169,7 +229,6 @@ function Programs() {
       <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24 lg:py-32">
           <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">— Our Process</span>
             <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-[-0.04em] mb-3">How Duofit Works</h2>
           </Reveal>
           <Reveal delay={100}>
@@ -179,26 +238,42 @@ function Programs() {
           </Reveal>
 
           {/* Desktop — horizontal steps */}
-          <div className="hidden md:grid grid-cols-5 gap-6 relative">
-            {/* connector line */}
-            <div className="absolute top-10 left-[10%] right-[10%] h-px bg-gradient-to-r from-primary/30 via-primary to-primary/30 pointer-events-none" />
-
-            {steps.map((s, i) => (
-              <Reveal key={s.n} delay={i * 140}>
-                <div className={`flex flex-col items-center text-center group ${i % 2 === 1 ? "mt-20" : ""}`}>
-                  <div className="relative">
-                    <div className="relative h-20 w-20 rounded-full overflow-hidden border-[3px] border-primary/30 shadow-md transition-all duration-500 group-hover:scale-110 group-hover:border-primary group-hover:shadow-xl">
-                      <img src={s.img} alt={s.t} className="w-full h-full object-cover" />
+          <div className="hidden md:block relative">
+            {/* curved SVG connector */}
+            <svg viewBox="0 0 1000 120" className="absolute inset-x-0 top-0 w-full h-[120px] pointer-events-none z-0" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="lineGrad" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.3" />
+                  <stop offset="50%" stopColor="var(--color-primary)" stopOpacity="1" />
+                  <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0.3" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M 50 60 Q 175 10, 300 60 T 550 60 T 800 60 T 950 60"
+                fill="none"
+                stroke="url(#lineGrad)"
+                strokeWidth="1.5"
+                strokeDasharray="5 5"
+              />
+            </svg>
+            <div className="grid grid-cols-5 gap-6 relative">
+              {steps.map((s, i) => (
+                <Reveal key={s.n} delay={i * 140}>
+                  <div className={`flex flex-col items-center text-center group ${i % 2 === 1 ? "mt-20" : ""}`}>
+                    <div className="relative z-10">
+                      <div className="relative h-20 w-20 rounded-full overflow-hidden border-[3px] border-primary/30 shadow-md transition-all duration-500 group-hover:scale-110 group-hover:border-primary group-hover:shadow-xl">
+                        <img src={s.img} alt={s.t} className="w-full h-full object-cover" />
+                      </div>
+                      <span className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-foreground text-accent text-[11px] font-bold flex items-center justify-center shadow-md z-10">
+                        {s.n}
+                      </span>
                     </div>
-                    <span className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-foreground text-accent text-[11px] font-bold flex items-center justify-center shadow-md z-10">
-                      {s.n}
-                    </span>
+                    <h4 className="mt-5 text-base lg:text-lg font-bold tracking-wide">{s.t}</h4>
+                    <p className="mt-2 text-xs lg:text-sm text-muted-foreground leading-relaxed max-w-[200px]">{s.d}</p>
                   </div>
-                  <h4 className="mt-5 text-base lg:text-lg font-bold tracking-wide">{s.t}</h4>
-                  <p className="mt-2 text-xs lg:text-sm text-muted-foreground leading-relaxed max-w-[200px]">{s.d}</p>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
 
           {/* Mobile — vertical steps */}
@@ -244,10 +319,12 @@ function Programs() {
         <Reveal delay={180}>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center gap-3 bg-foreground text-background px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] rounded-full hover:bg-primary hover:text-foreground transition-all duration-300 active:scale-95"
+            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] rounded-full min-h-[48px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
+            style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
           >
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
             Start Your Journey
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </Reveal>
       </section>
