@@ -71,102 +71,6 @@ const programs = [
   },
 ];
 
-type ProgramType = (typeof programs)[number];
-
-function MindMap({ center, nodes }: { center: string; nodes: ProgramType["nodes"] }) {
-  const radius = 38;
-  return (
-    <div className="relative w-full aspect-square max-w-[560px] mx-auto mindmap">
-      {/* soft glow background */}
-      <div
-        className="absolute inset-[15%] rounded-full opacity-60 blur-3xl pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, color-mix(in oklab, var(--color-accent) 35%, transparent), transparent 70%)",
-        }}
-      />
-
-      {/* rotating dashed ring */}
-      <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full animate-[spin_60s_linear_infinite]">
-        <circle cx="50" cy="50" r={radius} fill="none" stroke="currentColor" strokeWidth="0.25" strokeDasharray="0.6 1.4" className="text-primary/50" />
-        <circle cx="50" cy="50" r={radius - 8} fill="none" stroke="currentColor" strokeWidth="0.15" strokeDasharray="0.3 1.2" className="text-accent/60" />
-      </svg>
-
-      {/* animated connecting lines + flowing pulses */}
-      <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none">
-        {nodes.map((_, i) => {
-          const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
-          const x = 50 + Math.cos(angle) * radius;
-          const y = 50 + Math.sin(angle) * radius;
-          return (
-            <g key={i}>
-              <line
-                x1="50" y1="50" x2={x} y2={y}
-                stroke="currentColor" strokeWidth="0.35"
-                className="text-primary/40"
-              />
-              <circle r="0.8" fill="currentColor" className="text-accent">
-                <animateMotion dur={`${3 + i * 0.4}s`} repeatCount="indefinite" path={`M 50 50 L ${x} ${y}`} />
-                <animate attributeName="opacity" values="0;1;0" dur={`${3 + i * 0.4}s`} repeatCount="indefinite" />
-              </circle>
-            </g>
-          );
-        })}
-      </svg>
-
-      {/* center node */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="relative">
-          <div className="absolute inset-0 rounded-full bg-accent/30 animate-ping" />
-          <div className="relative h-28 w-28 md:h-32 md:w-32 rounded-full bg-foreground text-background flex items-center justify-center shadow-2xl border-[3px] border-accent">
-            <span className="font-display text-xl md:text-2xl tracking-[0.15em] text-accent">
-              {center}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* leaf nodes */}
-      {nodes.map(({ label, Icon, hint }, i) => {
-        const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
-        const x = 50 + Math.cos(angle) * radius;
-        const y = 50 + Math.sin(angle) * radius;
-        return (
-          <div
-            key={label}
-            className="absolute -translate-x-1/2 -translate-y-1/2 z-10 group"
-            style={{
-              left: `${x}%`,
-              top: `${y}%`,
-              animation: `mindmap-float 6s ease-in-out ${i * 0.4}s infinite`,
-            }}
-          >
-            <div className="flex flex-col items-center gap-1.5">
-              <div className="relative h-16 w-16 md:h-20 md:w-20 rounded-full bg-card border-2 border-primary/30 shadow-lg flex items-center justify-center text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-accent group-hover:text-foreground group-hover:border-accent group-hover:shadow-[0_0_30px_-5px_var(--color-accent)]">
-                <Icon className="h-7 w-7 md:h-9 md:w-9" strokeWidth={1.6} />
-              </div>
-              <span className="text-[11px] md:text-xs font-semibold uppercase tracking-wider text-foreground text-center max-w-[100px] leading-tight">
-                {label}
-              </span>
-              {/* hover tooltip */}
-              <span className="absolute top-full mt-12 px-2.5 py-1 rounded-md bg-foreground text-background text-[10px] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
-                {hint}
-              </span>
-            </div>
-          </div>
-        );
-      })}
-
-      <style>{`
-        @keyframes mindmap-float {
-          0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-          50% { transform: translate(-50%, -50%) translateY(-6px); }
-        }
-      `}</style>
-    </div>
-  );
-}
-
 const steps = [
   {
     n: "01", t: "UNDERSTAND", Icon: Search,
@@ -255,7 +159,7 @@ function Programs() {
                       What We Cover
                     </h3>
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 gap-3">
                     {p.nodes.map(({ label, Icon, hint }) => (
                       <div
                         key={label}
