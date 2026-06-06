@@ -119,21 +119,16 @@ function FlipCard({ card }: { card: typeof cards[0] }) {
           />
           {/* dark gradient for legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
-          <div className="relative h-full w-full p-6 md:p-7 flex flex-col justify-between">
-            <span className="self-start text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 bg-white/10 backdrop-blur-sm px-2.5 py-1 rounded-sm">
-              The Reality
-            </span>
-            <div>
-              <h3 className="text-lg md:text-xl font-bold text-white leading-snug drop-shadow-md">
-                {card.front}
-              </h3>
-              <div className="flex items-center gap-2 mt-3">
-                <span className="text-[11px] font-medium uppercase tracking-widest text-primary">
-                  <span className="md:hidden">Tap to reveal</span>
-                  <span className="hidden md:inline">Hover to reveal</span>
-                </span>
-                <RotateCcw className="h-3 w-3 text-primary" />
-              </div>
+          <div className="relative h-full w-full p-6 md:p-7 flex flex-col justify-end">
+            <h3 className="text-lg md:text-xl font-bold text-white leading-snug drop-shadow-md">
+              {card.front}
+            </h3>
+            <div className="flex items-center gap-2 mt-3">
+              <span className="text-[11px] font-medium uppercase tracking-widest text-primary">
+                <span className="md:hidden">Tap to reveal</span>
+                <span className="hidden md:inline">Hover to reveal</span>
+              </span>
+              <RotateCcw className="h-3 w-3 text-primary" />
             </div>
           </div>
         </div>

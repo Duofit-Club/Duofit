@@ -3,11 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import {
-  Apple, Activity, Moon, Repeat, LineChart, Users, Utensils, Home, Sprout, HeartPulse,
+  Salad, PersonStanding, Moon, Repeat, LineChart, HeartPulse,
+  UtensilsCrossed, Users, Apple, Bike, Sprout, Home,
   Search, ClipboardList, Compass, TrendingUp, Sparkles,
 } from "lucide-react";
-import programFamily   from "@/assets/program-family.jpg";
-const programPersonal = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&auto=format&fit=crop&q=80";
 
 
 
@@ -39,9 +38,9 @@ const programs = [
       "Regular guidance, accountability & progress tracking",
     ],
     center: "YOU",
-    nodes: [
-      { label: "Nutrition", Icon: Apple, hint: "Personalised food guidance" },
-      { label: "Movement", Icon: Activity, hint: "Fitness & activity plan" },
+     nodes: [
+      { label: "Nutrition", Icon: Salad, hint: "Personalised food guidance" },
+      { label: "Movement", Icon: PersonStanding, hint: "Fitness & activity plan" },
       { label: "Sleep", Icon: Moon, hint: "Recovery & energy" },
       { label: "Fat Loss", Icon: LineChart, hint: "Body composition" },
       { label: "Habits", Icon: Repeat, hint: "Daily consistency" },
@@ -62,10 +61,10 @@ const programs = [
     ],
     center: "FAMILY",
     nodes: [
-      { label: "Family Meals", Icon: Utensils, hint: "Eat well together" },
+      { label: "Family Meals", Icon: UtensilsCrossed, hint: "Eat well together" },
       { label: "Kids Routines", Icon: Users, hint: "Healthy daily rhythm" },
       { label: "Less Junk", Icon: Apple, hint: "Cleaner choices" },
-      { label: "Active Together", Icon: Activity, hint: "Move as a family" },
+      { label: "Active Together", Icon: Bike, hint: "Move as a family" },
       { label: "Daily Habits", Icon: Sprout, hint: "Small, sustainable wins" },
       { label: "Healthy Home", Icon: Home, hint: "Supportive environment" },
     ],
@@ -169,11 +168,31 @@ function MindMap({ center, nodes }: { center: string; nodes: ProgramType["nodes"
 }
 
 const steps = [
-  { n: "01", t: "UNDERSTAND", Icon: Search, d: "Understanding your lifestyle, routines, challenges, health history and goals through discussions, schedules and daily habits." },
-  { n: "02", t: "PLAN", Icon: ClipboardList, d: "Creating practical nutrition, movement and lifestyle strategies based on your goals, routines and root causes." },
-  { n: "03", t: "GUIDE", Icon: Compass, d: "Regular support, accountability and practical guidance to help you stay consistent and sustainable." },
-  { n: "04", t: "TRACK", Icon: TrendingUp, d: "Monitoring progress, routines and overall lifestyle improvements over time." },
-  { n: "05", t: "SUSTAIN", Icon: Sparkles, d: "Helping healthier habits become part of your long-term lifestyle naturally." },
+  {
+    n: "01", t: "UNDERSTAND", Icon: Search,
+    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face",
+    d: "Understanding your lifestyle, routines, challenges, health history and goals through discussions, schedules and daily habits.",
+  },
+  {
+    n: "02", t: "PLAN", Icon: ClipboardList,
+    img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=200&h=200&fit=crop&crop=center",
+    d: "Creating practical nutrition, movement and lifestyle strategies based on your goals, routines and root causes.",
+  },
+  {
+    n: "03", t: "GUIDE", Icon: Compass,
+    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop&crop=center",
+    d: "Regular support, accountability and practical guidance to help you stay consistent and sustainable.",
+  },
+  {
+    n: "04", t: "TRACK", Icon: TrendingUp,
+    img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=200&h=200&fit=crop&crop=center",
+    d: "Monitoring progress, routines and overall lifestyle improvements over time.",
+  },
+  {
+    n: "05", t: "SUSTAIN", Icon: Sparkles,
+    img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&h=200&fit=crop&crop=center",
+    d: "Helping healthier habits become part of your long-term lifestyle naturally.",
+  },
 ];
 
 function Programs() {
@@ -212,14 +231,14 @@ function Programs() {
                   </h2>
                   <p className="mt-3 text-primary text-sm md:text-base italic">{p.tagline}</p>
                   <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">{p.desc}</p>
-                  <ul className="mt-8 space-y-3.5">
+                  {/* <ul className="mt-8 space-y-3.5">
                     {p.points.map((pt) => (
                       <li key={pt} className="flex items-start gap-3 text-sm md:text-base text-foreground/80 leading-relaxed">
                         <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
                         <span>{pt}</span>
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                   <div className="pt-8">
                     <Link to="/contact" className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-foreground transition-all hover:gap-4">
                       Start Your Journey
@@ -229,21 +248,32 @@ function Programs() {
                 </div>
               </Reveal>
               <Reveal delay={160}>
-                <div className="relative rounded-3xl overflow-hidden shadow-[0_30px_80px_-40px_rgba(0,0,0,0.35)] border border-border bg-muted/20">
-                  <img
-                    src={i === 0 ? programPersonal : programFamily}
-                    alt={p.title}
-                    loading="lazy"
-                    className="w-full h-auto block"
-                    style={{ minHeight: "260px", maxHeight: "600px", objectFit: "cover", objectPosition: "center top" }}
-                  />
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, transparent 60%, color-mix(in oklab, var(--color-foreground) 25%, transparent) 100%)",
-                    }}
-                  />
+                <div className="flex flex-col gap-6">
+                  <div className="inline-flex items-center gap-2 mb-1">
+                    <span className="h-px w-6 bg-primary" />
+                    <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
+                      What We Cover
+                    </h3>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {p.nodes.map(({ label, Icon, hint }) => (
+                      <div
+                        key={label}
+                        className="group flex flex-col items-center text-center gap-3 px-4 py-5 rounded-2xl border-2 border-border/60 bg-white shadow-sm hover:border-primary hover:shadow-md transition-all duration-300 cursor-default"
+                        style={{ backgroundColor: "white" }}
+                      >
+                        <div className="h-11 w-11 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+                          <Icon className="h-5 w-5" strokeWidth={1.8} />
+                        </div>
+                        <span className="text-xs font-bold uppercase tracking-wide text-foreground leading-snug">
+                          {label}
+                        </span>
+                        <span className="text-[11px] text-muted-foreground leading-relaxed max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300">
+                          {hint}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </Reveal>
             </div>
@@ -290,12 +320,17 @@ function Programs() {
               {steps.map((s, i) => (
                 <Reveal key={s.n} delay={i * 140}>
                   <div className={`flex flex-col items-center text-center group ${i % 2 === 1 ? "mt-24" : ""}`}>
-                    <div className="relative">
-                      <div className="absolute inset-0 rounded-full bg-accent/40 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="relative h-20 w-20 rounded-full bg-background border-2 border-primary flex items-center justify-center text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-accent group-hover:text-foreground group-hover:border-accent group-hover:rotate-[360deg]">
-                        <s.Icon className="h-8 w-8" strokeWidth={1.6} />
+                     <div className="relative">
+                      <div className="absolute inset-0 rounded-full bg-accent/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="relative h-20 w-20 rounded-full overflow-hidden border-[3px] border-primary/30 shadow-md transition-all duration-500 group-hover:scale-110 group-hover:border-primary group-hover:shadow-xl">
+                        <img
+                          src={s.img}
+                          alt={s.t}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
                       </div>
-                      <span className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-foreground text-accent text-[11px] font-bold flex items-center justify-center shadow-md">
+                      <span className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-foreground text-accent text-[11px] font-bold flex items-center justify-center shadow-md z-10">
                         {s.n}
                       </span>
                     </div>
@@ -314,11 +349,15 @@ function Programs() {
               {steps.map((s, i) => (
                 <Reveal key={s.n} delay={i * 100}>
                   <div className="flex gap-5 items-start group">
-                    <div className="relative shrink-0">
-                      <div className="h-[72px] w-[72px] rounded-full bg-background border-2 border-primary flex items-center justify-center text-primary transition-all duration-500 group-hover:bg-accent group-hover:text-foreground group-hover:border-accent">
-                        <s.Icon className="h-7 w-7" strokeWidth={1.6} />
+                     <div className="relative shrink-0">
+                      <div className="h-[72px] w-[72px] rounded-full overflow-hidden border-[3px] border-primary/30 shadow-md transition-all duration-300 group-hover:border-primary group-hover:shadow-lg">
+                        <img
+                          src={s.img}
+                          alt={s.t}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-foreground text-accent text-[10px] font-bold flex items-center justify-center shadow">
+                      <span className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-foreground text-accent text-[10px] font-bold flex items-center justify-center shadow z-10">
                         {s.n}
                       </span>
                     </div>

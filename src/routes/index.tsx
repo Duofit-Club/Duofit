@@ -513,15 +513,15 @@ function Home() {
             <div className="max-w-[70%] sm:max-w-[65%] md:max-w-[380px] lg:max-w-[440px] text-left md:-translate-x-[60px]">
               <Reveal>
                 <h1
-                  className="font-display leading-[1.05] drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]"
-                  style={{ color: "var(--color-accent)", fontSize: "clamp(2rem, 6vw, 5.25rem)", fontWeight: 500 }}
+                  className="font-display leading-[1.05] drop-shadow-[0_2px_18px_rgba(0,0,0,0.9)]"
+                  style={{ color: "#ffffff", fontSize: "clamp(2.4rem, 7vw, 5.25rem)", fontWeight: 700 }}
                 >
                   <span className="block">Built around</span>
                   <span className="block italic">your life</span>
                 </h1>
               </Reveal>
               <Reveal delay={200}>
-                <p className="mt-4 md:mt-6 text-xs md:text-lg leading-[1.6] md:leading-[1.8] drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]" style={{ color: "oklch(0.97 0.018 85)" }}>
+                <p className="mt-4 md:mt-6 text-sm md:text-lg leading-[1.6] md:leading-[1.8] drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]" style={{ color: "#ffffff" }}>
                   Helping people stay healthy through practical{" "}
                   <span className="font-semibold" style={{ color: "var(--color-accent)" }}>Nutrition</span>,{" "}
                   <span className="font-semibold" style={{ color: "var(--color-accent)" }}>Movement</span> and{" "}
@@ -559,6 +559,32 @@ function Home() {
         </div>
       </section>
 
+
+
+      {/* REALITY TEASER */}
+      <section className="bg-cream border-y border-border">
+        <div className="container-editorial py-20 md:py-28 text-center">
+          <Reveal>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl mx-auto leading-tight tracking-tight text-foreground">
+              Do you want to know why most health journeys fail?
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="mt-5 text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+              Health becomes difficult when it is built around shortcuts, extreme routines and temporary motivation.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <Link
+              to="/reality"
+              className="mt-8 inline-flex items-center gap-2 bg-foreground text-background px-7 py-3.5 text-sm font-medium uppercase tracking-widest hover:bg-primary hover:text-foreground active:scale-95 transition-all rounded-sm min-h-[44px]"
+            >
+              Explore Reality Check <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       {/* GALLERY */}
       <section className="container-editorial py-14 md:py-20">
         <Reveal>
@@ -587,12 +613,11 @@ function Home() {
 
           {/* Stats row */}
           <Reveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-4 mb-8">
               {[
                 { value: "11", label: "Children Coached", sub: "Aged 6–14" },
                 { value: "31 Days", label: "Duration", sub: "May 1 — May 31" },
-                { value: "100%", label: "Certified", sub: "Every child recognised" },
-                { value: "Pragathi", label: "Nagar, Hyderabad", sub: "Community programme" },
+                { value: "90 mins", label: "Daily Activity", sub: "Every session, every day" },
               ].map((s) => (
                 <div key={s.label} className="text-center p-5 md:p-6 rounded-sm border border-border bg-card">
                   <p className="text-xl md:text-2xl font-bold text-primary">{s.value}</p>
@@ -634,31 +659,6 @@ function Home() {
 
         </div>
       </section>
-
-      {/* REALITY TEASER */}
-      <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-20 md:py-28 text-center">
-          <Reveal>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold max-w-2xl mx-auto leading-tight tracking-tight text-foreground">
-              Do you want to know why most health journeys fail?
-            </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="mt-5 text-muted-foreground max-w-xl mx-auto text-base md:text-lg leading-relaxed">
-              Health becomes difficult when it is built around shortcuts, extreme routines and temporary motivation.
-            </p>
-          </Reveal>
-          <Reveal delay={200}>
-            <Link
-              to="/reality"
-              className="mt-8 inline-flex items-center gap-2 bg-foreground text-background px-7 py-3.5 text-sm font-medium uppercase tracking-widest hover:bg-primary hover:text-foreground active:scale-95 transition-all rounded-sm min-h-[44px]"
-            >
-              Explore Reality Check <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
 
     </SiteLayout>
   );
