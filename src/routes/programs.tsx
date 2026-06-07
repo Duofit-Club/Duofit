@@ -5,14 +5,14 @@ import { Reveal } from "@/components/site/Reveal";
 import {
   Search, ClipboardList, Compass, TrendingUp, Sparkles,
 } from "lucide-react";
+
 export const Route = createFileRoute("/programs")({
   head: () => ({
     meta: [
       { title: "Programs — Duofit.club" },
       {
         name: "description",
-        content:
-          "Practical health coaching designed to help individuals and families improve fitness, nutrition, movement and healthier habits in a sustainable and realistic way.",
+        content: "Practical health coaching designed to help individuals and families improve fitness, nutrition, movement and healthier habits in a sustainable and realistic way.",
       },
     ],
   }),
@@ -22,82 +22,74 @@ export const Route = createFileRoute("/programs")({
 const programs = [
   {
     title: "Personal Health Coaching",
-    tagline: "A holistic approach for individuals",
-    desc: "At DUOFIT, we believe health is interconnected. Factors like fat loss, sleep, stress, energy levels, food habits, movement and lifestyle all influence each other. Instead of focusing on one problem in isolation, we take a more holistic approach to understand the root causes and create practical health strategies that fit your everyday life.",
+    tagline: "For individuals looking to improve their health, fitness, energy levels and everyday habits through practical and sustainable lifestyle changes.",
+    personalNote: "Every plan is personalized based on your goals, lifestyle, challenges and health priorities.",
     nodes: [
       {
-        label: "Nutrition",
-        hint: "Personalised nutrition & food guidance",
-        // colourful bowl of fruits, vegetables, healthy meal
-        img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=280&fit=crop&crop=center",
+        label: "Weight Management",
+        hint: "Support for fat loss, healthier body composition and sustainable weight management.",
+        img: "https://d26toa8f6ahusa.cloudfront.net/wp-content/uploads/2019/09/26150120/iStock-993616442-body-fat-16x9.jpg",
       },
       {
-        label: "Movement",
-        hint: "Fitness, movement & activity planning",
-        // person running / jogging outdoors
+        label: "Better Fitness & Movement",
+        hint: "Build strength, improve fitness and become more active in everyday life.",
         img: "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=400&h=280&fit=crop&crop=center",
       },
       {
-        label: "Sleep & Recovery",
-        hint: "Better sleep, recovery & energy levels",
-        // person sleeping peacefully in bed
+        label: "Improved Nutrition",
+        hint: "Practical food guidance designed around your lifestyle, preferences and goals.",
+        img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Better Sleep & Recovery",
+        hint: "Improve recovery, energy levels and overall wellbeing.",
         img: "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?w=400&h=280&fit=crop&crop=center",
       },
-       {
-        label: "Fat Loss",
-        hint: "Support for fat loss, weight management & healthier body composition",
-        img: "https://d26toa8f6ahusa.cloudfront.net/wp-content/uploads/2019/09/26150120/iStock-993616442-body-fat-16x9.jpg",
-      },
-       {
-        label: "Healthy Habits",
-        hint: "Building healthier routines & consistency",
-        // person doing fitness workout / strength training
+      {
+        label: "Healthier Daily Habits",
+        hint: "Build routines that are realistic, sustainable and easier to maintain.",
         img: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=280&fit=crop&crop=center",
       },
       {
-        label: "Accountability",
-        hint: "Regular guidance, accountability & progress tracking",
+        label: "Accountability & Guidance",
+        hint: "Regular support to help you stay focused, motivated and consistent.",
         img: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=400&h=280&fit=crop&crop=center",
       },
     ],
   },
   {
     title: "Family Health & Habits",
-    tagline: "Healthier living, together",
-    desc: "A family-focused health coaching program designed to help families improve eating habits, routines, activity levels and healthier living together in a practical and sustainable way.",
+    tagline: "For families looking to improve eating habits, activity levels and healthier routines together in a practical and sustainable way.",
+    personalNote: "Every family plan is designed around your household routines, schedules and health priorities.",
     nodes: [
       {
-        label: "Family Meals",
-        hint: "Family nutrition & food guidance",
-        // family sitting together eating a nutritious meal
+        label: "Family Nutrition",
+        hint: "Build healthier food choices and eating habits at home.",
         img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=280&fit=crop&crop=center",
       },
       {
-        label: "Kids Routines",
-        hint: "Healthier routines for kids & parents",
-        // kids running and playing active games outdoors
+        label: "Healthier Routines",
+        hint: "Create routines that work for both parents and children.",
+        img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Reduced Screen Time",
+        hint: "Encourage more movement and healthier daily activities.",
         img: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=400&h=280&fit=crop&crop=center",
       },
       {
-        label: "Less Junk Food",
-        hint: "Reducing junk food & unhealthy habits",
-        // fresh fruits and vegetables replacing junk food
-        img: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=280&fit=crop&crop=center",
-      },
-       {
-        label: "Active Together",
-        hint: "Encouraging movement & reducing screen time",
+        label: "Active Lifestyle",
+        hint: "Create opportunities for the family to move and stay active together.",
         img: "https://www.gonflablesmontreal.com/blog/wp-content/uploads/2024/08/fitness-1024x683.png",
       },
-       {
-        label: "Daily Habits",
-        hint: "Practical healthy habits for everyday family life",
+      {
+        label: "Better Habits at Home",
+        hint: "Develop practical habits that support long-term family health.",
         img: "https://www.health.com/thmb/SPeOlCGggi5ykpNpm5rEO6ynN9A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Health-GettyImages-Walking-HIIT-8693beb387ab404ca278e939fa8da039.jpg",
       },
       {
-        label: "Healthy Home",
-        hint: "Building a healthier home environment together",
-        // bright clean kitchen with fresh produce on counter
+        label: "Sustainable Health",
+        hint: "Create an environment where healthier choices become easier every day.",
         img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=280&fit=crop&crop=center",
       },
     ],
@@ -148,7 +140,7 @@ function Programs() {
           </Reveal>
           <Reveal delay={220}>
             <p className="mt-6 text-base md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              Practical health coaching designed to help individuals and families improve fitness, nutrition, movement and healthier habits in a sustainable and realistic way.
+              Whether you're looking to improve fitness, manage weight, build healthier habits or create a healthier lifestyle for your family, DUOFIT provides practical coaching designed around real everyday life.
             </p>
           </Reveal>
         </div>
@@ -163,11 +155,18 @@ function Programs() {
               {/* Left — text */}
               <Reveal delay={80}>
                 <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                    — Program 0{i + 1}
+                  </span>
                   <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[1.05]">
                     {p.title}
                   </h2>
-                  <p className="mt-3 text-primary text-sm md:text-base italic">{p.tagline}</p>
-                  <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">{p.desc}</p>
+                  <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                    {p.tagline}
+                  </p>
+                  <p className="mt-4 text-sm text-primary italic font-medium">
+                    {p.personalNote}
+                  </p>
                   <div className="pt-8">
                     <Link
                       to="/contact"
@@ -182,19 +181,18 @@ function Programs() {
                 </div>
               </Reveal>
 
-              {/* Right — What We Cover cards */}
+              {/* Right — What We Cover */}
               <Reveal delay={160}>
-                <div className="flex flex-col gap-3">
-                  <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary mb-2">
-                    What We Cover
+                <div className="flex flex-col gap-4">
+                  <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
+                    What {i === 0 ? "You" : "Families"} Can Expect
                   </h3>
                   {p.nodes.map(({ label, hint, img }, idx) => {
                     const isEven = idx % 2 === 0;
                     return (
                       <Reveal key={label} delay={idx * 80}>
                         <div className={`flex items-stretch gap-0 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 ${isEven ? "flex-row" : "flex-row-reverse"}`}>
-
-                          {/* photo — fixed width, full height */}
+                          {/* photo */}
                           <div className="relative w-[38%] shrink-0 overflow-hidden">
                             <img
                               src={img}
@@ -202,25 +200,22 @@ function Programs() {
                               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                             />
                           </div>
-
-                          {/* text — sits on cream/card background */}
+                          {/* text */}
                           <div className={`flex flex-1 flex-col justify-center gap-1.5 px-4 py-4 bg-card border-y border-border ${isEven ? "border-r rounded-r-xl" : "border-l rounded-l-xl"}`}>
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs font-bold uppercase tracking-widest text-foreground">
-                                {label}
-                              </span>
-                            </div>
-                            <p className="text-[11px] text-muted-foreground leading-relaxed pl-3.5">
+                            <span className="text-xs font-bold uppercase tracking-widest text-foreground">
+                              {label}
+                            </span>
+                            <p className="text-[11px] text-muted-foreground leading-relaxed">
                               {hint}
                             </p>
                           </div>
-
                         </div>
                       </Reveal>
                     );
                   })}
                 </div>
               </Reveal>
+
             </div>
           </div>
         </section>
@@ -230,6 +225,7 @@ function Programs() {
       <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24 lg:py-32">
           <Reveal>
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">— Our Process</span>
             <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-[-0.04em] mb-3">How Duofit Works</h2>
           </Reveal>
           <Reveal delay={100}>
@@ -238,9 +234,8 @@ function Programs() {
             </p>
           </Reveal>
 
-          {/* Desktop — horizontal steps */}
+          {/* Desktop */}
           <div className="hidden md:block relative">
-            {/* curved SVG connector */}
             <svg viewBox="0 0 1000 120" className="absolute inset-x-0 top-0 w-full h-[120px] pointer-events-none z-0" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="lineGrad" x1="0" x2="1" y1="0" y2="0">
@@ -277,7 +272,7 @@ function Programs() {
             </div>
           </div>
 
-          {/* Mobile — vertical steps */}
+          {/* Mobile */}
           <div className="md:hidden relative">
             <div className="absolute left-9 top-4 bottom-4 w-0.5 bg-gradient-to-b from-primary/40 via-primary to-primary/40" />
             <div className="flex flex-col gap-8">

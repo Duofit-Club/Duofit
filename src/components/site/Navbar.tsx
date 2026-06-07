@@ -5,9 +5,8 @@ import duofitLogo from "../../assets/duofit-logo.png";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/reality", label: "Reality Check" },
   { to: "/programs", label: "Programs" },
-  // { to: "/results", label: "Results" },
+  { to: "/community", label: "Community" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Connect" },
 ] as const;
@@ -24,12 +23,12 @@ export function Navbar() {
           <div className="flex flex-col leading-tight">
             <span className="font-bold text-sm md:text-base tracking-widest text-foreground uppercase">DUOFIT</span>
             <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
-  <span>Fitness</span>
-  <span className="text-primary text-[8px]">•</span>
-  <span>Nutrition</span>
-  <span className="text-primary text-[8px]">•</span>
-  <span>Healthy Habits</span>
-</div>
+              <span>Fitness</span>
+              <span className="text-primary text-[8px]">•</span>
+              <span>Nutrition</span>
+              <span className="text-primary text-[8px]">•</span>
+              <span>Healthy Habits</span>
+            </div>
           </div>
         </Link>
 
@@ -46,8 +45,12 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link to="/contact"
-            className="hidden md:inline-flex items-center rounded-sm bg-foreground text-background px-4 py-2.5 text-xs font-medium uppercase tracking-widest hover:bg-primary hover:text-foreground transition-colors">
+<Link
+            to="/contact"
+            className="group relative hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] active:scale-95"
+            style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
+          >
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
             Start Journey
           </Link>
           {/* Hamburger */}
