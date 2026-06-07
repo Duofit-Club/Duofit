@@ -43,11 +43,10 @@ const programs = [
         // person sleeping peacefully in bed
         img: "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?w=400&h=280&fit=crop&crop=center",
       },
-      {
+       {
         label: "Fat Loss",
         hint: "Support for fat loss, weight management & healthier body composition",
-        // person measuring waist with tape measure
-        img: "https://images.unsplash.com/photo-1571019613914-85f342c6a11e?w=400&h=280&fit=crop&crop=center",
+        img: "https://d26toa8f6ahusa.cloudfront.net/wp-content/uploads/2019/09/26150120/iStock-993616442-body-fat-16x9.jpg",
       },
        {
         label: "Healthy Habits",
@@ -55,11 +54,10 @@ const programs = [
         // person doing fitness workout / strength training
         img: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=280&fit=crop&crop=center",
       },
-       {
+      {
         label: "Accountability",
         hint: "Regular guidance, accountability & progress tracking",
-        // personal trainer guiding client through workout
-        img: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&h=280&fit=crop&crop=center",
+        img: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=400&h=280&fit=crop&crop=center",
       },
     ],
   },
@@ -86,17 +84,15 @@ const programs = [
         // fresh fruits and vegetables replacing junk food
         img: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=280&fit=crop&crop=center",
       },
-      {
+       {
         label: "Active Together",
         hint: "Encouraging movement & reducing screen time",
-        // family cycling, walking or doing outdoor activity together
-        img: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&h=280&fit=crop&crop=center",
+        img: "https://www.gonflablesmontreal.com/blog/wp-content/uploads/2024/08/fitness-1024x683.png",
       },
-      {
+       {
         label: "Daily Habits",
         hint: "Practical healthy habits for everyday family life",
-        // parent and child doing simple morning routine together
-        img: "https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=400&h=280&fit=crop&crop=center",
+        img: "https://www.health.com/thmb/SPeOlCGggi5ykpNpm5rEO6ynN9A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Health-GettyImages-Walking-HIIT-8693beb387ab404ca278e939fa8da039.jpg",
       },
       {
         label: "Healthy Home",
