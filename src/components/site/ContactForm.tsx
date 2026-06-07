@@ -121,7 +121,7 @@ export function ContactForm() {
           name="message"
           rows={4}
           placeholder="Share your current situation, challenges or what you are looking for..."
-          className="mt-2 w-full bg-transparent border border-input rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40 resize-none"
+          className="mt-2 w-full border border-input rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40 resize-none bg-white text-foreground font-medium placeholder:text-muted-foreground/50"
         />
       </div>
 
@@ -166,7 +166,7 @@ function Field({
         type={type}
         placeholder={placeholder}
         required={required}
-        className="mt-2 w-full bg-transparent border border-input rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40"
+        className="mt-2 w-full border border-input rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40 bg-white text-foreground font-medium placeholder:text-muted-foreground/50"
       />
     </div>
   );

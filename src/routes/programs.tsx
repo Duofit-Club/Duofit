@@ -27,39 +27,39 @@ const programs = [
     nodes: [
       {
         label: "Nutrition",
-        hint: "Personalised food guidance",
+        hint: "Personalised nutrition & food guidance",
         // colourful bowl of fruits, vegetables, healthy meal
         img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=280&fit=crop&crop=center",
       },
       {
         label: "Movement",
-        hint: "Fitness & activity plan",
+        hint: "Fitness, movement & activity planning",
         // person running / jogging outdoors
         img: "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=400&h=280&fit=crop&crop=center",
       },
       {
         label: "Sleep & Recovery",
-        hint: "Rest & energy levels",
+        hint: "Better sleep, recovery & energy levels",
         // person sleeping peacefully in bed
         img: "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?w=400&h=280&fit=crop&crop=center",
       },
       {
         label: "Fat Loss",
-        hint: "Body composition",
-        // tape measure around waist — directly shows fat loss concept
-        img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=280&fit=crop&crop=center",
+        hint: "Support for fat loss, weight management & healthier body composition",
+        // person measuring waist with tape measure
+        img: "https://images.unsplash.com/photo-1571019613914-85f342c6a11e?w=400&h=280&fit=crop&crop=center",
       },
-      {
+       {
         label: "Healthy Habits",
-        hint: "Daily consistency",
-        // person writing in journal / habit tracker notebook
-        img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=280&fit=crop&crop=center",
+        hint: "Building healthier routines & consistency",
+        // person doing fitness workout / strength training
+        img: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=280&fit=crop&crop=center",
       },
-      {
+       {
         label: "Accountability",
-        hint: "Coach by your side",
-        // coach and client discussing / working together one-on-one
-        img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=280&fit=crop&crop=center",
+        hint: "Regular guidance, accountability & progress tracking",
+        // personal trainer guiding client through workout
+        img: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&h=280&fit=crop&crop=center",
       },
     ],
   },
@@ -70,37 +70,37 @@ const programs = [
     nodes: [
       {
         label: "Family Meals",
-        hint: "Eat well together",
-        // family sitting together eating a healthy meal
-        img: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=400&h=280&fit=crop&crop=center",
+        hint: "Family nutrition & food guidance",
+        // family sitting together eating a nutritious meal
+        img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=280&fit=crop&crop=center",
       },
       {
         label: "Kids Routines",
-        hint: "Healthy daily rhythm",
-        // child doing morning stretches or exercise routine
-        img: "https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=400&h=280&fit=crop&crop=center",
+        hint: "Healthier routines for kids & parents",
+        // kids running and playing active games outdoors
+        img: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=400&h=280&fit=crop&crop=center",
       },
       {
         label: "Less Junk Food",
-        hint: "Cleaner choices",
+        hint: "Reducing junk food & unhealthy habits",
         // fresh fruits and vegetables replacing junk food
         img: "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=280&fit=crop&crop=center",
       },
       {
         label: "Active Together",
-        hint: "Move as a family",
+        hint: "Encouraging movement & reducing screen time",
         // family cycling, walking or doing outdoor activity together
         img: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&h=280&fit=crop&crop=center",
       },
       {
         label: "Daily Habits",
-        hint: "Small sustainable wins",
+        hint: "Practical healthy habits for everyday family life",
         // parent and child doing simple morning routine together
         img: "https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=400&h=280&fit=crop&crop=center",
       },
       {
         label: "Healthy Home",
-        hint: "Supportive environment",
+        hint: "Building a healthier home environment together",
         // bright clean kitchen with fresh produce on counter
         img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=280&fit=crop&crop=center",
       },
@@ -175,10 +175,12 @@ function Programs() {
                   <div className="pt-8">
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-foreground transition-all hover:gap-4"
+                      className="group relative inline-flex items-center gap-3 px-7 py-3.5 text-sm font-semibold uppercase tracking-widest rounded-full min-h-[44px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
+                      style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
                     >
+                      <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
                       Start Your Journey
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>
@@ -186,40 +188,43 @@ function Programs() {
 
               {/* Right — What We Cover cards */}
               <Reveal delay={160}>
-                <div className="flex flex-col gap-5">
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
-                      What We Cover
-                    </h3>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    {p.nodes.map(({ label, hint, img }) => (
-                      <div
-                        key={label}
-                        className="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-default aspect-[3/2]"
-                      >
-                        <img
-                          src={img}
-                          alt={label}
-                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-                        <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-colors duration-300" />
-                        <div className="absolute bottom-0 left-0 right-0 p-3">
-                          <span className="block text-xs font-bold uppercase tracking-widest text-white drop-shadow">
-                            {label}
-                          </span>
-                          <span className="block text-[10px] text-white/80 mt-1 leading-snug max-h-0 overflow-hidden group-hover:max-h-10 transition-all duration-300">
-                            {hint}
-                          </span>
+                <div className="flex flex-col gap-3">
+                  <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary mb-2">
+                    What We Cover
+                  </h3>
+                  {p.nodes.map(({ label, hint, img }, idx) => {
+                    const isEven = idx % 2 === 0;
+                    return (
+                      <Reveal key={label} delay={idx * 80}>
+                        <div className={`flex items-stretch gap-0 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 ${isEven ? "flex-row" : "flex-row-reverse"}`}>
+
+                          {/* photo — fixed width, full height */}
+                          <div className="relative w-[38%] shrink-0 overflow-hidden">
+                            <img
+                              src={img}
+                              alt={label}
+                              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                            />
+                          </div>
+
+                          {/* text — sits on cream/card background */}
+                          <div className={`flex flex-1 flex-col justify-center gap-1.5 px-4 py-4 bg-card border-y border-border ${isEven ? "border-r rounded-r-xl" : "border-l rounded-l-xl"}`}>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-bold uppercase tracking-widest text-foreground">
+                                {label}
+                              </span>
+                            </div>
+                            <p className="text-[11px] text-muted-foreground leading-relaxed pl-3.5">
+                              {hint}
+                            </p>
+                          </div>
+
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      </Reveal>
+                    );
+                  })}
                 </div>
               </Reveal>
-
-
             </div>
           </div>
         </section>
