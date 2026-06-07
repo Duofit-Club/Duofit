@@ -72,9 +72,8 @@ function BeliefCard({ card }: { card: typeof beliefs[0] }) {
       }
     >
       <div
-        className={`relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] ${
-          flipped ? "[transform:rotateY(180deg)]" : ""
-        }`}
+        className={`relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] ${flipped ? "[transform:rotateY(180deg)]" : ""
+          }`}
       >
         {/* Front */}
         <div className="absolute inset-0 [backface-visibility:hidden] border border-border bg-background rounded-sm p-4 flex flex-col justify-between">
@@ -133,62 +132,6 @@ function About() {
               more practical, realistic and sustainable way.
             </p>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ── ROW 1: Why Duofit Started | What We Believe ── */}
-      <section className="border-t border-border">
-        <div className="container-editorial py-14 md:py-20">
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6 items-stretch">
-
-            {/* LEFT — Why Duofit Started */}
-            <Reveal delay={80}>
-              <div className="border border-border rounded-sm p-7 md:p-10 h-full bg-card">
-                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
-                  Why Duofit started
-                </h2>
-                <div className="space-y-6">
-                  {[
-                    "Over the years, we saw many people repeatedly start and stop their health journeys. Strict diets, temporary motivation, random online advice and extreme routines often worked only for a short time before real life took over again.",
-                    "We experienced many of these struggles ourselves while balancing work, routines, family responsibilities and health. Improving our own lifestyle and seeing positive changes within our family made us realise that healthy living does not need to feel extreme or overwhelming.",
-                    "DUOFIT was built to create a simpler approach — one focused on practical nutrition, movement, healthier routines and long-term consistency instead of short-term pressure.",
-                  ].map((para, i) => (
-                    <div key={i} className="flex gap-4 items-start">
-                      <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
-                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                        {para}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-            {/* RIGHT — What We Believe (values) */}
-            <Reveal delay={160}>
-              <div className="border border-border rounded-sm p-7 md:p-10 h-full bg-card">
-                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
-                  What we believe
-                </h2>
-                <div className="space-y-0">
-                  {values.map((v, i) => (
-                    <div
-  key={i}
-  className={`py-4 border-b border-border/60 flex items-start gap-4 last:border-0 ${
-    i % 2 === 1 ? "bg-cream/30 -mx-7 px-7 md:-mx-10 md:px-10" : ""
-  }`}
->
-                      <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
-                      <p className="text-sm md:text-base font-semibold text-foreground">
-                        {v}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-          </div>
         </div>
       </section>
 
@@ -262,6 +205,71 @@ function About() {
         </div>
       </section>
 
+      {/* ── ROW 1: Why Duofit Started | What We Believe ── */}
+      <section className="border-t border-border">
+        <div className="container-editorial py-14 md:py-20">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+
+            <Reveal delay={80}>
+  <div className="border border-border rounded-sm p-7 md:p-10 h-full bg-card">
+    <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
+      Our Mission
+    </h2>
+
+    <div className="space-y-0">
+      {[
+        "Help people move away from extreme health trends and unrealistic expectations.",
+        "Build healthier lifestyles that can be sustained for years, not just weeks.",
+        "Make practical health guidance more approachable and easier to follow.",
+        "Support individuals, parents and families in creating better daily habits.",
+        "Promote long-term consistency over short-term results.",
+      ].map((item, i) => (
+        <div
+          key={i}
+          className={`py-4 border-b border-border/60 flex items-start gap-4 last:border-0 ${
+            i % 2 === 1
+              ? "bg-cream/30 -mx-7 px-7 md:-mx-10 md:px-10"
+              : ""
+          }`}
+        >
+          <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
+          <p className="text-sm md:text-base font-semibold text-foreground">
+            {item}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Reveal>
+            {/* RIGHT — What We Believe (values) */}
+            <Reveal delay={160}>
+              <div className="border border-border rounded-sm p-7 md:p-10 h-full bg-card">
+                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
+                  What we believe
+                </h2>
+                <div className="space-y-0">
+                  {values.map((v, i) => (
+                    <div
+                      key={i}
+                      className={`py-4 border-b border-border/60 flex items-start gap-4 last:border-0 ${i % 2 === 1 ? "bg-cream/30 -mx-7 px-7 md:-mx-10 md:px-10" : ""
+                        }`}
+                    >
+                      <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
+                      <p className="text-sm md:text-base font-semibold text-foreground">
+                        {v}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+          </div>
+        </div>
+      </section>
+
+
+
       {/* ── ROW 2: What Makes Duofit Different | Who Is It For ── */}
       <section className="border-b border-border">
         <div className="container-editorial py-14 md:py-20">
@@ -313,26 +321,6 @@ function About() {
         </div>
       </section>
 
-      {/* ── MISSION ── */}
-      <section className="container-editorial py-16 md:py-24">
-        <div className="max-w-3xl mx-auto text-center">
-          <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-               Our mission
-            </span>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              We want to help more people move away from extreme health trends
-              and build healthier lifestyles that can realistically be
-              sustained for years, not just weeks. Our goal is to make
-              practical health guidance more approachable for individuals,
-              parents and families trying to live healthier in today's world.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
       <section className="bg-primary/5 border-t border-primary/20">
         <div className="container-editorial py-20 md:py-28 text-center">
@@ -343,14 +331,14 @@ function About() {
           </Reveal>
           <Reveal delay={200}>
             <Link
-            to="/contact"
-            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] rounded-full min-h-[48px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
-            style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
-          >
-            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
-            Start Your Journey
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+              to="/contact"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] rounded-full min-h-[48px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
+              style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
+            >
+              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
+              Start Your Journey
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
           </Reveal>
         </div>
       </section>

@@ -155,9 +155,6 @@ function Programs() {
               {/* Left — text */}
               <Reveal delay={80}>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                    — Program 0{i + 1}
-                  </span>
                   <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[1.05]">
                     {p.title}
                   </h2>
@@ -225,7 +222,6 @@ function Programs() {
       <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24 lg:py-32">
           <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">— Our Process</span>
             <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-[-0.04em] mb-3">How Duofit Works</h2>
           </Reveal>
           <Reveal delay={100}>

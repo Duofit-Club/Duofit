@@ -3,6 +3,7 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import { useEffect, useState, useCallback, useRef } from "react";
+import { FounderJourney } from "@/components/site/FounderJourney";
 import { Play, X } from "lucide-react";
 import assestance from "@/assets/slideshow/assestance.jpeg";
 import drill1 from "@/assets/slideshow/drill.jpg";
@@ -208,7 +209,7 @@ function Community() {
         </Reveal>
       </section>
 
-      {/* Section 1 — Founder Journey */}
+{/* Section 1 — Founder Journey */}
       <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24">
           <Reveal>
@@ -240,13 +241,11 @@ function Community() {
               ))}
             </div>
           </Reveal>
-          <Reveal delay={300}>
-            <p className="mt-8 text-sm text-muted-foreground italic text-center">
-              Content coming soon — photos, timeline and progress story.
-            </p>
-          </Reveal>
         </div>
       </section>
+
+      {/* Section 1 — Founder Transformation */}
+      <FounderJourney />
 
       {/* Section 2 — Kids Summer Camp */}
       <section className="container-editorial py-14 md:py-20">
@@ -313,9 +312,6 @@ function Community() {
       {/* Section 3 — We're Just Getting Started */}
       <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24 text-center max-w-3xl mx-auto">
-          <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">— Section 03</span>
-          </Reveal>
           <Reveal delay={120}>
             <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
               We're Just Getting Started.

@@ -17,104 +17,132 @@ export const Route = createFileRoute("/")({
 });
 
 const problemCards = [
-  "Trying to lose weight but struggling to stay consistent",
-  "Starting healthy routines and stopping after a few weeks",
-  "Poor sleep, low energy and feeling constantly tired",
-  "Busy work and family schedules leaving little time for yourself",
-  "Feeling confused by conflicting health and nutrition advice",
-  "Knowing what to do but finding it hard to follow through consistently",
+  {
+    text: "Trying to lose weight but struggling to stay consistent",
+    img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop&crop=center",
+  },
+  {
+    text: "Starting healthy routines and stopping after a few weeks",
+    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=300&fit=crop&crop=center",
+  },
+  {
+    text: "Poor sleep, low energy and feeling constantly tired",
+    img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&h=300&fit=crop&crop=center",
+  },
+  {
+    text: "Busy work and family schedules leaving little time for yourself",
+    img: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop&crop=center",
+  },
+  {
+    text: "Feeling confused by conflicting health and nutrition advice",
+    img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop&crop=center",
+  },
+  {
+    text: "Knowing what to do but finding it hard to follow through consistently",
+    img: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=300&fit=crop&crop=center",
+  },
 ];
 
-const wheelItems = [
-  { label: "Nutrition", color: "#4ade80", angle: 0 },
-  { label: "Movement", color: "#fb923c", angle: 60 },
-  { label: "Sleep", color: "#818cf8", angle: 120 },
-  { label: "Stress", color: "#f472b6", angle: 180 },
-  { label: "Energy", color: "#facc15", angle: 240 },
-  { label: "Habits", color: "#34d399", angle: 300 },
-];
-
-function HealthWheel() {
+function VennDiagram() {
   const [active, setActive] = useState<number | null>(null);
-  const cx = 200;
-  const cy = 200;
-  const r = 130;
+
+  const items = [
+    { label: "Nutrition", desc: "Simple food choices that work with your routine and availability.", cx: 300, cy: 170, light: "#34d399", dark: "#059669" },
+    { label: "Fitness & Movement", desc: "Helping your body move consistently instead of extreme routines.", cx: 430, cy: 300, light: "#fb923c", dark: "#ea580c" },
+    { label: "Family Health", desc: "Helping families build healthier routines together.", cx: 300, cy: 430, light: "#c084fc", dark: "#7c3aed" },
+    { label: "Healthy Habits", desc: "Small sustainable changes that become easier to maintain.", cx: 170, cy: 300, light: "#38bdf8", dark: "#0284c7" },
+  ];
+
+  const R = 130;
+  const CX = 300;
+  const CY = 300;
+
+  const displayItems = active !== null
+    ? [...items.filter((_, i) => i !== active), items[active]]
+    : items;
 
   return (
-    <div className="w-full flex flex-col items-center gap-4">
-      <svg viewBox="0 0 400 400" className="w-full max-w-[360px] h-auto">
-        <defs>
-          {wheelItems.map((item, i) => (
-            <radialGradient key={i} id={`wg${i}`} cx="40%" cy="35%" r="70%">
-              <stop offset="0%" stopColor={item.color} stopOpacity="0.9" />
-              <stop offset="100%" stopColor={item.color} stopOpacity="0.5" />
-            </radialGradient>
-          ))}
-        </defs>
+    <div className="w-full flex flex-col items-center gap-5">
+      <div className="w-full max-w-[700px] mx-auto overflow-visible">
+        <svg viewBox="0 0 600 600" className="w-full h-auto" style={{ overflow: "visible" }}>
+          <defs>
+            {items.map((item, i) => (
+              <radialGradient key={i} id={`rg${i}`} cx="35%" cy="30%" r="75%">
+                <stop offset="0%" stopColor={item.light} />
+                <stop offset="100%" stopColor={item.dark} />
+              </radialGradient>
+            ))}
+            <filter id="shadow">
+              <feDropShadow dx="0" dy="8" stdDeviation="12" floodOpacity="0.22" />
+            </filter>
+          </defs>
 
-        {/* connecting spokes */}
-        {wheelItems.map((item, i) => {
-          const rad = (item.angle * Math.PI) / 180;
-          const x = cx + Math.cos(rad) * r;
-          const y = cy + Math.sin(rad) * r;
-          return (
-            <line
-              key={i}
-              x1={cx} y1={cy}
-              x2={x} y2={y}
-              stroke={item.color}
-              strokeWidth="1.5"
-              strokeOpacity={active === i ? 0.9 : 0.3}
-              strokeDasharray="4 3"
-            />
-          );
-        })}
-
-        {/* outer nodes */}
-        {wheelItems.map((item, i) => {
-          const rad = (item.angle * Math.PI) / 180;
-          const x = cx + Math.cos(rad) * r;
-          const y = cy + Math.sin(rad) * r;
-          const isActive = active === i;
-          return (
-            <g
-              key={i}
-              onClick={() => setActive(active === i ? null : i)}
-              onMouseEnter={() => setActive(i)}
-              onMouseLeave={() => setActive(null)}
-              style={{ cursor: "pointer" }}
-            >
-              <circle
-                cx={x} cy={y}
-                r={isActive ? 36 : 30}
-                fill={`url(#wg${i})`}
-                style={{ transition: "all 0.3s ease", filter: isActive ? `drop-shadow(0 0 12px ${item.color})` : "none" }}
-              />
-              <text
-                x={x} y={y + 4}
-                textAnchor="middle"
-                fill="white"
-                fontSize="9"
-                fontWeight="800"
-                letterSpacing="0.5"
+          {displayItems.map((item) => {
+            const i = items.findIndex((x) => x.label === item.label);
+            const isActive = active === i;
+            const isInactive = active !== null && active !== i;
+            return (
+              <g
+                key={i}
+                onClick={() => setActive(active === i ? null : i)}
+                onMouseEnter={() => setActive(i)}
+                onMouseLeave={() => setActive(null)}
+                style={{
+                  cursor: "pointer",
+                  filter: isActive ? `drop-shadow(0 0 30px ${item.dark})` : "url(#shadow)",
+                }}
               >
-                {item.label.toUpperCase()}
-              </text>
-            </g>
-          );
-        })}
+                <circle
+                  cx={item.cx} cy={item.cy}
+                  r={isActive ? R + 18 : R}
+                  fill={`url(#rg${i})`}
+                  fillOpacity={isActive ? 0.95 : isInactive ? 0.45 : 0.78}
+                  style={{ transition: "all .35s ease" }}
+                />
+                {item.label === "Fitness & Movement" ? (
+                  <>
+                    <text x={item.cx} y={item.cy - 10} textAnchor="middle" fill="white" fontSize="14" fontWeight="900" stroke="rgba(0,0,0,0.15)" strokeWidth="0.5" paintOrder="stroke">FITNESS &</text>
+                    <text x={item.cx} y={item.cy + 12} textAnchor="middle" fill="white" fontSize="14" fontWeight="900" stroke="rgba(0,0,0,0.15)" strokeWidth="0.5" paintOrder="stroke">MOVEMENT</text>
+                  </>
+                ) : (
+                  <text x={item.cx} y={item.cy + 6} textAnchor="middle" fill="white" fontSize="15" fontWeight="900" stroke="rgba(0,0,0,0.15)" strokeWidth="0.5" paintOrder="stroke" letterSpacing="0.4">
+                    {item.label.toUpperCase()}
+                  </text>
+                )}
+              </g>
+            );
+          })}
 
-        {/* center */}
-        <circle cx={cx} cy={cy} r="52" fill="var(--color-foreground)" />
-        <text x={cx} y={cy - 6} textAnchor="middle" fill="var(--color-accent)" fontSize="11" fontWeight="800" letterSpacing="1">DUOFIT</text>
-        <text x={cx} y={cy + 10} textAnchor="middle" fill="white" fontSize="8" fontWeight="600" letterSpacing="0.5">HEALTH</text>
-        <text x={cx} y={cy + 22} textAnchor="middle" fill="white" fontSize="8" fontWeight="600" letterSpacing="0.5">APPROACH</text>
-      </svg>
-      <p className="text-xs text-muted-foreground italic text-center">
-        <span className="md:hidden">Tap</span>
-        <span className="hidden md:inline">Hover</span>
-        {" "}a circle to explore
-      </p>
+          {/* Center Circle */}
+          <g style={{ pointerEvents: "none" }}>
+            <circle cx={CX} cy={CY} r="70" fill="#ffffff" stroke="var(--color-primary)" strokeWidth="4"
+              style={{ filter: "drop-shadow(0 8px 18px rgba(0,0,0,0.15))" }}
+            />
+            <text x={CX} y={CY + 6} textAnchor="middle" fill="var(--color-primary)" fontSize="20" fontWeight="800">
+              HEALTH
+            </text>
+          </g>
+        </svg>
+      </div>
+
+      <div className="w-full max-w-[700px] min-h-[80px]">
+        {active !== null ? (
+          <div className="rounded-xl p-4 border text-center"
+            style={{ background: `${items[active].light}15`, borderColor: `${items[active].light}55` }}
+          >
+            <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: items[active].dark }}>
+              {items[active].label}
+            </p>
+            <p className="text-sm text-muted-foreground">{items[active].desc}</p>
+          </div>
+        ) : (
+          <p className="text-center text-xs text-muted-foreground italic">
+            <span className="md:hidden">Tap</span>
+            <span className="hidden md:inline">Hover</span>
+            {" "}a circle to learn more
+          </p>
+        )}
+      </div>
     </div>
   );
 }
@@ -170,7 +198,7 @@ function Home() {
                   that fit real life.
                 </p>
               </Reveal>
-              <Reveal delay={350}>
+              {/* <Reveal delay={350}>
                 <div className="mt-8">
                   <Link
                     to="/programs"
@@ -182,7 +210,7 @@ function Home() {
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
-              </Reveal>
+              </Reveal> */}
             </div>
           </div>
         </div>
@@ -212,35 +240,33 @@ function Home() {
             </div>
 
             {/* Right — problem cards */}
-            <div>
-              <Reveal delay={80}>
-                <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-5">
-                  — Does This Sound Familiar?
-                </p>
-              </Reveal>
-              <div className="grid grid-cols-1 gap-2">
-                {problemCards.map((card, i) => (
-                  <Reveal key={i} delay={i * 70}>
-                    <div className="group relative flex items-center gap-4 p-4 rounded-2xl overflow-hidden cursor-default transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                      {/* animated background fill on hover */}
-                      <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300 rounded-2xl" />
-                      {/* left accent bar */}
-                      <div className="absolute left-0 top-3 bottom-3 w-0.5 rounded-full bg-primary/20 group-hover:bg-primary group-hover:top-0 group-hover:bottom-0 transition-all duration-300" />
-                      {/* number */}
-                      <span className="relative shrink-0 h-8 w-8 rounded-full bg-primary/10 group-hover:bg-primary flex items-center justify-center transition-colors duration-300">
-                        <span className="text-[11px] font-bold text-primary group-hover:text-white transition-colors duration-300">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                      </span>
-                      {/* text */}
-                      <p className="relative text-sm text-foreground/70 group-hover:text-foreground leading-relaxed transition-colors duration-300">
-                        {card}
-                      </p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
+<div>
+  <Reveal delay={80}>
+    <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-5">
+      Does This Sound Familiar?
+    </p>
+  </Reveal>
+  <div className="space-y-4">
+    {problemCards.map((card, i) => (
+      <Reveal key={i} delay={i * 80}>
+        <div className={`flex items-center gap-5 group ${i % 2 === 1 ? "flex-row-reverse" : "flex-row"}`}>
+          {/* Thumbnail */}
+          <div className="shrink-0 w-24 h-24 rounded-xl overflow-hidden">
+            <img
+              src={card.img}
+              alt={card.text}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          {/* Text */}
+          <p className={`text-sm text-muted-foreground leading-snug group-hover:text-foreground transition-colors duration-200 ${i % 2 === 1 ? "text-right" : "text-left"}`}>
+            {card.text}
+          </p>
+        </div>
+      </Reveal>
+    ))}
+  </div>
+</div>
 
           </div>
         </div>
@@ -250,12 +276,7 @@ function Home() {
       <section className="container-editorial py-16 md:py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          {/* Left — wheel */}
-          <Reveal delay={100}>
-            <HealthWheel />
-          </Reveal>
-
-          {/* Right — text */}
+          {/* Left — text */}
           <div>
             <Reveal>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
@@ -298,6 +319,11 @@ function Home() {
               </div>
             </Reveal>
           </div>
+
+          {/* Right — Venn Diagram */}
+          <Reveal delay={100}>
+            <VennDiagram />
+          </Reveal>
 
         </div>
       </section>
