@@ -102,12 +102,15 @@ function About() {
 
       {/* ── ORIGIN STORY — no eyebrow ── */}
       <section className="container-editorial pt-16 md:pt-24 lg:pt-32 pb-16 md:pb-24">
-        <div className="max-w-4xl">
+        <div>
           {/* <Reveal>
             <div className="h-0.5 w-12 bg-primary mb-8" />
           </Reveal> */}
           <Reveal delay={80}>
-            <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95]">
+            <h1
+              className="mt-5 font-bold tracking-[-0.04em] leading-[0.95]"
+              style={{ fontSize: "clamp(2.4rem, 5.5vw, 5.25rem)" }}
+            >
               Healthy living should fit{" "}
               <span className="text-primary italic">Real Life.</span>
             </h1>
@@ -229,8 +232,8 @@ function About() {
                     <div
                       key={i}
                       className={`py-4 border-b border-border/60 flex items-start gap-4 last:border-0 ${i % 2 === 1
-                          ? "bg-cream/30 -mx-7 px-7 md:-mx-10 md:px-10"
-                          : ""
+                        ? "bg-cream/30 -mx-7 px-7 md:-mx-10 md:px-10"
+                        : ""
                         }`}
                     >
                       <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />

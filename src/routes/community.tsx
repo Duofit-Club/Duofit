@@ -199,7 +199,7 @@ function Community() {
       <section className="container-editorial pt-12 md:pt-16 pb-8 md:pb-10">
   <Reveal delay={120}>
     <h1 className="mt-3 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] text-foreground">
-      Every Journey<br />Starts Somewhere.
+      Every Journey Starts Somewhere.
     </h1>
   </Reveal>
   <Reveal delay={240}>
