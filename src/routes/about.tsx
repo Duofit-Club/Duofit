@@ -109,16 +109,16 @@ function About() {
           <Reveal delay={80}>
             <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95]">
               Healthy living should fit{" "}
-              <span className="text-primary">Real Life.</span>
+              <span className="text-primary italic">Real Life.</span>
             </h1>
           </Reveal>
           <Reveal delay={160}>
-            <p className="mt-6 text-lg md:text-xl font-semibold text-foreground leading-relaxed max-w-2xl">
+            <p className="mt-6 text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               DUOFIT started from a simple observation.
             </p>
           </Reveal>
           <Reveal delay={220}>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
               Most people are not struggling because they don't care about
               health. They struggle because modern life makes consistency
               difficult. Busy schedules, stress, poor routines, outside food,
@@ -127,7 +127,7 @@ function About() {
             </p>
           </Reveal>
           <Reveal delay={280}>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
               We created DUOFIT to help people build healthier lifestyles in a
               more practical, realistic and sustainable way.
             </p>
@@ -212,42 +212,41 @@ function About() {
 
             <Reveal delay={80}>
               <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
-    <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
-    
-    <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
-      Our Mission
-    </h2>
+                <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
 
-    <div className="space-y-0">
-      {[
-        "Help people move away from extreme health trends and unrealistic expectations.",
-        "Build healthier lifestyles that can be sustained for years, not just weeks.",
-        "Make practical health guidance more approachable and easier to follow.",
-        "Support individuals, parents and families in creating better daily habits.",
-        "Promote long-term consistency over short-term results.",
-      ].map((item, i) => (
-        <div
-          key={i}
-          className={`py-4 border-b border-border/60 flex items-start gap-4 last:border-0 ${
-            i % 2 === 1
-              ? "bg-cream/30 -mx-7 px-7 md:-mx-10 md:px-10"
-              : ""
-          }`}
-        >
-          <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
-          <p className="text-sm md:text-base font-semibold text-foreground">
-            {item}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</Reveal>
+                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
+                  Our Mission
+                </h2>
+
+                <div className="space-y-0">
+                  {[
+                    "Help people move away from extreme health trends and unrealistic expectations.",
+                    "Build healthier lifestyles that can be sustained for years, not just weeks.",
+                    "Make practical health guidance more approachable and easier to follow.",
+                    "Support individuals, parents and families in creating better daily habits.",
+                    "Promote long-term consistency over short-term results.",
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className={`py-4 border-b border-border/60 flex items-start gap-4 last:border-0 ${i % 2 === 1
+                          ? "bg-cream/30 -mx-7 px-7 md:-mx-10 md:px-10"
+                          : ""
+                        }`}
+                    >
+                      <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
+                      <p className="text-sm md:text-base font-semibold text-foreground">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
             {/* RIGHT — What We Believe (values) */}
             <Reveal delay={160}>
               <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
-    <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
-    <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
+                <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
+                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
                   What we believe
                 </h2>
                 <div className="space-y-0">
@@ -281,7 +280,7 @@ function About() {
             {/* LEFT — What Makes Duofit Different (flip cards) */}
             <Reveal delay={80}>
               <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
-    <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" /> 
+                <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
                 <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
                   What makes Duofit different.
                 </h2>
@@ -298,7 +297,7 @@ function About() {
             {/* RIGHT — Who Is It For */}
             <Reveal delay={160}>
               <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
-    <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
+                <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
                 <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-4">
                   Who is DUOFIT for?
                 </h2>

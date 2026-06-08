@@ -203,7 +203,7 @@ function Community() {
     </h1>
   </Reveal>
   <Reveal delay={240}>
-    <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
+    <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
       Better health is built through small consistent actions. From personal lifestyle improvements to community activities, every step forward matters.
     </p>
   </Reveal>
