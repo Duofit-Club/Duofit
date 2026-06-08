@@ -172,14 +172,7 @@ function Programs() {
             h-1 w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-30`}
         />
 
-        {/* Program number badge */}
-        <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10">
-          <span
-            className="flex items-center justify-center w-10 h-10 rounded-full text-sm font-black border-2 border-primary/30 text-primary/50 group-hover:border-primary group-hover:text-primary group-hover:bg-primary/10 transition-all duration-500"
-          >
-            0{i + 1}
-          </span>
-        </div>
+
 
         {/* Inner content */}
         <div className="p-6 md:p-10 lg:p-12">
