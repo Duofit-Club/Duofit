@@ -68,7 +68,7 @@ function Contact() {
 
             <Reveal delay={100}>
               <h1 className="mt-4 text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
-                Let&apos;s Talk ablout your
+                Let&apos;s Talk about your
                 <br />
                 <span className="text-primary">Health Goals.</span>
               </h1>

@@ -229,7 +229,9 @@ function Community() {
 
         {/* Camp Stats */}
         <Reveal delay={160}>
-          <div className="grid grid-cols-3 gap-4 mt-10 mb-8">
+          <div className="group relative overflow-hidden rounded-2xl border border-border/60 bg-card p-5 md:p-7 mt-10 mb-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out">
+  <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
+  <div className="grid grid-cols-3 gap-4">
             {[
               { value: "11", label: "Children Coached", sub: "Aged 6–14" },
               { value: "31 Days", label: "Duration", sub: "May 1 — May 31" },
@@ -242,6 +244,7 @@ function Community() {
               </div>
             ))}
           </div>
+          </div>
         </Reveal>
 
         {/* Newspaper */}
@@ -250,7 +253,7 @@ function Community() {
             href="https://suryanews.in/duofit-summer-camp-concludes-in-pragathi-nagar/"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-4 p-5 md:p-6 border border-border bg-card rounded-sm hover:border-primary/50 hover:translate-x-1 active:scale-[0.98] transition-all group"
+            className="flex items-center gap-4 p-5 md:p-6 border border-border/60 bg-card rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 active:scale-[0.98] transition-all duration-500 group relative overflow-hidden"
           >
             <div className="h-12 w-12 md:h-14 md:w-14 rounded-sm bg-primary/10 flex items-center justify-center shrink-0 text-xl">
               📰

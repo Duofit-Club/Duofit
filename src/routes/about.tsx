@@ -211,7 +211,9 @@ function About() {
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
 
             <Reveal delay={80}>
-  <div className="border border-border rounded-sm p-7 md:p-10 h-full bg-card">
+              <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
+    <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
+    
     <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
       Our Mission
     </h2>
@@ -243,8 +245,9 @@ function About() {
 </Reveal>
             {/* RIGHT — What We Believe (values) */}
             <Reveal delay={160}>
-              <div className="border border-border rounded-sm p-7 md:p-10 h-full bg-card">
-                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
+              <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
+    <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
+    <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
                   What we believe
                 </h2>
                 <div className="space-y-0">
@@ -277,7 +280,8 @@ function About() {
 
             {/* LEFT — What Makes Duofit Different (flip cards) */}
             <Reveal delay={80}>
-              <div className="border border-border rounded-sm p-7 md:p-10 h-full bg-card">
+              <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
+    <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" /> 
                 <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
                   What makes Duofit different.
                 </h2>
@@ -293,7 +297,8 @@ function About() {
 
             {/* RIGHT — Who Is It For */}
             <Reveal delay={160}>
-              <div className="border border-border rounded-sm p-7 md:p-10 h-full bg-card">
+              <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
+    <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
                 <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-4">
                   Who is DUOFIT for?
                 </h2>
