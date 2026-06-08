@@ -26,20 +26,6 @@ const MILESTONES = [
     note: "Early results through consistency and effort.",
   },
   {
-    date: "Nov 09, 2024",
-    weight: "76.4 kg",
-    bf: null,
-    extra: null,
-    note: "Learning, staying consistent and building momentum.",
-  },
-  {
-    date: "Mar 23, 2025",
-    weight: "75.0 kg",
-    bf: null,
-    extra: null,
-    note: "Strength improving. Confidence growing.",
-  },
-  {
     date: "Jun 19, 2025",
     weight: "74.5 kg",
     bf: "23.8% BF",
@@ -47,25 +33,11 @@ const MILESTONES = [
     note: "Started tracking body composition to measure real progress.",
   },
   {
-    date: "Jul 31, 2025",
-    weight: "73.6 kg",
-    bf: "22.0% BF",
-    extra: "Fat: 16.2 kg · Lean: 53.1 kg · BMI: 23.8",
-    note: "Focused on getting stronger and improving body composition.",
-  },
-  {
     date: "Aug 26, 2025",
     weight: "75.1 kg",
     bf: "24.8% BF",
     extra: "Fat: 18.6 kg · Lean: 56.5 kg · BMI: 24.2",
     note: "Fluctuations happened, but I stayed committed to the process.",
-  },
-  {
-    date: "Sep 10, 2025",
-    weight: "75.6 kg",
-    bf: "24.3% BF",
-    extra: "Fat: 18.4 kg · Lean: 52.9 kg · BMI: 24.4",
-    note: "Held myself accountable and kept showing up every single day.",
   },
   {
     date: "May 04, 2026",

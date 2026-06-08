@@ -196,21 +196,21 @@ function Community() {
     <SiteLayout>
 
       {/* Hero */}
-      <section className="container-editorial pt-16 md:pt-24 pb-12 md:pb-16 text-center">
-        <Reveal delay={120}>
-          <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] text-foreground">
-            Every Journey<br />Starts Somewhere.
-          </h1>
-        </Reveal>
-        <Reveal delay={240}>
-          <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Better health is built through small consistent actions. From personal lifestyle improvements to community activities, every step forward matters.
-          </p>
-        </Reveal>
-      </section>
-      
+      <section className="container-editorial pt-12 md:pt-16 pb-8 md:pb-10">
+  <Reveal delay={120}>
+    <h1 className="mt-3 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] text-foreground">
+      Every Journey<br />Starts Somewhere.
+    </h1>
+  </Reveal>
+  <Reveal delay={240}>
+    <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed">
+      Better health is built through small consistent actions. From personal lifestyle improvements to community activities, every step forward matters.
+    </p>
+  </Reveal>
+</section>
+
  {/* Section 2 — Kids Summer Camp */}
-      <section className="container-editorial py-14 md:py-20">
+      <section className="container-editorial py-8 md:py-12">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>

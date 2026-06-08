@@ -6,7 +6,7 @@ import duofitLogo from "../../assets/duofit-logo.png";
 const links = [
   { to: "/", label: "Home" },
   { to: "/programs", label: "Programs" },
-  { to: "/community", label: "Community" },
+  { to: "/community", label: "Community & Progress" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Connect" },
 ] as const;

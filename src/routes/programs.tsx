@@ -129,7 +129,7 @@ function Programs() {
     <SiteLayout>
 
       {/* Intro */}
-      <section className="container-editorial pt-12 md:pt-20 lg:pt-24 pb-12 md:pb-16">
+      <section className="container-editorial pt-12 md:pt-20 lg:pt-24 pb-0">
         <div className="max-w-5xl">
           <Reveal delay={120}>
             <h1
