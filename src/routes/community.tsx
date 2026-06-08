@@ -198,9 +198,12 @@ function Community() {
       {/* Hero */}
       <section className="container-editorial pt-12 md:pt-16 pb-8 md:pb-10">
   <Reveal delay={120}>
-    <h1 className="mt-3 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] text-foreground">
-      Every Journey Starts Somewhere.
-    </h1>
+    <h1
+  className="mt-3 font-bold tracking-[-0.04em] leading-[0.95] text-foreground"
+  style={{ fontSize: "clamp(2.4rem, 5.5vw, 5.25rem)" }}
+>
+  Every Journey Starts Somewhere.
+</h1>
   </Reveal>
   <Reveal delay={240}>
     <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
