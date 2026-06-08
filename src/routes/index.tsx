@@ -27,7 +27,7 @@ const problemCards = [
   },
   {
     text: "Poor sleep, low energy and feeling constantly tired",
-    img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&h=300&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1531353826977-0941b4779a1c?w=400&h=300&fit=crop&crop=top",
   },
   {
     text: "Busy work and family schedules leaving little time for yourself",
@@ -176,10 +176,10 @@ function Home() {
           style={{ background: "linear-gradient(90deg, oklch(0.12 0.04 145 / 0.82) 0%, oklch(0.14 0.04 145 / 0.60) 30%, oklch(0.14 0.04 145 / 0.18) 55%, transparent 72%)" }}
         />
 
-        {/* Text */}
-        <div className="absolute inset-0 z-10 flex items-start md:items-center pt-24 md:pt-0">
+        {/* Text — anchored to top-left, clear of the subject in the photo */}
+        <div className="absolute inset-0 z-10 flex items-start pt-14 md:pt-16 lg:pt-20">
           <div className="container-editorial w-full">
-            <div className="max-w-[70%] sm:max-w-[60%] md:max-w-[420px] lg:max-w-[480px] text-left md:-translate-x-[60px]">
+            <div className="max-w-[70%] sm:max-w-[60%] md:max-w-[420px] lg:max-w-[480px] text-left">
               <Reveal>
                 <h1
                   className="font-display leading-[1.05] drop-shadow-[0_2px_18px_rgba(0,0,0,0.9)]"
@@ -198,19 +198,6 @@ function Home() {
                   that fit real life.
                 </p>
               </Reveal>
-              {/* <Reveal delay={350}>
-                <div className="mt-8">
-                  <Link
-                    to="/programs"
-                    className="group relative inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold uppercase tracking-widest rounded-full min-h-[44px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
-                    style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
-                  >
-                    <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
-                    Explore Programs
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                </div>
-              </Reveal> */}
             </div>
           </div>
         </div>
@@ -232,41 +219,41 @@ function Home() {
               <Reveal delay={120}>
                 <div className="mt-6 space-y-4 text-base text-muted-foreground leading-relaxed">
                   <p>Most people don't struggle because they lack motivation.</p>
-                  <p>They struggle because healthy eating, exercise and routines often feel difficult to maintain alongside work, family responsibilities and everyday life.</p>
-                  <p>Health becomes easier when the approach is practical, realistic and designed to fit your lifestyle.</p>
+                  <p>They struggle because healthy eating, exercise and routines often feel difficult to maintain alongside work, family responsibilities and everyday life.
+                  Health becomes easier when the approach is practical, realistic and designed to fit your lifestyle.</p>
                   <p className="font-medium text-foreground">The challenge isn't doing more. It's doing what works consistently.</p>
                 </div>
               </Reveal>
             </div>
 
             {/* Right — problem cards */}
-<div>
-  <Reveal delay={80}>
-    <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-5">
-      Does This Sound Familiar?
-    </p>
-  </Reveal>
-  <div className="space-y-4">
-    {problemCards.map((card, i) => (
-      <Reveal key={i} delay={i * 80}>
-        <div className={`flex items-center gap-5 group ${i % 2 === 1 ? "flex-row-reverse" : "flex-row"}`}>
-          {/* Thumbnail */}
-          <div className="shrink-0 w-24 h-24 rounded-xl overflow-hidden">
-            <img
-              src={card.img}
-              alt={card.text}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          {/* Text */}
-          <p className={`text-sm text-muted-foreground leading-snug group-hover:text-foreground transition-colors duration-200 ${i % 2 === 1 ? "text-right" : "text-left"}`}>
-            {card.text}
-          </p>
-        </div>
-      </Reveal>
-    ))}
-  </div>
-</div>
+            <div>
+              <Reveal delay={80}>
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-5">
+                  Does This Sound Familiar?
+                </p>
+              </Reveal>
+              <div className="space-y-4">
+                {problemCards.map((card, i) => (
+                  <Reveal key={i} delay={i * 80}>
+                    <div className={`flex items-center gap-5 group ${i % 2 === 1 ? "flex-row-reverse" : "flex-row"}`}>
+                      {/* Thumbnail */}
+                      <div className="shrink-0 w-24 h-24 rounded-xl overflow-hidden">
+                        <img
+                          src={card.img}
+                          alt={card.text}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                      {/* Text */}
+                      <p className={`text-sm text-muted-foreground leading-snug group-hover:text-foreground transition-colors duration-200 ${i % 2 === 1 ? "text-right" : "text-left"}`}>
+                        {card.text}
+                      </p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
 
           </div>
         </div>
@@ -285,9 +272,9 @@ function Home() {
             </Reveal>
             <Reveal delay={120}>
               <div className="mt-6 space-y-4 text-base text-muted-foreground leading-relaxed">
-                <p>Weight gain, poor sleep, low energy, stress, unhealthy eating habits and lack of consistency are often connected.</p>
-                <p>When one area struggles, the others are often affected too.</p>
-                <p>That's why focusing on a single symptom rarely creates lasting change.</p>
+                <p>Weight gain, poor sleep, low energy, stress, unhealthy eating habits and lack of consistency are often connected.
+                When one area struggles, the others are often affected too.
+                That's why focusing on a single symptom rarely creates lasting change.</p>
               </div>
             </Reveal>
             <Reveal delay={200}>

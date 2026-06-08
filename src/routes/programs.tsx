@@ -130,12 +130,13 @@ function Programs() {
 
       {/* Intro */}
       <section className="container-editorial pt-12 md:pt-20 lg:pt-24 pb-12 md:pb-16">
-        <div className="max-w-4xl">
+        <div className="max-w-5xl">
           <Reveal delay={120}>
-            <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95]">
-              Health Coaching
-              <br />
-              Built For <span className="text-primary">Real Life.</span>
+            <h1
+              className="mt-5 font-bold tracking-[-0.04em] leading-[0.95] whitespace-nowrap"
+              style={{ fontSize: "clamp(1.6rem, 4.2vw, 3.5rem)" }}
+            >
+              Health Coaching Built For <span className="text-primary">Real Life.</span>
             </h1>
           </Reveal>
           <Reveal delay={220}>

@@ -451,7 +451,7 @@ export function FounderJourney() {
               transition: "opacity 0.65s ease 80ms, transform 0.65s ease 80ms",
             }}
           >
-            From Overweight to Strongest Self.
+            The Journey That Inspired DUOFIT.
           </h2>
           <p
             className="mt-3 md:mt-4 text-sm md:text-lg text-muted-foreground max-w-2xl leading-relaxed"

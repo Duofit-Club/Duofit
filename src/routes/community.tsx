@@ -208,46 +208,8 @@ function Community() {
           </p>
         </Reveal>
       </section>
-
-{/* Section 1 — Founder Journey */}
-      <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-16 md:py-24">
-          <Reveal>
-            <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mt-4">
-              The Journey That Inspired DUOFIT.
-            </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Every great idea begins with a personal experience. The story behind DUOFIT is rooted in a real health journey — the lessons learned, the challenges faced and the belief that health should be practical, sustainable and built around real life.
-            </p>
-          </Reveal>
-
-          {/* Placeholder for timeline / photos / progress */}
-          <Reveal delay={200}>
-            <div className="mt-12 grid md:grid-cols-3 gap-6">
-              {[
-                { label: "The Beginning", desc: "Your own health journey — where it started and what changed.", icon: "🌱" },
-                { label: "The Progress", desc: "Timeline of milestones, photos and real results over time.", icon: "📈" },
-                { label: "The Lessons", desc: "What worked, what didn't and what led to creating DUOFIT.", icon: "💡" },
-              ].map((item, i) => (
-                <Reveal key={i} delay={i * 100}>
-                  <div className="flex flex-col gap-3 p-6 rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-sm transition-all duration-300">
-                    <span className="text-3xl">{item.icon}</span>
-                    <h4 className="font-bold text-foreground text-base">{item.label}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Section 1 — Founder Transformation */}
-      <FounderJourney />
-
-      {/* Section 2 — Kids Summer Camp */}
+      
+ {/* Section 2 — Kids Summer Camp */}
       <section className="container-editorial py-14 md:py-20">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
@@ -309,6 +271,11 @@ function Community() {
         </Reveal>
       </section>
 
+
+      {/* Section 1 — Founder Transformation */}
+      <FounderJourney />
+
+     
       {/* Section 3 — We're Just Getting Started */}
       <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24 text-center max-w-3xl mx-auto">
