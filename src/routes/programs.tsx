@@ -148,76 +148,108 @@ function Programs() {
       </section>
 
       {/* Program Sections */}
-      {programs.map((p, i) => (
-        <section key={p.title} className={i % 2 === 1 ? "bg-cream border-y border-border" : ""}>
-          <div className="container-editorial py-16 md:py-24 lg:py-28">
-            <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
+{programs.map((p, i) => (
+  <section key={p.title} className="container-editorial py-8 md:py-12">
+    <Reveal delay={80}>
+      <div
+        className={`group relative rounded-2xl overflow-hidden border transition-all duration-700 ease-out
+          hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)]
+          hover:-translate-y-1
+          ${i === 0
+            ? "border-primary/20 bg-gradient-to-br from-card via-card to-[color-mix(in_srgb,var(--color-primary)_5%,var(--card))]"
+            : "border-border bg-gradient-to-bl from-card via-card to-[color-mix(in_srgb,var(--color-primary)_3%,var(--background))]"
+          }`}
+        style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}
+      >
 
-              {/* Left — text */}
-              <Reveal delay={80}>
-                <div>
-                  <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[1.05]">
-                    {p.title}
-                  </h2>
-                  <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-                    {p.tagline}
-                  </p>
-                  <p className="mt-4 text-sm text-primary italic font-medium">
-                    {p.personalNote}
-                  </p>
-                  <div className="pt-8">
-                    <Link
-                      to="/contact"
-                      className="group relative inline-flex items-center gap-3 px-7 py-3.5 text-sm font-semibold uppercase tracking-widest rounded-full min-h-[44px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
-                      style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
-                    >
-                      <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
-                      Start Your Journey
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-                  </div>
+        {/* Animated corner accent */}
+        <div
+          className={`absolute top-0 ${i === 0 ? "left-0 rounded-br-3xl" : "right-0 rounded-bl-3xl"}
+            w-1 h-0 group-hover:h-full bg-primary transition-all duration-700 ease-out opacity-60`}
+        />
+        <div
+          className={`absolute top-0 ${i === 0 ? "left-0" : "right-0"}
+            h-1 w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-30`}
+        />
+
+        {/* Program number badge */}
+        <div className="absolute top-6 right-6 md:top-8 md:right-8 z-10">
+          <span
+            className="flex items-center justify-center w-10 h-10 rounded-full text-sm font-black border-2 border-primary/30 text-primary/50 group-hover:border-primary group-hover:text-primary group-hover:bg-primary/10 transition-all duration-500"
+          >
+            0{i + 1}
+          </span>
+        </div>
+
+        {/* Inner content */}
+        <div className="p-6 md:p-10 lg:p-12">
+          <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
+
+            {/* Left — text */}
+            <Reveal delay={100}>
+              <div>
+                <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[1.05]">
+                  {p.title}
+                </h2>
+                <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                  {p.tagline}
+                </p>
+                <p className="mt-4 text-sm text-primary italic font-medium">
+                  {p.personalNote}
+                </p>
+                <div className="pt-8">
+                  <Link
+                    to="/contact"
+                    className="group/btn relative inline-flex items-center gap-3 px-7 py-3.5 text-sm font-semibold uppercase tracking-widest rounded-full min-h-[44px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
+                    style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
+                  >
+                    <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
+                    Start Your Journey
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                  </Link>
                 </div>
-              </Reveal>
+              </div>
+            </Reveal>
 
-              {/* Right — What We Cover */}
-              <Reveal delay={160}>
-                <div className="flex flex-col gap-4">
-                  <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary">
-                    What {i === 0 ? "You" : "Families"} Can Expect
-                  </h3>
-                  {p.nodes.map(({ label, hint, img }, idx) => {
-                    const isEven = idx % 2 === 0;
-                    return (
-                      <Reveal key={label} delay={idx * 80}>
-                        <div className={`flex items-stretch gap-0 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 ${isEven ? "flex-row" : "flex-row-reverse"}`}>
-                          {/* photo */}
-                          <div className="relative w-[38%] shrink-0 overflow-hidden">
-                            <img
-                              src={img}
-                              alt={label}
-                              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                            />
-                          </div>
-                          {/* text */}
-                          <div className={`flex flex-1 flex-col justify-center gap-1.5 px-4 py-4 bg-card border-y border-border ${isEven ? "border-r rounded-r-xl" : "border-l rounded-l-xl"}`}>
-                            <span className="text-xs font-bold uppercase tracking-widest text-foreground">
-                              {label}
-                            </span>
-                            <p className="text-[11px] text-muted-foreground leading-relaxed">
-                              {hint}
-                            </p>
-                          </div>
+            {/* Right — What We Cover */}
+            <Reveal delay={160}>
+              <div className="flex flex-col gap-3">
+                <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary mb-1">
+                  What {i === 0 ? "You" : "Families"} Can Expect
+                </h3>
+                {p.nodes.map(({ label, hint, img }, idx) => {
+                  const isEven = idx % 2 === 0;
+                  return (
+                    <Reveal key={label} delay={idx * 70}>
+                      <div className={`flex items-stretch gap-0 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 ${isEven ? "flex-row" : "flex-row-reverse"}`}>
+                        <div className="relative w-[38%] shrink-0 overflow-hidden">
+                          <img
+                            src={img}
+                            alt={label}
+                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                          />
                         </div>
-                      </Reveal>
-                    );
-                  })}
-                </div>
-              </Reveal>
+                        <div className={`flex flex-1 flex-col justify-center gap-1.5 px-4 py-4 bg-card border-y border-border ${isEven ? "border-r rounded-r-xl" : "border-l rounded-l-xl"}`}>
+                          <span className="text-xs font-bold uppercase tracking-widest text-foreground">
+                            {label}
+                          </span>
+                          <p className="text-[11px] text-muted-foreground leading-relaxed">
+                            {hint}
+                          </p>
+                        </div>
+                      </div>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </Reveal>
 
-            </div>
           </div>
-        </section>
-      ))}
+        </div>
+      </div>
+    </Reveal>
+  </section>
+))}
 
       {/* How Duofit Works */}
       <section className="bg-cream border-y border-border">
