@@ -3,7 +3,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 
 // ← Paste your Web3Forms access key here
-const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_KEY = "5f818451-df1b-43db-8385-4f10aa4f9266";
 
 const schema = z.object({
   name:    z.string().trim().min(1, "Please share your name").max(100),
