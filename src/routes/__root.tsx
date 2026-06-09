@@ -70,6 +70,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
+  head: () => ({
+    scripts: [
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-QKKCN8EFBR",
+        async: true,
+      },
+      {
+        children: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QKKCN8EFBR');
+        `,
+      },
+    ],
+  }),
 });
 
 function RootComponent() {
