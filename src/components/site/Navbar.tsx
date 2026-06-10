@@ -146,7 +146,7 @@ export function Navbar() {
               (e.currentTarget as HTMLElement).style.transform = "scale(1)";
             }}
           >
-            Start Journey
+            Start your Journey
           </Link>
 
           {/* Hamburger */}
