@@ -3,227 +3,78 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import duofitLogo from "../../assets/duofit-logo.png";
 
-// ── Exact colors sampled from the Duofit navbar screenshot ───────────────────
-const C = {
-  navBg:        "#EDE8DC",   // warm linen — the navbar background
-  navBorder:    "#D6CFC0",   // subtle warm divider line
-  text:         "#3D3B33",   // dark warm-brown — logo title + active link
-  textMuted:    "#8A8472",   // grey-brown — inactive nav links + tagline
-  dot:          "#5C6B3E",   // muted olive — the bullet dots
-  ctaBg:        "#2C3B2D",   // dark forest green — CTA button
-  ctaHover:     "#3A4E3B",   // slightly lighter on hover
-  ctaText:      "#FFFFFF",
-  logoBg:       "#FFFFFF",   // white circle behind logo icon
-  mobileDivider:"#D6CFC0",
-};
-
 const links = [
-  { to: "/",          label: "Home" },
-  { to: "/programs",  label: "Programs" },
+  { to: "/", label: "Home" },
+  { to: "/programs", label: "Programs" },
   { to: "/community", label: "Community & Progress" },
-  { to: "/about",     label: "About" },
-  { to: "/contact",   label: "Connect" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Connect" },
 ] as const;
-
-const navLinkBase: React.CSSProperties = {
-  color: C.textMuted,
-  fontSize: "11px",
-  fontWeight: 500,
-  letterSpacing: "0.12em",
-  textTransform: "uppercase",
-  textDecoration: "none",
-  paddingBottom: "2px",
-  transition: "color 0.15s",
-};
-
-const navLinkActive: React.CSSProperties = {
-  ...navLinkBase,
-  color: C.text,
-  borderBottom: `2px solid ${C.ctaBg}`,
-};
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-
   return (
-    <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 40,
-        backgroundColor: C.navBg,
-        borderBottom: `1px solid ${C.navBorder}`,
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-      }}
-    >
-      {/* ── Main bar ─────────────────────────────────────────────────────────── */}
-      <div
-        className="container-editorial"
-        style={{
-          display: "flex",
-          height: "72px",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+    <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/90 border-b border-border/60">
+      <div className="container-editorial flex h-16 md:h-20 items-center justify-between">
+
         {/* Logo */}
-        <Link
-          to="/"
-          onClick={() => setOpen(false)}
-          style={{ display: "flex", alignItems: "center", gap: "12px", textDecoration: "none" }}
-        >
-          <img src={duofitLogo} alt="Duofit" style={{ height: "44px", width: "auto" }} />
-          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.2 }}>
-            <span style={{
-              color: C.text,
-              fontWeight: 700,
-              fontSize: "14px",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-            }}>
-              DUOFIT
-            </span>
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              color: C.textMuted,
-              fontSize: "10px",
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              marginTop: "2px",
-            }}>
+        <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2 md:gap-3">
+          <img src={duofitLogo} alt="Duofit" className="h-9 md:h-12 w-auto" />
+          <div className="flex flex-col leading-tight">
+            <span className="font-bold text-sm md:text-base tracking-widest text-foreground uppercase">DUOFIT</span>
+            <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
               <span>Fitness</span>
-              <span style={{ color: C.dot, fontSize: "7px" }}>•</span>
+              <span className="text-primary text-[8px]">•</span>
               <span>Nutrition</span>
-              <span style={{ color: C.dot, fontSize: "7px" }}>•</span>
+              <span className="text-primary text-[8px]">•</span>
               <span>Healthy Habits</span>
             </div>
           </div>
         </Link>
 
         {/* Desktop nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: "28px" }} className="hidden lg:flex">
+        <nav className="hidden lg:flex items-center gap-7 text-sm">
           {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              style={navLinkBase}
-              activeProps={{ style: navLinkActive }}
-              activeOptions={{ exact: l.to === "/" }}
-            >
+            <Link key={l.to} to={l.to}
+              className="text-xs font-medium uppercase tracking-widest text-foreground/60 hover:text-foreground transition-colors py-1"
+              activeProps={{ className: "text-xs font-medium uppercase tracking-widest text-foreground border-b-2 border-primary" }}
+              activeOptions={{ exact: l.to === "/" }}>
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          {/* CTA */}
-          <Link
+        <div className="flex items-center gap-2">
+<Link
             to="/contact"
-            className="hidden md:inline-flex"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              padding: "10px 22px",
-              backgroundColor: C.ctaBg,
-              color: C.ctaText,
-              fontSize: "11px",
-              fontWeight: 600,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              borderRadius: "999px",
-              transition: "background-color 0.2s, transform 0.15s",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = C.ctaHover;
-              (e.currentTarget as HTMLElement).style.transform = "scale(1.03)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = C.ctaBg;
-              (e.currentTarget as HTMLElement).style.transform = "scale(1)";
-            }}
+            className="group relative hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] active:scale-95"
+            style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
           >
-            Start your Journey
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
+            Start Journey
           </Link>
-
           {/* Hamburger */}
           <button
             aria-label="Toggle menu"
-            className="lg:hidden"
-            onClick={() => setOpen((v) => !v)}
-            style={{
-              background: "none",
-              border: "none",
-              padding: "8px",
-              cursor: "pointer",
-              color: C.text,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              minWidth: "44px",
-              minHeight: "44px",
-            }}
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
+            className="lg:hidden p-2 rounded-sm hover:bg-muted transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+            onClick={() => setOpen(v => !v)}>
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* ── Mobile menu ──────────────────────────────────────────────────────── */}
+      {/* Mobile menu */}
       {open && (
-        <div
-          className="lg:hidden"
-          style={{
-            backgroundColor: C.navBg,
-            borderTop: `1px solid ${C.navBorder}`,
-          }}
-        >
-          <div
-            className="container-editorial"
-            style={{ paddingTop: "16px", paddingBottom: "16px", display: "flex", flexDirection: "column" }}
-          >
-            {links.map((l, i) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                style={{
-                  color: C.textMuted,
-                  fontSize: "13px",
-                  fontWeight: 500,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  padding: "14px 0",
-                  borderBottom: i < links.length - 1 ? `1px solid ${C.mobileDivider}` : "none",
-                }}
-              >
+        <div className="lg:hidden border-t border-border bg-background">
+          <div className="container-editorial py-4 flex flex-col">
+            {links.map((l) => (
+              <Link key={l.to} to={l.to} onClick={() => setOpen(false)}
+                className="text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground py-4 border-b border-border/50 last:border-0">
                 {l.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              style={{
-                marginTop: "16px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: C.ctaBg,
-                color: C.ctaText,
-                padding: "14px 20px",
-                fontSize: "13px",
-                fontWeight: 500,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                borderRadius: "4px",
-                minHeight: "44px",
-              }}
-            >
+            <Link to="/contact" onClick={() => setOpen(false)}
+              className="mt-4 flex justify-center rounded-sm bg-foreground text-background px-5 py-4 text-sm font-medium uppercase tracking-widest min-h-[44px] items-center">
               Start Your Journey
             </Link>
           </div>
