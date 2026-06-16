@@ -184,7 +184,7 @@ function About() {
                 {[
                   {
                     name: "Nitesh",
-                    bio: "ICF-accredited coach and pursuing a diploma in Nutrition and Fitness from INFS — bringing together coaching, nutrition and lifestyle guidance into the DUOFIT approach.",
+                    bio: "ICF-accredited coach and a diploma in Nutrition and Fitness from INFS — bringing together coaching, nutrition and lifestyle guidance into the DUOFIT approach.",
                   },
                   {
                     name: "Nikitha",
