@@ -18,7 +18,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-xs md:text-sm text-background/50 leading-relaxed max-w-xs">
-              Helping people stay healthy through practical nutrition, movements and healthy habits that fit everyday life.
+              Helping people stay healthy through practical nutrition, movement and healthy habits that fit everyday life.
             </p>
           </div>
 
@@ -28,9 +28,8 @@ export function Footer() {
             <ul className="space-y-3">
               {[
                 { to: "/", label: "Home" },
-                { to: "/reality", label: "Reality Check" },
                 { to: "/programs", label: "Programs" },
-                // { to: "/results", label: "Results" },
+                { to: "/community", label: "Community & Progress" },
                 { to: "/about", label: "About" },
                 { to: "/contact", label: "Connect" },
               ].map((l) => (

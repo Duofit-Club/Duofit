@@ -230,7 +230,7 @@ function Home() {
             <div>
               <Reveal delay={80}>
                 <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-5">
-                  Does These Sound Familiar?
+                  Do These Sound Familiar?
                 </p>
               </Reveal>
               <div className="space-y-4">
