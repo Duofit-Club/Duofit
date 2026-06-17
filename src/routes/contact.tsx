@@ -1,11 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail } from "lucide-react";
+import { Mail, Phone, ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
 import { WHATSAPP_NUMBER } from "@/components/site/WhatsAppFab";
 
+
 const WA_URL = `https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, "")}`;
+const BOOKING_MESSAGE =
+  "Hi DUOFIT, I'd like to book a 15-minute Health Clarity Call.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -64,7 +67,7 @@ function Contact() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-20">
 
           {/* Form side */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-8">
 
             <Reveal delay={100}>
               <h1 className="mt-4 text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
@@ -95,12 +98,57 @@ function Contact() {
                 <ContactForm />
               </div>
             </Reveal>
+
+            <Reveal delay={350}>
+              <div className="mt-10 overflow-hidden rounded-sm border border-border">
+              </div>
+            </Reveal>
           </div>
 
           {/* Channels side */}
-          <div className="lg:col-span-5 flex flex-col justify-start gap-4">
+          <div className="lg:col-span-4 flex flex-col justify-start gap-4">
+
+            {/* Featured — Book a Call */}
             <Reveal>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-1">
+              <div className="rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-primary/30">
+
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary/70">
+                  Free Consultation
+                </div>
+
+                <h3 className="text-2xl font-bold text-primary leading-tight">
+                  Book a 15-Minute
+                  <br />
+                  Health Clarity Call
+                </h3>
+
+                <p className="mt-3 text-sm text-primary/80">
+                  Choose a convenient time and receive instant confirmation.
+                </p>
+
+                <a
+                  href="https://calendly.com/duofit-support/new-meeting"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-semibold uppercase tracking-widest overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95 "
+                  style={{
+                    backgroundColor: "var(--color-primary)",
+                    color: "#ffffff",
+                  }}
+                >
+                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
+
+                  <span className="relative z-10 flex items-center gap-2">
+                    Schedule Your Call
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </a>
+
+              </div>
+            </Reveal>
+
+            <Reveal delay={60}>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-1 mt-2">
                 Connect with DUOFIT
               </p>
             </Reveal>
