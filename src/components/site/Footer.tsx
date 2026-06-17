@@ -52,7 +52,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer"
+                <a href="https://instagram.com/duofit.club" target="_blank" rel="noreferrer"
                   className="flex items-center gap-2 text-xs md:text-sm text-background/60 hover:text-background transition-colors py-1">
                   <Instagram className="h-4 w-4 shrink-0" /> Instagram
                 </a>
