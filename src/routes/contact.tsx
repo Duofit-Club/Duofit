@@ -1,14 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, ArrowRight } from "lucide-react";
+import {
+  Leaf,
+  Flower2,
+  UserCheck,
+  HeartHandshake,
+  Calendar,
+  ShieldCheck,
+} from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
 import { WHATSAPP_NUMBER } from "@/components/site/WhatsAppFab";
-
+import founderImg from "@/assets/founder-after.jpeg";
 
 const WA_URL = `https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, "")}`;
-const BOOKING_MESSAGE =
-  "Hi DUOFIT, I'd like to book a 15-minute Health Clarity Call.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -24,10 +29,33 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
+const whyChoose = [
+  {
+    icon: Leaf,
+    title: "Practical Approach",
+    desc: "No extreme diets or unrealistic routines.",
+  },
+  {
+    icon: Flower2,
+    title: "Holistic Health",
+    desc: "Looking beyond symptoms to understand root causes.",
+  },
+  {
+    icon: UserCheck,
+    title: "Personal Guidance",
+    desc: "Support tailored to your goals, lifestyle and challenges.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Built For Real Life",
+    desc: "Strategies designed around work, family and everyday commitments.",
+  },
+];
+
 const channels = [
   {
     title: "WhatsApp",
-    desc: "Reach out directly for conversations, questions or guidance.",
+    desc: "Chat with us directly for quick responses.",
     href: WA_URL,
     bg: "#25D366",
     svg: (
@@ -63,103 +91,124 @@ const channels = [
 function Contact() {
   return (
     <SiteLayout>
-      <section className="container-editorial pt-12 md:pt-20 lg:pt-24 pb-16 md:pb-24 lg:pb-32">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-20">
+      <section className="container-editorial pt-12 md:pt-16 pb-16 md:pb-24">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-          {/* Form side */}
-          <div className="lg:col-span-8">
+          {/* LEFT — Heading, Why Choose, Consultation Card */}
+          <div className="lg:col-span-7">
 
-            <Reveal delay={100}>
-              <h1 className="mt-4 text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
-                Let&apos;s Talk about your
-                <br />
-                <span className="text-primary">Health Goals.</span>
+            <Reveal>
+              <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                Let's talk about
+              </span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="mt-1 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
+                YOUR HEALTH<br />GOALS.
               </h1>
             </Reveal>
-
-            <Reveal delay={180}>
-              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg">
-                Whether you are trying to improve fitness, lose weight, build
-                healthier routines or simply feel better in everyday life —
-                DUOFIT is here to help you take the first step in a practical
-                and realistic way.
+            <Reveal delay={160}>
+              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                Whether you're looking to improve fitness, manage weight, build
+                healthier habits or create a healthier lifestyle for your family,
+                we'd love to understand your goals and see how DUOFIT can help.
               </p>
             </Reveal>
 
-            <Reveal delay={240}>
-              <p className="mt-3 text-sm text-muted-foreground italic">
-                Tell us a little about where you are right now and your current
-                lifestyle, challenges or health goals.
-              </p>
+            {/* Why People Choose DUOFIT */}
+            <Reveal delay={220}>
+              <h2 className="mt-10 text-sm font-bold uppercase tracking-widest text-primary">
+                Why People Choose DUOFIT
+              </h2>
             </Reveal>
+            <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {whyChoose.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <Reveal key={item.title} delay={260 + i * 60}>
+                    <div className="border border-border rounded-sm bg-card p-4 h-full">
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                        <Icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <h4 className="font-bold text-sm text-foreground">{item.title}</h4>
+                      <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
 
-            <Reveal delay={300}>
-              <div className="mt-8">
-                <ContactForm />
+            {/* Consultation Card */}
+            <Reveal delay={400}>
+              <div className="mt-8 rounded-sm border border-border bg-card p-5 md:p-6 flex flex-col sm:flex-row items-center gap-5">
+                <div className="h-24 w-24 sm:h-28 sm:w-28 rounded-full overflow-hidden bg-muted shrink-0">
+                  <img
+                    //src={founderImg}
+                    // alt="Nitesh and Nikitha — DUOFIT"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+                <div className="flex-1 text-center sm:text-left">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                    Free Consultation
+                  </span>
+                  <h3 className="mt-1 font-bold text-lg md:text-xl text-foreground leading-snug">
+                    Book a Free 15-Minute
+                    <br className="hidden sm:block" /> Health Consultation
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Let's discuss your goals, challenges and next steps. No pressure, just clarity.
+                  </p>
+                  <a
+                    href="https://calendly.com/duofit-support/new-meeting"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest hover:bg-primary hover:text-foreground transition-colors"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    Book Your 15-Minute Call
+                  </a>
+                  <p className="mt-3 text-xs text-muted-foreground flex items-center justify-center sm:justify-start gap-1.5">
+                    <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+                    100% Confidential · No Obligation
+                  </p>
+                </div>
               </div>
             </Reveal>
 
-            <Reveal delay={350}>
-              <div className="mt-10 overflow-hidden rounded-sm border border-border">
+          </div>
+
+          {/* RIGHT — Form */}
+          <div className="lg:col-span-5">
+            <Reveal delay={150}>
+              <div className="rounded-sm border border-border bg-card p-6 md:p-8">
+                <h2 className="text-lg font-bold text-primary uppercase tracking-wide mb-6">
+                  Tell Us About You
+                </h2>
+                <ContactForm />
               </div>
             </Reveal>
           </div>
 
-          {/* Channels side */}
-          <div className="lg:col-span-4 flex flex-col justify-start gap-4">
+        </div>
 
-            {/* Featured — Book a Call */}
-            <Reveal>
-              <div className="rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-primary/30">
-
-                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary/70">
-                  Free Consultation
-                </div>
-
-                <h3 className="text-2xl font-bold text-primary leading-tight">
-                  Book a 15-Minute
-                  <br />
-                  Health Clarity Call
-                </h3>
-
-                <p className="mt-3 text-sm text-primary/80">
-                  Choose a convenient time and receive instant confirmation.
-                </p>
-
-                <a
-                  href="https://calendly.com/duofit-support/new-meeting"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group relative inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-semibold uppercase tracking-widest overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95 "
-                  style={{
-                    backgroundColor: "var(--color-primary)",
-                    color: "#ffffff",
-                  }}
-                >
-                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
-
-                  <span className="relative z-10 flex items-center gap-2">
-                    Schedule Your Call
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                </a>
-
-              </div>
-            </Reveal>
-
-            <Reveal delay={60}>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-1 mt-2">
-                Connect with DUOFIT
-              </p>
-            </Reveal>
-
+        {/* LET'S STAY CONNECTED */}
+        <div className="mt-16 md:mt-20 border-t border-border pt-12">
+          <Reveal>
+            <h3 className="text-center text-sm font-bold uppercase tracking-widest text-primary mb-8">
+              Let's Stay Connected
+            </h3>
+          </Reveal>
+          <div className="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
             {channels.map((channel, i) => (
               <Reveal key={channel.title} delay={i * 100}>
                 <a
                   href={channel.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-4 border border-border bg-card rounded-sm p-5 hover:border-primary/50 hover:translate-x-1 active:scale-[0.98] transition-all min-h-[72px]"
+                  className="flex items-center gap-4 px-4 py-4 sm:py-0 hover:opacity-80 transition-opacity"
                 >
                   <div
                     className="h-11 w-11 rounded-full flex items-center justify-center shrink-0"
@@ -168,19 +217,15 @@ function Contact() {
                     {channel.svg}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground text-sm md:text-base">
-                      {channel.title}
-                    </h4>
-                    <span className="text-xs md:text-sm text-muted-foreground">
-                      {channel.desc}
-                    </span>
+                    <h4 className="font-semibold text-foreground text-sm">{channel.title}</h4>
+                    <span className="text-xs text-muted-foreground">{channel.desc}</span>
                   </div>
                 </a>
               </Reveal>
             ))}
           </div>
-
         </div>
+
       </section>
     </SiteLayout>
   );
