@@ -223,7 +223,7 @@ export function ContactForm() {
       </button>
 
       <p className="text-xs text-muted-foreground text-center">
-        🔒 Your information is safe with us and will never be shared.
+         We personally respond within 24 hours.
       </p>
     </form>
   );
