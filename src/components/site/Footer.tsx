@@ -36,7 +36,13 @@ export function Footer() {
                 <li key={l.to}>
                   <Link to={l.to} className="text-xs md:text-sm text-background/60 hover:text-background transition-colors py-1 block">{l.label}</Link>
                 </li>
+
               ))}
+              <li>
+                <Link to="/forms">
+                  Forms
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -68,12 +74,12 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between gap-2 text-[10px] md:text-xs text-background/30">
-  <span>© {new Date().getFullYear()} DUOFIT. All rights reserved.</span>
-  <div className="flex gap-4">
-    <Link to="/privacy" className="hover:text-background/60 transition-colors">Privacy Policy</Link>
-    <span>Become Better Everyday</span>
-  </div>
-</div>
+          <span>© {new Date().getFullYear()} DUOFIT. All rights reserved.</span>
+          <div className="flex gap-4">
+            <Link to="/privacy" className="hover:text-background/60 transition-colors">Privacy Policy</Link>
+            <span>Become Better Everyday</span>
+          </div>
+        </div>
       </div>
     </footer>
   );
