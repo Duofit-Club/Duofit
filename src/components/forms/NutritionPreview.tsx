@@ -18,12 +18,6 @@ export function NutritionPreview({
         }
     };
 
-    const shareFounder = () => {
-        window.open(
-            "https://wa.me/919999999999?text=Hi, I completed my DUOFIT assessment and downloaded my report."
-        );
-    };
-
     return (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
             <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6">
@@ -33,7 +27,7 @@ export function NutritionPreview({
                     className="bg-white text-black p-6 rounded-lg"
                 >
                     <h1 className="text-2xl font-bold text-[#15803d] mb-6">
-                        DUOFIT Nutrition Report
+                        DUOFIT - User Details
                     </h1>
 
                     {Object.entries(data).map(([key, value]) => (
@@ -67,15 +61,6 @@ export function NutritionPreview({
   hover:scale-105 hover:shadow-lg hover:shadow-green-500/30"
                     >
                         ⬇ Download PDF
-                    </button>
-
-                    <button
-                        onClick={shareFounder}
-                        className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 
-  text-white rounded-full font-medium transition-all duration-300 
-  hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30"
-                    >
-                        📤 Share Founder
                     </button>
 
                     <button
