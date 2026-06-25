@@ -152,7 +152,7 @@ function About() {
             <Reveal delay={120}>
               <div className="overflow-hidden rounded-sm aspect-[4/5] bg-muted">
                 <img
-                   src={founderAfter}
+                  src={founderAfter}
                   alt="Nitesh and Nikitha — DUOFIT Founders"
                   className="h-full w-full object-cover object-top"
                   loading="lazy"
