@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
-import founderAfter from "@/assets/founder-after.jpeg";
+import founderAfter from "@/assets/founders.jpeg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -152,7 +152,7 @@ function About() {
             <Reveal delay={120}>
               <div className="overflow-hidden rounded-sm aspect-[4/5] bg-muted">
                 <img
-                  // src={founderAfter}
+                   src={founderAfter}
                   alt="Nitesh and Nikitha — DUOFIT Founders"
                   className="h-full w-full object-cover object-top"
                   loading="lazy"
