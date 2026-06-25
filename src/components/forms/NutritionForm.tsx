@@ -8,8 +8,6 @@ import { toast } from "sonner";
 
 const WEB3FORMS_KEY = "5f818451-df1b-43db-8385-4f10aa4f9266";
 
-// ── Form Registry ─────────────────────────────────────────────────────────────
-
 
 // ── Nutrition Data Types ──────────────────────────────────────────────────────
 type NutritionData = {
@@ -173,8 +171,8 @@ function ScaleInput({ label, value, onChange }: {
         {["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"].map(n => (
           <button key={n} type="button" onClick={() => onChange(n)}
             className={`h-9 w-9 rounded-sm text-sm font-medium border transition-colors ${value === n
-                ? "bg-primary text-foreground border-primary"
-                : "border-border hover:border-primary/50 text-foreground"
+              ? "bg-primary text-foreground border-primary"
+              : "border-border hover:border-primary/50 text-foreground"
               }`}>
             {n}
           </button>
@@ -586,9 +584,11 @@ export function NutritionForm() {
           email: data.email,
           message: body,
           replyto: data.email,
+          botcheck: false,
         }),
       });
       const result = await res.json();
+      console.log("Web3Forms Response:", result);
       if (result.success) {
         setSubmitted(true);
         toast.success("Form submitted! We will be in touch within 24 hours.");
