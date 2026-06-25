@@ -5,9 +5,8 @@ import {
   Check,
 } from "lucide-react";
 import { toast } from "sonner";
-
+import { NutritionPreview } from "./NutritionPreview";
 const WEB3FORMS_KEY = "5f818451-df1b-43db-8385-4f10aa4f9266";
-
 
 // ── Nutrition Data Types ──────────────────────────────────────────────────────
 type NutritionData = {
@@ -482,6 +481,7 @@ export function NutritionForm() {
   const [data, setData] = useState<NutritionData>(INIT);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   const update = (key: keyof NutritionData, value: any) =>
     setData(prev => ({ ...prev, [key]: value }));
@@ -693,15 +693,26 @@ export function NutritionForm() {
             </button>
           ) : (
             <button
-              onClick={handleSubmit}
+              onClick={() => setShowPreview(true)}
               disabled={submitting}
               className="inline-flex items-center gap-2 bg-primary px-6 py-2 rounded-full"
             >
-              {submitting ? "Submitting..." : "Submit"}
+              {submitting ? "Loading..." : "Preview & Submit"}
               <Check className="h-4 w-4" />
             </button>
           )}
+          {showPreview && (
+            <NutritionPreview
+              data={data}
+              onClose={() => setShowPreview(false)}
+              onSubmit={async () => {
+                await handleSubmit();
+                setShowPreview(false);
+              }}
+            />
+          )}
         </div>
+
       )}
     </div>
   );
