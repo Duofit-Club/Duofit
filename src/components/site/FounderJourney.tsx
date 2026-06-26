@@ -204,35 +204,30 @@ function MilestoneContent({
 }
 
 // ─── Vertical Timeline ────────────────────────────────────────────────────────
-
 function VerticalTimeline() {
   const { ref: wrapRef, visible } = useInView(0.04);
-  const [lineHeightPx, setLineHeightPx] = useState(0);
-  // We measure only the rows div, not the whole wrapper
-  const rowsRef = useRef<HTMLDivElement>(null);
+  const [lineWidthPx, setLineWidthPx] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!visible) return;
-    // Use the rows container height so line stops exactly at last dot
-    const totalH = rowsRef.current?.scrollHeight ?? 800;
+    const totalW = trackRef.current?.scrollWidth ?? 800;
     const duration = MILESTONES.length * 160 + 300;
     let start: number | null = null;
     function tick(ts: number) {
       if (!start) start = ts;
       const t = Math.min((ts - start) / duration, 1);
       const eased = 1 - Math.pow(1 - t, 3);
-      setLineHeightPx(eased * totalH);
+      setLineWidthPx(eased * totalW);
       if (t < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
   }, [visible]);
 
-  // Dot size constants
-  const DOT_MD = 36;   // px — desktop
-  const DOT_SM = 28;   // px — mobile
+  const DOT = 36;
 
   return (
-    <div ref={wrapRef} className="relative">
+    <div ref={wrapRef} className="w-full overflow-x-auto pb-4">
       <style>{`
         @keyframes ping-once {
           0%   { transform: scale(1); opacity: 0.55; }
@@ -240,136 +235,186 @@ function VerticalTimeline() {
         }
       `}</style>
 
-      {/* ── Spine lines — only span the rows, no overflow ── */}
-      {/* Desktop: centred */}
-      <div
-        className="hidden md:block absolute top-0 bg-border pointer-events-none"
-        style={{ left: "50%", width: "2px", transform: "translateX(-50%)", height: rowsRef.current?.scrollHeight ?? "100%" }}
-      />
-      <div
-        className="hidden md:block absolute top-0 bg-primary pointer-events-none"
-        style={{ left: "50%", width: "2px", transform: "translateX(-50%)", height: `${lineHeightPx}px` }}
-      />
+      {/* ── DESKTOP: horizontal ── */}
+      <div className="hidden md:block relative" style={{ minWidth: `${MILESTONES.length * 180}px` }}>
 
-      {/* Mobile: left-aligned at dot centre */}
-      <div
-        className="md:hidden absolute top-0 bg-border pointer-events-none"
-        style={{ left: `${DOT_SM / 2}px`, width: "2px", transform: "translateX(-50%)", height: rowsRef.current?.scrollHeight ?? "100%" }}
-      />
-      <div
-        className="md:hidden absolute top-0 bg-primary pointer-events-none"
-        style={{ left: `${DOT_SM / 2}px`, width: "2px", transform: "translateX(-50%)", height: `${lineHeightPx}px` }}
-      />
+        {/* Track */}
+        <div ref={trackRef} className="relative h-0.5 bg-border mx-8 my-0"
+          style={{ marginTop: "160px" }}
+        >
+          {/* Animated fill */}
+          <div
+            className="absolute top-0 left-0 h-full bg-primary"
+            style={{ width: `${lineWidthPx}px`, transition: "none" }}
+          />
 
-      {/* ── Rows ── */}
-      <div ref={rowsRef} className="flex flex-col">
-        {MILESTONES.map((m, i) => {
-          const isLeft = i % 2 === 0;
-          const delay = i * 160 + 80;
-          const isLast = i === MILESTONES.length - 1;
+          {/* Dots + content */}
+          {MILESTONES.map((m, i) => {
+            const pct = i / (MILESTONES.length - 1);
+            const delay = i * 160 + 80;
+            const isUp = i % 2 === 0;
 
-          return (
-            <div
-              key={i}
-              className="relative flex items-center"
-              style={{ paddingBottom: isLast ? 0 : "36px" }}
-            >
-              {/* ── DESKTOP LAYOUT ── */}
-
-              {/* Left content area */}
-              <div className="hidden md:block" style={{ width: `calc(50% - ${DOT_MD / 2 + 20}px)`, paddingRight: "0" }}>
-                {isLeft && (
-                  <div
-                    style={{
-                      opacity: visible ? 1 : 0,
-                      transform: visible ? "translateX(0)" : "translateX(-18px)",
-                      transition: `opacity 0.55s ease ${delay + 80}ms, transform 0.55s ease ${delay + 80}ms`,
-                    }}
-                  >
-                    <MilestoneContent m={m} align="right" />
-                  </div>
-                )}
-              </div>
-
-              {/* Dot — desktop centred */}
+            return (
               <div
-                className="hidden md:flex absolute items-center justify-center rounded-full bg-primary text-white font-bold z-10 overflow-hidden"
+                key={i}
+                className="absolute"
                 style={{
-                  width: `${DOT_MD}px`,
-                  height: `${DOT_MD}px`,
-                  left: "50%",
+                  left: `${pct * 100}%`,
                   top: "50%",
                   transform: "translate(-50%, -50%)",
-                  fontSize: "13px",
-                  opacity: visible ? 1 : 0,
-                  scale: visible ? "1" : "0",
-                  transition: `opacity 0.35s ease ${delay}ms, scale 0.4s ease ${delay}ms`,
-                  boxShadow: "0 0 0 5px color-mix(in srgb, var(--color-primary) 18%, transparent)",
                 }}
               >
-                {i + 1}
-                {visible && (
+                {/* Connector line */}
+                <div
+                  className="absolute left-1/2 bg-border"
+                  style={{
+                    width: "1px",
+                    height: "36px",
+                    transform: "translateX(-50%)",
+                    top: isUp ? "auto" : `${DOT / 2}px`,
+                    bottom: isUp ? `${DOT / 2}px` : "auto",
+                  }}
+                />
+
+                {/* Dot */}
+                <div
+                  className="flex items-center justify-center rounded-full bg-primary text-white font-bold z-10 overflow-hidden relative"
+                  style={{
+                    width: `${DOT}px`,
+                    height: `${DOT}px`,
+                    fontSize: "13px",
+                    opacity: visible ? 1 : 0,
+                    scale: visible ? "1" : "0",
+                    transition: `opacity 0.35s ease ${delay}ms, scale 0.4s ease ${delay}ms`,
+                    boxShadow: "0 0 0 5px color-mix(in srgb, var(--color-primary) 18%, transparent)",
+                  }}
+                >
+                  {i + 1}
+                  {visible && (
+                    <span
+                      className="absolute inset-0 rounded-full bg-primary"
+                      style={{ animation: `ping-once 0.6s ease-out ${delay + 200}ms 1 both` }}
+                    />
+                  )}
+                </div>
+
+                {/* Content — alternates above / below */}
+                <div
+                  className="absolute w-40"
+                  style={{
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    ...(isUp
+                      ? { bottom: `${DOT + 36 + 8}px`, textAlign: "center" }
+                      : { top: `${DOT + 36 + 8}px`, textAlign: "center" }
+                    ),
+                    opacity: visible ? 1 : 0,
+                    ...(isUp
+                      ? { transitionProperty: "opacity, transform",
+                          transitionDuration: "0.55s",
+                          transitionTimingFunction: "ease",
+                          transitionDelay: `${delay + 80}ms`,
+                          transform: visible ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-12px)" }
+                      : { transitionProperty: "opacity, transform",
+                          transitionDuration: "0.55s",
+                          transitionTimingFunction: "ease",
+                          transitionDelay: `${delay + 80}ms`,
+                          transform: visible ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(12px)" }
+                    ),
+                  }}
+                >
+                  {/* Date badge */}
                   <span
-                    className="absolute inset-0 rounded-full bg-primary"
-                    style={{ animation: `ping-once 0.6s ease-out ${delay + 200}ms 1 both` }}
-                  />
-                )}
-              </div>
-
-              {/* Spacer for dot width */}
-              <div className="hidden md:block shrink-0" style={{ width: `${DOT_MD + 40}px` }} />
-
-              {/* Right content area */}
-              <div className="hidden md:block" style={{ width: `calc(50% - ${DOT_MD / 2 + 20}px)` }}>
-                {!isLeft && (
-                  <div
+                    className="inline-block text-[8px] font-bold uppercase tracking-[0.16em] px-2 py-0.5 rounded-full mb-1.5"
                     style={{
-                      opacity: visible ? 1 : 0,
-                      transform: visible ? "translateX(0)" : "translateX(18px)",
-                      transition: `opacity 0.55s ease ${delay + 80}ms, transform 0.55s ease ${delay + 80}ms`,
+                      color: "var(--color-primary)",
+                      background: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
+                      border: "1px solid color-mix(in srgb, var(--color-primary) 28%, transparent)",
                     }}
                   >
-                    <MilestoneContent m={m} align="left" />
+                    {m.date}
+                  </span>
+
+                  {/* Weight + BF */}
+                  <div className="flex items-baseline gap-1 justify-center flex-wrap">
+                    <span className="text-base font-bold text-foreground leading-none">{m.weight}</span>
+                    {m.bf && (
+                      <span className="text-[11px] font-semibold text-primary">{m.bf}</span>
+                    )}
                   </div>
-                )}
-              </div>
 
-              {/* ── MOBILE LAYOUT ── */}
+                  {/* Extra stats */}
+                  {m.extra && (
+                    <p className="text-[8px] text-muted-foreground mt-0.5 leading-relaxed">{m.extra}</p>
+                  )}
 
-              {/* Dot — mobile left */}
-              <div
-                className="md:hidden shrink-0 flex items-center justify-center rounded-full bg-primary text-white font-bold z-10 overflow-hidden"
-                style={{
-                  width: `${DOT_SM}px`,
-                  height: `${DOT_SM}px`,
-                  fontSize: "11px",
-                  opacity: visible ? 1 : 0,
-                  scale: visible ? "1" : "0",
-                  transition: `opacity 0.35s ease ${delay}ms, scale 0.4s ease ${delay}ms`,
-                  boxShadow: "0 0 0 4px color-mix(in srgb, var(--color-primary) 18%, transparent)",
-                  position: "relative",
-                  zIndex: 10,
-                }}
-              >
-                {i + 1}
-              </div>
+                  {/* Note */}
+                  <p className="text-[9px] text-muted-foreground mt-1 leading-relaxed">{m.note}</p>
+                </div>
 
-              {/* Card — mobile right of dot */}
-              <div
-                className="md:hidden flex-1 pl-4"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? "translateX(0)" : "translateX(14px)",
-                  transition: `opacity 0.55s ease ${delay + 80}ms, transform 0.55s ease ${delay + 80}ms`,
-                }}
-              >
-                <MilestoneContent m={m} align="left" />
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+
+        {/* Bottom spacing for "below" content */}
+        <div style={{ height: "180px" }} />
       </div>
-      {/* No terminal dot — spine ends naturally at last milestone */}
+
+      {/* ── MOBILE: keep vertical ── */}
+      <div className="md:hidden relative">
+        <style>{``}</style>
+        {/* Spine */}
+        <div className="absolute top-0 bg-border pointer-events-none"
+          style={{ left: "14px", width: "2px", height: "100%" }} />
+        <div className="absolute top-0 bg-primary pointer-events-none"
+          style={{ left: "14px", width: "2px", height: `${lineWidthPx}px` }} />
+
+        <div className="flex flex-col">
+          {MILESTONES.map((m, i) => {
+            const delay = i * 160 + 80;
+            const isLast = i === MILESTONES.length - 1;
+            return (
+              <div
+                key={i}
+                className="relative flex items-start"
+                style={{ paddingBottom: isLast ? 0 : "28px" }}
+              >
+                {/* Dot */}
+                <div
+                  className="shrink-0 flex items-center justify-center rounded-full bg-primary text-white font-bold z-10 overflow-hidden"
+                  style={{
+                    width: "28px",
+                    height: "28px",
+                    fontSize: "11px",
+                    opacity: visible ? 1 : 0,
+                    scale: visible ? "1" : "0",
+                    transition: `opacity 0.35s ease ${delay}ms, scale 0.4s ease ${delay}ms`,
+                    boxShadow: "0 0 0 4px color-mix(in srgb, var(--color-primary) 18%, transparent)",
+                    position: "relative",
+                    zIndex: 10,
+                  }}
+                >
+                  {i + 1}
+                </div>
+
+                {/* Content */}
+                <div
+                  className="flex-1 pl-4"
+                  style={{
+                    opacity: visible ? 1 : 0,
+                    transform: visible ? "translateX(0)" : "translateX(14px)",
+                    transition: `opacity 0.55s ease ${delay + 80}ms, transform 0.55s ease ${delay + 80}ms`,
+                  }}
+                >
+                  <MilestoneContent m={m} align="left" />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
     </div>
   );
 }
