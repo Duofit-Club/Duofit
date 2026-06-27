@@ -56,9 +56,9 @@ const MILESTONES = [
 ];
 
 const STATS = [
-  { value: "9+",    label: "Months",    sub: "of consistency" },
-  { value: "~9 kg", label: "Weight",    sub: "reduced overall" },
-  { value: "5.3%",  label: "Body Fat",  sub: "reduction" },
+  { value: "9+", label: "Months", sub: "of consistency" },
+  { value: "~9 kg", label: "Weight", sub: "reduced overall" },
+  { value: "5.3%", label: "Body Fat", sub: "reduction" },
   { value: "+6 kg", label: "Lean Mass", sub: "gained" },
 ];
 
@@ -310,16 +310,20 @@ function VerticalTimeline() {
                     ),
                     opacity: visible ? 1 : 0,
                     ...(isUp
-                      ? { transitionProperty: "opacity, transform",
-                          transitionDuration: "0.55s",
-                          transitionTimingFunction: "ease",
-                          transitionDelay: `${delay + 80}ms`,
-                          transform: visible ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-12px)" }
-                      : { transitionProperty: "opacity, transform",
-                          transitionDuration: "0.55s",
-                          transitionTimingFunction: "ease",
-                          transitionDelay: `${delay + 80}ms`,
-                          transform: visible ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(12px)" }
+                      ? {
+                        transitionProperty: "opacity, transform",
+                        transitionDuration: "0.55s",
+                        transitionTimingFunction: "ease",
+                        transitionDelay: `${delay + 80}ms`,
+                        transform: visible ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-12px)"
+                      }
+                      : {
+                        transitionProperty: "opacity, transform",
+                        transitionDuration: "0.55s",
+                        transitionTimingFunction: "ease",
+                        transitionDelay: `${delay + 80}ms`,
+                        transform: visible ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(12px)"
+                      }
                     ),
                   }}
                 >
@@ -361,57 +365,182 @@ function VerticalTimeline() {
         <div style={{ height: "180px" }} />
       </div>
 
-      {/* ── MOBILE: keep vertical ── */}
-      <div className="md:hidden relative">
-        <style>{``}</style>
-        {/* Spine */}
-        <div className="absolute top-0 bg-border pointer-events-none"
-          style={{ left: "14px", width: "2px", height: "100%" }} />
-        <div className="absolute top-0 bg-primary pointer-events-none"
-          style={{ left: "14px", width: "2px", height: `${lineWidthPx}px` }} />
+      {/* ── MOBILE: horizontal scroll ── */}
+      <div className="md:hidden relative overflow-x-auto pb-4">
+        <div
+          className="relative"
+          style={{ minWidth: `${MILESTONES.length * 140}px` }}
+        >
+          {/* Track base */}
+          <div
+            className="absolute bg-border"
+            style={{
+              top: "108px",
+              left: "16px",
+              right: "16px",
+              height: "2px",
+            }}
+          />
+          {/* Animated fill */}
+          <div
+            className="absolute bg-primary"
+            style={{
+              top: "108px",
+              left: "16px",
+              height: "2px",
+              width: `${lineWidthPx}px`,
+              transition: "none",
+            }}
+          />
 
-        <div className="flex flex-col">
-          {MILESTONES.map((m, i) => {
-            const delay = i * 160 + 80;
-            const isLast = i === MILESTONES.length - 1;
-            return (
-              <div
-                key={i}
-                className="relative flex items-start"
-                style={{ paddingBottom: isLast ? 0 : "28px" }}
-              >
-                {/* Dot */}
-                <div
-                  className="shrink-0 flex items-center justify-center rounded-full bg-primary text-white font-bold z-10 overflow-hidden"
-                  style={{
-                    width: "28px",
-                    height: "28px",
-                    fontSize: "11px",
-                    opacity: visible ? 1 : 0,
-                    scale: visible ? "1" : "0",
-                    transition: `opacity 0.35s ease ${delay}ms, scale 0.4s ease ${delay}ms`,
-                    boxShadow: "0 0 0 4px color-mix(in srgb, var(--color-primary) 18%, transparent)",
-                    position: "relative",
-                    zIndex: 10,
-                  }}
-                >
-                  {i + 1}
-                </div>
+          {/* Dots + content */}
+          <div className="flex justify-between px-4">
+            {MILESTONES.map((m, i) => {
+              const delay = i * 160 + 80;
+              const isUp = i % 2 === 0;
+              const DOT_M = 28;
 
-                {/* Content */}
+              return (
                 <div
-                  className="flex-1 pl-4"
-                  style={{
-                    opacity: visible ? 1 : 0,
-                    transform: visible ? "translateX(0)" : "translateX(14px)",
-                    transition: `opacity 0.55s ease ${delay + 80}ms, transform 0.55s ease ${delay + 80}ms`,
-                  }}
+                  key={i}
+                  className="relative flex flex-col items-center"
+                  style={{ width: "120px", flexShrink: 0 }}
                 >
-                  <MilestoneContent m={m} align="left" />
+                  {/* Content ABOVE track */}
+                  <div
+                    className="w-full text-center"
+                    style={{
+                      minHeight: "80px",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "flex-end",
+                      paddingBottom: "8px",
+                      opacity: visible ? 1 : 0,
+                      transform: visible
+                        ? "translateY(0)"
+                        : isUp ? "translateY(-10px)" : "translateY(0)",
+                      transition: `opacity 0.55s ease ${delay + 80}ms, transform 0.55s ease ${delay + 80}ms`,
+                    }}
+                  >
+                    {isUp && (
+                      <>
+                        <span
+                          className="inline-block text-[7px] font-bold uppercase tracking-[0.14em] px-1.5 py-0.5 rounded-full mb-1 mx-auto"
+                          style={{
+                            color: "var(--color-primary)",
+                            background: "color-mix(in srgb, var(--color-primary) 12%, transparent)",
+                            border: "1px solid color-mix(in srgb, var(--color-primary) 28%, transparent)",
+                            maxWidth: "fit-content",
+                          }}
+                        >
+                          {m.date}
+                        </span>
+                        <div className="flex items-baseline gap-1 justify-center flex-wrap">
+                          <span className="text-xs font-bold text-foreground leading-none">
+                            {m.weight}
+                          </span>
+                          {m.bf && (
+                            <span className="text-[9px] font-semibold text-primary">
+                              {m.bf}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[8px] text-muted-foreground mt-0.5 leading-relaxed px-1">
+                          {m.note}
+                        </p>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Connector up */}
+                  {isUp && (
+                    <div
+                      className="bg-border"
+                      style={{ width: "1px", height: "12px" }}
+                    />
+                  )}
+
+                  {/* Dot */}
+                  <div
+                    className="flex items-center justify-center rounded-full bg-primary text-white font-bold z-10 overflow-hidden relative shrink-0"
+                    style={{
+                      width: `${DOT_M}px`,
+                      height: `${DOT_M}px`,
+                      fontSize: "10px",
+                      opacity: visible ? 1 : 0,
+                      scale: visible ? "1" : "0",
+                      transition: `opacity 0.35s ease ${delay}ms, scale 0.4s ease ${delay}ms`,
+                      boxShadow:
+                        "0 0 0 4px color-mix(in srgb, var(--color-primary) 18%, transparent)",
+                    }}
+                  >
+                    {i + 1}
+                    {visible && (
+                      <span
+                        className="absolute inset-0 rounded-full bg-primary"
+                        style={{
+                          animation: `ping-once 0.6s ease-out ${delay + 200}ms 1 both`,
+                        }}
+                      />
+                    )}
+                  </div>
+
+                  {/* Connector down */}
+                  {!isUp && (
+                    <div
+                      className="bg-border"
+                      style={{ width: "1px", height: "12px" }}
+                    />
+                  )}
+
+                  {/* Content BELOW track */}
+                  <div
+                    className="w-full text-center"
+                    style={{
+                      minHeight: "80px",
+                      paddingTop: "8px",
+                      opacity: visible ? 1 : 0,
+                      transform: visible
+                        ? "translateY(0)"
+                        : !isUp ? "translateY(10px)" : "translateY(0)",
+                      transition: `opacity 0.55s ease ${delay + 80}ms, transform 0.55s ease ${delay + 80}ms`,
+                    }}
+                  >
+                    {!isUp && (
+                      <>
+                        <span
+                          className="inline-block text-[7px] font-bold uppercase tracking-[0.14em] px-1.5 py-0.5 rounded-full mb-1 mx-auto"
+                          style={{
+                            color: "var(--color-primary)",
+                            background:
+                              "color-mix(in srgb, var(--color-primary) 12%, transparent)",
+                            border:
+                              "1px solid color-mix(in srgb, var(--color-primary) 28%, transparent)",
+                            maxWidth: "fit-content",
+                          }}
+                        >
+                          {m.date}
+                        </span>
+                        <div className="flex items-baseline gap-1 justify-center flex-wrap">
+                          <span className="text-xs font-bold text-foreground leading-none">
+                            {m.weight}
+                          </span>
+                          {m.bf && (
+                            <span className="text-[9px] font-semibold text-primary">
+                              {m.bf}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[8px] text-muted-foreground mt-0.5 leading-relaxed px-1">
+                          {m.note}
+                        </p>
+                      </>
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
 
