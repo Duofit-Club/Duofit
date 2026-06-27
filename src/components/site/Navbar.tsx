@@ -14,7 +14,7 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/90 border-b border-border/60">
+    <header className="sticky top-0 z-40 backdrop-blur-xl bg-background border-b border-border">
       <div className="container-editorial flex h-16 md:h-20 items-center justify-between">
 
         {/* Logo */}
@@ -22,7 +22,7 @@ export function Navbar() {
           <img src={duofitLogo} alt="Duofit" className="h-9 md:h-12 w-auto" />
           <div className="flex flex-col leading-tight">
             <span className="font-bold text-sm md:text-base tracking-widest text-foreground uppercase">DUOFIT</span>
-            <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/70 font-medium">
               <span>Fitness</span>
               <span className="text-primary text-[8px]">•</span>
               <span>Nutrition</span>
@@ -36,7 +36,7 @@ export function Navbar() {
         <nav className="hidden lg:flex items-center gap-7 text-sm">
           {links.map((l) => (
             <Link key={l.to} to={l.to}
-              className="text-xs font-medium uppercase tracking-widest text-foreground/60 hover:text-foreground transition-colors py-1"
+              className="text-xs font-semibold uppercase tracking-widest text-foreground/80 hover:text-foreground transition-colors py-1"
               activeProps={{ className: "text-xs font-medium uppercase tracking-widest text-foreground border-b-2 border-primary" }}
               activeOptions={{ exact: l.to === "/" }}>
               {l.label}
@@ -69,7 +69,7 @@ export function Navbar() {
           <div className="container-editorial py-4 flex flex-col">
             {links.map((l) => (
               <Link key={l.to} to={l.to} onClick={() => setOpen(false)}
-                className="text-sm font-medium uppercase tracking-widest text-foreground/70 hover:text-foreground py-4 border-b border-border/50 last:border-0">
+                className="text-sm font-bold uppercase tracking-widest text-foreground hover:text-primary py-4 border-b border-border last:border-0 transition-colors">
                 {l.label}
               </Link>
             ))}
