@@ -4,7 +4,6 @@ import {
   Flower2,
   UserCheck,
   HeartHandshake,
-  Calendar,
   MessageCircle,
   ShieldCheck,
 } from "lucide-react";
@@ -141,53 +140,24 @@ function Contact() {
                   and see if DUOFIT is the right fit for you.
                 </p>
 
-                <div className="mt-5 flex flex-col gap-4">
-                  {/* Call Button */}
-                  <a
-                    href="https://calendly.com/duofit-support/new-meeting"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="relative inline-flex items-center justify-center gap-2.5 rounded-full px-5 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-xl overflow-hidden group"
-                    style={{
-                      backgroundColor: "#C89B5A",
-                      boxShadow: "0 6px 20px rgba(200,155,90,0.28)",
-                    }}
-                  >
-                    {/* Pulse effect */}
-                    <span
-                      className="absolute inset-0 rounded-full animate-ping opacity-15"
-                      style={{ backgroundColor: "#C89B5A" }}
-                    />
-
-                    {/* Shine effect */}
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-
-                    <Calendar className="h-4 w-4 relative z-10" />
-                    <span className="relative z-10">15-Min Session via Call</span>
-                  </a>
-
-                  {/* WhatsApp Button */}
+                <div className="mt-5">
                   <a
                     href={SESSION_WA_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="relative inline-flex items-center justify-center gap-2.5 rounded-full px-5 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-xl overflow-hidden group"
+                    className="relative inline-flex items-center justify-center gap-2.5 rounded-full w-full px-5 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl overflow-hidden group"
                     style={{
                       backgroundColor: "#25D366",
                       boxShadow: "0 6px 20px rgba(37,211,102,0.28)",
                     }}
                   >
-                    {/* Pulse effect */}
                     <span
                       className="absolute inset-0 rounded-full animate-ping opacity-15"
                       style={{ backgroundColor: "#25D366" }}
                     />
-
-                    {/* Shine effect */}
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-
                     <MessageCircle className="h-4 w-4 relative z-10" />
-                    <span className="relative z-10">15-Min Session via WhatsApp</span>
+                    <span className="relative z-10">Chat on WhatsApp</span>
                   </a>
                 </div>
 
@@ -201,7 +171,7 @@ function Contact() {
           </div>
 
         </div>
-      </section>
-    </SiteLayout>
+      </section >
+    </SiteLayout >
   );
 }
