@@ -1,9 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import {
+  ArrowRight,
+  Search,
+  XCircle,
+  Heart,
+  CheckCircle2,
+  Zap,
+  Moon,
+  UserCheck,
+  ClipboardList,
+  Dumbbell,
+  Users,
+  HeartPulse,
+  Flag,
+  Check,
+} from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import founderAfter from "@/assets/founders.jpeg";
+import heroFamily from "@/assets/family-photo.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -12,342 +27,343 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "DUOFIT was built to help people build healthier lifestyles in a more practical, realistic and sustainable way.",
+          "Health, designed to last. DUOFIT was built on the belief that better health should come from practical choices that fit real life.",
       },
     ],
   }),
   component: About,
 });
 
-const beliefs = [
-  {
-    front: "BUILT FOR REAL LIFE",
-    back: "Health should fit alongside work, stress, family life and busy schedules.",
-  },
-  {
-    front: "MORE THAN WEIGHT LOSS",
-    back: "Sleep, movement, eating habits, stress and consistency all affect long-term health.",
-  },
-  {
-    front: "CONSISTENCY OVER EXTREMES",
-    back: "Extreme routines rarely last. Small realistic habits create better long-term results.",
-  },
-  {
-    front: "FAMILY & ENVIRONMENT MATTER",
-    back: "Health becomes easier when routines and habits improve together at home.",
-  },
+const cycleItems = ["Start.", "Stop.", "Restart.", "Another Monday.", "Another challenge.", "Another diet."];
+
+const whatWeBuildLeft = [
+  { icon: Zap, label: "Feel more energetic" },
+  { icon: Moon, label: "Sleep better" },
+  { icon: UserCheck, label: "Build confidence" },
+  { icon: ClipboardList, label: "Create healthier routines" },
 ];
 
-const values = [
-  "Healthy living should not feel like punishment.",
-  "Consistency matters more than perfection.",
-  "Prevention is easier than recovery.",
-  "Health should support life, not interrupt it.",
-  "Families become healthier when habits improve together.",
+const whatWeBuildRight = [
+  { icon: Dumbbell, label: "Improve movement" },
+  { icon: Users, label: "Support their families" },
+  { icon: HeartPulse, label: "Build lasting health" },
 ];
 
-const forWho = [
-  "Busy professionals struggling with unhealthy routines and inconsistency",
-  "Parents trying to create healthier lifestyles for their families",
-  "Individuals restarting their health journey after previous failures",
-  "People looking for realistic fat loss and lifestyle improvement",
-  "Families wanting healthier habits together",
+const principles = [
+  "Health should fit into life—not the other way around.",
+  "Progress matters more than perfection.",
+  "Consistency beats intensity.",
+  "Healthy routines create lasting results.",
+  "Energy is one of the best measures of good health.",
+  "If it can't last, it isn't DUOFIT.",
 ];
 
-function BeliefCard({ card }: { card: typeof beliefs[0] }) {
-  const [clicked, setClicked] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const flipped = clicked || hovered;
-
-  return (
-    <div
-      role="button"
-      tabIndex={0}
-      className="h-36 md:h-40 [perspective:1000px] cursor-pointer select-none focus:outline-none"
-      onClick={() => setClicked((f) => !f)}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onKeyDown={(e) =>
-        (e.key === "Enter" || e.key === " ") && setClicked((f) => !f)
-      }
-    >
-      <div
-        className={`relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] ${flipped ? "[transform:rotateY(180deg)]" : ""
-          }`}
-      >
-        {/* Front */}
-        <div className="absolute inset-0 [backface-visibility:hidden] border border-border bg-background rounded-sm p-4 flex flex-col justify-between">
-          <h4 className="text-sm md:text-base font-bold text-foreground leading-tight">
-            {card.front}
-          </h4>
-          <span className="text-[9px] uppercase tracking-widest text-muted-foreground">
-            <span className="md:hidden">Tap</span>
-            <span className="hidden md:inline">Hover or click</span>
-          </span>
-        </div>
-        {/* Back */}
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] border border-primary/30 bg-primary/5 rounded-sm p-4 flex items-center justify-center">
-          <p className="text-xs md:text-sm text-foreground font-medium leading-relaxed text-center">
-            {card.back}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+const visionItems = [
+  "We imagine a future where healthy living doesn't feel overwhelming.",
+  "Where families grow stronger together.",
+  "Where children develop healthier habits early.",
+  "Where people stop chasing quick fixes and start building lasting health.",
+];
 
 function About() {
   return (
     <SiteLayout>
 
-      {/* ── ORIGIN STORY — no eyebrow ── */}
-      <section className="container-editorial pt-16 md:pt-24 lg:pt-32 pb-16 md:pb-24">
-        <div>
-          {/* <Reveal>
-            <div className="h-0.5 w-12 bg-primary mb-8" />
-          </Reveal> */}
-          <Reveal delay={80}>
-            <h1
-              className="mt-5 font-bold tracking-[-0.04em] leading-[0.95]"
-              style={{ fontSize: "clamp(2.4rem, 5.5vw, 5.25rem)" }}
-            >
-              Healthy living should fit{" "}
-              <span className="text-primary italic">Real Life.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="mt-6 text-lg md:text-xl font-semibold text-foreground leading-relaxed">
-              DUOFIT started from a simple observation.
-            </p>
-          </Reveal>
-          <Reveal delay={220}>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-              Most people are not struggling because they don't care about
-              health. They struggle because modern life makes consistency
-              difficult. Busy schedules, stress, poor routines, outside food,
-              screen time and unrealistic expectations slowly affect health
-              over time.
-            </p>
-          </Reveal>
-          <Reveal delay={280}>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-              We created DUOFIT to help people build healthier lifestyles in a
-              more practical, realistic and sustainable way.
-            </p>
+      {/* ── HERO ── */}
+      <section className="container-editorial pt-14 md:pt-20 pb-12 md:pb-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div>
+            <Reveal>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                Our Philosophy
+              </span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05]">
+                <span className="block text-foreground">Health,</span>
+                <span className="block text-primary">Designed to Last.</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg">
+                We believe better health shouldn't come from extreme diets,
+                unrealistic routines or temporary motivation. It should come
+                from practical choices that fit real life—and last.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={140}>
+            <div className="overflow-hidden rounded-3xl aspect-[4/3] bg-muted">
+              <img
+                src={heroFamily}
+                alt="A family walking together outdoors"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── MEET THE FOUNDERS ── */}
-      <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-16 md:py-24">
+      {/* ── WHY DUOFIT EXISTS ── */}
+      <section className="container-editorial pb-8 md:pb-10">
+        <Reveal>
+          <div className="rounded-3xl bg-muted/60 p-7 md:p-10">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center shrink-0">
+                <Search className="h-5 w-5 text-primary-foreground" />
+              </div>
+              <h2 className="text-xl md:text-2xl font-bold text-foreground pt-2">
+                Why DUOFIT Exists
+              </h2>
+            </div>
 
-          <Reveal delay={100}>
-            <h2 className="mt-4 text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-10 md:mb-14">
-              The people behind DUOFIT.
-            </h2>
+            <div className="grid md:grid-cols-2 gap-6 md:gap-10">
+              <ul className="space-y-3">
+                {cycleItems.map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <XCircle className="h-4 w-4 text-muted-foreground/70 shrink-0" />
+                    <span className="text-sm md:text-base text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed">
+                <p>We didn't start DUOFIT to help people diet.</p>
+                <p>We started it because we saw too many people trapped in the same cycle.</p>
+                <p className="font-bold text-foreground">
+                  The problem isn't a lack of motivation.
+                </p>
+                <p className="font-bold text-foreground">
+                  The problem is that most health advice isn't designed for real life.
+                </p>
+                <p>That realization became the foundation of DUOFIT.</p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ── OUR BELIEF ── */}
+      <section className="container-editorial pb-8 md:pb-10">
+        <Reveal>
+          <div className="rounded-3xl bg-primary p-7 md:p-10">
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              <div className="flex items-start gap-4">
+                <div className="h-12 w-12 rounded-full bg-primary-foreground flex items-center justify-center shrink-0">
+                  <Heart className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h2 className="text-lg md:text-xl font-bold text-primary-foreground/80 mb-1">
+                    Our Belief
+                  </h2>
+                  <p className="text-xl md:text-2xl font-bold text-primary-foreground leading-snug">
+                    Health should work with your life—
+                    <br />
+                    not against it.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-sm md:text-base text-primary-foreground/85 mb-4 leading-relaxed">
+                  Every recommendation we make is built around one simple question.
+                </p>
+
+                <div className="bg-cream rounded-2xl p-4 flex items-center gap-3 mb-5">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                  <p className="text-sm md:text-base font-semibold text-foreground">
+                    Can someone realistically continue doing this years from now?
+                  </p>
+                </div>
+
+                <div className="text-sm md:text-base text-primary-foreground/85 space-y-1 mb-4">
+                  <p>If the answer is no…</p>
+                  <p>We don't recommend it.</p>
+                  <p>Because…</p>
+                </div>
+
+                <p className="text-lg md:text-xl italic text-primary-foreground" style={{ fontFamily: "var(--font-display, cursive)" }}>
+                  If it can't last, it isn't DUOFIT.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ── WHAT WE BUILD / PRINCIPLES ── */}
+      <section className="container-editorial pb-8 md:pb-10">
+        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+
+          {/* What We Build */}
+          <Reveal delay={60}>
+            <div className="rounded-3xl bg-muted/60 p-7 md:p-8 h-full">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-3">
+                What We Build
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground mb-6 leading-relaxed">
+                People don't come to DUOFIT just to lose weight.
+                <br />
+                They come to build a healthier life.
+              </p>
+
+              <div className="grid grid-cols-2 gap-x-4 gap-y-4 mb-6">
+                <div className="space-y-4">
+                  {whatWeBuildLeft.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={item.label} className="flex items-center gap-2.5">
+                        <Icon className="h-4 w-4 text-primary shrink-0" />
+                        <span className="text-xs md:text-sm text-foreground">{item.label}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="space-y-4">
+                  {whatWeBuildRight.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={item.label} className="flex items-center gap-2.5">
+                        <Icon className="h-4 w-4 text-primary shrink-0" />
+                        <span className="text-xs md:text-sm text-foreground">{item.label}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="bg-cream rounded-2xl p-4">
+                <p className="text-xs md:text-sm text-foreground leading-relaxed">
+                  Weight loss is one outcome.
+                  <br />
+                  <span className="font-bold">Lasting health is the goal.</span>
+                </p>
+              </div>
+            </div>
           </Reveal>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            <Reveal delay={120}>
-              <div className="overflow-hidden rounded-sm aspect-[4/5] bg-muted">
+          {/* DUOFIT Principles */}
+          <Reveal delay={120}>
+            <div className="rounded-3xl bg-muted/60 p-7 md:p-8 h-full">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-3">
+                The DUOFIT Principles
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground mb-6 leading-relaxed">
+                These principles guide every decision we make.
+              </p>
+
+              <ul className="space-y-3">
+                {principles.map((p) => (
+                  <li key={p} className="flex items-start gap-3 pb-3 border-b border-border/60 last:border-0">
+                    <div className="h-5 w-5 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="h-3 w-3 text-primary-foreground" />
+                    </div>
+                    <span className="text-sm md:text-base text-foreground leading-snug">{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+        </div>
+      </section>
+
+      {/* ── PEOPLE BEHIND DUOFIT / VISION ── */}
+      <section className="container-editorial pb-8 md:pb-10">
+        <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+
+          {/* People Behind DUOFIT */}
+          <Reveal delay={60}>
+            <div className="rounded-3xl bg-muted/60 p-7 md:p-8 h-full">
+              <h3 className="text-lg md:text-xl font-bold text-primary mb-4">
+                The People Behind DUOFIT
+              </h3>
+
+              <div className="overflow-hidden rounded-2xl aspect-[4/3] bg-muted mb-5">
                 <img
                   src={founderAfter}
                   alt="Nitesh and Nikitha — DUOFIT Founders"
                   className="h-full w-full object-cover object-top"
-                  loading="lazy"
                 />
               </div>
-            </Reveal>
 
-            <div className="space-y-6">
-              <Reveal delay={150}>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  DUOFIT is led by{" "}
-                  <span className="text-foreground font-semibold">
-                    Nitesh and Nikitha
-                  </span>
-                  , a couple passionate about helping people improve health
-                  through practical nutrition, movement and healthier daily
-                  routines.
+              <div className="space-y-3 text-sm md:text-base text-muted-foreground leading-relaxed">
+                <p>
+                  DUOFIT was founded by <span className="font-bold text-foreground">Nitesh and Nikitha</span> with
+                  a shared belief that health should become easier to sustain—not harder to achieve.
                 </p>
-              </Reveal>
-              <Reveal delay={210}>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  Their combined experiences around fitness, family health,
-                  discipline, consistency and lifestyle management helped shape
-                  the foundation of DUOFIT and its practical approach to
-                  healthy living.
+                <p>
+                  Rather than creating another coaching business, they wanted to build a
+                  company where practical nutrition, sustainable movement and healthier
+                  routines help people improve their lives for years—not just weeks.
                 </p>
-              </Reveal>
-              <div className="space-y-5 pt-2">
-                {[
-                  {
-                    name: "Nitesh",
-                    bio: "ICF-accredited coach and a diploma in Nutrition and Fitness from INFS — bringing together coaching, nutrition and lifestyle guidance into the DUOFIT approach.",
-                  },
-                  {
-                    name: "Nikitha",
-                    bio: "Two-time national bronze medalist whose experience in athletics brings strong values of discipline, consistency and long-term fitness into DUOFIT.",
-                  },
-                ].map((founder, i) => (
-                  <Reveal key={founder.name} delay={280 + i * 100}>
-                    <div className="border-l-2 border-primary pl-5 py-1">
-                      <h4 className="font-bold text-foreground mb-1">
-                        {founder.name}
-                      </h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {founder.bio}
-                      </p>
-                    </div>
-                  </Reveal>
-                ))}
+                <p className="font-bold text-foreground">
+                  Their vision extends beyond coaching. It's about creating a community
+                  where better health becomes a natural part of everyday life.
+                </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ROW 1: Why Duofit Started | What We Believe ── */}
-      <section className="border-t border-border">
-        <div className="container-editorial py-14 md:py-20">
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-
-            <Reveal delay={80}>
-              <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
-                <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
-
-                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
-                  Our Mission
-                </h2>
-
-                <div className="space-y-0">
-                  {[
-                    "Help people move away from extreme health trends and unrealistic expectations.",
-                    "Build healthier lifestyles that can be sustained for years, not just weeks.",
-                    "Make practical health guidance more approachable and easier to follow.",
-                    "Support individuals, parents and families in creating better daily habits.",
-                    "Promote long-term consistency over short-term results.",
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className={`py-4 border-b border-border/60 flex items-start gap-4 last:border-0 ${i % 2 === 1
-                        ? "bg-cream/30 -mx-7 px-7 md:-mx-10 md:px-10"
-                        : ""
-                        }`}
-                    >
-                      <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
-                      <p className="text-sm md:text-base font-semibold text-foreground">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-            {/* RIGHT — What We Believe (values) */}
-            <Reveal delay={160}>
-              <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
-                <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
-                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
-                  What we believe
-                </h2>
-                <div className="space-y-0">
-                  {values.map((v, i) => (
-                    <div
-                      key={i}
-                      className={`py-4 border-b border-border/60 flex items-start gap-4 last:border-0 ${i % 2 === 1 ? "bg-cream/30 -mx-7 px-7 md:-mx-10 md:px-10" : ""
-                        }`}
-                    >
-                      <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
-                      <p className="text-sm md:text-base font-semibold text-foreground">
-                        {v}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* ── ROW 2: What Makes Duofit Different | Who Is It For ── */}
-      <section className="border-b border-border">
-        <div className="container-editorial py-14 md:py-20">
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6 items-stretch">
-
-            {/* LEFT — What Makes Duofit Different (flip cards) */}
-            <Reveal delay={80}>
-              <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
-                <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
-                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-8">
-                  What makes Duofit different.
-                </h2>
-                <div className="grid grid-cols-2 gap-3">
-                  {beliefs.map((b, i) => (
-                    <Reveal key={b.front} delay={i * 80}>
-                      <BeliefCard card={b} />
-                    </Reveal>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-            {/* RIGHT — Who Is It For */}
-            <Reveal delay={160}>
-              <div className="relative overflow-hidden rounded-2xl border border-border/60 p-7 md:p-10 h-full bg-card shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:border-primary/40 transition-all duration-500 ease-out group">
-                <div className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-70 rounded-t-2xl" />
-                <h2 className="mt-4 text-xl md:text-3xl font-bold tracking-tight mb-4">
-                  Who is DUOFIT for?
-                </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-7">
-                  DUOFIT is designed for people looking for a more practical
-                  and sustainable approach to health and fitness.
-                </p>
-                <div className="space-y-0">
-                  {forWho.map((item, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-4 py-4 border-b border-border/60 last:border-0"
-                    >
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="bg-primary/5 border-t border-primary/20">
-        <div className="container-editorial py-20 md:py-28 text-center">
-          <Reveal>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-              Start building a healthier lifestyle today.
-            </h2>
           </Reveal>
-          <Reveal delay={200}>
+
+          {/* Our Vision */}
+          <Reveal delay={120}>
+            <div className="rounded-3xl bg-muted/60 p-7 md:p-8 h-full flex flex-col">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-11 w-11 rounded-full bg-cream flex items-center justify-center shrink-0">
+                  <Flag className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-primary">
+                  Our Vision
+                </h3>
+              </div>
+
+              <ul className="space-y-4 mb-6">
+                {visionItems.map((v) => (
+                  <li key={v} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-base text-foreground leading-relaxed">{v}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="text-sm md:text-base font-bold text-primary mt-auto">
+                That's the future we're working toward.
+              </p>
+            </div>
+          </Reveal>
+
+        </div>
+      </section>
+
+      {/* ── CLOSING CTA ── */}
+      <section className="container-editorial pb-16 md:pb-24">
+        <Reveal>
+          <div className="rounded-3xl bg-muted/60 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
+            <div className="flex items-center gap-4">
+              <div className="h-11 w-11 rounded-full bg-cream flex items-center justify-center shrink-0">
+                <Heart className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm md:text-base font-bold text-foreground leading-snug">
+                  Better health is possible.
+                  <br />
+                  And it's possible for the long run.
+                </p>
+              </div>
+            </div>
+
+            <p className="text-sm md:text-base text-muted-foreground hidden md:block">
+              Let's build it together.
+            </p>
+
             <Link
               to="/contact"
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] rounded-full min-h-[48px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
-              style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shrink-0"
             >
-              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
-              Start Your Journey
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              Start Your Journey <ArrowRight className="h-4 w-4" />
             </Link>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </section>
 
     </SiteLayout>

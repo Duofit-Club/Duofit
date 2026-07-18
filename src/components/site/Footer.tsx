@@ -18,7 +18,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-xs md:text-sm text-background/50 leading-relaxed max-w-xs">
-              Helping people stay healthy through practical nutrition, movement and healthy habits that fit everyday life.
+              Helping people build healthier lives through practical nutrition, sustainable movement and habits that last.
             </p>
           </div>
 

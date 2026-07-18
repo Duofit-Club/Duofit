@@ -9,8 +9,8 @@ import { useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DUOFIT — Better Health. That Lasts." },
-      { name: "description", content: "Helping individuals and families improve their health through practical nutrition, movement and healthier daily habits that fit real life." },
+      { title: "DUOFIT — Health, Designed to Last." },
+      { name: "description", content: "Build a healthier life through practical nutrition, sustainable movement and everyday habits that fit real life." },
     ],
   }),
   component: Home,
@@ -185,16 +185,16 @@ function Home() {
                   className="font-display leading-[1.05] drop-shadow-[0_2px_18px_rgba(0,0,0,0.9)]"
                   style={{ color: "#f5f0e8", fontSize: "clamp(2.4rem, 7vw, 5.25rem)", fontWeight: 700 }}
                 >
-                  <span className="block">Better Health.</span>
-                  <span className="block italic">That Lasts.</span>
+                  <span className="block">Health,</span>
+                  <span className="block italic">Designed to Last.</span>
                 </h1>
               </Reveal>
               <Reveal delay={200}>
                 <p className="mt-4 md:mt-6 text-sm md:text-lg leading-[1.6] md:leading-[1.8] drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]" style={{ color: "#ffffff" }}>
-                  Helping individuals and families improve their health through practical{" "}
+                  Build a healthier life through practical{" "}
                   <span className="font-semibold underline decoration-primary/60 underline-offset-2">nutrition</span>,{" "}
-                  <span className="font-semibold underline decoration-primary/60 underline-offset-2">movement</span> and{" "}
-                  <span className="font-semibold underline decoration-primary/60 underline-offset-2">healthier daily habits</span>{" "}
+                  <span className="font-semibold underline decoration-primary/60 underline-offset-2">sustainable movement</span> and{" "}
+                  <span className="font-semibold underline decoration-primary/60 underline-offset-2">everyday habits</span>{" "}
                   that fit real life.
                 </p>
               </Reveal>
@@ -221,7 +221,7 @@ function Home() {
                   <p>Most people don't struggle because they lack motivation.</p>
                   <p>They struggle because healthy eating, exercise and routines often feel difficult to maintain alongside work, family responsibilities and everyday life.
                   Health becomes easier when the approach is practical, realistic and designed to fit your lifestyle.</p>
-                  <p className="font-medium text-foreground">The challenge isn't doing more. It's doing what works consistently.</p>
+                  <p className="font-medium text-foreground">Real health isn't about doing more. It's about building routines you can continue for life.</p>
                 </div>
               </Reveal>
             </div>
