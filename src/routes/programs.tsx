@@ -98,22 +98,22 @@ const programs = [
 
 const steps = [
   {
-    n: "01", t: "UNDERSTAND", Icon: Search,
+    n: "01", t: "DISCOVER", Icon: Search,
     img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face",
     d: "Understanding your lifestyle, routines, challenges, health history and goals through discussions, schedules and daily habits.",
   },
   {
-    n: "02", t: "PLAN", Icon: ClipboardList,
+    n: "02", t: "DESIGN", Icon: ClipboardList,
     img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=200&h=200&fit=crop&crop=center",
     d: "Creating practical nutrition, movement and lifestyle strategies based on your goals, routines and root causes.",
   },
   {
-    n: "03", t: "GUIDE", Icon: Compass,
+    n: "03", t: "BUILD", Icon: Compass,
     img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop&crop=center",
     d: "Regular support, accountability and practical guidance to help you stay consistent and sustainable.",
   },
   {
-    n: "04", t: "TRACK", Icon: TrendingUp,
+    n: "04", t: "SUPPORT", Icon: TrendingUp,
     img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=200&h=200&fit=crop&crop=center",
     d: "Monitoring progress, routines and overall lifestyle improvements over time.",
   },
@@ -136,12 +136,12 @@ function Programs() {
               className="mt-5 font-bold tracking-[-0.04em] leading-[0.95] whitespace-nowrap"
               style={{ fontSize: "clamp(1.6rem, 4.2vw, 3.5rem)" }}
             >
-              Health Coaching Built For <span className="text-primary">Real Life.</span>
+              Health Coaching, Designed to  <span className="text-primary">Last.</span>
             </h1>
           </Reveal>
           <Reveal delay={220}>
             <p className="mt-6 text-base md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              Whether you're looking to improve fitness, manage weight, build healthier habits or create a healthier lifestyle for your family, DUOFIT provides practical coaching designed around real everyday life.
+             Whether you're improving your own health or creating healthier routines for your family, every DUOFIT program is built around practical nutrition, sustainable movement and lasting habits that fit real life.
             </p>
           </Reveal>
         </div>
