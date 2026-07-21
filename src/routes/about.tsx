@@ -73,11 +73,6 @@ function About() {
       <section className="container-editorial pt-14 md:pt-20 pb-12 md:pb-16">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <Reveal>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                Our Philosophy
-              </span>
-            </Reveal>
             <Reveal delay={80}>
               <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05]">
                 <span className="block text-foreground">Health,</span>
