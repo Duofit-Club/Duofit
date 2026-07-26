@@ -5,17 +5,16 @@ import { Reveal } from "@/components/site/Reveal";
 import {
   Search, ClipboardList, Compass, TrendingUp, Sparkles,
 } from "lucide-react";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/programs")({
-  head: () => ({
-    meta: [
-      { title: "Programs — Duofit.club" },
-      {
-        name: "description",
-        content: "Practical health coaching designed to help individuals and families improve fitness, nutrition, movement and healthier habits in a sustainable and realistic way.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Health Coaching Programs — DUOFIT",
+      description:
+        "Practical health coaching designed to help individuals and families improve fitness, nutrition, movement and healthier habits in a sustainable and realistic way.",
+      path: "/programs",
+    }),
   component: Programs,
 });
 

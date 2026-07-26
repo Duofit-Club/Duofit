@@ -1,3 +1,8 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/((?!sitemap\\.xml|robots\\.txt|favicon|og-image\\.jpg|site\\.webmanifest|duofit-logo\\.png|apple-touch-icon\\.png|android-chrome).*)",
+      "destination": "/index.html"
+    }
+  ]
 }

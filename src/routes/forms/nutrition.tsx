@@ -1,8 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
 import { NutritionForm } from "@/components/forms/NutritionForm";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/forms/nutrition")({
+  head: () =>
+    seo({
+      title: "Nutrition Intake Form — DUOFIT",
+      description: "Help your DUOFIT coach understand your eating habits and goals.",
+      path: "/forms/nutrition",
+      noindex: true, // utility/intake page — no reason to rank in search
+    }),
   component: NutritionPage,
 });
 

@@ -1,14 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
-  head: () => ({
-    meta: [
-      { title: "Privacy Policy — Duofit.club" },
-      { name: "description", content: "How DUOFIT collects, uses and protects your personal information." },
-      { name: "robots", content: "noindex" },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Privacy Policy — DUOFIT",
+      description: "How DUOFIT collects, uses and protects your personal information.",
+      path: "/privacy",
+      noindex: true,
+    }),
   component: Privacy,
 });
 

@@ -12,18 +12,20 @@ import imgBusy from "@/assets/reality/busy.jpg";
 import imgQuickfix from "@/assets/reality/quickfix.jpg";
 import imgGuidance from "@/assets/reality/guidance.jpg";
 import imgRestart from "@/assets/reality/restart.jpg";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/reality")({
-  head: () => ({
-    meta: [
-      { title: "Reality Check — Duofit.club" },
-      {
-        name: "description",
-        content:
-          "Why most health journeys fail — and how DUOFIT is different.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Reality Check — DUOFIT",
+      description: "Why most health journeys fail — and how DUOFIT is different.",
+      path: "/reality",
+      // This page isn't linked from the Navbar or Footer — likely superseded
+      // by /community. Left noindexed so it doesn't compete as thin/orphaned
+      // content. Delete this route, or remove `noindex` and re-link it in
+      // navigation, once you decide which you want.
+      noindex: true,
+    }),
   component: Reality,
 });
 

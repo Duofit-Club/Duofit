@@ -5,14 +5,16 @@ import { Reveal } from "@/components/site/Reveal";
 import heroImg from "@/assets/hero-lifestyle-new.jpg";
 import heroMobileImg from "@/assets/hero-lifestyle-mobile.jpg";
 import { useState } from "react";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "DUOFIT — Health, Designed to Last." },
-      { name: "description", content: "Build a healthier life through practical nutrition, sustainable movement and everyday habits that fit real life." },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "DUOFIT — Health, Designed to Last. | Nutrition & Fitness Coaching",
+      description:
+        "Build a healthier life through practical nutrition, sustainable movement and everyday habits that fit real life. Health coaching for individuals, couples and families in Hyderabad.",
+      path: "/",
+    }),
   component: Home,
 });
 

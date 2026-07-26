@@ -11,6 +11,7 @@ import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
 import { WHATSAPP_NUMBER } from "@/components/site/WhatsAppFab";
+import { seo } from "@/lib/seo";
 
 const WA_URL = `https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, "")}`;
 const SESSION_MESSAGE =
@@ -18,16 +19,13 @@ const SESSION_MESSAGE =
 const SESSION_WA_URL = `${WA_URL}?text=${encodeURIComponent(SESSION_MESSAGE)}`;
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Connect — Duofit.club" },
-      {
-        name: "description",
-        content:
-          "Whether you are trying to improve fitness, lose weight or build healthier routines — DUOFIT is here to help you take the first step.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Connect With DUOFIT — Book a Free 15-Minute Session",
+      description:
+        "Whether you are trying to improve fitness, lose weight or build healthier routines — DUOFIT is here to help you take the first step. Book a free consultation today.",
+      path: "/contact",
+    }),
   component: Contact,
 });
 

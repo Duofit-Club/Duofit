@@ -18,19 +18,17 @@ import {
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import founderAfter from "@/assets/founders.jpeg";
-import heroFamily from "@/assets/family-photo.png";
+import heroFamily from "@/assets/family-photo.jpg";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Duofit.club" },
-      {
-        name: "description",
-        content:
-          "Health, designed to last. DUOFIT was built on the belief that better health should come from practical choices that fit real life.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "About DUOFIT — Health, Designed to Last.",
+      description:
+        "DUOFIT was built on the belief that better health should come from practical choices that fit real life, not extreme diets or unrealistic routines. Meet Nitesh and Nikitha, the founders.",
+      path: "/about",
+    }),
   component: About,
 });
 

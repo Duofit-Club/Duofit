@@ -2,14 +2,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/results")({
-  head: () => ({
-    meta: [
-      { title: "Results — Duofit.club" },
-      { name: "description", content: "Real stories. Sustainable results. Proof built over months and years." },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Results — DUOFIT",
+      description: "Real stories. Sustainable results. Proof built over months and years.",
+      path: "/results",
+      // Not linked from Navbar or Footer. Noindexed for now — delete this
+      // route, or remove `noindex` and add it to navigation, once decided.
+      noindex: true,
+    }),
   component: Results,
 });
 

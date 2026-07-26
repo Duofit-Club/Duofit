@@ -8,6 +8,7 @@ import {
 import { QueryClient } from "@tanstack/react-query";
 import { Toaster } from "sonner";
 import { queryClient } from "../router";
+import { structuredDataScriptTag } from "../lib/structuredData";
 
 function NotFoundComponent() {
   return (
@@ -54,10 +55,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-
-          href="/"
-          className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          <a>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
             Go home
           </a>
         </div>
@@ -84,6 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         gtag('config', 'G-4YM84LY2MX');
       `,
       },
+      // JSON-LD structured data — tells Google "this is the official
+      // DUOFIT business entity." Biggest single lever for a brand-name
+      // search like "duofit" to surface this site with confidence.
+      structuredDataScriptTag(),
     ],
   }),
 });

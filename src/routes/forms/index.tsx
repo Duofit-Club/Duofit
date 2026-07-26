@@ -1,8 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ClipboardList, HeartPulse, MessageSquare, Calendar } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/forms/")({
+  head: () =>
+    seo({
+      title: "Client Forms — DUOFIT",
+      description: "Complete your DUOFIT intake forms to help your coach understand your goals, habits and lifestyle.",
+      path: "/forms",
+      noindex: true, // utility/intake page — no reason to rank in search
+    }),
   component: FormsHub,
 });
 

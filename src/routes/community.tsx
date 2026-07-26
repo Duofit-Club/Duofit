@@ -16,17 +16,16 @@ import review1 from "@/assets/slideshow/review_1.jpg";
 import review2 from "@/assets/slideshow/review_2.jpg";
 import review3 from "@/assets/slideshow/review_3.jpg";
 import review4 from "@/assets/slideshow/review_4.jpg";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/community")({
-  head: () => ({
-    meta: [
-      { title: "Community & Progress — Duofit.club" },
-      {
-        name: "description",
-        content: "Every journey starts somewhere. Better health is built through small consistent actions.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Community & Progress — DUOFIT",
+      description:
+        "Every journey starts somewhere. See real DUOFIT community moments and the founder's own transformation — better health is built through small, consistent actions.",
+      path: "/community",
+    }),
   component: Community,
 });
 
