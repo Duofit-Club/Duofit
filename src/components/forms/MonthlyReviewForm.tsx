@@ -137,8 +137,7 @@ Visible Changes
 </h2>
 
 <p className="text-muted-foreground">
-Looking back to when you started DUOFIT,
-what noticeable changes have you seen?
+Looking back to when you started DUOFIT, what visible or noticeable changes have you seen in yourself so far?
 </p>
 
 </div>
@@ -151,17 +150,7 @@ rows={7}
 required
 value={formData.visibleChanges}
 onChange={handleTextChange}
-placeholder="Example:
-
-• I lost 3 kg
-
-• I sleep better
-
-• My energy has improved
-
-• I feel more confident
-
-• I eat healthier meals"
+placeholder="Think about changes in your weight, body shape, energy, sleep, fitness, strength, mobility, food habits, confidence, or anything else you personally notice."
 className="w-full rounded-2xl border border-border bg-background p-5 resize-none focus:outline-none focus:ring-2 focus:ring-primary"
 />
 
@@ -184,8 +173,7 @@ Most Valuable Part
 </h2>
 
 <p className="text-muted-foreground">
-What has been the most valuable part
-of your DUOFIT experience?
+What has been the most valuable part of your DUOFIT experience so far?
 </p>
 
 </div>
@@ -255,8 +243,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
               </h2>
 
               <p className="text-muted-foreground">
-                What is one thing you are doing differently now compared
-                with when you started?
+                What is one thing you are doing differently now compared with when you started?
               </p>
 
             </div>
@@ -269,15 +256,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
             name="doingDifferently"
             value={formData.doingDifferently}
             onChange={handleTextChange}
-            placeholder="Example:
-
-• I now walk every morning.
-
-• I drink enough water.
-
-• I prepare healthy meals.
-
-• I avoid skipping breakfast."
+            placeholder="Describe about the changes in you...."
             className="w-full rounded-2xl border border-border bg-background p-5 resize-none focus:outline-none focus:ring-2 focus:ring-primary"
           />
 
@@ -300,8 +279,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
               </h2>
 
               <p className="text-muted-foreground">
-                What is one area of your health or lifestyle you would
-                most like to improve further?
+               What is one area of your health or lifestyle you would most like to improve further?
               </p>
 
             </div>
@@ -372,8 +350,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
               </h2>
 
               <p className="text-muted-foreground">
-                If someone was where you were before joining DUOFIT,
-                what would you tell them?
+                If you could describe your DUOFIT journey so far to someone who is where you were when you started, what would you tell them?
               </p>
 
             </div>
@@ -386,13 +363,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
             name="journeyMessage"
             value={formData.journeyMessage}
             onChange={handleTextChange}
-            placeholder="Share your experience...
-
-What surprised you?
-
-What advice would you give?
-
-How has DUOFIT helped you?"
+            placeholder="Share your experience..."
             className="w-full rounded-2xl border border-border bg-background p-5 resize-none focus:outline-none focus:ring-2 focus:ring-primary"
           />
 
