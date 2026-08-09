@@ -413,7 +413,7 @@ function Home() {
             <div className="text-center mb-12 md:mb-16">
 
               <h2 className="mt-3 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-primary">
-                Does this Relates you?
+                DO ANY OF THESE FEEL FAMILIAR?
               </h2>
             </div>
           </Reveal>
@@ -494,76 +494,6 @@ function Home() {
 
         </div>
       </section>
-      {/* <section className="bg-background">
-        <div className="container-editorial py-20 md:py-28">
-
-          <Reveal>
-            <div className="max-w-2xl mb-14 md:mb-20">
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
-                A Familiar Story
-              </span>
-              <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground leading-[1.15] tracking-tight">
-                Does this sound like you?
-              </h2>
-            </div>
-          </Reveal>
-
-          <div className="grid lg:grid-cols-[55%_45%] gap-14 lg:gap-16 items-start">
-
-       
-            <div>
-              <div>
-                {painPoints.map((point, i) => (
-                  <Reveal key={point} delay={100 + i * 60}>
-                    <div className="group border-b border-border first:border-t">
-                      <div className="flex items-start gap-5 md:gap-7 py-6 md:py-7">
-                        <span className="text-2xl md:text-3xl font-bold text-border group-hover:text-primary transition-colors duration-300 tabular-nums shrink-0 w-10 md:w-12">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <p className="text-base md:text-lg text-foreground leading-relaxed pt-1 group-hover:translate-x-1.5 transition-transform duration-300">
-                          {point}
-                        </p>
-                      </div>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-
-      
-            <Reveal delay={140}>
-              <div className="h-full flex items-center justify-center">
-                <div
-                  className="w-full max-w-md min-h-[355px] rounded-[2rem] p-8 md:p-10 flex flex-col justify-center text-center"
-                  style={{ backgroundColor: "#A43B20" }}
-                >
-                  <h4 className="text-xl md:text-2xl font-bold text-white leading-snug">
-                    You're not alone.
-                  </h4>
-
-                  <p className="mt-4 text-sm md:text-base text-white/90 leading-relaxed">
-                    Your health goals are personal. Your approach should be
-                    too. Whether you're looking to improve your fitness,
-                    manage your weight, build healthier habits, or create a
-                    healthier lifestyle for your family, DUOFIT has a path
-                    designed around where you are today and where you want
-                    to go.
-                  </p>
-
-                  <a
-                    href="#programs"
-                    className="mt-7 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-white hover:gap-2.5 transition-all"
-                  >
-                    Find Your DUOFIT Program
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-
-          </div>
-        </div>
-      </section> */}
 
       {/* SECTION 3 — Programs (3-tier) */}
       <section
