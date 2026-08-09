@@ -21,7 +21,14 @@ const forms = [
     icon: ClipboardList,
     href: "/forms/nutrition",
     time: "10 mins",
-  }
+  },
+  {
+  title: "Monthly Progress Review",
+  desc: "Reflect on your progress and help your coach personalize your next month's plan.",
+  icon: HeartPulse,
+  href: "/forms/monthly-review",
+  time: "5 mins",
+}
 ];
 
 function FormsHub() {

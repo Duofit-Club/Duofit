@@ -14,12 +14,14 @@ import { Route as ResultsRouteImport } from './routes/results'
 import { Route as RealityRouteImport } from './routes/reality'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as HealthCheckRouteImport } from './routes/health-check'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FormsIndexRouteImport } from './routes/forms/index'
 import { Route as FormsNutritionRouteImport } from './routes/forms/nutrition'
+import { Route as FormsMonthlyReviewRouteImport } from './routes/forms/monthly-review'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -44,6 +46,11 @@ const ProgramsRoute = ProgramsRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthCheckRoute = HealthCheckRouteImport.update({
+  id: '/health-check',
+  path: '/health-check',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -76,17 +83,24 @@ const FormsNutritionRoute = FormsNutritionRouteImport.update({
   path: '/forms/nutrition',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FormsMonthlyReviewRoute = FormsMonthlyReviewRouteImport.update({
+  id: '/forms/monthly-review',
+  path: '/forms/monthly-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/health-check': typeof HealthCheckRoute
   '/privacy': typeof PrivacyRoute
   '/programs': typeof ProgramsRoute
   '/reality': typeof RealityRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
   '/forms/': typeof FormsIndexRoute
 }
@@ -95,11 +109,13 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/health-check': typeof HealthCheckRoute
   '/privacy': typeof PrivacyRoute
   '/programs': typeof ProgramsRoute
   '/reality': typeof RealityRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
   '/forms': typeof FormsIndexRoute
 }
@@ -109,11 +125,13 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/health-check': typeof HealthCheckRoute
   '/privacy': typeof PrivacyRoute
   '/programs': typeof ProgramsRoute
   '/reality': typeof RealityRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
   '/forms/': typeof FormsIndexRoute
 }
@@ -124,11 +142,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/community'
     | '/contact'
+    | '/health-check'
     | '/privacy'
     | '/programs'
     | '/reality'
     | '/results'
     | '/sitemap.xml'
+    | '/forms/monthly-review'
     | '/forms/nutrition'
     | '/forms/'
   fileRoutesByTo: FileRoutesByTo
@@ -137,11 +157,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/community'
     | '/contact'
+    | '/health-check'
     | '/privacy'
     | '/programs'
     | '/reality'
     | '/results'
     | '/sitemap.xml'
+    | '/forms/monthly-review'
     | '/forms/nutrition'
     | '/forms'
   id:
@@ -150,11 +172,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/community'
     | '/contact'
+    | '/health-check'
     | '/privacy'
     | '/programs'
     | '/reality'
     | '/results'
     | '/sitemap.xml'
+    | '/forms/monthly-review'
     | '/forms/nutrition'
     | '/forms/'
   fileRoutesById: FileRoutesById
@@ -164,11 +188,13 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
+  HealthCheckRoute: typeof HealthCheckRoute
   PrivacyRoute: typeof PrivacyRoute
   ProgramsRoute: typeof ProgramsRoute
   RealityRoute: typeof RealityRoute
   ResultsRoute: typeof ResultsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  FormsMonthlyReviewRoute: typeof FormsMonthlyReviewRoute
   FormsNutritionRoute: typeof FormsNutritionRoute
   FormsIndexRoute: typeof FormsIndexRoute
 }
@@ -208,6 +234,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/health-check': {
+      id: '/health-check'
+      path: '/health-check'
+      fullPath: '/health-check'
+      preLoaderRoute: typeof HealthCheckRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -252,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FormsNutritionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/forms/monthly-review': {
+      id: '/forms/monthly-review'
+      path: '/forms/monthly-review'
+      fullPath: '/forms/monthly-review'
+      preLoaderRoute: typeof FormsMonthlyReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -260,11 +300,13 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
+  HealthCheckRoute: HealthCheckRoute,
   PrivacyRoute: PrivacyRoute,
   ProgramsRoute: ProgramsRoute,
   RealityRoute: RealityRoute,
   ResultsRoute: ResultsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  FormsMonthlyReviewRoute: FormsMonthlyReviewRoute,
   FormsNutritionRoute: FormsNutritionRoute,
   FormsIndexRoute: FormsIndexRoute,
 }
