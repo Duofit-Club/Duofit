@@ -7,11 +7,7 @@ const links = [
   { to: "/", label: "Home" },
   { to: "/programs", label: "Programs" },
   { to: "/about", label: "About" },
-<<<<<<< HEAD
   { to: "/contact", label: "Connect" },
-=======
-  { to: "/contact", label: "Connect"},
->>>>>>> 681ac01 (nova)
 ] as const;
 
 export function Navbar() {
