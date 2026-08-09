@@ -150,7 +150,7 @@ rows={7}
 required
 value={formData.visibleChanges}
 onChange={handleTextChange}
-placeholder="Think about changes in your weight, body shape, energy, sleep, fitness, strength, mobility, food habits, confidence, or anything else you personally notice."
+placeholder="share your experience.."
 className="w-full rounded-2xl border border-border bg-background p-5 resize-none focus:outline-none focus:ring-2 focus:ring-primary"
 />
 
