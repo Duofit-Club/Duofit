@@ -1,5 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ClipboardList, HeartPulse, MessageSquare, Calendar } from "lucide-react";
+import {
+  ClipboardList,
+  HeartPulse,
+  Sparkles,
+} from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { seo } from "@/lib/seo";
 
@@ -28,7 +32,14 @@ const forms = [
   icon: HeartPulse,
   href: "/forms/monthly-review",
   time: "5 mins",
-}
+},
+{
+    title: "Free Health Check",
+    desc: "A 60-second reflection on your daily health habits and lifestyle.",
+    icon: Sparkles,
+    href: "/forms/health-check",
+    time: "1 min",
+  },
 ];
 
 function FormsHub() {
@@ -69,7 +80,10 @@ function FormsHub() {
                   </div>
                 </div>
               </Link>
+              
+              
             );
+            
           })}
         </div>
       </section>

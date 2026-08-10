@@ -22,6 +22,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as FormsIndexRouteImport } from './routes/forms/index'
 import { Route as FormsNutritionRouteImport } from './routes/forms/nutrition'
 import { Route as FormsMonthlyReviewRouteImport } from './routes/forms/monthly-review'
+import { Route as FormsHealthCheckRouteImport } from './routes/forms/health-check'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -88,6 +89,11 @@ const FormsMonthlyReviewRoute = FormsMonthlyReviewRouteImport.update({
   path: '/forms/monthly-review',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FormsHealthCheckRoute = FormsHealthCheckRouteImport.update({
+  id: '/forms/health-check',
+  path: '/forms/health-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -100,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/reality': typeof RealityRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/forms/health-check': typeof FormsHealthCheckRoute
   '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
   '/forms/': typeof FormsIndexRoute
@@ -115,6 +122,7 @@ export interface FileRoutesByTo {
   '/reality': typeof RealityRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/forms/health-check': typeof FormsHealthCheckRoute
   '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
   '/forms': typeof FormsIndexRoute
@@ -131,6 +139,7 @@ export interface FileRoutesById {
   '/reality': typeof RealityRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/forms/health-check': typeof FormsHealthCheckRoute
   '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
   '/forms/': typeof FormsIndexRoute
@@ -148,6 +157,7 @@ export interface FileRouteTypes {
     | '/reality'
     | '/results'
     | '/sitemap.xml'
+    | '/forms/health-check'
     | '/forms/monthly-review'
     | '/forms/nutrition'
     | '/forms/'
@@ -163,6 +173,7 @@ export interface FileRouteTypes {
     | '/reality'
     | '/results'
     | '/sitemap.xml'
+    | '/forms/health-check'
     | '/forms/monthly-review'
     | '/forms/nutrition'
     | '/forms'
@@ -178,6 +189,7 @@ export interface FileRouteTypes {
     | '/reality'
     | '/results'
     | '/sitemap.xml'
+    | '/forms/health-check'
     | '/forms/monthly-review'
     | '/forms/nutrition'
     | '/forms/'
@@ -194,6 +206,7 @@ export interface RootRouteChildren {
   RealityRoute: typeof RealityRoute
   ResultsRoute: typeof ResultsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  FormsHealthCheckRoute: typeof FormsHealthCheckRoute
   FormsMonthlyReviewRoute: typeof FormsMonthlyReviewRoute
   FormsNutritionRoute: typeof FormsNutritionRoute
   FormsIndexRoute: typeof FormsIndexRoute
@@ -292,6 +305,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FormsMonthlyReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/forms/health-check': {
+      id: '/forms/health-check'
+      path: '/forms/health-check'
+      fullPath: '/forms/health-check'
+      preLoaderRoute: typeof FormsHealthCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -306,6 +326,7 @@ const rootRouteChildren: RootRouteChildren = {
   RealityRoute: RealityRoute,
   ResultsRoute: ResultsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  FormsHealthCheckRoute: FormsHealthCheckRoute,
   FormsMonthlyReviewRoute: FormsMonthlyReviewRoute,
   FormsNutritionRoute: FormsNutritionRoute,
   FormsIndexRoute: FormsIndexRoute,
