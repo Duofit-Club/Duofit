@@ -262,7 +262,7 @@ function Home() {
                 </p>
               </Reveal>
 
-              {/* 3 stat boxes */}
+              {/* 3 stat boxes
               <Reveal delay={320}>
                 <div className="mt-7 md:mt-10 grid grid-cols-3 gap-2.5 md:gap-4 max-w-[420px]">
                   {heroStats.map((stat) => {
@@ -283,7 +283,7 @@ function Home() {
                     );
                   })}
                 </div>
-              </Reveal>
+              </Reveal> */}
             </div>
           </div>
         </div>
@@ -677,7 +677,7 @@ function Home() {
                 >
                   <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
 
-                  Book a Free Consultation
+                  Start your health journey
 
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>

@@ -97,29 +97,29 @@ const programs = [
 
 const steps = [
   {
-    n: "01", t: "DISCOVER", Icon: Search,
+    n: "01", t: "Understand", Icon: Search,
     img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face",
-    d: "Understanding your lifestyle, routines, challenges, health history and goals through discussions, schedules and daily habits.",
+    d: "We begin by understanding your lifestyle, health history, daily routine and personal goals.",
   },
   {
-    n: "02", t: "DESIGN", Icon: ClipboardList,
+    n: "02", t: "Personalize", Icon: ClipboardList,
     img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=200&h=200&fit=crop&crop=center",
-    d: "Creating practical nutrition, movement and lifestyle strategies based on your goals, routines and root causes.",
+    d: "Every recommendation is tailored to your lifestyle, food preferences and schedule.",
   },
   {
-    n: "03", t: "BUILD", Icon: Compass,
+    n: "03", t: "Coach", Icon: Compass,
     img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop&crop=center",
-    d: "Regular support, accountability and practical guidance to help you stay consistent and sustainable.",
+    d: "Regular guidance, accountability and encouragement help you stay consistent.",
   },
   {
-    n: "04", t: "SUPPORT", Icon: TrendingUp,
+    n: "04", t: "Measure", Icon: TrendingUp,
     img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=200&h=200&fit=crop&crop=center",
-    d: "Monitoring progress, routines and overall lifestyle improvements over time.",
+    d: "We measure progress through healthier habits, energy levels and sustainable improvements.",
   },
   {
     n: "05", t: "SUSTAIN", Icon: Sparkles,
     img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&h=200&fit=crop&crop=center",
-    d: "Helping healthier habits become part of your long-term lifestyle naturally.",
+    d: "The goal isn't another short-term program. It's creating healthy habits that last.",
   },
 ];
 
@@ -140,108 +140,112 @@ function Programs() {
           </Reveal>
           <Reveal delay={220}>
             <p className="mt-6 text-base md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-             Whether you're improving your own health or creating healthier routines for your family, every DUOFIT program is built around practical nutrition, sustainable movement and lasting habits that fit real life.
+              Whether you're improving your own health or creating healthier routines for your family, every DUOFIT program is built around practical nutrition, sustainable movement and lasting habits that fit real life.
             </p>
           </Reveal>
         </div>
       </section>
 
       {/* Program Sections */}
-{programs.map((p, i) => (
-  <section key={p.title} className="container-editorial py-8 md:py-12">
-    <Reveal delay={80}>
-      <div
-        className={`group relative rounded-2xl overflow-hidden border transition-all duration-700 ease-out
+      {programs.map((p, i) => (
+        <section
+          key={p.title}
+          id={i === 0 ? "personal-health-coaching" : "family-health-habits"}
+          className="container-editorial py-8 md:py-12 scroll-mt-24"
+        >
+          <Reveal delay={80}>
+            <div
+              className={`group relative rounded-2xl overflow-hidden border transition-all duration-700 ease-out
           hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)]
           hover:-translate-y-1
           ${i === 0
-            ? "border-primary/20 bg-gradient-to-br from-card via-card to-[color-mix(in_srgb,var(--color-primary)_5%,var(--card))]"
-            : "border-border bg-gradient-to-bl from-card via-card to-[color-mix(in_srgb,var(--color-primary)_3%,var(--background))]"
-          }`}
-        style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}
-      >
+                  ? "border-primary/20 bg-gradient-to-br from-card via-card to-[color-mix(in_srgb,var(--color-primary)_5%,var(--card))]"
+                  : "border-border bg-gradient-to-bl from-card via-card to-[color-mix(in_srgb,var(--color-primary)_3%,var(--background))]"
+                }`}
+              style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}
+            >
 
-        {/* Animated corner accent */}
-        <div
-          className={`absolute top-0 ${i === 0 ? "left-0 rounded-br-3xl" : "right-0 rounded-bl-3xl"}
+              {/* Animated corner accent */}
+              <div
+                className={`absolute top-0 ${i === 0 ? "left-0 rounded-br-3xl" : "right-0 rounded-bl-3xl"}
             w-1 h-0 group-hover:h-full bg-primary transition-all duration-700 ease-out opacity-60`}
-        />
-        <div
-          className={`absolute top-0 ${i === 0 ? "left-0" : "right-0"}
+              />
+              <div
+                className={`absolute top-0 ${i === 0 ? "left-0" : "right-0"}
             h-1 w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-30`}
-        />
+              />
 
 
 
-        {/* Inner content */}
-        <div className="p-6 md:p-10 lg:p-12">
-          <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
+              {/* Inner content */}
+              <div className="p-6 md:p-10 lg:p-12">
+                <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-start ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}>
 
-            {/* Left — text */}
-            <Reveal delay={100}>
-              <div>
-                <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[1.05]">
-                  {p.title}
-                </h2>
-                <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-                  {p.tagline}
-                </p>
-                <p className="mt-4 text-sm text-primary italic font-medium">
-                  {p.personalNote}
-                </p>
-                <div className="pt-8">
-                  <Link
-                    to="/contact"
-                    className="group/btn relative inline-flex items-center gap-3 px-7 py-3.5 text-sm font-semibold uppercase tracking-widest rounded-full min-h-[44px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
-                    style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
-                  >
-                    <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
-                    Start Your Journey
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                  </Link>
+                  {/* Left — text */}
+                  <Reveal delay={100}>
+                    <div>
+                      <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[1.05]">
+                        {p.title}
+                      </h2>
+                      <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                        {p.tagline}
+                      </p>
+                      <p className="mt-4 text-sm text-primary italic font-medium">
+                        {p.personalNote}
+                      </p>
+                      <div className="pt-8">
+                        <Link
+                          to="/contact"
+                          className="group/btn relative inline-flex items-center gap-3 px-7 py-3.5 text-sm font-semibold uppercase tracking-widest rounded-full min-h-[44px] overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] active:scale-95"
+                          style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
+                        >
+                          <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
+                          Start Your Journey
+                          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                        </Link>
+                      </div>
+                    </div>
+                  </Reveal>
+
+                  {/* Right — What We Cover */}
+                  <Reveal delay={160}>
+                    <div className="flex flex-col gap-3">
+                      <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary mb-1">
+                        What {i === 0 ? "You" : "Families"} Can Expect
+                      </h3>
+                      {p.nodes.map(({ label, hint, img }, idx) => {
+                        const isEven = idx % 2 === 0;
+                        return (
+                          <Reveal key={label} delay={idx * 70}>
+                            <div className={`flex items-stretch gap-0 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 ${isEven ? "flex-row" : "flex-row-reverse"}`}>
+                              <div className="relative w-[38%] shrink-0 overflow-hidden">
+                                <img
+                                  src={img}
+                                  alt={label}
+                                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                />
+                              </div>
+                              <div className={`flex flex-1 flex-col justify-center gap-1.5 px-4 py-4 bg-card border-y border-border ${isEven ? "border-r rounded-r-xl" : "border-l rounded-l-xl"}`}>
+                                <span className="text-xs font-bold uppercase tracking-widest text-foreground">
+                                  {label}
+                                </span>
+                                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                                  {hint}
+                                </p>
+                              </div>
+                            </div>
+                          </Reveal>
+                        );
+                      })}
+                    </div>
+                  </Reveal>
+
                 </div>
               </div>
-            </Reveal>
-
-            {/* Right — What We Cover */}
-            <Reveal delay={160}>
-              <div className="flex flex-col gap-3">
-                <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary mb-1">
-                  What {i === 0 ? "You" : "Families"} Can Expect
-                </h3>
-                {p.nodes.map(({ label, hint, img }, idx) => {
-                  const isEven = idx % 2 === 0;
-                  return (
-                    <Reveal key={label} delay={idx * 70}>
-                      <div className={`flex items-stretch gap-0 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 ${isEven ? "flex-row" : "flex-row-reverse"}`}>
-                        <div className="relative w-[38%] shrink-0 overflow-hidden">
-                          <img
-                            src={img}
-                            alt={label}
-                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                          />
-                        </div>
-                        <div className={`flex flex-1 flex-col justify-center gap-1.5 px-4 py-4 bg-card border-y border-border ${isEven ? "border-r rounded-r-xl" : "border-l rounded-l-xl"}`}>
-                          <span className="text-xs font-bold uppercase tracking-widest text-foreground">
-                            {label}
-                          </span>
-                          <p className="text-[11px] text-muted-foreground leading-relaxed">
-                            {hint}
-                          </p>
-                        </div>
-                      </div>
-                    </Reveal>
-                  );
-                })}
-              </div>
-            </Reveal>
-
-          </div>
-        </div>
-      </div>
-    </Reveal>
-  </section>
-))}
+            </div>
+          </Reveal>
+        </section>
+      ))}
 
       {/* How Duofit Works */}
       <section className="bg-cream border-y border-border">

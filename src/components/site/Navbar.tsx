@@ -74,7 +74,7 @@ export function Navbar() {
             ))}
             <Link to="/contact" onClick={() => setOpen(false)}
               className="mt-4 flex justify-center rounded-sm bg-foreground text-background px-5 py-4 text-sm font-medium uppercase tracking-widest min-h-[44px] items-center">
-              Start Your Journey
+              Start Your Health Journey
             </Link>
           </div>
         </div>
