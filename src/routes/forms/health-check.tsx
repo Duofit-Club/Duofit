@@ -40,7 +40,6 @@ type Level = "high" | "medium" | "low";
 interface Option {
     label: string;
     points?: Partial<Record<Pillar, number>>;
-    familySignal?: boolean; // flags a "for my family" style answer
 }
 
 interface Question {
@@ -70,8 +69,8 @@ const QUESTIONS: Question[] = [
             { label: "Under 18" },
             { label: "18–24" },
             { label: "25–35" },
-            { label: "36–45", familySignal: true },
-            { label: "46–55", familySignal: true },
+            { label: "36–45" },
+            { label: "46–55" },
             { label: "Above 55" },
         ],
     },
@@ -140,7 +139,7 @@ const QUESTIONS: Question[] = [
         text: "What's the biggest reason you want better health?",
         options: [
             { label: "To feel more energetic and confident", points: { lifestyle: 2 } },
-            { label: "To be there for my family long-term", points: { lifestyle: 2 }, familySignal: true },
+            { label: "To be there for my family long-term", points: { lifestyle: 2 } },
             { label: "To prevent health issues before they start", points: { awareness: 2 } },
             { label: "To finally build habits that stick", points: { consistency: 2 } },
         ],
@@ -361,12 +360,13 @@ function PillarWheel({
     );
 }
 
-export default function HealthCheck() {
+function HealthCheck() {
     const [stage, setStage] = useState<Stage>("landing");
     const [qIndex, setQIndex] = useState(0);
     const [answers, setAnswers] = useState<Option[]>([]);
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [skipEmail, setSkipEmail] = useState(false);
     const [activePillar, setActivePillar] = useState<Pillar | null>(null);
@@ -413,16 +413,14 @@ export default function HealthCheck() {
         return "low";
     }
 
-    const familyFlagged = answers.some((a) => a.familySignal);
-    const recommendedProgram = familyFlagged
-        ? { name: "Family Health & Habits", slug: "family-health-habits" }
-        : { name: "Personal Health Coaching", slug: "personal-health-coaching" };
+    // Personal Health Coaching is the primary program — always recommended.
+    const recommendedProgram = { name: "Personal Health Coaching", slug: "personal-health-coaching" };
 
     async function handleEmailSubmit(e: React.FormEvent) {
         e.preventDefault();
         setSubmitting(true);
         try {
-            if (email) {
+            if (email || phone) {
                 await fetch("https://api.web3forms.com/submit", {
                     method: "POST",
                     headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -431,13 +429,15 @@ export default function HealthCheck() {
                         from_name: "DUOFIT Health Check",
                         subject: `Health Check Lead — ${name || "Anonymous"}`,
                         name: name || "Not provided",
-                        email,
+                        email: email || "Not provided",
+                        phone: phone || "Not provided",
                         message:
+                            `Phone: ${phone || "Not provided"}\n` +
                             `Strength: ${PILLAR_LABELS[strengthPillar]}\n` +
                             `Opportunity: ${PILLAR_LABELS[opportunityPillar]}\n` +
                             `Recommended Program: ${recommendedProgram.name}\n\n` +
                             answers.map((a, i) => `Q${i + 1}: ${a.label}`).join("\n"),
-                        replyto: email,
+                        replyto: email || undefined,
                     }),
                 });
             }
@@ -548,6 +548,7 @@ export default function HealthCheck() {
                     </div>
                 )}
 
+
                 {/* EMAIL CAPTURE — optional, before results */}
                 {stage === "email" && (
                     <Reveal>
@@ -572,6 +573,13 @@ export default function HealthCheck() {
                                     onChange={(e) => setEmail(e.target.value)}
                                     type="email"
                                     placeholder="Your email (optional)"
+                                    className="w-full border border-input rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40"
+                                />
+                                <input
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    type="tel"
+                                    placeholder="Your phone / WhatsApp (optional)"
                                     className="w-full border border-input rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40"
                                 />
                                 <button
@@ -600,63 +608,70 @@ export default function HealthCheck() {
                                 </p>
                             </div>
 
-                            <div className="mb-9">
-                                <PillarWheel
-                                    scores={scores}
-                                    strengthPillar={strengthPillar}
-                                    opportunityPillar={opportunityPillar}
-                                    activePillar={activePillar}
-                                    onSelect={setActivePillar}
-                                />
-                                {activePillar && (
-                                    <Reveal>
-                                        <div className="mt-4 max-w-sm mx-auto rounded-xl border border-border bg-muted/40 p-4 text-center">
-                                            <p className="text-xs font-bold uppercase tracking-widest text-foreground mb-1">
-                                                {PILLAR_LABELS[activePillar]}
-                                            </p>
-                                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                                {REFLECTIONS[activePillar][levelFor(activePillar)]}
-                                            </p>
+                            <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+
+                                {/* LEFT — text insights */}
+                                <div className="space-y-5 order-2 lg:order-1">
+                                    <div className="rounded-2xl border border-primary/25 bg-primary/5 p-6">
+                                        <div className="flex items-center gap-2.5 mb-2">
+                                            <TrendingUp className="h-4 w-4 text-primary" />
+                                            <span className="text-xs font-bold uppercase tracking-widest text-primary">
+                                                Your Greatest Strength — {PILLAR_LABELS[strengthPillar]}
+                                            </span>
                                         </div>
-                                    </Reveal>
-                                )}
-                            </div>
-                            <div className="space-y-5">
-                                <div className="rounded-2xl border border-primary/25 bg-primary/5 p-6">
-                                    <div className="flex items-center gap-2.5 mb-2">
-                                        <TrendingUp className="h-4 w-4 text-primary" />
-                                        <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                                            Your Greatest Strength — {PILLAR_LABELS[strengthPillar]}
-                                        </span>
+                                        <p className="text-sm md:text-base text-foreground leading-relaxed">
+                                            {REFLECTIONS[strengthPillar][levelFor(strengthPillar)]}
+                                        </p>
                                     </div>
-                                    <p className="text-sm md:text-base text-foreground leading-relaxed">
-                                        {REFLECTIONS[strengthPillar][levelFor(strengthPillar)]}
-                                    </p>
+
+                                    <div className="rounded-2xl border border-border bg-card p-6">
+                                        <div className="flex items-center gap-2.5 mb-2">
+                                            <Sparkles className="h-4 w-4 text-primary" />
+                                            <span className="text-xs font-bold uppercase tracking-widest text-foreground">
+                                                Your Biggest Opportunity — {PILLAR_LABELS[opportunityPillar]}
+                                            </span>
+                                        </div>
+                                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                            {REFLECTIONS[opportunityPillar][levelFor(opportunityPillar)]}
+                                        </p>
+                                    </div>
+
+                                    <div className="rounded-2xl border border-border bg-muted/40 p-6">
+                                        <div className="flex items-center gap-2.5 mb-2">
+                                            <CheckCircle2 className="h-4 w-4 text-primary" />
+                                            <span className="text-xs font-bold uppercase tracking-widest text-foreground">
+                                                One Small Habit to Start Today
+                                            </span>
+                                        </div>
+                                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                            {SUGGESTED_HABITS[opportunityPillar]}
+                                        </p>
+                                    </div>
                                 </div>
 
-                                <div className="rounded-2xl border border-border bg-card p-6">
-                                    <div className="flex items-center gap-2.5 mb-2">
-                                        <Sparkles className="h-4 w-4 text-primary" />
-                                        <span className="text-xs font-bold uppercase tracking-widest text-foreground">
-                                            Your Biggest Opportunity — {PILLAR_LABELS[opportunityPillar]}
-                                        </span>
-                                    </div>
-                                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                                        {REFLECTIONS[opportunityPillar][levelFor(opportunityPillar)]}
-                                    </p>
+                                {/* RIGHT — radar wheel */}
+                                <div className="order-1 lg:order-2 lg:sticky lg:top-24">
+                                    <PillarWheel
+                                        scores={scores}
+                                        strengthPillar={strengthPillar}
+                                        opportunityPillar={opportunityPillar}
+                                        activePillar={activePillar}
+                                        onSelect={setActivePillar}
+                                    />
+                                    {activePillar && (
+                                        <Reveal>
+                                            <div className="mt-4 max-w-sm mx-auto rounded-xl border border-border bg-muted/40 p-4 text-center">
+                                                <p className="text-xs font-bold uppercase tracking-widest text-foreground mb-1">
+                                                    {PILLAR_LABELS[activePillar]}
+                                                </p>
+                                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                                    {REFLECTIONS[activePillar][levelFor(activePillar)]}
+                                                </p>
+                                            </div>
+                                        </Reveal>
+                                    )}
                                 </div>
 
-                                <div className="rounded-2xl border border-border bg-muted/40 p-6">
-                                    <div className="flex items-center gap-2.5 mb-2">
-                                        <CheckCircle2 className="h-4 w-4 text-primary" />
-                                        <span className="text-xs font-bold uppercase tracking-widest text-foreground">
-                                            One Small Habit to Start Today
-                                        </span>
-                                    </div>
-                                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                                        {SUGGESTED_HABITS[opportunityPillar]}
-                                    </p>
-                                </div>
                             </div>
 
                             {/* CTA */}

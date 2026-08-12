@@ -389,12 +389,6 @@ function Home() {
 
                           <div className="mx-auto w-20 h-20 rounded-full bg-card border border-border shadow-sm flex items-center justify-center relative z-10">
 
-                            <div className="absolute -top-3 w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shadow">
-
-                              {i + 1}
-
-                            </div>
-
                             <Icon className="w-8 h-8 text-primary" />
 
                           </div>
@@ -507,12 +501,6 @@ function Home() {
                   <Reveal key={step.title} delay={i * 70}>
 
                     <div className="relative pl-12 pb-12">
-
-                      <div className="absolute -left-[19px] top-0 w-9 h-9 rounded-full bg-primary text-primary-foreground font-bold flex items-center justify-center">
-
-                        {i + 1}
-
-                      </div>
 
                       <Icon className="w-7 h-7 text-primary mb-3" />
 
