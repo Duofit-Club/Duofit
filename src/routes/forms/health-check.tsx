@@ -496,7 +496,7 @@ function HealthCheck() {
                                 onClick={() => setStage("quiz")}
                                 className="mt-9 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-7 py-4 text-sm font-semibold uppercase tracking-widest rounded-full hover:brightness-110 active:scale-95 transition-all"
                             >
-                                Start My Health Check <ArrowRight className="h-4 w-4" />
+                                Know About Your Health <ArrowRight className="h-4 w-4" />
                             </button>
                         </div>
                     </Reveal>
@@ -690,7 +690,7 @@ function HealthCheck() {
                                         to="/contact"
                                         className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-6 py-3.5 text-sm font-semibold rounded-full hover:brightness-95 active:scale-95 transition-all"
                                     >
-                                        Get Your Personalized DUOFIT Health Review <ArrowRight className="h-4 w-4" />
+                                        Start your Health Journey <ArrowRight className="h-4 w-4" />
                                     </Link>
                                     <a
                                         href={waUrl}

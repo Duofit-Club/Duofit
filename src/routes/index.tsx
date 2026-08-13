@@ -86,26 +86,31 @@ const programs = [
 const whyDuofitWorks = [
   {
     icon: UserRound,
+    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face",
     title: "Understand",
     desc: "We begin by understanding your lifestyle, health history, daily routine and personal goals.",
   },
   {
     icon: ClipboardCheck,
+    img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=200&h=200&fit=crop&crop=center",
     title: "Personalize",
     desc: "Every recommendation is tailored to your lifestyle, food preferences and schedule.",
   },
   {
     icon: Handshake,
+    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop&crop=center",
     title: "Coach",
     desc: "Regular guidance, accountability and encouragement help you stay consistent.",
   },
   {
     icon: ChartColumnIncreasing,
+    img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=200&h=200&fit=crop&crop=center",
     title: "Measure",
     desc: "We measure progress through healthier habits, energy levels and sustainable improvements.",
   },
   {
     icon: Leaf,
+    img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&h=200&fit=crop&crop=center",
     title: "Sustain",
     desc: "The goal isn't another short-term program. It's creating healthy habits that last.",
   },
@@ -262,28 +267,6 @@ function Home() {
                 </p>
               </Reveal>
 
-              {/* 3 stat boxes
-              <Reveal delay={320}>
-                <div className="mt-7 md:mt-10 grid grid-cols-3 gap-2.5 md:gap-4 max-w-[420px]">
-                  {heroStats.map((stat) => {
-                    const Icon = stat.icon;
-                    return (
-                      <div
-                        key={stat.label}
-                        className="rounded-xl border border-white/25 bg-white/10 backdrop-blur-sm px-2.5 py-3 md:px-4 md:py-4 flex flex-col items-start gap-1"
-                      >
-                        <Icon className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary" strokeWidth={2.25} />
-                        <span className="text-sm md:text-lg font-bold text-background leading-none mt-0.5">
-                          {stat.value}
-                        </span>
-                        <span className="text-[9px] md:text-[11px] text-background/75 leading-tight">
-                          {stat.label}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </Reveal> */}
             </div>
           </div>
         </div>
@@ -387,10 +370,8 @@ function Home() {
 
                         <div className="text-center px-3">
 
-                          <div className="mx-auto w-20 h-20 rounded-full bg-card border border-border shadow-sm flex items-center justify-center relative z-10">
-
-                            <Icon className="w-8 h-8 text-primary" />
-
+                          <div className="mx-auto w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 shadow-md relative z-10">
+                            <img src={step.img} alt={step.title} className="w-full h-full object-cover" />
                           </div>
 
                           <h3 className="mt-5 font-bold text-lg">
@@ -502,7 +483,12 @@ function Home() {
 
                     <div className="relative pl-12 pb-12">
 
-                      <Icon className="w-7 h-7 text-primary mb-3" />
+                      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/30 shadow-sm relative mb-3">
+                        <img src={step.img} alt={step.title} className="w-full h-full object-cover" />
+                        <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center border-2 border-background">
+                          <Icon className="w-3 h-3 text-primary-foreground" />
+                        </div>
+                      </div>
 
                       <h3 className="font-bold text-xl">
 
@@ -606,31 +592,33 @@ function Home() {
 
           <div className="mt-12 md:mt-16 grid sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {programs.map((p, i) => (
-              <Reveal key={p.slug} delay={100 + i * 80}>
-                <div className="bg-card border border-border rounded-2xl overflow-hidden h-full flex flex-col">
-                  <div className="aspect-[4/3] bg-muted overflow-hidden">
+              <Reveal key={p.slug} delay={100 + i * 120}>
+                <Link
+                  to="/programs"
+                  hash={p.slug}
+                  className="group block bg-card border border-border rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-[0_20px_45px_rgba(0,0,0,0.12)]"
+                >
+                  <div className="aspect-[4/3] bg-muted overflow-hidden relative">
                     <img
                       src={p.img}
                       alt={p.title}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-lg font-bold text-foreground mb-2">
+                    <h3 className="text-lg font-bold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">
                       {p.title}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
                       {p.desc}
                     </p>
-                    <Link
-                      to="/programs"
-                      hash={p.slug}
-                      className="inline-flex items-center justify-center gap-2 border border-primary text-primary px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-primary hover:text-primary-foreground transition-all self-start"
-                    >
-                      Explore <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+                    <span className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full transition-all duration-300 self-start group-hover:bg-primary group-hover:text-primary-foreground group-hover:gap-3 group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)]">
+                      Explore
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>

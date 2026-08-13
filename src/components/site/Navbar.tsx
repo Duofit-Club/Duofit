@@ -50,7 +50,7 @@ export function Navbar() {
             style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
           >
             <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
-            Start Your Journey
+            Start Your health Journey
           </Link>
           {/* Hamburger */}
           <button
