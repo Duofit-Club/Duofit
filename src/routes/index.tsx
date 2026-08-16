@@ -15,6 +15,7 @@ import {
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import heroImg from "@/assets/hero-lifestyle-new.jpg";
+import personalHealth from"@/assets/personal-health.png";
 import heroMobileImg from "@/assets/hero-lifestyle-mobile.jpg";
 import { useState } from "react";
 import { seo } from "@/lib/seo";
@@ -73,8 +74,7 @@ const programs = [
     slug: "personal-health-coaching",
     title: "Personal Health Coaching",
     desc: "A holistic approach to nutrition, fitness, sleep and lifestyle — built around your goals, not a generic plan.",
-    img: "https://www.healthfitnessindia.in/wp-content/uploads/2022/03/Health-Fitness-India-Personal-Trainers-Nutritionists-Dietitians-Sports-Coaches-Physiotherapists-Exercise-Equipment.jpg",
-  },
+    img: personalHealth},
   {
     slug: "family-health-habits",
     title: "Family Health & Habits",
