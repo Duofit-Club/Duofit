@@ -15,7 +15,7 @@ import {
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import heroImg from "@/assets/hero-lifestyle-new.jpg";
-import personalHealth from"@/assets/personal-health.png";
+import personalHealth from "@/assets/personal-health.png";
 import heroMobileImg from "@/assets/hero-lifestyle-mobile.jpg";
 import { useState } from "react";
 import { seo } from "@/lib/seo";
@@ -74,7 +74,8 @@ const programs = [
     slug: "personal-health-coaching",
     title: "Personal Health Coaching",
     desc: "A holistic approach to nutrition, fitness, sleep and lifestyle — built around your goals, not a generic plan.",
-    img: personalHealth},
+    img: personalHealth
+  },
   {
     slug: "family-health-habits",
     title: "Family Health & Habits",

@@ -436,7 +436,10 @@ function HealthCheck() {
                             `Strength: ${PILLAR_LABELS[strengthPillar]}\n` +
                             `Opportunity: ${PILLAR_LABELS[opportunityPillar]}\n` +
                             `Recommended Program: ${recommendedProgram.name}\n\n` +
-                            answers.map((a, i) => `Q${i + 1}: ${a.label}`).join("\n"),
+                            `${"=".repeat(44)}\nFULL QUESTIONNAIRE — QUESTION & ANSWER\n${"=".repeat(44)}\n\n` +
+                            answers
+                                .map((a, i) => `Q${i + 1}. ${QUESTIONS[i].text}\n→ Answer: ${a.label}`)
+                                .join("\n\n"),
                         replyto: email || undefined,
                     }),
                 });
