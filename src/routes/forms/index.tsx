@@ -40,6 +40,13 @@ const forms = [
     href: "/forms/health-check",
     time: "1 min",
   },
+{
+  title: "Client Feedback",
+  desc:" Share your DUOFIT journey — 2 minutes, and it might become a testimonial.",
+  icon : HeartPulse,
+  href:"/forms/testimonial-feedback",
+  time:"2 min",
+}
 ];
 
 function FormsHub() {
@@ -80,6 +87,7 @@ function FormsHub() {
                   </div>
                 </div>
               </Link>
+              
               
               
             );

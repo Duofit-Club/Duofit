@@ -20,6 +20,7 @@ import { Route as CommunityRouteImport } from './routes/community'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FormsIndexRouteImport } from './routes/forms/index'
+import { Route as FormsTestimonialFeedbackRouteImport } from './routes/forms/testimonial-feedback'
 import { Route as FormsNutritionRouteImport } from './routes/forms/nutrition'
 import { Route as FormsMonthlyReviewRouteImport } from './routes/forms/monthly-review'
 import { Route as FormsHealthCheckRouteImport } from './routes/forms/health-check'
@@ -79,6 +80,12 @@ const FormsIndexRoute = FormsIndexRouteImport.update({
   path: '/forms/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FormsTestimonialFeedbackRoute =
+  FormsTestimonialFeedbackRouteImport.update({
+    id: '/forms/testimonial-feedback',
+    path: '/forms/testimonial-feedback',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const FormsNutritionRoute = FormsNutritionRouteImport.update({
   id: '/forms/nutrition',
   path: '/forms/nutrition',
@@ -109,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/forms/health-check': typeof FormsHealthCheckRoute
   '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
+  '/forms/testimonial-feedback': typeof FormsTestimonialFeedbackRoute
   '/forms/': typeof FormsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -125,6 +133,7 @@ export interface FileRoutesByTo {
   '/forms/health-check': typeof FormsHealthCheckRoute
   '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
+  '/forms/testimonial-feedback': typeof FormsTestimonialFeedbackRoute
   '/forms': typeof FormsIndexRoute
 }
 export interface FileRoutesById {
@@ -142,6 +151,7 @@ export interface FileRoutesById {
   '/forms/health-check': typeof FormsHealthCheckRoute
   '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
+  '/forms/testimonial-feedback': typeof FormsTestimonialFeedbackRoute
   '/forms/': typeof FormsIndexRoute
 }
 export interface FileRouteTypes {
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/forms/health-check'
     | '/forms/monthly-review'
     | '/forms/nutrition'
+    | '/forms/testimonial-feedback'
     | '/forms/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/forms/health-check'
     | '/forms/monthly-review'
     | '/forms/nutrition'
+    | '/forms/testimonial-feedback'
     | '/forms'
   id:
     | '__root__'
@@ -192,6 +204,7 @@ export interface FileRouteTypes {
     | '/forms/health-check'
     | '/forms/monthly-review'
     | '/forms/nutrition'
+    | '/forms/testimonial-feedback'
     | '/forms/'
   fileRoutesById: FileRoutesById
 }
@@ -209,6 +222,7 @@ export interface RootRouteChildren {
   FormsHealthCheckRoute: typeof FormsHealthCheckRoute
   FormsMonthlyReviewRoute: typeof FormsMonthlyReviewRoute
   FormsNutritionRoute: typeof FormsNutritionRoute
+  FormsTestimonialFeedbackRoute: typeof FormsTestimonialFeedbackRoute
   FormsIndexRoute: typeof FormsIndexRoute
 }
 
@@ -291,6 +305,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FormsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/forms/testimonial-feedback': {
+      id: '/forms/testimonial-feedback'
+      path: '/forms/testimonial-feedback'
+      fullPath: '/forms/testimonial-feedback'
+      preLoaderRoute: typeof FormsTestimonialFeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/forms/nutrition': {
       id: '/forms/nutrition'
       path: '/forms/nutrition'
@@ -329,6 +350,7 @@ const rootRouteChildren: RootRouteChildren = {
   FormsHealthCheckRoute: FormsHealthCheckRoute,
   FormsMonthlyReviewRoute: FormsMonthlyReviewRoute,
   FormsNutritionRoute: FormsNutritionRoute,
+  FormsTestimonialFeedbackRoute: FormsTestimonialFeedbackRoute,
   FormsIndexRoute: FormsIndexRoute,
 }
 export const routeTree = rootRouteImport
