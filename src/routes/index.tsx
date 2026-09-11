@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ChevronDown} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import {
   ArrowRight,
   Dumbbell,
@@ -34,22 +34,22 @@ export const Route = createFileRoute("/")({
 // ── Programs ──────────────────────────────────────────────────────────────
 const programs = [
   {
-     slug: "personal-health-coaching",
+    slug: "personal-health-coaching",
     icon: Dumbbell,
-   img: personalHealth,
+    img: personalHealth,
 
-   title: "Personal Health Coaching",
+    title: "Personal Health Coaching",
 
-  desc: "A holistic approach to nutrition, fitness, sleep and lifestyle — built around your goals, not a generic plan.",
+    desc: "A holistic approach to nutrition, fitness, sleep and lifestyle — built around your goals, not a generic plan.",
 
   },
   {
-   slug: "family-health-habits",
+    slug: "family-health-habits",
 
     icon: Leaf,
     img: "https://i.pinimg.com/originals/3e/d3/38/3ed33865182657c8cb456c0862ae2386.jpg",
 
-   title: "Family Health & Habits",
+    title: "Family Health & Habits",
     desc: "Helping families build healthier routines together through practical nutrition, movement and everyday habits.",
 
   },
@@ -392,50 +392,46 @@ function Home() {
     <SiteLayout>
 
       {/* HERO */}
-            <section className="relative min-h-[85vh] flex items-center">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1600&h=1000&fit=crop&crop=center"
-            alt="A person living a healthy, balanced everyday life"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/35" />
-        </div>
-
-        <div className="container-editorial relative z-10 py-20">
+           <section className="container-editorial py-16 md:py-24">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <Reveal>
-            <div className="max-w-xl bg-background/95 backdrop-blur-sm rounded-3xl p-8 md:p-11 shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
+            <div className="bg-card border border-border rounded-3xl p-8 md:p-10">
               <p className="text-base md:text-lg text-foreground leading-relaxed">
-                Health is rarely just about food, fitness or a number on the
-                scale. It is how you eat, how you move, how you sleep, how
-                you feel, and the habits that shape your everyday life.
+                Health is more than just food, fitness, or a number on the
+                scale. It's about how you eat, how you move, how you sleep,
+                how you feel, and the habits that shape your everyday life.
               </p>
               <p className="mt-4 text-base md:text-lg text-foreground leading-relaxed">
                 At DUOFIT, we look at the whole picture. We understand your
-                goals, lifestyle and challenges, identify what is getting in
-                the way, and build a practical plan around you — bringing
-                together nutrition, fitness and healthy habits in a way that
-                fits your real life.
+                goals, lifestyle, and challenges, identify what may be
+                getting in the way, and build a practical plan around
+                you—bringing together nutrition, fitness, and healthy habits
+                in a way that fits your real life.
               </p>
-              <p className="mt-4 text-base md:text-lg text-foreground leading-relaxed">
-                Because getting healthier shouldn't mean putting your life on
-                hold. It should mean building a way of living that you can
-                actually keep.
-              </p>
-              <p className="mt-5 text-base md:text-lg font-semibold text-primary leading-relaxed">
-                Start your journey with DUOFIT — and build better health for
-                the long term.
-              </p>
-              <Link to="/contact" className={`${shimmerBtn} mt-7`} style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}>
+              <Link
+                to="/contact"
+                className={`${shimmerBtn} mt-7`}
+                style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}
+              >
                 <span className={shimmerSpan} />
                 Start Your Journey <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </Reveal>
+
+          <Reveal delay={120}>
+            <div className="overflow-hidden rounded-3xl aspect-[4/5]">
+              <img
+                src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=900&h=1125&fit=crop&crop=center"
+                alt="A balanced, healthy everyday life"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
-           {/* SECTION 2 — Does This Sound Like You (redesigned: problem → possibility) */}
+      {/* SECTION 2 — Does This Sound Like You (redesigned: problem → possibility) */}
       <section className="bg-background">
         <div className="container-editorial py-20 md:py-28">
 
@@ -480,27 +476,25 @@ function Home() {
             </div>
 
             {/* RIGHT — Imagine feeling different (single visual story) */}
-                        {/* RIGHT — Find your program */}
+                        {/* RIGHT — You're not alone */}
             <Reveal delay={140}>
               <div className="relative pb-16 md:pb-0">
                 <div className="rounded-3xl overflow-hidden aspect-[4/5]">
                   <img
-                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&h=1125&fit=crop&crop=center"
-                    alt="Finding the DUOFIT program that fits your life"
+                    src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=900&h=1125&fit=crop&crop=center"
+                    alt="A calm, simple morning routine"
                     className="w-full h-full object-cover"
                   />
                 </div>
 
                 <div className="relative md:absolute md:-bottom-12 md:left-6 md:right-6 -mt-10 md:mt-0 mx-4 md:mx-0 bg-background border border-border rounded-2xl p-7 md:p-8 shadow-[0_20px_45px_rgba(0,0,0,0.08)]">
                   <h4 className="text-xl md:text-2xl font-bold text-foreground leading-snug">
-                    Your health goals are personal. <span className="italic text-primary">Your approach should be too.</span>
+                    You're not alone.
                   </h4>
                   <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
-                    Whether you're looking to improve your fitness, manage
-                    your weight, build healthier habits, or create a
-                    healthier lifestyle for your family, DUOFIT has a path
-                    designed around where you are today and where you want
-                    to go.
+                    Every health journey has moments like these. What matters
+                    isn't avoiding them — it's having the right support to
+                    move through them, in a way that actually fits your life.
                   </p>
                   <a
                     href="#programs"
@@ -516,17 +510,16 @@ function Home() {
         </div>
       </section>
 
-            {/* SECTION 3 — Programs (3-tier) */}
+      {/* SECTION 3 — Programs (3-tier) */}
       <section id="programs" className="container-editorial py-16 md:py-24 scroll-mt-24">
         <div className="grid lg:grid-cols-3 gap-6 items-start">
           {programTiers.map((tier, i) => (
             <Reveal key={tier.n} delay={i * 100}>
               <div
-                className={`relative h-full flex flex-col rounded-2xl p-7 md:p-8 border transition-all duration-500 hover:-translate-y-1 ${
-                  tier.preferred
+                className={`relative h-full flex flex-col rounded-2xl p-7 md:p-8 border transition-all duration-500 hover:-translate-y-1 ${tier.preferred
                     ? "border-primary bg-primary/5 shadow-[0_20px_45px_rgba(164,59,32,0.12)] lg:scale-[1.03]"
                     : "border-border bg-card hover:border-primary/40 hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)]"
-                }`}
+                  }`}
               >
                 {tier.preferred && (
                   <span className="absolute -top-3 right-6 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1">
@@ -554,11 +547,10 @@ function Home() {
                   <p className="text-xs text-muted-foreground leading-relaxed mb-5">{tier.bestFor}</p>
                   <Link
                     to="/contact"
-                    className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3 text-xs font-bold uppercase tracking-widest transition-all ${
-                      tier.preferred
+                    className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3 text-xs font-bold uppercase tracking-widest transition-all ${tier.preferred
                         ? "bg-primary text-primary-foreground hover:brightness-110"
                         : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                    }`}
+                      }`}
                   >
                     {tier.cta} <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -584,63 +576,33 @@ function Home() {
       </section>
 
       {/* SECTION 4 — Why & How DUOFIT Can Help (process timeline, no Venn) */}
-           <section className="bg-cream border-y border-border">
+            <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24">
-          <div className="max-w-2xl mx-auto text-center">
-            <Reveal>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
-                Your health doesn't exist in separate boxes.
-              </h2>
-            </Reveal>
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight text-center max-w-2xl mx-auto mb-14 md:mb-16">
+              Your health doesn't exist in separate boxes.
+            </h2>
+          </Reveal>
 
-            <Reveal delay={60}>
-              <div className="flex flex-wrap justify-center gap-2 mt-6">
-                {["Nutrition", "Fitness", "Sleep", "Stress", "Energy", "Habits"].map((tag) => (
-                  <span key={tag} className="text-xs font-semibold uppercase tracking-wide bg-background border border-border rounded-full px-3.5 py-1.5 text-foreground">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
+            <div>
+              <Reveal delay={60}>
+                <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium">
+                  Nutrition, fitness, sleep, stress and habits are all connected.
+                </p>
+              </Reveal>
+              <Reveal delay={110}>
+                <p className="mt-4 text-lg md:text-xl italic text-primary leading-relaxed">
+                  That's why DUOFIT starts by understanding the whole
+                  picture — not a single number or a generic plan.
+                </p>
+              </Reveal>
+            </div>
 
-            <Reveal delay={110}>
-              <p className="mt-6 text-sm md:text-base text-muted-foreground leading-relaxed">
-                We often treat these as separate problems to solve. But your
-                health doesn't work that way. Everything is connected.
-              </p>
+            <Reveal delay={140}>
+              <VennDiagram />
             </Reveal>
           </div>
-
-          <Reveal delay={160}>
-            <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 max-w-4xl mx-auto">
-              {[
-                "What you eat can affect your energy.",
-                "Your energy can affect how active you are.",
-                "Your activity can affect your sleep.",
-                "Your sleep can affect your recovery and habits.",
-              ].map((step, i, arr) => (
-                <div key={step} className="flex items-center gap-3 md:gap-2">
-                  <p className="text-sm md:text-[13px] text-foreground text-center leading-snug bg-background border border-border rounded-xl px-4 py-3 max-w-[200px]">
-                    {step}
-                  </p>
-                  {i < arr.length - 1 && (
-                    <ArrowRight className="hidden md:block h-4 w-4 text-primary shrink-0" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal delay={220}>
-            <div className="mt-12 max-w-lg mx-auto text-center">
-              <p className="text-base md:text-lg font-semibold text-foreground leading-relaxed">
-                That's why DUOFIT doesn't start with a generic diet or workout plan.
-              </p>
-              <p className="mt-1 text-base md:text-lg italic text-primary leading-relaxed">
-                We start by understanding the whole picture.
-              </p>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -672,8 +634,8 @@ function Home() {
                   ))}
                 </div>
                 <span className="text-xs font-semibold text-foreground">{t.name}</span>
-<span className="text-xs text-muted-foreground"> — {t.role}</span>
-<span className="text-xs text-muted-foreground"> — {t.quote}</span>
+                <span className="text-xs text-muted-foreground"> — {t.role}</span>
+                <span className="text-xs text-muted-foreground"> — {t.quote}</span>
               </div>
             </Reveal>
           ))}
@@ -681,7 +643,7 @@ function Home() {
       </section>
 
       {/* SECTION 6 — FAQs */}
-            <section className="bg-cream border-y border-border">
+      <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24">
           <Reveal>
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block text-center mb-3">
