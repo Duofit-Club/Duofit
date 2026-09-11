@@ -69,16 +69,14 @@ const whyChecklist = [
 // swap in real client quotes before publishing.
 const testimonials = [
   {
-    quote: "DUOFIT helped me build a routine that fits my work schedule. I feel stronger, more energetic and more confident than ever.",
-    name: "Arjun R.",
+    quote: "It has been a truly great learning experience. I particularly appreciated how you asked thoughtful and relevant questions that helped me reflect deeply and uncover some of my hidden strengths and traits. Our discussions about practical ways to work on these areas were extremely valuable and actionable.",
+    name: "Amrita Das",
+    role: "Corporate Professional",
   },
   {
-    quote: "The nutrition guidance was practical and easy to follow. It's not just about looking better, it's about feeling better.",
-    name: "Neha P.",
-  },
-  {
-    quote: "I've trained before, but never saw consistent results. The structured approach at DUOFIT changed that.",
-    name: "Karan S.",
+    quote: "The biggest change for me has been maintaining constant energy levels throughout the day — I used to have energy crashes by afternoon, and evenings were an ordeal. Working with DUOFIT, I've noticed a significant improvement. The experience is extremely different from other fitness apps and coaches — there's no standardized formula here. The diet, workout and nutritional gaps are personalized according to your body composition and the concerns you're actually facing, and that's really the best part.",
+    name: "Manaswini",
+    role: "Corporate Employee",
   },
 ];
 
@@ -203,30 +201,68 @@ const soundLikeYou = [
 
 // ── Section 3 — Programs, expanded with benefit bullets ──
 // ⚠️ Draft copy — swap in your exact programs.tsx bullets if these differ.
-const programsExpanded = [
+const programTiers = [
   {
-    slug: "fitness-coaching",
-    icon: Dumbbell,
-    img: personalHealth,
-    title: "Fitness Coaching",
-    desc: "Personalised training plans to build strength, improve fitness & performance.",
-    benefits: [
-      "Build strength and improve overall fitness",
-      "Structured, progressive training — not random workouts",
-      "Realistic routines that fit your schedule",
+    n: "01",
+    name: "DUOFIT 101",
+    tagline: "Build the foundations.",
+    desc: "A structured group health program to help you improve your nutrition, fitness and everyday habits—with expert guidance, accountability and community support.",
+    features: [
+      "Initial health & lifestyle assessment",
+      "Practical nutrition guidance",
+      "Fitness & movement guidance",
+      "Weekly health & habit goals",
+      "Coach-led group sessions",
+      "WhatsApp group support",
+      "Progress tracking",
+      "Practical guides & resources",
+      "Group accountability",
     ],
+    bestFor: "People who want structure, guidance and accountability to get started.",
+    cta: "Explore DUOFIT 101",
+    preferred: false,
   },
   {
-    slug: "nutrition-coaching",
-    icon: Leaf,
-    img: nutritionImg,
-    title: "Nutrition Coaching",
-    desc: "Practical nutrition strategies that fit your lifestyle and food preferences.",
-    benefits: [
-      "Practical food choices, not restrictive diets",
-      "Meal guidance that fits your lifestyle and preferences",
-      "Build sustainable eating habits that last",
+    n: "02",
+    name: "DUOFIT PERSONAL",
+    tagline: "Your health. Personalised.",
+    desc: "1:1 health coaching built around your individual goals, lifestyle, challenges and health priorities—with personalised guidance and ongoing support from your coach.",
+    features: [
+      "Detailed health & lifestyle assessment",
+      "Personalised nutrition plan",
+      "Personalised fitness & movement plan",
+      "Fat loss, weight loss & body recomposition support",
+      "Sleep & recovery guidance",
+      "Healthy habit coaching",
+      "Regular 1:1 coaching",
+      "Direct WhatsApp access to your coach",
+      "Progress tracking & goal reviews",
+      "Ongoing plan adjustments",
     ],
+    bestFor: "Individuals who want personalised attention and a plan built specifically around them.",
+    cta: "Explore Personal Coaching",
+    preferred: false,
+  },
+  {
+    n: "03",
+    name: "DUOFIT FAMILY",
+    tagline: "Build healthier habits together.",
+    desc: "Family health coaching designed to help parents and children create healthier routines around nutrition, movement, sleep and everyday life.",
+    features: [
+      "Family health & lifestyle assessment",
+      "Practical family nutrition guidance",
+      "Family-friendly movement & activity guidance",
+      "Healthier routines at home",
+      "Age-appropriate habit building",
+      "Family activity goals",
+      "Parent guidance & support",
+      "Family progress tracking",
+      "Regular coaching & accountability",
+      "Practical resources for parents",
+    ],
+    bestFor: "Families who want to create healthier habits and a healthier lifestyle together.",
+    cta: "Explore Family Coaching",
+    preferred: true,
   },
 ];
 
@@ -298,12 +334,14 @@ function ProcessTimeline() {
 // ── Section 6 — FAQ accordion ──
 // ⚠️ Draft copy in DUOFIT's established voice — edit freely.
 const faqs = [
-  { q: "How is DUOFIT different from a typical diet plan?", a: "We don't believe in extreme diets or unrealistic routines. Every plan is built around your actual lifestyle, food preferences and schedule — designed to be sustainable, not just short-term." },
-  { q: "Do I need to already be fit to start?", a: "Not at all. Whether you're just starting out or restarting after a break, coaching is personalised to your current fitness level and builds from there." },
-  { q: "What does a typical week of coaching look like?", a: "You'll get a personalised plan, regular check-ins with your coach, and ongoing adjustments based on how you're progressing — not a one-size-fits-all program." },
-  { q: "Is this only for individuals, or can families join too?", a: "DUOFIT supports individuals, couples and families — with coaching designed around real, shared routines." },
-  { q: "How soon will I see results?", a: "Every journey is different, but most clients notice improvements in energy, consistency and habits within the first few weeks — with lasting changes building over months." },
-  { q: "How do I get started?", a: "Just book a free consultation. We'll understand your goals and current lifestyle, then build a plan around it — no pressure, no obligation." },
+  { q: "How is DUOFIT different from a typical diet or workout plan?", a: "DUOFIT looks at your health as a whole rather than focusing on just one goal. Your nutrition, fitness, sleep, energy and everyday habits are interconnected, so we build an approach around your goals, lifestyle and challenges—not a one-size-fits-all plan." },
+  { q: "Do I need to already be fit or healthy to join DUOFIT?", a: "No. DUOFIT is designed for different starting points and fitness levels. Your program is based on where you are today and adapted to your goals, lifestyle and current abilities." },
+  { q: "Which DUOFIT program is right for me?", a: "It depends on the level of support you're looking for. DUOFIT 101 is a structured group program for those looking for guidance, accountability and the fundamentals. DUOFIT Personal is 1:1 coaching for individuals who want a personalised approach built around their specific goals. DUOFIT Family is designed for families who want to build healthier habits together. If you're unsure, you can speak with us and we'll help you identify the right starting point." },
+  { q: "What does a typical week of coaching look like?", a: "This depends on the program you choose. You may have weekly goals, nutrition and movement guidance, coaching sessions, progress reviews and ongoing accountability. With Personal Coaching, your approach and support are tailored specifically to you." },
+  { q: "Can DUOFIT help with weight loss and body recomposition?", a: "Yes. Weight management can be part of your DUOFIT journey, including fat loss, weight loss and body recomposition. We look beyond the number on the scale and consider nutrition, fitness, habits, sleep and lifestyle when building your approach." },
+  { q: "Do I need to follow a strict diet or workout routine?", a: "No. DUOFIT focuses on practical changes that can fit into your lifestyle. Nutrition guidance takes your food preferences and routines into account, while movement recommendations are adapted to your current level and goals." },
+  { q: "How long does it take to see results?", a: "Results vary from person to person and depend on your starting point, goals and consistency. Rather than promising a fixed outcome or timeline, we focus on building sustainable changes and tracking meaningful progress throughout your journey." },
+  { q: "How do I get started?", a: "Choose the DUOFIT program that best fits your needs, or get in touch if you're unsure. We'll understand your goals and help you determine the right next step." },
 ];
 
 function FaqAccordion() {
@@ -354,73 +392,44 @@ function Home() {
     <SiteLayout>
 
       {/* HERO */}
-      <section className="container-editorial pt-10 md:pt-16 pb-14 md:pb-20">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div>
-            <Reveal>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05] tracking-tight text-foreground">
-                Health,<br />
-                <span className="italic text-primary">Designed</span> to Last.
-              </h1>
-            </Reveal>
-            <Reveal delay={100}>
-              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-md">
-                Personalised fitness and nutrition coaching built around your
-                goals, lifestyle and long-term health.
-              </p>
-            </Reveal>
-            <Reveal delay={180}>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link to="/contact" className={shimmerBtn} style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}>
-                  <span className={shimmerSpan} />
-                  Start Your Journey <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link to="/about" className={`${shimmerBtn} border border-border text-foreground`}>
-                  Our Approach <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal delay={260}>
-              <div className="mt-8 flex items-center gap-6">
-                <div className="flex items-center gap-3">
-                  <div className="flex -space-x-2.5">
-                    {[personalHealth, nutritionImg, heroImg, personalHealth].map((img, i) => (
-                      <img key={i} src={img} alt="" className="h-8 w-8 rounded-full border-2 border-background object-cover" />
-                    ))}
-                  </div>
-                  <div className="text-xs leading-tight">
-                    <span className="block font-bold text-foreground">500+</span>
-                    <span className="block text-muted-foreground">People Transformed</span>
-                  </div>
-                </div>
-                <div className="h-8 w-px bg-border" />
-                <div className="text-xs leading-tight">
-                  <div className="flex items-center gap-1">
-                    <span className="font-bold text-foreground">4.9/5</span>
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-3 w-3 fill-primary text-primary" />
-                      ))}
-                    </div>
-                  </div>
-                  <span className="block text-muted-foreground mt-0.5">From 150+ Reviews</span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
+            <section className="relative min-h-[85vh] flex items-center">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1600&h=1000&fit=crop&crop=center"
+            alt="A person living a healthy, balanced everyday life"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/35" />
+        </div>
 
-          <Reveal delay={140}>
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-muted/60 scale-90 -z-10" />
-              <div className="overflow-hidden rounded-3xl aspect-[4/3] bg-muted">
-                <img src={heroImg} alt="DUOFIT coaches" className="h-full w-full object-cover" loading="eager" />
-              </div>
-              <div className="absolute -bottom-5 left-5 bg-card border border-border rounded-2xl px-4 py-3 shadow-lg flex items-center gap-2.5">
-                <div className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="h-4 w-4 text-primary" />
-                </div>
-                <span className="text-sm font-semibold text-foreground">Certified Experts</span>
-              </div>
+        <div className="container-editorial relative z-10 py-20">
+          <Reveal>
+            <div className="max-w-xl bg-background/95 backdrop-blur-sm rounded-3xl p-8 md:p-11 shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
+              <p className="text-base md:text-lg text-foreground leading-relaxed">
+                Health is rarely just about food, fitness or a number on the
+                scale. It is how you eat, how you move, how you sleep, how
+                you feel, and the habits that shape your everyday life.
+              </p>
+              <p className="mt-4 text-base md:text-lg text-foreground leading-relaxed">
+                At DUOFIT, we look at the whole picture. We understand your
+                goals, lifestyle and challenges, identify what is getting in
+                the way, and build a practical plan around you — bringing
+                together nutrition, fitness and healthy habits in a way that
+                fits your real life.
+              </p>
+              <p className="mt-4 text-base md:text-lg text-foreground leading-relaxed">
+                Because getting healthier shouldn't mean putting your life on
+                hold. It should mean building a way of living that you can
+                actually keep.
+              </p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-primary leading-relaxed">
+                Start your journey with DUOFIT — and build better health for
+                the long term.
+              </p>
+              <Link to="/contact" className={`${shimmerBtn} mt-7`} style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}>
+                <span className={shimmerSpan} />
+                Start Your Journey <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -471,41 +480,34 @@ function Home() {
             </div>
 
             {/* RIGHT — Imagine feeling different (single visual story) */}
+                        {/* RIGHT — Find your program */}
             <Reveal delay={140}>
               <div className="relative pb-16 md:pb-0">
                 <div className="rounded-3xl overflow-hidden aspect-[4/5]">
                   <img
-                    src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=900&h=1125&fit=crop&crop=center"
-                    alt="A calm, healthy everyday morning"
+                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&h=1125&fit=crop&crop=center"
+                    alt="Finding the DUOFIT program that fits your life"
                     className="w-full h-full object-cover"
                   />
                 </div>
 
                 <div className="relative md:absolute md:-bottom-12 md:left-6 md:right-6 -mt-10 md:mt-0 mx-4 md:mx-0 bg-background border border-border rounded-2xl p-7 md:p-8 shadow-[0_20px_45px_rgba(0,0,0,0.08)]">
                   <h4 className="text-xl md:text-2xl font-bold text-foreground leading-snug">
-                    What if healthy living finally felt <span className="italic text-primary">simple</span>?
+                    Your health goals are personal. <span className="italic text-primary">Your approach should be too.</span>
                   </h4>
                   <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
-                    No extreme routines. No confusing rules. Just practical
-                    habits that fit into your real life — and that you can
-                    actually stick with.
+                    Whether you're looking to improve your fitness, manage
+                    your weight, build healthier habits, or create a
+                    healthier lifestyle for your family, DUOFIT has a path
+                    designed around where you are today and where you want
+                    to go.
                   </p>
-
-                  <div className="mt-5 space-y-2.5">
-                    {outcomes.map((item) => (
-                      <div key={item} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span className="text-sm text-foreground">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Link
-                    to="/about"
+                  <a
+                    href="#programs"
                     className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all"
                   >
-                    See how it works <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+                    Find Your DUOFIT Program <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
                 </div>
               </div>
             </Reveal>
@@ -514,76 +516,131 @@ function Home() {
         </div>
       </section>
 
-      {/* SECTION 3 — Programs (expanded with benefits) */}
-      <section className="container-editorial py-16 md:py-24">
-        <div className="flex items-end justify-between mb-9 flex-wrap gap-3">
-          <div>
-            <Reveal>
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Coaching Programs</span>
+            {/* SECTION 3 — Programs (3-tier) */}
+      <section id="programs" className="container-editorial py-16 md:py-24 scroll-mt-24">
+        <div className="grid lg:grid-cols-3 gap-6 items-start">
+          {programTiers.map((tier, i) => (
+            <Reveal key={tier.n} delay={i * 100}>
+              <div
+                className={`relative h-full flex flex-col rounded-2xl p-7 md:p-8 border transition-all duration-500 hover:-translate-y-1 ${
+                  tier.preferred
+                    ? "border-primary bg-primary/5 shadow-[0_20px_45px_rgba(164,59,32,0.12)] lg:scale-[1.03]"
+                    : "border-border bg-card hover:border-primary/40 hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)]"
+                }`}
+              >
+                {tier.preferred && (
+                  <span className="absolute -top-3 right-6 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1">
+                    <Star className="h-3 w-3 fill-current" /> Preferred
+                  </span>
+                )}
+
+                <span className="text-xs font-bold text-primary tracking-widest">{tier.n} —</span>
+                <h3 className="mt-1 text-xl font-bold text-foreground">{tier.name}</h3>
+                <p className="mt-1 text-base italic text-primary">{tier.tagline}</p>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{tier.desc}</p>
+
+                <p className="mt-6 text-xs font-bold uppercase tracking-widest text-foreground">What You Get</p>
+                <div className="mt-3 space-y-2 flex-1">
+                  {tier.features.map((f) => (
+                    <div key={f} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+                      <span className="text-xs text-muted-foreground leading-relaxed">{f}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 pt-5 border-t border-border">
+                  <p className="text-xs font-bold uppercase tracking-widest text-foreground mb-1">Best For</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-5">{tier.bestFor}</p>
+                  <Link
+                    to="/contact"
+                    className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3 text-xs font-bold uppercase tracking-widest transition-all ${
+                      tier.preferred
+                        ? "bg-primary text-primary-foreground hover:brightness-110"
+                        : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    }`}
+                  >
+                    {tier.cta} <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+              </div>
             </Reveal>
-            <Reveal delay={60}>
-              <h2 className="mt-2 text-3xl md:text-4xl font-bold text-foreground leading-tight">
-                Programs Designed<br />For Real Life.
-              </h2>
-            </Reveal>
-          </div>
-          <Reveal delay={100}>
-            <Link to="/programs" className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors">
-              View All Programs <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </Reveal>
+          ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {programsExpanded.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <Reveal key={p.slug} delay={100 + i * 100}>
-                <div className="group bg-card border border-border rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_16px_36px_rgba(0,0,0,0.1)]">
-                  <div className="relative aspect-[16/9] overflow-hidden">
-                    <img src={p.img} alt={p.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute top-3 left-3 h-9 w-9 rounded-full bg-primary flex items-center justify-center shadow-md">
-                      <Icon className="h-4 w-4 text-primary-foreground" />
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-foreground mb-1.5">{p.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{p.desc}</p>
-                    <div className="space-y-2 mb-5">
-                      {p.benefits.map((b) => (
-                        <div key={b} className="flex items-start gap-2">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
-                          <span className="text-xs text-muted-foreground leading-relaxed">{b}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <Link
-                      to="/programs"
-                      hash={p.slug}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-foreground hover:gap-2.5 hover:text-primary transition-all"
-                    >
-                      Learn More <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
+        <Reveal delay={300}>
+          <div className="mt-10 rounded-2xl bg-cream border border-border p-7 md:p-8 text-center max-w-2xl mx-auto">
+            <h4 className="text-lg font-bold text-foreground mb-2">Not sure which program is right for you?</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+              Tell us about your goals, lifestyle and what you're looking to
+              improve. We'll help you find the right place to start.
+            </p>
+            <Link to="/contact" className={shimmerBtn} style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}>
+              <span className={shimmerSpan} />
+              Contact DUOFIT <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </Reveal>
       </section>
 
       {/* SECTION 4 — Why & How DUOFIT Can Help (process timeline, no Venn) */}
-      <section className="bg-cream border-y border-border">
+           <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24">
-          <Reveal>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block text-center mb-3">Our Approach</span>
+          <div className="max-w-2xl mx-auto text-center">
+            <Reveal>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
+                Your health doesn't exist in separate boxes.
+              </h2>
+            </Reveal>
+
+            <Reveal delay={60}>
+              <div className="flex flex-wrap justify-center gap-2 mt-6">
+                {["Nutrition", "Fitness", "Sleep", "Stress", "Energy", "Habits"].map((tag) => (
+                  <span key={tag} className="text-xs font-semibold uppercase tracking-wide bg-background border border-border rounded-full px-3.5 py-1.5 text-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay={110}>
+              <p className="mt-6 text-sm md:text-base text-muted-foreground leading-relaxed">
+                We often treat these as separate problems to solve. But your
+                health doesn't work that way. Everything is connected.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal delay={160}>
+            <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 max-w-4xl mx-auto">
+              {[
+                "What you eat can affect your energy.",
+                "Your energy can affect how active you are.",
+                "Your activity can affect your sleep.",
+                "Your sleep can affect your recovery and habits.",
+              ].map((step, i, arr) => (
+                <div key={step} className="flex items-center gap-3 md:gap-2">
+                  <p className="text-sm md:text-[13px] text-foreground text-center leading-snug bg-background border border-border rounded-xl px-4 py-3 max-w-[200px]">
+                    {step}
+                  </p>
+                  {i < arr.length - 1 && (
+                    <ArrowRight className="hidden md:block h-4 w-4 text-primary shrink-0" />
+                  )}
+                </div>
+              ))}
+            </div>
           </Reveal>
-          <Reveal delay={60}>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center max-w-lg mx-auto leading-tight mb-14 md:mb-20">
-              Why & How DUOFIT Can Help.
-            </h2>
+
+          <Reveal delay={220}>
+            <div className="mt-12 max-w-lg mx-auto text-center">
+              <p className="text-base md:text-lg font-semibold text-foreground leading-relaxed">
+                That's why DUOFIT doesn't start with a generic diet or workout plan.
+              </p>
+              <p className="mt-1 text-base md:text-lg italic text-primary leading-relaxed">
+                We start by understanding the whole picture.
+              </p>
+            </div>
           </Reveal>
-          <ProcessTimeline />
         </div>
       </section>
 
@@ -604,7 +661,7 @@ function Home() {
             </span>
           </Reveal>
         </div>
-        <div className="grid sm:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 max-w-3xl mx-auto gap-5">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={100 + i * 80}>
               <div className="bg-card border border-border rounded-2xl p-6 h-full flex flex-col">
@@ -614,8 +671,9 @@ function Home() {
                     <Star key={s} className="h-3.5 w-3.5 fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="text-sm text-foreground leading-relaxed mb-4 flex-1">"{t.quote}"</p>
-                <span className="text-xs font-semibold text-muted-foreground">{t.name}</span>
+                <span className="text-xs font-semibold text-foreground">{t.name}</span>
+<span className="text-xs text-muted-foreground"> — {t.role}</span>
+<span className="text-xs text-muted-foreground"> — {t.quote}</span>
               </div>
             </Reveal>
           ))}
@@ -623,18 +681,33 @@ function Home() {
       </section>
 
       {/* SECTION 6 — FAQs */}
-      <section className="bg-cream border-y border-border">
+            <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24">
           <Reveal>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block text-center mb-3">Got Questions?</span>
+            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block text-center mb-3">
+              Frequently Asked Questions
+            </span>
           </Reveal>
           <Reveal delay={60}>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-14">
-              Frequently Asked Questions.
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-3">
+              Questions before you get started?
             </h2>
           </Reveal>
-          <Reveal delay={100}>
+          <Reveal delay={90}>
+            <p className="text-sm md:text-base text-muted-foreground text-center max-w-lg mx-auto mb-14">
+              Here are some of the things people commonly want to know before starting with DUOFIT.
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
             <FaqAccordion />
+          </Reveal>
+          <Reveal delay={160}>
+            <div className="text-center mt-12">
+              <Link to="/contact" className={shimmerBtn} style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}>
+                <span className={shimmerSpan} />
+                Start Your DUOFIT Journey <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
