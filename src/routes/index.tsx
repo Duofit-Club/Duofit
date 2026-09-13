@@ -207,19 +207,9 @@ const programTiers = [
     name: "DUOFIT 101",
     tagline: "Build the foundations.",
     desc: "A structured group health program to help you improve your nutrition, fitness and everyday habits—with expert guidance, accountability and community support.",
-    features: [
-      "Initial health & lifestyle assessment",
-      "Practical nutrition guidance",
-      "Fitness & movement guidance",
-      "Weekly health & habit goals",
-      "Coach-led group sessions",
-      "WhatsApp group support",
-      "Progress tracking",
-      "Practical guides & resources",
-      "Group accountability",
-    ],
+    highlights: ["Nutrition & fitness guidance", "Coach-led group sessions", "Weekly goals & progress tracking"],
     bestFor: "People who want structure, guidance and accountability to get started.",
-    cta: "Explore DUOFIT 101",
+    viewHref: "/programs#duofit-101",
     preferred: false,
   },
   {
@@ -227,20 +217,9 @@ const programTiers = [
     name: "DUOFIT PERSONAL",
     tagline: "Your health. Personalised.",
     desc: "1:1 health coaching built around your individual goals, lifestyle, challenges and health priorities—with personalised guidance and ongoing support from your coach.",
-    features: [
-      "Detailed health & lifestyle assessment",
-      "Personalised nutrition plan",
-      "Personalised fitness & movement plan",
-      "Fat loss, weight loss & body recomposition support",
-      "Sleep & recovery guidance",
-      "Healthy habit coaching",
-      "Regular 1:1 coaching",
-      "Direct WhatsApp access to your coach",
-      "Progress tracking & goal reviews",
-      "Ongoing plan adjustments",
-    ],
+    highlights: ["Personalised nutrition & fitness plan", "Direct WhatsApp access to your coach", "Ongoing plan adjustments"],
     bestFor: "Individuals who want personalised attention and a plan built specifically around them.",
-    cta: "Explore Personal Coaching",
+    viewHref: "/programs#duofit-personal",
     preferred: false,
   },
   {
@@ -248,20 +227,9 @@ const programTiers = [
     name: "DUOFIT FAMILY",
     tagline: "Build healthier habits together.",
     desc: "Family health coaching designed to help parents and children create healthier routines around nutrition, movement, sleep and everyday life.",
-    features: [
-      "Family health & lifestyle assessment",
-      "Practical family nutrition guidance",
-      "Family-friendly movement & activity guidance",
-      "Healthier routines at home",
-      "Age-appropriate habit building",
-      "Family activity goals",
-      "Parent guidance & support",
-      "Family progress tracking",
-      "Regular coaching & accountability",
-      "Practical resources for parents",
-    ],
+    highlights: ["Family nutrition & activity guidance", "Age-appropriate habit building", "Regular coaching & accountability"],
     bestFor: "Families who want to create healthier habits and a healthier lifestyle together.",
-    cta: "Explore Family Coaching",
+    viewHref: "/programs#duofit-family",
     preferred: true,
   },
 ];
@@ -392,10 +360,19 @@ function Home() {
     <SiteLayout>
 
       {/* HERO */}
-           <section className="container-editorial py-16 md:py-24">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=900&h=1125&fit=crop&crop=center"
+            alt="A balanced, healthy everyday life"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
+        <div className="container-editorial relative z-10 py-20">
           <Reveal>
-            <div className="bg-card border border-border rounded-3xl p-8 md:p-10">
+            <div className="max-w-lg bg-background/95 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
               <p className="text-base md:text-lg text-foreground leading-relaxed">
                 Health is more than just food, fitness, or a number on the
                 scale. It's about how you eat, how you move, how you sleep,
@@ -416,16 +393,6 @@ function Home() {
                 <span className={shimmerSpan} />
                 Start Your Journey <ArrowRight className="h-4 w-4" />
               </Link>
-            </div>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <div className="overflow-hidden rounded-3xl aspect-[4/5]">
-              <img
-                src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=900&h=1125&fit=crop&crop=center"
-                alt="A balanced, healthy everyday life"
-                className="w-full h-full object-cover"
-              />
             </div>
           </Reveal>
         </div>
@@ -476,7 +443,7 @@ function Home() {
             </div>
 
             {/* RIGHT — Imagine feeling different (single visual story) */}
-                        {/* RIGHT — You're not alone */}
+            {/* RIGHT — You're not alone */}
             <Reveal delay={140}>
               <div className="relative pb-16 md:pb-0">
                 <div className="rounded-3xl overflow-hidden aspect-[4/5]">
@@ -517,8 +484,8 @@ function Home() {
             <Reveal key={tier.n} delay={i * 100}>
               <div
                 className={`relative h-full flex flex-col rounded-2xl p-7 md:p-8 border transition-all duration-500 hover:-translate-y-1 ${tier.preferred
-                    ? "border-primary bg-primary/5 shadow-[0_20px_45px_rgba(164,59,32,0.12)] lg:scale-[1.03]"
-                    : "border-border bg-card hover:border-primary/40 hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)]"
+                  ? "border-primary bg-primary/5 shadow-[0_20px_45px_rgba(164,59,32,0.12)] lg:scale-[1.03]"
+                  : "border-border bg-card hover:border-primary/40 hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)]"
                   }`}
               >
                 {tier.preferred && (
@@ -532,12 +499,11 @@ function Home() {
                 <p className="mt-1 text-base italic text-primary">{tier.tagline}</p>
                 <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{tier.desc}</p>
 
-                <p className="mt-6 text-xs font-bold uppercase tracking-widest text-foreground">What You Get</p>
-                <div className="mt-3 space-y-2 flex-1">
-                  {tier.features.map((f) => (
-                    <div key={f} className="flex items-start gap-2">
+                <div className="mt-5 space-y-2">
+                  {tier.highlights.map((h) => (
+                    <div key={h} className="flex items-start gap-2">
                       <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-xs text-muted-foreground leading-relaxed">{f}</span>
+                      <span className="text-xs text-muted-foreground leading-relaxed">{h}</span>
                     </div>
                   ))}
                 </div>
@@ -546,13 +512,13 @@ function Home() {
                   <p className="text-xs font-bold uppercase tracking-widest text-foreground mb-1">Best For</p>
                   <p className="text-xs text-muted-foreground leading-relaxed mb-5">{tier.bestFor}</p>
                   <Link
-                    to="/contact"
+                    to={tier.viewHref}
                     className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3 text-xs font-bold uppercase tracking-widest transition-all ${tier.preferred
-                        ? "bg-primary text-primary-foreground hover:brightness-110"
-                        : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                      ? "bg-primary text-primary-foreground hover:brightness-110"
+                      : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                       }`}
                   >
-                    {tier.cta} <ArrowRight className="h-3.5 w-3.5" />
+                    See Full Details <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               </div>
@@ -576,7 +542,7 @@ function Home() {
       </section>
 
       {/* SECTION 4 — Why & How DUOFIT Can Help (process timeline, no Venn) */}
-            <section className="bg-cream border-y border-border">
+      <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight text-center max-w-2xl mx-auto mb-14 md:mb-16">
@@ -618,9 +584,9 @@ function Home() {
             </Reveal>
           </div>
           <Reveal delay={100}>
-            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
-              See More Reviews <ArrowRight className="h-3.5 w-3.5" />
-            </span>
+            <Link to="/testimonials"  className="text-xs md:text-sm text-[#A83E20] hover:text-[#8F321B] transition-colors py-1 block">
+              Client Stories
+            </Link>
           </Reveal>
         </div>
         <div className="grid sm:grid-cols-2 max-w-3xl mx-auto gap-5">

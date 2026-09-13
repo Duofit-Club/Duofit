@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResultsRouteImport } from './routes/results'
 import { Route as RealityRouteImport } from './routes/reality'
@@ -25,6 +26,11 @@ import { Route as FormsNutritionRouteImport } from './routes/forms/nutrition'
 import { Route as FormsMonthlyReviewRouteImport } from './routes/forms/monthly-review'
 import { Route as FormsHealthCheckRouteImport } from './routes/forms/health-check'
 
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -113,6 +119,7 @@ export interface FileRoutesByFullPath {
   '/reality': typeof RealityRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/testimonials': typeof TestimonialsRoute
   '/forms/health-check': typeof FormsHealthCheckRoute
   '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
@@ -130,6 +137,7 @@ export interface FileRoutesByTo {
   '/reality': typeof RealityRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/testimonials': typeof TestimonialsRoute
   '/forms/health-check': typeof FormsHealthCheckRoute
   '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
@@ -148,6 +156,7 @@ export interface FileRoutesById {
   '/reality': typeof RealityRoute
   '/results': typeof ResultsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/testimonials': typeof TestimonialsRoute
   '/forms/health-check': typeof FormsHealthCheckRoute
   '/forms/monthly-review': typeof FormsMonthlyReviewRoute
   '/forms/nutrition': typeof FormsNutritionRoute
@@ -167,6 +176,7 @@ export interface FileRouteTypes {
     | '/reality'
     | '/results'
     | '/sitemap.xml'
+    | '/testimonials'
     | '/forms/health-check'
     | '/forms/monthly-review'
     | '/forms/nutrition'
@@ -184,6 +194,7 @@ export interface FileRouteTypes {
     | '/reality'
     | '/results'
     | '/sitemap.xml'
+    | '/testimonials'
     | '/forms/health-check'
     | '/forms/monthly-review'
     | '/forms/nutrition'
@@ -201,6 +212,7 @@ export interface FileRouteTypes {
     | '/reality'
     | '/results'
     | '/sitemap.xml'
+    | '/testimonials'
     | '/forms/health-check'
     | '/forms/monthly-review'
     | '/forms/nutrition'
@@ -219,6 +231,7 @@ export interface RootRouteChildren {
   RealityRoute: typeof RealityRoute
   ResultsRoute: typeof ResultsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TestimonialsRoute: typeof TestimonialsRoute
   FormsHealthCheckRoute: typeof FormsHealthCheckRoute
   FormsMonthlyReviewRoute: typeof FormsMonthlyReviewRoute
   FormsNutritionRoute: typeof FormsNutritionRoute
@@ -228,6 +241,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -347,6 +367,7 @@ const rootRouteChildren: RootRouteChildren = {
   RealityRoute: RealityRoute,
   ResultsRoute: ResultsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TestimonialsRoute: TestimonialsRoute,
   FormsHealthCheckRoute: FormsHealthCheckRoute,
   FormsMonthlyReviewRoute: FormsMonthlyReviewRoute,
   FormsNutritionRoute: FormsNutritionRoute,
