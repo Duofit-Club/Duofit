@@ -204,33 +204,21 @@ const soundLikeYou = [
 const programTiers = [
   {
     n: "01",
-    name: "DUOFIT 101",
-    tagline: "Build the foundations.",
-    desc: "A structured group health program to help you improve your nutrition, fitness and everyday habits—with expert guidance, accountability and community support.",
-    highlights: ["Nutrition & fitness guidance", "Coach-led group sessions", "Weekly goals & progress tracking"],
-    bestFor: "People who want structure, guidance and accountability to get started.",
-    viewHref: "/programs#duofit-101",
-    preferred: false,
-  },
-  {
-    n: "02",
     name: "DUOFIT PERSONAL",
     tagline: "Your health. Personalised.",
     desc: "1:1 health coaching built around your individual goals, lifestyle, challenges and health priorities—with personalised guidance and ongoing support from your coach.",
     highlights: ["Personalised nutrition & fitness plan", "Direct WhatsApp access to your coach", "Ongoing plan adjustments"],
     bestFor: "Individuals who want personalised attention and a plan built specifically around them.",
     viewHref: "/programs#duofit-personal",
-    preferred: false,
   },
   {
-    n: "03",
+    n: "02",
     name: "DUOFIT FAMILY",
     tagline: "Build healthier habits together.",
     desc: "Family health coaching designed to help parents and children create healthier routines around nutrition, movement, sleep and everyday life.",
     highlights: ["Family nutrition & activity guidance", "Age-appropriate habit building", "Regular coaching & accountability"],
     bestFor: "Families who want to create healthier habits and a healthier lifestyle together.",
     viewHref: "/programs#duofit-family",
-    preferred: true,
   },
 ];
 
@@ -363,7 +351,7 @@ function Home() {
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=900&h=1125&fit=crop&crop=center"
+            src={heroImg}
             alt="A balanced, healthy everyday life"
             className="w-full h-full object-cover"
           />
@@ -418,12 +406,6 @@ function Home() {
 
             {/* LEFT — You're not alone */}
             <div>
-              <Reveal delay={60}>
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-8 md:mb-10">
-                  You're not alone.
-                </h3>
-              </Reveal>
-
               <div>
                 {painPoints.map((point, i) => (
                   <Reveal key={point} delay={100 + i * 60}>
@@ -442,30 +424,24 @@ function Home() {
               </div>
             </div>
 
-            {/* RIGHT — Imagine feeling different (single visual story) */}
-            {/* RIGHT — You're not alone */}
+            {/* RIGHT — You're not alone (no image, centered card) */}
             <Reveal delay={140}>
-              <div className="relative pb-16 md:pb-0">
-                <div className="rounded-3xl overflow-hidden aspect-[4/5]">
-                  <img
-                    src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=900&h=1125&fit=crop&crop=center"
-                    alt="A calm, simple morning routine"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <div className="relative md:absolute md:-bottom-12 md:left-6 md:right-6 -mt-10 md:mt-0 mx-4 md:mx-0 bg-background border border-border rounded-2xl p-7 md:p-8 shadow-[0_20px_45px_rgba(0,0,0,0.08)]">
+              <div className="h-full flex items-center justify-center">
+                <div className="w-full max-w-md bg-cream border border-border rounded-2xl p-8 md:p-10 text-center">
                   <h4 className="text-xl md:text-2xl font-bold text-foreground leading-snug">
                     You're not alone.
                   </h4>
                   <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
-                    Every health journey has moments like these. What matters
-                    isn't avoiding them — it's having the right support to
-                    move through them, in a way that actually fits your life.
+                    Your health goals are personal. Your approach should be
+                    too. Whether you're looking to improve your fitness,
+                    manage your weight, build healthier habits, or create a
+                    healthier lifestyle for your family, DUOFIT has a path
+                    designed around where you are today and where you want
+                    to go.
                   </p>
                   <a
                     href="#programs"
-                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all"
+                    className="mt-6 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all"
                   >
                     Find Your DUOFIT Program <ArrowRight className="h-3.5 w-3.5" />
                   </a>
@@ -479,21 +455,10 @@ function Home() {
 
       {/* SECTION 3 — Programs (3-tier) */}
       <section id="programs" className="container-editorial py-16 md:py-24 scroll-mt-24">
-        <div className="grid lg:grid-cols-3 gap-6 items-start">
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto items-start">
           {programTiers.map((tier, i) => (
             <Reveal key={tier.n} delay={i * 100}>
-              <div
-                className={`relative h-full flex flex-col rounded-2xl p-7 md:p-8 border transition-all duration-500 hover:-translate-y-1 ${tier.preferred
-                  ? "border-primary bg-primary/5 shadow-[0_20px_45px_rgba(164,59,32,0.12)] lg:scale-[1.03]"
-                  : "border-border bg-card hover:border-primary/40 hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)]"
-                  }`}
-              >
-                {tier.preferred && (
-                  <span className="absolute -top-3 right-6 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1">
-                    <Star className="h-3 w-3 fill-current" /> Preferred
-                  </span>
-                )}
-
+              <div className="h-full flex flex-col rounded-2xl p-7 md:p-8 border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)]">
                 <span className="text-xs font-bold text-primary tracking-widest">{tier.n} —</span>
                 <h3 className="mt-1 text-xl font-bold text-foreground">{tier.name}</h3>
                 <p className="mt-1 text-base italic text-primary">{tier.tagline}</p>
@@ -513,10 +478,7 @@ function Home() {
                   <p className="text-xs text-muted-foreground leading-relaxed mb-5">{tier.bestFor}</p>
                   <Link
                     to={tier.viewHref}
-                    className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3 text-xs font-bold uppercase tracking-widest transition-all ${tier.preferred
-                      ? "bg-primary text-primary-foreground hover:brightness-110"
-                      : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                      }`}
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-full py-3 text-xs font-bold uppercase tracking-widest border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
                   >
                     See Full Details <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -553,14 +515,30 @@ function Home() {
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
             <div>
               <Reveal delay={60}>
-                <p className="text-lg md:text-xl text-foreground leading-relaxed font-medium">
-                  Nutrition, fitness, sleep, stress and habits are all connected.
+                <p className="text-lg md:text-xl font-bold text-foreground leading-relaxed">
+                  Nutrition. Fitness. Sleep. Stress. Energy. Habits.
                 </p>
               </Reveal>
-              <Reveal delay={110}>
-                <p className="mt-4 text-lg md:text-xl italic text-primary leading-relaxed">
-                  That's why DUOFIT starts by understanding the whole
-                  picture — not a single number or a generic plan.
+              <Reveal delay={100}>
+                <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+                  We often treat these as separate problems to solve. But
+                  your health doesn't work that way. Everything is connected.
+                </p>
+              </Reveal>
+              <Reveal delay={140}>
+                <div className="mt-4 space-y-1.5 text-sm md:text-base text-muted-foreground leading-relaxed">
+                  <p>What you eat can affect your energy.</p>
+                  <p>Your energy can affect how active you are.</p>
+                  <p>Your activity can affect your sleep.</p>
+                  <p>Your sleep can affect your recovery and habits.</p>
+                </div>
+              </Reveal>
+              <Reveal delay={190}>
+                <p className="mt-5 text-base md:text-lg font-semibold text-foreground leading-relaxed">
+                  That's why DUOFIT doesn't start with a generic diet or workout plan.
+                </p>
+                <p className="mt-1.5 text-base md:text-lg italic text-primary leading-relaxed">
+                  We start by understanding the whole picture.
                 </p>
               </Reveal>
             </div>
@@ -584,8 +562,11 @@ function Home() {
             </Reveal>
           </div>
           <Reveal delay={100}>
-            <Link to="/testimonials"  className="text-xs md:text-sm text-[#A83E20] hover:text-[#8F321B] transition-colors py-1 block">
-              Client Stories
+            <Link
+              to="/testimonials"
+              className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-primary-foreground transition-all"
+            >
+              Client Stories <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </Reveal>
         </div>
@@ -639,173 +620,6 @@ function Home() {
           </Reveal>
         </div>
       </section>
-
-      {/* Keep your existing Final CTA section here, unchanged, right after this */}
-      {/* PROGRAMS
-      <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-16 md:py-24">
-          <div className="flex items-end justify-between mb-9 flex-wrap gap-3">
-            <div>
-              <Reveal>
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Coaching Programs</span>
-              </Reveal>
-              <Reveal delay={60}>
-                <h2 className="mt-2 text-3xl md:text-4xl font-bold text-foreground leading-tight">
-                  Programs Designed<br />For Real Life.
-                </h2>
-              </Reveal>
-            </div>
-            <Reveal delay={100}>
-              <Link to="/programs" className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors">
-                View All Programs <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </Reveal>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {programs.map((p, i) => {
-              const Icon = p.icon;
-              return (
-                <Reveal key={p.slug} delay={100 + i * 100}>
-                  <Link
-                    to="/programs"
-                    hash={p.slug}
-                    className="group flex bg-card border border-border rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_16px_36px_rgba(0,0,0,0.1)]"
-                  >
-                    <div className="relative w-2/5 shrink-0 overflow-hidden">
-                      <img src={p.img} alt={p.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                      <div className="absolute top-3 left-3 h-9 w-9 rounded-full bg-primary flex items-center justify-center shadow-md">
-                        <Icon className="h-4 w-4 text-primary-foreground" />
-                      </div>
-                    </div>
-                    <div className="flex-1 p-5 flex flex-col justify-center">
-                      <h3 className="text-lg font-bold text-foreground mb-1.5 transition-colors group-hover:text-primary">{p.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-3">{p.desc}</p>
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-foreground group-hover:gap-2.5 transition-all">
-                        Learn More <ArrowRight className="h-3.5 w-3.5" />
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="container-editorial py-16 md:py-24">
-        <div className="grid lg:grid-cols-[1fr_1.15fr_0.7fr] gap-10 lg:gap-8 items-center">
-
-          <div>
-            <Reveal>
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Why DUOFIT?</span>
-            </Reveal>
-            <Reveal delay={60}>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground leading-tight">
-                More Than<br />Workouts.
-              </h2>
-            </Reveal>
-            <Reveal delay={110}>
-              <p className="mt-2 text-lg md:text-xl italic text-primary leading-snug">
-                A Complete System<br />For Your Health.
-              </p>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed">
-                At DUOFIT, we focus on the pillars that truly build lasting
-                health — and combine them in a way that works for real life.
-              </p>
-            </Reveal>
-            <Reveal delay={220}>
-              <div className="mt-7">
-                <Link to="/about" className={shimmerBtn} style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}>
-                  <span className={shimmerSpan} />
-                  Our Approach <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={140}>
-            <VennDiagram />
-          </Reveal>
-
-          <Reveal delay={200}>
-            <div className="space-y-3.5">
-              {whyChecklist.map((item) => (
-                <div key={item} className="flex items-center gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-                  <span className="text-sm text-foreground">{item}</span>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-        </div>
-      </section>
-
-      <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-16 md:py-24">
-          <div className="flex items-end justify-between mb-9 flex-wrap gap-3">
-            <div>
-              <Reveal>
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Real People. Real Results.</span>
-              </Reveal>
-              <Reveal delay={60}>
-                <h2 className="mt-2 text-3xl md:text-4xl font-bold text-foreground leading-tight">What Our Clients Say.</h2>
-              </Reveal>
-            </div>
-            <Reveal delay={100}>
-              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
-                See More Reviews <ArrowRight className="h-3.5 w-3.5" />
-              </span>
-            </Reveal>
-          </div>
-
-          <div className="grid sm:grid-cols-3 gap-5">
-            {testimonials.map((t, i) => (
-              <Reveal key={t.name} delay={100 + i * 80}>
-                <div className="bg-card border border-border rounded-2xl p-6 h-full flex flex-col">
-                  <Quote className="h-5 w-5 text-primary/40 mb-2" />
-                  <div className="flex gap-0.5 mb-3">
-                    {[...Array(5)].map((_, s) => (
-                      <Star key={s} className="h-3.5 w-3.5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-foreground leading-relaxed mb-4 flex-1">"{t.quote}"</p>
-                  <span className="text-xs font-semibold text-muted-foreground">{t.name}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="container-editorial py-16 md:py-20">
-        <Reveal>
-          <div className="rounded-3xl bg-primary text-primary-foreground p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-full bg-primary-foreground/15 flex items-center justify-center shrink-0">
-                <Calendar className="h-5 w-5" />
-              </div>
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-primary-foreground/70">Ready to Begin?</span>
-                <h3 className="text-xl md:text-2xl font-bold mt-1">Your Health Journey Starts Now.</h3>
-                <p className="text-sm text-primary-foreground/80 mt-1">Let's build a stronger, healthier and happier you.</p>
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
-              <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-6 py-3.5 text-sm font-semibold rounded-full hover:brightness-95 active:scale-95 transition-all">
-                Start Your Journey <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a href={waUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-foreground/85 hover:text-primary-foreground transition-colors">
-                or WhatsApp Us <MessageCircle className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-        </Reveal>
-      </section> */}
-
     </SiteLayout>
   );
 }
