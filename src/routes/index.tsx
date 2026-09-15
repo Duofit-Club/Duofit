@@ -16,7 +16,7 @@ import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import { WHATSAPP_NUMBER } from "@/components/site/WhatsAppFab";
 import { seo } from "@/lib/seo";
-import heroImg from "@/assets/founders.jpeg";
+import heroImg from "@/assets/hero-home.png";
 import personalHealth from "@/assets/personal-health.png";
 import nutritionImg from "@/assets/hero-lifestyle-new.jpg";
 
@@ -170,7 +170,7 @@ function VennDiagram() {
             <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: items[active].dark }}>
               {items[active].label}
             </p>
-            <p className="text-sm text-muted-foreground">{items[active].desc}</p>
+            <p className="text-sm text-foreground/75">{items[active].desc}</p>
           </div>
         ) : (
           <p className="text-center text-xs text-muted-foreground italic">
@@ -204,21 +204,41 @@ const soundLikeYou = [
 const programTiers = [
   {
     n: "01",
-    name: "DUOFIT PERSONAL",
-    tagline: "Your health. Personalised.",
-    desc: "1:1 health coaching built around your individual goals, lifestyle, challenges and health priorities—with personalised guidance and ongoing support from your coach.",
-    highlights: ["Personalised nutrition & fitness plan", "Direct WhatsApp access to your coach", "Ongoing plan adjustments"],
-    bestFor: "Individuals who want personalised attention and a plan built specifically around them.",
-    viewHref: "/programs#duofit-personal",
+    name: "Personal Health Coaching",
+    tagline:
+      "For individuals looking to improve their health, fitness, energy levels and everyday habits through practical and sustainable lifestyle changes.",
+    desc:
+      "Every plan is personalised around your goals, lifestyle, challenges and health priorities.",
+    highlights: [
+      "Weight Management",
+      "Better Fitness & Movement",
+      "Improved Nutrition",
+      "Better Sleep & Recovery",
+      "Healthier Daily Habits",
+      "Accountability & Guidance",
+    ],
+    bestFor:
+      "Individuals who want personalised support and a practical plan built around their lifestyle.",
+    viewHref: "/programs#personal-health-coaching",
   },
   {
     n: "02",
-    name: "DUOFIT FAMILY",
-    tagline: "Build healthier habits together.",
-    desc: "Family health coaching designed to help parents and children create healthier routines around nutrition, movement, sleep and everyday life.",
-    highlights: ["Family nutrition & activity guidance", "Age-appropriate habit building", "Regular coaching & accountability"],
-    bestFor: "Families who want to create healthier habits and a healthier lifestyle together.",
-    viewHref: "/programs#duofit-family",
+    name: "Family Health & Habits",
+    tagline:
+      "For families looking to improve eating habits, activity levels and healthier routines together in a practical and sustainable way.",
+    desc:
+      "Every family plan is designed around your household routines, schedules and health priorities.",
+    highlights: [
+      "Family Nutrition",
+      "Healthier Routines",
+      "Reduced Screen Time",
+      "Active Lifestyle",
+      "Better Habits at Home",
+      "Sustainable Health",
+    ],
+    bestFor:
+      "Families who want to create healthier routines and a healthier lifestyle together.",
+    viewHref: "/programs#family-health-habits",
   },
 ];
 
@@ -370,7 +390,7 @@ function Home() {
                 At DUOFIT, we look at the whole picture. We understand your
                 goals, lifestyle, and challenges, identify what may be
                 getting in the way, and build a practical plan around
-                you—bringing together nutrition, fitness, and healthy habits
+                you, bringing together nutrition, fitness, and healthy habits
                 in a way that fits your real life.
               </p>
               <Link
@@ -454,55 +474,181 @@ function Home() {
       </section>
 
       {/* SECTION 3 — Programs (3-tier) */}
-      <section id="programs" className="container-editorial py-16 md:py-24 scroll-mt-24">
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto items-start">
-          {programTiers.map((tier, i) => (
-            <Reveal key={tier.n} delay={i * 100}>
-              <div className="h-full flex flex-col rounded-2xl p-7 md:p-8 border border-border bg-card transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)]">
-                <span className="text-xs font-bold text-primary tracking-widest">{tier.n} —</span>
-                <h3 className="mt-1 text-xl font-bold text-foreground">{tier.name}</h3>
-                <p className="mt-1 text-base italic text-primary">{tier.tagline}</p>
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{tier.desc}</p>
+      <section
+        id="programs"
+        className="container-editorial py-16 md:py-24 lg:py-28 scroll-mt-24"
+      >
+        <Reveal>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10 md:mb-12">
 
-                <div className="mt-5 space-y-2">
-                  {tier.highlights.map((h) => (
-                    <div key={h} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-xs text-muted-foreground leading-relaxed">{h}</span>
-                    </div>
-                  ))}
+            <div className="max-w-3xl">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                Our Programs
+              </span>
+
+              <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.04em] leading-[1.05] text-foreground">
+                Health coaching built around{" "}
+                <span className="text-primary">
+                  real life.
+                </span>
+              </h2>
+
+              <p className="mt-4 text-sm md:text-base text-foreground/75 leading-relaxed max-w-2xl">
+                Whether you are working on your own health or building healthier
+                routines with your family, DUOFIT programs are designed around
+                practical nutrition, sustainable movement and habits that can last.
+              </p>
+            </div>
+
+            <Link
+              to="/programs"
+              className="hidden md:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary hover:text-primary/80 transition-colors shrink-0"
+            >
+              Explore All Programs
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </Reveal>
+
+
+        {/* PROGRAM CARDS */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 w-full">
+          {programTiers.map((tier, index) => (
+            <Reveal
+              key={tier.name}
+              delay={index * 100}
+            >
+              <div
+                className="
+            group
+            h-full
+            rounded-[2rem]
+            border
+            border-border
+            bg-card
+            p-6
+            sm:p-7
+            md:p-8
+            lg:p-9
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:shadow-xl
+            hover:border-primary/30
+          "
+              >
+
+                {/* TOP */}
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                      Program {tier.n}
+                    </span>
+
+                    <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+                      {tier.name}
+                    </h3>
+                  </div>
+
+                  <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+                    <ArrowRight className="h-4 w-4 text-primary" />
+                  </div>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-border">
-                  <p className="text-xs font-bold uppercase tracking-widest text-foreground mb-1">Best For</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-5">{tier.bestFor}</p>
+
+                {/* TAGLINE */}
+                <p className="mt-5 text-base md:text-lg font-semibold text-foreground leading-relaxed">
+                  {tier.tagline}
+                </p>
+
+
+                {/* DESCRIPTION */}
+                <p className="mt-3 text-sm md:text-base text-foreground/75 leading-relaxed">
+                  {tier.desc}
+                </p>
+
+
+                {/* HIGHLIGHTS */}
+                <div className="mt-7">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-4">
+                    What You Can Work On
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-x-5 gap-y-3">
+                    {tier.highlights.map((item) => (
+                      <div
+                        key={item}
+                        className="flex items-start gap-2.5"
+                      >
+                        <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+
+                        <span className="text-sm text-foreground leading-relaxed">
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+
+                {/* BEST FOR */}
+                <div className="mt-7 pt-6 border-t border-border/70">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-2">
+                    Best For
+                  </p>
+
+                  <p className="text-sm text-foreground/75 leading-relaxed">
+                    {tier.bestFor}
+                  </p>
+                </div>
+
+
+                {/* CTA */}
+                <div className="mt-7">
                   <Link
                     to={tier.viewHref}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-full py-3 text-xs font-bold uppercase tracking-widest border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                    className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-full
+                bg-primary
+                text-primary-foreground
+                px-5
+                py-2.5
+                text-xs
+                font-semibold
+                uppercase
+                tracking-widest
+                transition-all
+                duration-300
+                hover:brightness-110
+                hover:scale-[1.02]
+              "
                   >
-                    See Full Details <ArrowRight className="h-3.5 w-3.5" />
+                    View Program
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
+
               </div>
             </Reveal>
           ))}
         </div>
 
-        <Reveal delay={300}>
-          <div className="mt-10 rounded-2xl bg-cream border border-border p-7 md:p-8 text-center max-w-2xl mx-auto">
-            <h4 className="text-lg font-bold text-foreground mb-2">Not sure which program is right for you?</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-              Tell us about your goals, lifestyle and what you're looking to
-              improve. We'll help you find the right place to start.
-            </p>
-            <Link to="/contact" className={shimmerBtn} style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}>
-              <span className={shimmerSpan} />
-              Contact DUOFIT <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </Reveal>
-      </section>
 
+        {/* MOBILE PROGRAM LINK */}
+        <div className="mt-8 flex md:hidden justify-center">
+          <Link
+            to="/programs"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary"
+          >
+            Explore All Programs
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+      </section>
       {/* SECTION 4 — Why & How DUOFIT Can Help (process timeline, no Venn) */}
       <section className="bg-cream border-y border-border">
         <div className="container-editorial py-16 md:py-24">
@@ -581,8 +727,12 @@ function Home() {
                   ))}
                 </div>
                 <span className="text-xs font-semibold text-foreground">{t.name}</span>
-                <span className="text-xs text-muted-foreground"> — {t.role}</span>
-                <span className="text-xs text-muted-foreground"> — {t.quote}</span>
+               <span className="text-xs text-foreground/60">
+  {t.role}
+</span>
+                <p className="mt-3 text-sm text-foreground/80 leading-relaxed">
+  {t.quote}
+</p>
               </div>
             </Reveal>
           ))}

@@ -48,7 +48,7 @@ const whatWeBuildRight = [
 ];
 
 const principles = [
-  "Health should fit into life—not the other way around.",
+  "Health should fit into life, not the other way around.",
   "Progress matters more than perfection.",
   "Consistency beats intensity.",
   "Healthy routines create lasting results.",
@@ -67,16 +67,18 @@ function About() {
   return (
     <SiteLayout>
 
-      {/* ─────────────────────────────────────────
-          HERO + OUR BELIEF
-      ───────────────────────────────────────── */}
-      <section className="container-editorial pt-14 md:pt-20 pb-8 md:pb-10">
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+      {/* HERO + OUR BELIEF */}
+      <section className="container-editorial pt-12 md:pt-20 pb-10 md:pb-14">
+        <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-6 lg:gap-8 items-stretch">
 
-          {/* Hero copy */}
+          {/* Hero */}
           <Reveal delay={80}>
-            <div className="h-full flex flex-col justify-center py-6 md:py-10">
-              <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05]">
+            <div className="h-full flex flex-col justify-center py-5 md:py-10">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                About DUOFIT
+              </span>
+
+              <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] leading-[0.98]">
                 <span className="block text-foreground">
                   Health,
                 </span>
@@ -86,39 +88,53 @@ function About() {
                 </span>
               </h1>
 
-              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg">
-                We believe better health shouldn't come from extreme diets,
+              <p className="mt-6 text-base md:text-lg text-foreground/80 leading-relaxed max-w-xl">
+                We believe better health should not come from extreme diets,
                 unrealistic routines or temporary motivation. It should come
-                from practical choices that fit real life—and last.
+                from practical choices that fit real life and last.
               </p>
+
+              <div className="mt-7 flex items-center gap-3">
+                <div className="h-px w-10 bg-primary" />
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  Practical. Sustainable. Real.
+                </span>
+              </div>
             </div>
           </Reveal>
 
 
-          {/* Our Belief */}
+          {/* OUR BELIEF */}
           <Reveal delay={140}>
-            <div className="rounded-3xl bg-primary p-7 md:p-9 h-full min-h-[360px] flex flex-col justify-between">
+            <div className="rounded-[2rem] bg-primary p-7 md:p-9 lg:p-10 min-h-[390px] h-full flex flex-col justify-between shadow-sm">
 
               <div>
-                <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-center gap-4 mb-7">
                   <div className="h-12 w-12 rounded-full bg-primary-foreground flex items-center justify-center shrink-0">
                     <Heart className="h-5 w-5 text-primary" />
                   </div>
 
-                  <h2 className="text-lg md:text-xl font-bold text-primary-foreground/80">
-                    Our Belief
-                  </h2>
+                  <div>
+                    <span className="block text-[10px] uppercase tracking-[0.2em] text-primary-foreground/60">
+                      Our Philosophy
+                    </span>
+
+                    <h2 className="mt-1 text-lg md:text-xl font-bold text-primary-foreground">
+                      Our Belief
+                    </h2>
+                  </div>
                 </div>
 
-                <p className="text-2xl md:text-3xl font-bold text-primary-foreground leading-snug max-w-md">
-                  Health should work with your life—
-                  <br />
+                <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground leading-[1.15] max-w-lg">
+                  Health should work with your life,
+                  <br className="hidden md:block" />
                   not against it.
                 </p>
               </div>
 
-              <div className="mt-8">
-                <p className="text-sm md:text-base text-primary-foreground/85 mb-4 leading-relaxed">
+
+              <div className="mt-10">
+                <p className="text-sm md:text-base text-primary-foreground/85 mb-4 leading-relaxed max-w-lg">
                   Every recommendation we make is built around one simple
                   question.
                 </p>
@@ -132,13 +148,13 @@ function About() {
                 </div>
 
                 <div className="text-sm md:text-base text-primary-foreground/85 space-y-1">
-                  <p>If the answer is no…</p>
-                  <p>We don't recommend it.</p>
-                  <p>Because…</p>
+                  <p>If the answer is no.</p>
+                  <p>We do not recommend it.</p>
+                  <p>Because lasting change matters.</p>
                 </div>
 
                 <p
-                  className="mt-4 text-lg md:text-xl italic text-primary-foreground"
+                  className="mt-5 text-lg md:text-xl italic text-primary-foreground"
                   style={{
                     fontFamily: "var(--font-display, cursive)",
                   }}
@@ -154,25 +170,28 @@ function About() {
       </section>
 
 
-      {/* ─────────────────────────────────────────
-          THREE CORE SECTIONS
-          OUR VISION → PRINCIPLES → WHAT WE BUILD
-      ───────────────────────────────────────── */}
-      <section className="container-editorial pb-8 md:pb-10">
+      {/* THREE CORE SECTIONS */}
+      <section className="container-editorial pb-10 md:pb-14">
         <div className="grid md:grid-cols-3 gap-5 md:gap-6">
 
           {/* OUR VISION */}
           <Reveal delay={60}>
-            <div className="rounded-3xl bg-muted/60 p-6 md:p-7 h-full flex flex-col">
+            <div className="rounded-[1.75rem] bg-muted/60 border border-border/50 p-6 md:p-7 h-full flex flex-col">
 
-              <div className="flex items-center gap-3 mb-5">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="h-11 w-11 rounded-full bg-cream flex items-center justify-center shrink-0">
                   <Flag className="h-5 w-5 text-primary" />
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold text-primary">
-                  Our Vision
-                </h3>
+                <div>
+                  <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Our Direction
+                  </span>
+
+                  <h3 className="mt-1 text-lg md:text-xl font-bold text-primary">
+                    Our Vision
+                  </h3>
+                </div>
               </div>
 
               <ul className="space-y-4">
@@ -190,9 +209,13 @@ function About() {
                 ))}
               </ul>
 
-              <p className="text-sm font-bold text-primary mt-auto pt-6">
-                That's the future we're working toward.
-              </p>
+              <div className="mt-auto pt-7">
+                <div className="h-px bg-border/70 mb-5" />
+
+                <p className="text-sm font-bold text-primary">
+                  That's the future we're working toward.
+                </p>
+              </div>
 
             </div>
           </Reveal>
@@ -200,21 +223,27 @@ function About() {
 
           {/* DUOFIT PRINCIPLES */}
           <Reveal delay={120}>
-            <div className="rounded-3xl bg-muted/60 p-6 md:p-7 h-full">
+            <div className="rounded-[1.75rem] bg-muted/60 border border-border/50 p-6 md:p-7 h-full">
 
-              <h3 className="text-lg md:text-xl font-bold text-primary mb-3">
-                DUOFIT Principles
-              </h3>
+              <div className="mb-6">
+                <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+                  What Guides Us
+                </span>
 
-              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-                These principles guide every decision we make.
-              </p>
+                <h3 className="mt-1 text-lg md:text-xl font-bold text-primary">
+                  DUOFIT Principles
+                </h3>
+
+                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">
+                  These principles guide every decision we make.
+                </p>
+              </div>
 
               <ul className="space-y-3">
                 {principles.map((p) => (
                   <li
                     key={p}
-                    className="flex items-start gap-3 pb-3 border-b border-border/60 last:border-0"
+                    className="flex items-start gap-3 pb-3 border-b border-border/60 last:border-0 last:pb-0"
                   >
                     <div className="h-5 w-5 rounded-full bg-primary flex items-center justify-center shrink-0 mt-0.5">
                       <Check className="h-3 w-3 text-primary-foreground" />
@@ -233,17 +262,23 @@ function About() {
 
           {/* WHAT WE BUILD */}
           <Reveal delay={180}>
-            <div className="rounded-3xl bg-muted/60 p-6 md:p-7 h-full flex flex-col">
+            <div className="rounded-[1.75rem] bg-muted/60 border border-border/50 p-6 md:p-7 h-full flex flex-col">
 
-              <h3 className="text-lg md:text-xl font-bold text-primary mb-3">
-                What We Build
-              </h3>
+              <div className="mb-6">
+                <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+                  Our Focus
+                </span>
 
-              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-                People don't come to DUOFIT just to lose weight.
-                <br />
-                They come to build a healthier life.
-              </p>
+                <h3 className="mt-1 text-lg md:text-xl font-bold text-primary">
+                  What We Build
+                </h3>
+
+                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">
+                  People don't come to DUOFIT just to lose weight.
+                  <br />
+                  They come to build a healthier life.
+                </p>
+              </div>
 
               <div className="grid grid-cols-1 gap-3">
                 {[
@@ -284,32 +319,38 @@ function About() {
       </section>
 
 
-      {/* ─────────────────────────────────────────
-          FOUNDERS
-          PHOTO LEFT — TEXT RIGHT
-      ───────────────────────────────────────── */}
-      <section className="container-editorial pb-8 md:pb-10">
+      {/* FOUNDERS */}
+      <section className="container-editorial pb-10 md:pb-14">
         <Reveal delay={80}>
-          <div className="rounded-3xl bg-muted/60 p-6 md:p-8">
+          <div className="rounded-[2rem] bg-muted/60 border border-border/50 p-6 md:p-8 lg:p-10">
 
-            <h2 className="text-lg md:text-xl font-bold text-primary mb-6">
-              The People Behind DUOFIT
-            </h2>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-7 md:mb-8">
+              <div>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+                  The People Behind The Brand
+                </span>
 
-            <div className="grid md:grid-cols-2 gap-7 md:gap-10 items-center">
+                <h2 className="mt-1 text-xl md:text-2xl font-bold text-primary">
+                  The People Behind DUOFIT
+                </h2>
+              </div>
+            </div>
+
+
+            <div className="grid md:grid-cols-[1.05fr_0.95fr] gap-7 md:gap-10 lg:gap-14 items-center">
 
               {/* Founder photo */}
               <div className="overflow-hidden rounded-2xl aspect-[4/3] bg-muted">
                 <img
                   src={founderAfter}
-                  alt="Nitesh and Nikitha — DUOFIT Founders"
+                  alt="Nitesh and Nikitha, DUOFIT founders"
                   className="h-full w-full object-cover object-top"
                 />
               </div>
 
 
               {/* Founder text */}
-              <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+              <div className="space-y-5 text-sm md:text-base text-foreground/80 leading-relaxed">
 
                 <p>
                   DUOFIT was founded by{" "}
@@ -317,14 +358,14 @@ function About() {
                     Nitesh and Nikitha
                   </span>{" "}
                   with a shared belief that health should become easier to
-                  sustain—not harder to achieve.
+                  sustain, not harder to achieve.
                 </p>
 
                 <p>
                   Rather than creating another coaching business, they wanted
                   to build a company where practical nutrition, sustainable
                   movement and healthier routines help people improve their
-                  lives for years—not just weeks.
+                  lives for years, not just weeks.
                 </p>
 
                 <p className="font-bold text-foreground">
@@ -341,12 +382,10 @@ function About() {
       </section>
 
 
-      {/* ─────────────────────────────────────────
-          CLOSING CTA
-      ───────────────────────────────────────── */}
+      {/* CLOSING CTA */}
       <section className="container-editorial pb-14 md:pb-20">
         <Reveal>
-          <div className="rounded-3xl bg-muted/60 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="rounded-[2rem] bg-muted/60 border border-border/50 p-6 md:p-8 lg:p-9 flex flex-col md:flex-row items-center justify-between gap-6">
 
             <div className="flex items-center gap-4">
               <div className="h-11 w-11 rounded-full bg-cream flex items-center justify-center shrink-0">
@@ -362,13 +401,13 @@ function About() {
               </div>
             </div>
 
-            <p className="text-sm md:text-base text-muted-foreground hidden md:block">
+            <p className="text-sm md:text-base text-foreground/75 hidden md:block">
               Let's build it together.
             </p>
 
             <Link
               to="/contact"
-              className="group relative hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] active:scale-95"
+              className="group relative inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest rounded-full overflow-hidden transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] active:scale-95"
               style={{
                 backgroundColor: "var(--color-primary)",
                 color: "#ffffff",
@@ -376,7 +415,10 @@ function About() {
             >
               <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 pointer-events-none" />
 
-              Start Your Journey
+              <span className="relative flex items-center gap-2">
+                Start Your Journey
+                <ArrowRight className="h-4 w-4" />
+              </span>
             </Link>
 
           </div>
