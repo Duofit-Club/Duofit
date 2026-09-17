@@ -332,7 +332,7 @@ function FaqAccordion() {
               onClick={() => setOpen(isOpen ? null : i)}
               className="w-full flex items-center justify-between gap-4 py-5 text-left"
             >
-              <p className="text-sm text-foreground/75 leading-relaxed pr-8">{item.q}</span>
+              <p className="text-sm text-foreground/75 leading-relaxed pr-8">{item.q}</p>
               <ChevronDown className={`h-4 w-4 text-primary shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
             </button>
             <div className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100 pb-5" : "grid-rows-[0fr] opacity-0"}`}>
