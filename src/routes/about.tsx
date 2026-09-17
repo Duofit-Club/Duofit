@@ -88,18 +88,7 @@ function About() {
                 </span>
               </h1>
 
-              <p className="mt-6 text-base md:text-lg text-foreground/80 leading-relaxed max-w-xl">
-                We believe better health should not come from extreme diets,
-                unrealistic routines or temporary motivation. It should come
-                from practical choices that fit real life and last.
-              </p>
-
-              <div className="mt-7 flex items-center gap-3">
-                <div className="h-px w-10 bg-primary" />
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                  Practical. Sustainable. Real.
-                </span>
-              </div>
+              
             </div>
           </Reveal>
 
@@ -115,9 +104,6 @@ function About() {
                   </div>
 
                   <div>
-                    <span className="block text-[10px] uppercase tracking-[0.2em] text-primary-foreground/60">
-                      Our Philosophy
-                    </span>
 
                     <h2 className="mt-1 text-lg md:text-xl font-bold text-primary-foreground">
                       Our Belief

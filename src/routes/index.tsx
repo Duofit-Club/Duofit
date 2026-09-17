@@ -170,7 +170,7 @@ function VennDiagram() {
             <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: items[active].dark }}>
               {items[active].label}
             </p>
-            <p className="text-sm text-foreground/75">{items[active].desc}</p>
+            <p className="text-center text-xs text-foreground/60 italic">{items[active].desc}</p>
           </div>
         ) : (
           <p className="text-center text-xs text-muted-foreground italic">
@@ -332,7 +332,7 @@ function FaqAccordion() {
               onClick={() => setOpen(isOpen ? null : i)}
               className="w-full flex items-center justify-between gap-4 py-5 text-left"
             >
-              <span className="text-sm md:text-base font-semibold text-foreground">{item.q}</span>
+              <p className="text-sm text-foreground/75 leading-relaxed pr-8">{item.q}</span>
               <ChevronDown className={`h-4 w-4 text-primary shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
             </button>
             <div className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100 pb-5" : "grid-rows-[0fr] opacity-0"}`}>
@@ -591,17 +591,6 @@ function Home() {
                 </div>
 
 
-                {/* BEST FOR */}
-                <div className="mt-7 pt-6 border-t border-border/70">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-2">
-                    Best For
-                  </p>
-
-                  <p className="text-sm text-foreground/75 leading-relaxed">
-                    {tier.bestFor}
-                  </p>
-                </div>
-
 
                 {/* CTA */}
                 <div className="mt-7">
@@ -666,13 +655,13 @@ function Home() {
                 </p>
               </Reveal>
               <Reveal delay={100}>
-                <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+                <p className="mt-4 text-sm md:text-base text-foreground/75 leading-relaxed">
                   We often treat these as separate problems to solve. But
                   your health doesn't work that way. Everything is connected.
                 </p>
               </Reveal>
               <Reveal delay={140}>
-                <div className="mt-4 space-y-1.5 text-sm md:text-base text-muted-foreground leading-relaxed">
+                <div className="mt-4 space-y-1.5 text-sm md:text-base text-foreground/75 leading-relaxed">
                   <p>What you eat can affect your energy.</p>
                   <p>Your energy can affect how active you are.</p>
                   <p>Your activity can affect your sleep.</p>
@@ -727,12 +716,12 @@ function Home() {
                   ))}
                 </div>
                 <span className="text-xs font-semibold text-foreground">{t.name}</span>
-               <span className="text-xs text-foreground/60">
-  {t.role}
-</span>
+                <span className="text-xs text-foreground/60">
+                  {t.role}
+                </span>
                 <p className="mt-3 text-sm text-foreground/80 leading-relaxed">
-  {t.quote}
-</p>
+                  {t.quote}
+                </p>
               </div>
             </Reveal>
           ))}
@@ -753,7 +742,7 @@ function Home() {
             </h2>
           </Reveal>
           <Reveal delay={90}>
-            <p className="text-sm md:text-base text-muted-foreground text-center max-w-lg mx-auto mb-14">
+            <p className="text-sm md:text-base text-foreground/75 text-center max-w-lg mx-auto mb-14">
               Here are some of the things people commonly want to know before starting with DUOFIT.
             </p>
           </Reveal>
@@ -764,7 +753,7 @@ function Home() {
             <div className="text-center mt-12">
               <Link to="/contact" className={shimmerBtn} style={{ backgroundColor: "var(--color-primary)", color: "#ffffff" }}>
                 <span className={shimmerSpan} />
-                Start Your DUOFIT Journey <ArrowRight className="h-4 w-4" />
+                Start Your Journey <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </Reveal>
