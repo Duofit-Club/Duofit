@@ -8,7 +8,7 @@ import {
   Star,
   Quote,
   CheckCircle2,
-  Calendar,
+  Calendar, Heart,
   MessageCircle,
 } from "lucide-react";
 import { useState } from "react";
@@ -447,11 +447,15 @@ function Home() {
             {/* RIGHT — You're not alone (no image, centered card) */}
             <Reveal delay={140}>
               <div className="h-full flex items-center justify-center">
-                <div className="w-full max-w-md bg-cream border border-border rounded-2xl p-8 md:p-10 text-center">
-                  <h4 className="text-xl md:text-2xl font-bold text-foreground leading-snug">
+                <div
+                  className="w-full max-w-md min-h-[355px] rounded-[2rem] p-8 md:p-10 flex flex-col justify-center text-center"
+                  style={{ backgroundColor: "#A43B20" }}
+                >
+                  <h4 className="text-xl md:text-2xl font-bold text-white leading-snug">
                     You're not alone.
                   </h4>
-                  <p className="mt-3 text-sm md:text-base text-muted-foreground leading-relaxed">
+
+                  <p className="mt-4 text-sm md:text-base text-white/90 leading-relaxed">
                     Your health goals are personal. Your approach should be
                     too. Whether you're looking to improve your fitness,
                     manage your weight, build healthier habits, or create a
@@ -459,11 +463,13 @@ function Home() {
                     designed around where you are today and where you want
                     to go.
                   </p>
+
                   <a
                     href="#programs"
-                    className="mt-6 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-primary hover:gap-2.5 transition-all"
+                    className="mt-7 inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-white hover:gap-2.5 transition-all"
                   >
-                    Find Your DUOFIT Program <ArrowRight className="h-3.5 w-3.5" />
+                    Find Your DUOFIT Program
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
               </div>
