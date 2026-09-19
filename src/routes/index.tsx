@@ -565,12 +565,6 @@ function Home() {
                 </p>
 
 
-                {/* DESCRIPTION */}
-                <p className="mt-3 text-sm md:text-base text-foreground/75 leading-relaxed">
-                  {tier.desc}
-                </p>
-
-
                 {/* HIGHLIGHTS */}
                 <div className="mt-7">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-4">
