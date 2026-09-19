@@ -207,8 +207,7 @@ const programTiers = [
     name: "Personal Health Coaching",
     tagline:
       "For individuals looking to improve their health, fitness, energy levels and everyday habits through practical and sustainable lifestyle changes.",
-    desc:
-      "Every plan is personalised around your goals, lifestyle, challenges and health priorities.",
+
     highlights: [
       "Weight Management",
       "Better Fitness & Movement",
@@ -226,8 +225,6 @@ const programTiers = [
     name: "Family Health & Habits",
     tagline:
       "For families looking to improve eating habits, activity levels and healthier routines together in a practical and sustainable way.",
-    desc:
-      "Every family plan is designed around your household routines, schedules and health priorities.",
     highlights: [
       "Family Nutrition",
       "Healthier Routines",
