@@ -404,10 +404,99 @@ function Home() {
       </section>
 
       {/* SECTION 2 — Does This Sound Like You (redesigned: problem → possibility) */}
-      <section className="bg-background">
+      {/* SECTION 2 — Does This Sound Like You */}
+      <section className="bg-white">
+        <div className="container-editorial py-16 md:py-24 lg:py-28">
+
+          {/* SECTION HEADING */}
+          <Reveal>
+            <div className="text-center mb-12 md:mb-16">
+
+              <h2 className="mt-3 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-primary">
+                Does this Relates you?
+              </h2>
+            </div>
+          </Reveal>
+
+
+          {/* PROBLEM GRID */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-x-14 lg:gap-x-20 gap-y-7 md:gap-y-9">
+
+              {painPoints.map((point, i) => {
+                const image = soundLikeYou[i]?.img;
+
+                return (
+                  <Reveal
+                    key={point}
+                    delay={80 + i * 60}
+                  >
+                    <div className="flex items-center gap-4 md:gap-5 group">
+
+                      {/* IMAGE */}
+                      <div className="relative shrink-0">
+                        <div className="h-20 w-20 md:h-[86px] md:w-[86px] overflow-hidden rounded-xl bg-primary/10">
+                          {image && (
+                            <img
+                              src={image}
+                              alt=""
+                              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                          )}
+                        </div>
+
+                        {/* Red accent */}
+                        <div className="absolute -bottom-1.5 -right-1.5 h-4 w-4 rounded-full bg-primary border-2 border-white" />
+                      </div>
+
+
+                      {/* TEXT */}
+                      <p className="text-sm md:text-base lg:text-[17px] text-foreground leading-relaxed">
+                        {point}
+                      </p>
+
+                    </div>
+                  </Reveal>
+                );
+              })}
+
+            </div>
+          </div>
+
+
+          {/* BOTTOM MESSAGE */}
+          <Reveal delay={180}>
+            <div className="max-w-3xl mx-auto mt-14 md:mt-20">
+
+              <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-7 md:px-10 md:py-9 text-center">
+
+                <p className="mt-4 text-sm md:text-base text-foreground/80 leading-relaxed">
+                  Your health goals are personal. Your approach should be
+                  too. Whether you're looking to improve your fitness,
+                  manage your weight, build healthier habits, or create a
+                  healthier lifestyle for your family, DUOFIT has a path
+                  designed around where you are today and where you want
+                  to go.
+                </p>
+
+                <a
+                  href="#programs"
+                  className="mt-6 inline-flex items-center justify-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                >
+                  Find Your DUOFIT Program
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+
+              </div>
+
+            </div>
+          </Reveal>
+
+        </div>
+      </section>
+      {/* <section className="bg-background">
         <div className="container-editorial py-20 md:py-28">
 
-          {/* Heading */}
           <Reveal>
             <div className="max-w-2xl mb-14 md:mb-20">
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
@@ -421,7 +510,7 @@ function Home() {
 
           <div className="grid lg:grid-cols-[55%_45%] gap-14 lg:gap-16 items-start">
 
-            {/* LEFT — You're not alone */}
+       
             <div>
               <div>
                 {painPoints.map((point, i) => (
@@ -441,7 +530,7 @@ function Home() {
               </div>
             </div>
 
-            {/* RIGHT — You're not alone (no image, centered card) */}
+      
             <Reveal delay={140}>
               <div className="h-full flex items-center justify-center">
                 <div
@@ -474,7 +563,7 @@ function Home() {
 
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* SECTION 3 — Programs (3-tier) */}
       <section
@@ -485,9 +574,6 @@ function Home() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10 md:mb-12">
 
             <div className="max-w-3xl">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                Our Programs
-              </span>
 
               <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.04em] leading-[1.05] text-foreground">
                 Health coaching built around{" "}
@@ -686,9 +772,6 @@ function Home() {
       <section className="container-editorial py-16 md:py-24">
         <div className="flex items-end justify-between mb-9 flex-wrap gap-3">
           <div>
-            <Reveal>
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Real People. Real Results.</span>
-            </Reveal>
             <Reveal delay={60}>
               <h2 className="mt-2 text-3xl md:text-4xl font-bold text-foreground leading-tight">What Our Clients Say.</h2>
             </Reveal>

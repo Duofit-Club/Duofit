@@ -74,9 +74,6 @@ function About() {
           {/* Hero */}
           <Reveal delay={80}>
             <div className="h-full flex flex-col justify-center py-5 md:py-10">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                About DUOFIT
-              </span>
 
               <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] leading-[0.98]">
                 <span className="block text-foreground">
@@ -170,9 +167,6 @@ function About() {
                 </div>
 
                 <div>
-                  <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
-                    Our Direction
-                  </span>
 
                   <h3 className="mt-1 text-lg md:text-xl font-bold text-primary">
                     Our Vision
@@ -212,9 +206,6 @@ function About() {
             <div className="rounded-[1.75rem] bg-muted/60 border border-border/50 p-6 md:p-7 h-full">
 
               <div className="mb-6">
-                <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
-                  What Guides Us
-                </span>
 
                 <h3 className="mt-1 text-lg md:text-xl font-bold text-primary">
                   DUOFIT Principles
@@ -251,9 +242,6 @@ function About() {
             <div className="rounded-[1.75rem] bg-muted/60 border border-border/50 p-6 md:p-7 h-full flex flex-col">
 
               <div className="mb-6">
-                <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
-                  Our Focus
-                </span>
 
                 <h3 className="mt-1 text-lg md:text-xl font-bold text-primary">
                   What We Build
@@ -312,9 +300,6 @@ function About() {
 
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-7 md:mb-8">
               <div>
-                <span className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
-                  The People Behind The Brand
-                </span>
 
                 <h2 className="mt-1 text-xl md:text-2xl font-bold text-primary">
                   The People Behind DUOFIT
