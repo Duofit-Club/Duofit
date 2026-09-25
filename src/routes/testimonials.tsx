@@ -3,6 +3,7 @@ import { Quote, Star, ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import { seo } from "@/lib/seo";
+import test3Image from "@/assets/test-3.jpeg";
 
 export const Route = createFileRoute("/testimonials")({
   head: () =>
@@ -40,9 +41,37 @@ function TestimonialsPage() {
           </span>
         </Reveal>
         <Reveal delay={60}>
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground text-center mb-16 md:mb-20">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground text-center mb-10 md:mb-12">
             Client Journeys.
           </h1>
+        </Reveal>
+
+        {/* Featured client story image */}
+        <Reveal delay={100}>
+          <div className="max-w-3xl mx-auto mb-12 md:mb-16">
+            <div className="grid md:grid-cols-[0.9fr_1.1fr] overflow-hidden rounded-3xl border border-border bg-card">
+
+              <div className="h-72 md:h-full min-h-[320px]">
+                <img
+                  src={test3Image}
+                  alt="A young client writing about their DUOFIT experience"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <div className="flex items-center p-7 md:p-9">
+                <div>
+                  <Quote className="h-7 w-7 text-primary/40 mb-4" />
+
+                  <p className="text-base md:text-lg text-foreground leading-relaxed">
+                    A glimpse into the experiences and stories that make every DUOFIT
+                    journey meaningful.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </Reveal>
 
         <div className="max-w-3xl mx-auto space-y-10">

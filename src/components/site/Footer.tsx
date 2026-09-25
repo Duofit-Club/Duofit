@@ -24,7 +24,7 @@ export function Footer() {
                 </span>
 
                 <span className="text-[9px] tracking-widest text-background/50 uppercase hidden sm:block">
-                  Fitness · Nutrition · Healthy Habits
+                  Health, designed to Last
                 </span>
               </div>
             </div>

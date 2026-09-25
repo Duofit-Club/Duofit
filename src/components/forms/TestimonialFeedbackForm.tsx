@@ -147,6 +147,20 @@ export function TestimonialFeedbackForm() {
       <div>
         <SectionHeader>Your DUOFIT Journey</SectionHeader>
         <div className="space-y-7">
+
+          {/* Name */}
+          <div>
+            <label className="block text-sm md:text-base font-semibold text-foreground mb-2">
+              Name
+            </label>
+
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+              className="w-full border border-input rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40"
+            />
+          </div>
           <Field
             label="1. Looking back to when you started DUOFIT, what changes have you noticed in yourself?"
             sub="Think about your health, energy, fitness, nutrition, sleep, habits, confidence or everyday life."
@@ -187,9 +201,8 @@ export function TestimonialFeedbackForm() {
                 return (
                   <label
                     key={item}
-                    className={`flex items-center gap-2.5 border rounded-lg px-3.5 py-2.5 text-sm cursor-pointer transition-colors ${
-                      checked ? "border-primary bg-primary/5 text-foreground" : "border-border text-muted-foreground"
-                    } ${disabled ? "opacity-40 cursor-not-allowed" : "hover:border-primary/40"}`}
+                    className={`flex items-center gap-2.5 border rounded-lg px-3.5 py-2.5 text-sm cursor-pointer transition-colors ${checked ? "border-primary bg-primary/5 text-foreground" : "border-border text-muted-foreground"
+                      } ${disabled ? "opacity-40 cursor-not-allowed" : "hover:border-primary/40"}`}
                   >
                     <input
                       type="checkbox"
@@ -235,11 +248,10 @@ export function TestimonialFeedbackForm() {
                   key={n}
                   type="button"
                   onClick={() => setNps(n)}
-                  className={`h-10 w-10 rounded-full text-sm font-semibold border transition-all ${
-                    nps === n
+                  className={`h-10 w-10 rounded-full text-sm font-semibold border transition-all ${nps === n
                       ? "bg-primary text-primary-foreground border-primary"
                       : "border-border text-muted-foreground hover:border-primary/40"
-                  }`}
+                    }`}
                 >
                   {n}
                 </button>
@@ -259,9 +271,8 @@ export function TestimonialFeedbackForm() {
               {CONSENT_OPTIONS.map((opt) => (
                 <label
                   key={opt.value}
-                  className={`flex items-start gap-3 border rounded-xl px-4 py-3.5 text-sm cursor-pointer transition-colors ${
-                    consent === opt.value ? "border-primary bg-primary/5" : "border-border hover:border-primary/30"
-                  }`}
+                  className={`flex items-start gap-3 border rounded-xl px-4 py-3.5 text-sm cursor-pointer transition-colors ${consent === opt.value ? "border-primary bg-primary/5" : "border-border hover:border-primary/30"
+                    }`}
                 >
                   <input
                     type="radio"
@@ -278,22 +289,13 @@ export function TestimonialFeedbackForm() {
 
           <div className="grid sm:grid-cols-2 gap-5">
             <div>
-              <label className="block text-sm font-semibold text-foreground mb-2">Name</label>
-              <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full border border-input rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring/40"
-              />
-            </div>
-            <div>
               <label className="block text-sm font-semibold text-foreground mb-2">Photo with testimonial?</label>
               <div className="flex gap-3">
                 {(["yes", "no"] as const).map((v) => (
                   <label
                     key={v}
-                    className={`flex-1 text-center border rounded-xl py-3 text-sm cursor-pointer capitalize transition-colors ${
-                      photoConsent === v ? "border-primary bg-primary/5 text-foreground" : "border-border text-muted-foreground"
-                    }`}
+                    className={`flex-1 text-center border rounded-xl py-3 text-sm cursor-pointer capitalize transition-colors ${photoConsent === v ? "border-primary bg-primary/5 text-foreground" : "border-border text-muted-foreground"
+                      }`}
                   >
                     <input
                       type="radio"

@@ -87,7 +87,7 @@ function VennDiagram() {
   const items = [
     { label: "Nutrition", desc: "Simple food choices that work with your routine and availability.", cx: 300, cy: 170, light: "#34d399", dark: "#059669" },
     { label: "Fitness & Movement", desc: "Helping your body move consistently instead of extreme routines.", cx: 430, cy: 300, light: "#fb923c", dark: "#ea580c" },
-    { label: "Family Health", desc: "Helping families build healthier routines together.", cx: 300, cy: 430, light: "#c084fc", dark: "#7c3aed" },
+    { label: "Sleep & Recovery", desc: "Improving sleep, recovery and energy to support your overall health.", cx: 300, cy: 430, light: "#c084fc", dark: "#7c3aed"},
     { label: "Healthy Habits", desc: "Small sustainable changes that become easier to maintain.", cx: 170, cy: 300, light: "#38bdf8", dark: "#0284c7" },
   ];
 
@@ -380,8 +380,8 @@ function Home() {
             <div className="max-w-lg bg-background/95 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.25)]">
               <p className="text-base md:text-lg text-foreground leading-relaxed">
                 Health is more than just food, fitness, or a number on the
-                scale. It's about how you eat, how you move, how you sleep,
-                how you feel, and the habits that shape your everyday life.
+                scale. It's about how you eat, move, sleep,
+                feel, and the habits that shape your everyday life.
               </p>
               <p className="mt-4 text-base md:text-lg text-foreground leading-relaxed">
                 At DUOFIT, we look at the whole picture. We understand your
@@ -664,7 +664,7 @@ function Home() {
             <div>
               <Reveal delay={60}>
                 <p className="text-lg md:text-xl font-bold text-foreground leading-relaxed">
-                  Nutrition. Fitness. Sleep. Stress. Energy. Habits.
+                  Nutrition. Fitness. Sleep. Recovery. Energy. Habits.
                 </p>
               </Reveal>
               <Reveal delay={100}>
