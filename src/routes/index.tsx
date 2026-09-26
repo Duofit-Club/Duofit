@@ -87,7 +87,7 @@ function VennDiagram() {
   const items = [
     { label: "Nutrition", desc: "Simple food choices that work with your routine and availability.", cx: 300, cy: 170, light: "#34d399", dark: "#059669" },
     { label: "Fitness & Movement", desc: "Helping your body move consistently instead of extreme routines.", cx: 430, cy: 300, light: "#fb923c", dark: "#ea580c" },
-    { label: "Sleep & Recovery", desc: "Improving sleep, recovery and energy to support your overall health.", cx: 300, cy: 430, light: "#c084fc", dark: "#7c3aed"},
+    { label: "Sleep & Recovery", desc: "Improving sleep, recovery and energy to support your overall health.", cx: 300, cy: 430, light: "#c084fc", dark: "#7c3aed" },
     { label: "Healthy Habits", desc: "Small sustainable changes that become easier to maintain.", cx: 170, cy: 300, light: "#38bdf8", dark: "#0284c7" },
   ];
 
@@ -503,31 +503,42 @@ function Home() {
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10 md:mb-12">
 
-            <div className="max-w-3xl">
 
-              <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.04em] leading-[1.05] text-foreground">
+            {/* Heading + description */}
+            <div className="min-w-0">
+
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                Our Programs
+              </span>
+
+              <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.04em] leading-[1.05] text-foreground md:whitespace-nowrap">
                 Health coaching built around{" "}
                 <span className="text-primary">
                   real life.
                 </span>
               </h2>
 
-              <p className="mt-4 text-sm md:text-base text-foreground/75 leading-relaxed max-w-2xl">
+              <p className="mt-4 text-sm md:text-base text-foreground/75 leading-relaxed max-w-5xl">
                 Whether you are working on your own health or building healthier
                 routines with your family, DUOFIT programs are designed around
                 practical nutrition, sustainable movement and habits that can last.
               </p>
+
             </div>
 
+            {/* Explore button */}
             <Link
               to="/programs"
-              className="hidden md:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary hover:text-primary/80 transition-colors shrink-0"
+              className="hidden md:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary hover:text-primary/80 transition-colors whitespace-nowrap shrink-0 pb-1"
             >
               Explore All Programs
               <ArrowRight className="h-4 w-4" />
             </Link>
+
           </div>
         </Reveal>
+
+
 
 
         {/* PROGRAM CARDS */}
