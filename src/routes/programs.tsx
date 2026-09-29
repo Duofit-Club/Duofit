@@ -129,20 +129,28 @@ function Programs() {
 
       {/* Intro */}
       <section className="container-editorial pt-12 md:pt-20 lg:pt-24 pb-0">
-        <div className="max-w-5xl">
+        <div className="min-w-0">
+
           <Reveal delay={120}>
             <h1
-              className="mt-5 font-bold tracking-[-0.04em] leading-[0.95] whitespace-nowrap"
-              style={{ fontSize: "clamp(1.6rem, 4.2vw, 3.5rem)" }}
+              className="mt-5 font-bold tracking-[-0.04em] leading-[0.95] text-primary md:whitespace-nowrap"
+              style={{ fontSize: "clamp(2.2rem, 5.2vw, 4.5rem)" }}
             >
-              Health Coaching, Designed to  <span className="text-primary">Last.</span>
+              Health Coaching, Designed to{" "}
+              <span className="text-primary">
+                Last.
+              </span>
             </h1>
           </Reveal>
+
           <Reveal delay={220}>
-            <p className="mt-6 text-base md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              Whether you're improving your own health or creating healthier routines for your family, every DUOFIT program is built around practical nutrition, sustainable movement and lasting habits that fit real life.
+            <p className="mt-6 text-lg md:text-xl lg:text-2xl text-foreground/75 leading-relaxed max-w-6xl">
+              Whether you're improving your own health or creating healthier routines
+              for your family, every DUOFIT program is built around practical
+              nutrition, sustainable movement and lasting habits that fit real life.
             </p>
           </Reveal>
+
         </div>
       </section>
 
