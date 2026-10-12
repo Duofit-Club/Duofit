@@ -23,7 +23,7 @@ export function Navbar() {
             <span className="font-bold text-sm md:text-base tracking-widest text-foreground uppercase">DUOFIT</span>
             <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-foreground/70 font-medium">
               <span>Health</span>
-              <span className="text-primary text-[8px]">•</span>
+              <span className="text-primary text-[8px]"></span>
               <span>Designed to Last</span>
             </div>
           </div>

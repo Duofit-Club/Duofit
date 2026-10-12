@@ -110,7 +110,6 @@ function About() {
 
                 <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground leading-[1.15] max-w-lg">
                   Health should work with your life,
-                  <br className="hidden md:block" />
                   not against it.
                 </p>
               </div>
@@ -189,13 +188,6 @@ function About() {
                 ))}
               </ul>
 
-              <div className="mt-auto pt-7">
-                <div className="h-px bg-border/70 mb-5" />
-
-                <p className="text-sm font-bold text-primary">
-                  That's the future we're working toward.
-                </p>
-              </div>
 
             </div>
           </Reveal>
@@ -276,15 +268,6 @@ function About() {
                 })}
               </div>
 
-              <div className="bg-cream rounded-2xl p-4 mt-auto pt-4">
-                <p className="text-xs md:text-sm text-foreground leading-relaxed">
-                  Weight loss is one outcome.
-                  <br />
-                  <span className="font-bold">
-                    Lasting health is the goal.
-                  </span>
-                </p>
-              </div>
 
             </div>
           </Reveal>
@@ -372,9 +355,7 @@ function About() {
               </div>
             </div>
 
-            <p className="text-sm md:text-base text-foreground/75 hidden md:block">
-              Let's build it together.
-            </p>
+         
 
             <Link
               to="/contact"

@@ -52,124 +52,129 @@ const whyChoose = [
   },
 ];
 
+
 function Contact() {
   return (
     <SiteLayout>
-      <section className="container-editorial pt-12 md:pt-16 pb-16 md:pb-24">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12">
+      <section className="container-editorial pt-10 md:pt-14 pb-16 md:pb-24">
+        <div className="space-y-8 md:space-y-10">
 
-          {/* LEFT column — Heading, then Form */}
-          <div className="flex flex-col gap-10">
-
-            {/* Heading / intro */}
-            <div>
-              <Reveal>
-                <span className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                  Let's talk about
-                </span>
-              </Reveal>
-              <Reveal delay={80}>
-                <h1 className="mt-1 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
-                  YOUR HEALTH<br />GOALS.
-                </h1>
-              </Reveal>
-              <Reveal delay={160}>
-                <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Whether you're looking to improve fitness, manage weight, build
-                  healthier habits or create a healthier lifestyle for your family,
-                  we'd love to understand your goals and see how DUOFIT can help.
-                </p>
-              </Reveal>
-            </div>
-
-            {/* Form */}
-            <Reveal delay={150}>
-              <div className="rounded-sm border border-border bg-card p-6 md:p-8">
-                <h2 className="text-lg font-bold text-primary uppercase tracking-wide mb-6">
-                  Tell Us About You
-                </h2>
-                <ContactForm />
-              </div>
+          {/* 1. TOP HEADING AND INTRODUCTION */}
+          <div className="max-w-5xl">
+            <Reveal>
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                Let's Talk About
+              </span>
             </Reveal>
 
+            <Reveal delay={80}>
+              <h1 className="mt-2 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
+                YOUR HEALTH
+                <br />
+                GOALS.
+              </h1>
+            </Reveal>
+
+            <Reveal delay={160}>
+              <p className="mt-4 text-base md:text-lg text-foreground/75 leading-relaxed max-w-4xl">
+                Whether you're looking to improve fitness, manage weight, build
+                healthier habits or create a healthier lifestyle for your family,
+                we'd love to understand your goals and see how DUOFIT can help.
+              </p>
+            </Reveal>
           </div>
 
-          {/* RIGHT column — Why Choose, then 15-Min Session */}
-          <div className="flex flex-col gap-10">
+          {/* 2. WHY PEOPLE CHOOSE DUOFIT */}
+          <div>
+            <Reveal delay={200}>
+              <h2 className="text-sm font-bold uppercase tracking-widest text-primary">
+                Why People Choose DUOFIT
+              </h2>
+            </Reveal>
 
-            {/* Why People Choose DUOFIT */}
-            <div>
-              <Reveal delay={220}>
-                <h2 className="text-sm font-bold uppercase tracking-widest text-primary">
-                  Why People Choose DUOFIT
-                </h2>
-              </Reveal>
-              <div className="mt-5 grid grid-cols-2 gap-3">
-                {whyChoose.map((item, i) => {
-                  const Icon = item.icon;
-                  return (
-                    <Reveal key={item.title} delay={260 + i * 60}>
-                      <div className="border border-border rounded-sm bg-card p-4 h-full">
-                        <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
-                          <Icon className="h-5 w-5 text-primary" />
-                        </div>
-                        <h4 className="font-bold text-sm text-foreground">{item.title}</h4>
-                        <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                          {item.desc}
-                        </p>
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {whyChoose.map((item, i) => {
+                const Icon = item.icon;
+
+                return (
+                  <Reveal key={item.title} delay={240 + i * 60}>
+                    <div className="h-full rounded-xl border border-border bg-card p-5 md:p-6">
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                        <Icon className="h-5 w-5 text-primary" />
                       </div>
-                    </Reveal>
-                  );
-                })}
-              </div>
+
+                      <h3 className="font-bold text-sm md:text-base text-foreground">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 text-sm text-foreground/75 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </Reveal>
+                );
+              })}
             </div>
+          </div>
 
-            {/* 15-Minute Session */}
-            <Reveal delay={400}>
-              <div className="rounded-sm border border-border bg-card p-6 md:p-7">
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-                  15-Minute Session
-                </span>
-                <h3 className="mt-2 text-xl md:text-2xl font-bold text-foreground leading-snug">
-                  Not Sure Yet? Let's Talk First.
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  A quick, no-pressure conversation to understand your goals
-                  and see if DUOFIT is the right fit for you.
-                </p>
+          {/* 3. CONTACT FORM */}
+          <Reveal delay={200}>
+            <div className="rounded-xl border border-border bg-card p-5 sm:p-7 md:p-9">
+              <h2 className="text-lg md:text-xl font-bold text-primary uppercase tracking-wide mb-6">
+                Tell Us About You
+              </h2>
 
-                <div className="mt-5">
+              <ContactForm />
+            </div>
+          </Reveal>
+
+          {/* 4. WHATSAPP SESSION OPTION */}
+          <Reveal delay={260}>
+            <div className="rounded-xl border border-border bg-card p-6 md:p-8">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+
+                <div className="max-w-2xl">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                    15-Minute Session
+                  </span>
+
+                  <h3 className="mt-2 text-xl md:text-2xl font-bold text-foreground leading-snug">
+                    Not Sure Yet? Let's Talk First.
+                  </h3>
+
+                  <p className="mt-2 text-sm md:text-base text-foreground/75 leading-relaxed">
+                    A quick, no-pressure conversation to understand your goals
+                    and see if DUOFIT is the right fit for you.
+                  </p>
+
+                  <p className="mt-4 text-xs text-foreground/60 flex items-center gap-1.5">
+                    <ShieldCheck className="h-3.5 w-3.5 text-primary shrink-0" />
+                    100% Confidential · No Obligation
+                  </p>
+                </div>
+
+                <div className="w-full md:w-auto md:min-w-[260px]">
                   <a
                     href={SESSION_WA_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="relative inline-flex items-center justify-center gap-2.5 rounded-full w-full px-5 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl overflow-hidden group"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-full w-full px-6 py-3.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
                     style={{
                       backgroundColor: "#25D366",
-                      boxShadow: "0 6px 20px rgba(37,211,102,0.28)",
+                      boxShadow: "0 6px 20px rgba(37,211,102,0.20)",
                     }}
                   >
-                    <span
-                      className="absolute inset-0 rounded-full animate-ping opacity-15"
-                      style={{ backgroundColor: "#25D366" }}
-                    />
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                    <MessageCircle className="h-4 w-4 relative z-10" />
-                    <span className="relative z-10">Chat on WhatsApp</span>
+                    <MessageCircle className="h-4 w-4" />
+                    Chat on WhatsApp
                   </a>
                 </div>
 
-                <p className="mt-4 text-xs text-muted-foreground flex items-center gap-1.5">
-                  <ShieldCheck className="h-3.5 w-3.5 text-primary shrink-0" />
-                  100% Confidential · No Obligation
-                </p>
               </div>
-            </Reveal>
-
-          </div>
+            </div>
+          </Reveal>
 
         </div>
-      </section >
-    </SiteLayout >
+      </section>
+    </SiteLayout>
   );
 }
