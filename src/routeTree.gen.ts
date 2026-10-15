@@ -9,66 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TestimonialsRouteImport } from './routes/testimonials'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ResultsRouteImport } from './routes/results'
-import { Route as RealityRouteImport } from './routes/reality'
-import { Route as ProgramsRouteImport } from './routes/programs'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as HealthCheckRouteImport } from './routes/health-check'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CommunityRouteImport } from './routes/community'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as HealthCheckRouteImport } from './routes/health-check'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as RealityRouteImport } from './routes/reality'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as FormsIndexRouteImport } from './routes/forms/index'
-import { Route as FormsTestimonialFeedbackRouteImport } from './routes/forms/testimonial-feedback'
-import { Route as FormsNutritionRouteImport } from './routes/forms/nutrition'
-import { Route as FormsMonthlyReviewRouteImport } from './routes/forms/monthly-review'
 import { Route as FormsHealthCheckRouteImport } from './routes/forms/health-check'
+import { Route as FormsMonthlyReviewRouteImport } from './routes/forms/monthly-review'
+import { Route as FormsNutritionRouteImport } from './routes/forms/nutrition'
+import { Route as FormsTestimonialFeedbackRouteImport } from './routes/forms/testimonial-feedback'
 
-const TestimonialsRoute = TestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResultsRoute = ResultsRouteImport.update({
-  id: '/results',
-  path: '/results',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RealityRoute = RealityRouteImport.update({
-  id: '/reality',
-  path: '/reality',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProgramsRoute = ProgramsRouteImport.update({
-  id: '/programs',
-  path: '/programs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HealthCheckRoute = HealthCheckRouteImport.update({
-  id: '/health-check',
-  path: '/health-check',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CommunityRoute = CommunityRouteImport.update({
-  id: '/community',
-  path: '/community',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -76,14 +36,69 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthCheckRoute = HealthCheckRouteImport.update({
+  id: '/health-check',
+  path: '/health-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsRoute = ProgramsRouteImport.update({
+  id: '/programs',
+  path: '/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealityRoute = RealityRouteImport.update({
+  id: '/reality',
+  path: '/reality',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FormsIndexRoute = FormsIndexRouteImport.update({
   id: '/forms/',
   path: '/forms/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormsHealthCheckRoute = FormsHealthCheckRouteImport.update({
+  id: '/forms/health-check',
+  path: '/forms/health-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormsMonthlyReviewRoute = FormsMonthlyReviewRouteImport.update({
+  id: '/forms/monthly-review',
+  path: '/forms/monthly-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormsNutritionRoute = FormsNutritionRouteImport.update({
+  id: '/forms/nutrition',
+  path: '/forms/nutrition',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FormsTestimonialFeedbackRoute =
@@ -92,21 +107,6 @@ const FormsTestimonialFeedbackRoute =
     path: '/forms/testimonial-feedback',
     getParentRoute: () => rootRouteImport,
   } as any)
-const FormsNutritionRoute = FormsNutritionRouteImport.update({
-  id: '/forms/nutrition',
-  path: '/forms/nutrition',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FormsMonthlyReviewRoute = FormsMonthlyReviewRouteImport.update({
-  id: '/forms/monthly-review',
-  path: '/forms/monthly-review',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FormsHealthCheckRoute = FormsHealthCheckRouteImport.update({
-  id: '/forms/health-check',
-  path: '/forms/health-check',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -241,67 +241,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/testimonials': {
-      id: '/testimonials'
-      path: '/testimonials'
-      fullPath: '/testimonials'
-      preLoaderRoute: typeof TestimonialsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/results': {
-      id: '/results'
-      path: '/results'
-      fullPath: '/results'
-      preLoaderRoute: typeof ResultsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reality': {
-      id: '/reality'
-      path: '/reality'
-      fullPath: '/reality'
-      preLoaderRoute: typeof RealityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/programs': {
-      id: '/programs'
-      path: '/programs'
-      fullPath: '/programs'
-      preLoaderRoute: typeof ProgramsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/health-check': {
-      id: '/health-check'
-      path: '/health-check'
-      fullPath: '/health-check'
-      preLoaderRoute: typeof HealthCheckRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/community': {
-      id: '/community'
-      path: '/community'
-      fullPath: '/community'
-      preLoaderRoute: typeof CommunityRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -311,11 +255,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/health-check': {
+      id: '/health-check'
+      path: '/health-check'
+      fullPath: '/health-check'
+      preLoaderRoute: typeof HealthCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs': {
+      id: '/programs'
+      path: '/programs'
+      fullPath: '/programs'
+      preLoaderRoute: typeof ProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reality': {
+      id: '/reality'
+      path: '/reality'
+      fullPath: '/reality'
+      preLoaderRoute: typeof RealityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/forms/': {
@@ -325,18 +325,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FormsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/forms/testimonial-feedback': {
-      id: '/forms/testimonial-feedback'
-      path: '/forms/testimonial-feedback'
-      fullPath: '/forms/testimonial-feedback'
-      preLoaderRoute: typeof FormsTestimonialFeedbackRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/forms/nutrition': {
-      id: '/forms/nutrition'
-      path: '/forms/nutrition'
-      fullPath: '/forms/nutrition'
-      preLoaderRoute: typeof FormsNutritionRouteImport
+    '/forms/health-check': {
+      id: '/forms/health-check'
+      path: '/forms/health-check'
+      fullPath: '/forms/health-check'
+      preLoaderRoute: typeof FormsHealthCheckRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/forms/monthly-review': {
@@ -346,11 +339,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FormsMonthlyReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/forms/health-check': {
-      id: '/forms/health-check'
-      path: '/forms/health-check'
-      fullPath: '/forms/health-check'
-      preLoaderRoute: typeof FormsHealthCheckRouteImport
+    '/forms/nutrition': {
+      id: '/forms/nutrition'
+      path: '/forms/nutrition'
+      fullPath: '/forms/nutrition'
+      preLoaderRoute: typeof FormsNutritionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forms/testimonial-feedback': {
+      id: '/forms/testimonial-feedback'
+      path: '/forms/testimonial-feedback'
+      fullPath: '/forms/testimonial-feedback'
+      preLoaderRoute: typeof FormsTestimonialFeedbackRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

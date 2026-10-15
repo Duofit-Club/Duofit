@@ -122,11 +122,11 @@ function FlipCard({ card }: { card: typeof cards[0] }) {
           {/* dark gradient for legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
           <div className="relative h-full w-full p-6 md:p-7 flex flex-col justify-end">
-            <h3 className="text-lg md:text-xl font-bold text-white leading-snug drop-shadow-md">
+            <h3 className="text-white h-compact">
               {card.front}
             </h3>
             <div className="flex items-center gap-2 mt-3">
-              <span className="text-[11px] font-medium uppercase tracking-widest text-primary">
+              <span className="eyebrow">
                 <span className="md:hidden">Tap to reveal</span>
                 <span className="hidden md:inline">Hover to reveal</span>
               </span>
@@ -138,7 +138,7 @@ function FlipCard({ card }: { card: typeof cards[0] }) {
         {/* Back */}
         <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-primary rounded-sm p-6 md:p-8 flex flex-col justify-between">
           <div>
-            <h4 className="text-base font-bold text-white mb-3">
+            <h4 className="text-white mb-3">
               {card.backTitle}
             </h4>
             <p className="text-sm text-white/90 leading-relaxed">
@@ -169,14 +169,14 @@ function Reality() {
     <SiteLayout>
 
       {/* Hero */}
-      <section className="container-editorial pt-16 md:pt-24 pb-12 md:pb-16 text-center">
+      <section className="container-editorial text-center section-hero">
         <Reveal delay={120}>
-          <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] text-foreground">
+          <h1 className="mt-5">
             Why most health<br />journeys fail.
           </h1>
         </Reveal>
         <Reveal delay={240}>
-          <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+          <p className="lead mt-5 mx-auto">
             People don't fail because they lack motivation. They struggle
             because health is often approached through shortcuts, extreme
             routines and habits that don't fit their schedules,
@@ -186,7 +186,7 @@ function Reality() {
       </section>
 
       {/* Cards */}
-      <section className="container-editorial pb-16 md:pb-24">
+      <section className="container-editorial section-y">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {cards.map((card, i) => (
             <Reveal key={i} delay={i * 50}>
@@ -198,9 +198,9 @@ function Reality() {
 
       {/* Quote */}
       <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-16 md:py-24 text-center max-w-3xl mx-auto">
+        <div className="container-editorial section-y text-center max-w-3xl mx-auto">
           <Reveal>
-            <p className="text-xl md:text-2xl lg:text-3xl font-light leading-relaxed text-foreground/80 italic">
+            <p className="text-xl md:text-2xl lg:text-3xl font-light leading-relaxed text-muted-foreground italic">
               "Health should support your life, not become another source of stress."
             </p>
           </Reveal>
@@ -208,9 +208,9 @@ function Reality() {
       </section>
 
       {/* CTA */}
-      <section className="container-editorial py-16 md:py-24 text-center">
+      <section className="container-editorial text-center section-cta">
         <Reveal>
-          <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8">
+          <h3 className="mb-8">
             So how does DUOFIT help?
           </h3>
         </Reveal>

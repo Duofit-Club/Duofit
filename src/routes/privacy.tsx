@@ -33,7 +33,7 @@ function BulletList({ items }: { items: string[] }) {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-10">
-      <h2 className="text-lg md:text-xl font-bold text-foreground mb-4 pb-2 border-b border-border">
+      <h2 className="mb-4 pb-2 border-b border-border h-compact">
         {title}
       </h2>
       <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
@@ -46,7 +46,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Sub({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mt-5">
-      <h3 className="text-sm md:text-base font-semibold text-foreground mb-2">{title}</h3>
+      <h3 className="mb-2 h-compact">{title}</h3>
       <div className="space-y-3">{children}</div>
     </div>
   );
@@ -92,11 +92,11 @@ function Privacy() {
 
   return (
     <SiteLayout>
-      <div className="container-editorial pt-14 md:pt-20 pb-20 md:pb-32">
+      <div className="container-editorial section-hero">
 
         {/* Header */}
         <div className="max-w-3xl mb-12">
-          <h1 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight leading-tight">
+          <h1 className="mt-4">
             Privacy Policy
           </h1>
           <div className="mt-4 flex flex-wrap gap-4 text-xs text-muted-foreground">
@@ -161,8 +161,8 @@ function Privacy() {
                 "Never shared without your specific written consent",
                 "Subject to the highest level of security and protection",
               ]} />
-              <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-sm">
-                <p className="text-sm text-amber-900 font-medium">
+              <div className="mt-3 p-3 bg-muted border border-primary/30 rounded-sm">
+                <p className="text-sm text-foreground font-medium">
                   ⚠️ Medical Disclaimer: DUOFIT provides lifestyle coaching and wellness guidance only.
                   Our services do not constitute medical advice, diagnosis or treatment. Always consult
                   a qualified healthcare professional for any medical concerns.
@@ -240,7 +240,7 @@ function Privacy() {
                   "Process for purposes other than those explicitly stated here",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm md:text-base text-muted-foreground">
-                    <span className="h-1.5 w-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0 block" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shrink-0 block" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -558,7 +558,7 @@ function Privacy() {
 
           {/* Contact CTA */}
           <div className="mt-12 p-6 bg-primary/5 border border-primary/20 rounded-sm text-center">
-            <h3 className="font-bold text-foreground mb-2">Questions about this policy?</h3>
+            <h3 className="mb-2 h-compact">Questions about this policy?</h3>
             <p className="text-sm text-muted-foreground mb-4">
               We are committed to transparency. If anything is unclear or you wish to exercise
               your rights, reach out to us directly.

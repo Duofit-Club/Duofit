@@ -271,7 +271,7 @@ function ProcessTimeline() {
                     {s.n}
                   </span>
                 </div>
-                <h4 className="mt-4 text-base font-bold text-primary italic">{s.title}</h4>
+                <h4 className="mt-4">{s.title}</h4>
                 <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed max-w-[170px]">{s.desc}</p>
               </div>
             </Reveal>
@@ -293,7 +293,7 @@ function ProcessTimeline() {
                 </span>
               </div>
               <div>
-                <h4 className="text-base font-bold text-primary italic">{s.title}</h4>
+                <h4>{s.title}</h4>
                 <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
             </div>
@@ -329,7 +329,7 @@ function FaqAccordion() {
               onClick={() => setOpen(isOpen ? null : i)}
               className="w-full flex items-center justify-between gap-4 py-5 text-left"
             >
-              <p className="text-sm text-foreground/75 leading-relaxed pr-8">{item.q}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed pr-8">{item.q}</p>
               <ChevronDown className={`h-4 w-4 text-primary shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
             </button>
             <div className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100 pb-5" : "grid-rows-[0fr] opacity-0"}`}>
@@ -406,14 +406,14 @@ function Home() {
       {/* SECTION 2 — Does This Sound Like You (redesigned: problem → possibility) */}
       {/* SECTION 2 — Does This Sound Like You */}
       <section className="bg-white">
-        <div className="container-editorial py-16 md:py-24 lg:py-28">
+        <div className="container-editorial section-y">
 
           {/* SECTION HEADING */}
           <Reveal>
             <div className="text-center mb-12 md:mb-16">
 
-              <h2 className="mt-3 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.04em] leading-[1.05] text-primary">
-                DO ANY OF THESE FEEL FAMILIAR?
+              <h2 className="mt-3">
+                Do Any of These Feel Familiar?
               </h2>
             </div>
           </Reveal>
@@ -470,7 +470,7 @@ function Home() {
 
               <div className="rounded-2xl border border-primary/20 bg-primary/5 px-6 py-7 md:px-10 md:py-9 text-center">
 
-                <p className="mt-4 text-sm md:text-base text-foreground/80 leading-relaxed">
+                <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                   Your health goals are personal. Your approach should be
                   too. Whether you're looking to improve your fitness,
                   manage your weight, build healthier habits, or create a
@@ -498,7 +498,7 @@ function Home() {
       {/* SECTION 3 — Programs (3-tier) */}
       <section
         id="programs"
-        className="container-editorial py-16 md:py-24 lg:py-28 scroll-mt-24"
+        className="container-editorial section-y scroll-mt-24"
       >
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10 md:mb-12">
@@ -507,18 +507,18 @@ function Home() {
             {/* Heading + description */}
             <div className="min-w-0">
 
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              <span className="eyebrow">
                 Our Programs
               </span>
 
-              <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-[-0.04em] leading-[1.05] text-foreground md:whitespace-nowrap">
+              <h2 className="mt-3">
                 Health coaching built around{" "}
                 <span className="text-primary">
                   real life.
                 </span>
               </h2>
 
-              <p className="mt-4 text-sm md:text-base text-foreground/75 leading-relaxed max-w-5xl">
+              <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed max-w-5xl">
                 Whether you are working on your own health or building healthier
                 routines with your family, DUOFIT programs are designed around
                 practical nutrition, sustainable movement and habits that can last.
@@ -571,11 +571,11 @@ function Home() {
                 {/* TOP */}
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+                    <span className="eyebrow">
                       Program {tier.n}
                     </span>
 
-                    <h3 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+                    <h3 className="mt-3">
                       {tier.name}
                     </h3>
                   </div>
@@ -594,7 +594,7 @@ function Home() {
 
                 {/* HIGHLIGHTS */}
                 <div className="mt-7">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-4">
+                  <p className="eyebrow mb-4">
                     What You Can Work On
                   </p>
 
@@ -664,9 +664,9 @@ function Home() {
       </section>
       {/* SECTION 4 — Why & How DUOFIT Can Help (process timeline, no Venn) */}
       <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-16 md:py-24">
+        <div className="container-editorial section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight text-center max-w-2xl mx-auto mb-14 md:mb-16">
+            <h2 className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
               Your health doesn't exist in separate boxes.
             </h2>
           </Reveal>
@@ -679,13 +679,13 @@ function Home() {
                 </p>
               </Reveal>
               <Reveal delay={100}>
-                <p className="mt-4 text-sm md:text-base text-foreground/75 leading-relaxed">
+                <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                   We often treat these as separate problems to solve. But
                   your health doesn't work that way. Everything is connected.
                 </p>
               </Reveal>
               <Reveal delay={140}>
-                <div className="mt-4 space-y-1.5 text-sm md:text-base text-foreground/75 leading-relaxed">
+                <div className="mt-4 space-y-1.5 text-sm md:text-base text-muted-foreground leading-relaxed">
                   <p>What you eat can affect your energy.</p>
                   <p>Your energy can affect how active you are.</p>
                   <p>Your activity can affect your sleep.</p>
@@ -710,11 +710,11 @@ function Home() {
       </section>
 
       {/* SECTION 5 — Testimonials (unchanged from before) */}
-      <section className="container-editorial py-16 md:py-24">
+      <section className="container-editorial section-y">
         <div className="flex items-end justify-between mb-9 flex-wrap gap-3">
           <div>
             <Reveal delay={60}>
-              <h2 className="mt-2 text-3xl md:text-4xl font-bold text-foreground leading-tight">What Our Clients Say.</h2>
+              <h2 className="mt-2">What Our Clients Say.</h2>
             </Reveal>
           </div>
           <Reveal delay={100}>
@@ -740,7 +740,7 @@ function Home() {
                 <span className="text-xs text-foreground/60">
                   {t.role}
                 </span>
-                <p className="mt-3 text-sm text-foreground/80 leading-relaxed">
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                   {t.quote}
                 </p>
               </div>
@@ -751,19 +751,19 @@ function Home() {
 
       {/* SECTION 6 — FAQs */}
       <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-16 md:py-24">
+        <div className="container-editorial section-y">
           <Reveal>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block text-center mb-3">
+            <span className="eyebrow block text-center mb-3">
               Frequently Asked Questions
             </span>
           </Reveal>
           <Reveal delay={60}>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-3">
+            <h2 className="text-center mb-3">
               Questions before you get started?
             </h2>
           </Reveal>
           <Reveal delay={90}>
-            <p className="text-sm md:text-base text-foreground/75 text-center max-w-lg mx-auto mb-14">
+            <p className="text-sm md:text-base text-muted-foreground text-center max-w-lg mx-auto mb-14">
               Here are some of the things people commonly want to know before starting with DUOFIT.
             </p>
           </Reveal>

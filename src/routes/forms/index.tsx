@@ -52,10 +52,10 @@ const forms = [
 function FormsHub() {
   return (
     <SiteLayout>
-      <section className="min-h-screen px-6 py-20 max-w-6xl mx-auto">
+      <section className="min-h-screen px-6 section-hero max-w-6xl mx-auto">
         <div className="text-center mb-14">
-          <h1 className="text-4xl font-bold">DUOFIT Forms</h1>
-          <p className="text-muted-foreground mt-3">
+          <h1>DUOFIT Forms</h1>
+          <p className="lead mt-3">
             Choose the form that matches your requirement.
           </p>
         </div>
@@ -76,7 +76,7 @@ function FormsHub() {
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-xl">{form.title}</h3>
+                    <h3 className="h-compact">{form.title}</h3>
                     <p className="text-muted-foreground mt-2 text-sm">
                       {form.desc}
                     </p>

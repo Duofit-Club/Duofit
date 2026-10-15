@@ -187,7 +187,7 @@ function SectionTitle({ n, title }: { n: number; title: string }) {
       <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
         <span className="text-xs font-bold text-primary">{n}</span>
       </div>
-      <h3 className="font-bold text-sm uppercase tracking-widest text-foreground">{title}</h3>
+      <h3 className="h-compact">{title}</h3>
     </div>
   );
 }
@@ -431,7 +431,7 @@ function Step5({ d, u }: StepProps) {
         rows={2} placeholder="What have you tried before..." />
 
       <div className="border-t border-border pt-4">
-        <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">
+        <p className="eyebrow mb-4">
           Additional Insights
         </p>
         <div className="space-y-4">
@@ -645,7 +645,7 @@ export function NutritionForm() {
               <Check className="h-8 w-8 text-primary" />
             </div>
 
-            <h3 className="font-bold text-xl mb-2">
+            <h3 className="mb-2 h-compact">
               Form Submitted!
             </h3>
 

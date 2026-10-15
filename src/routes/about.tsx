@@ -1,8 +1,7 @@
+
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
-  Search,
-  XCircle,
   Heart,
   CheckCircle2,
   Zap,
@@ -18,7 +17,6 @@ import {
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import founderAfter from "@/assets/founders.jpeg";
-import heroFamily from "@/assets/family-photo.jpg";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
@@ -31,8 +29,6 @@ export const Route = createFileRoute("/about")({
     }),
   component: About,
 });
-
-const cycleItems = ["Start.", "Stop.", "Restart.", "Another Monday.", "Another challenge.", "Another diet."];
 
 const whatWeBuildLeft = [
   { icon: Zap, label: "Feel more energetic" },
@@ -66,119 +62,72 @@ const visionItems = [
 function About() {
   return (
     <SiteLayout>
-
-      {/* HERO + OUR BELIEF */}
-      <section className="container-editorial pt-12 md:pt-20 pb-10 md:pb-14">
-        <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-6 lg:gap-8 items-stretch">
-
-          {/* Hero */}
+      {/* HERO */}
+      <section className="container-editorial section-hero">
+        <div className="grid grid-cols-1 gap-6 lg:gap-8 items-stretch">
           <Reveal delay={80}>
-            <div className="h-full flex flex-col justify-center py-5 md:py-10">
-
-              <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] leading-[0.98]">
-                <span className="block text-foreground">
-                  Health,
-                </span>
-
-                <span className="block text-primary">
-                  Designed to Last.
-                </span>
+            <div className="flex flex-col justify-center py-5 md:py-10">
+              <h1 className="mt-4">
+                <span className="block">Health,</span>
+                <span className="block">Designed to Last.</span>
               </h1>
-
-              
             </div>
           </Reveal>
-
-
-          {/* OUR BELIEF */}
-          <Reveal delay={140}>
-            <div className="rounded-[2rem] bg-primary p-7 md:p-9 lg:p-10 min-h-[390px] h-full flex flex-col justify-between shadow-sm">
-
-              <div>
-                <div className="flex items-center gap-4 mb-7">
-                  <div className="h-12 w-12 rounded-full bg-primary-foreground flex items-center justify-center shrink-0">
-                    <Heart className="h-5 w-5 text-primary" />
-                  </div>
-
-                  <div>
-
-                    <h2 className="mt-1 text-lg md:text-xl font-bold text-primary-foreground">
-                      Our Belief
-                    </h2>
-                  </div>
-                </div>
-
-                <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground leading-[1.15] max-w-lg">
-                  Health should work with your life,
-                  not against it.
-                </p>
-              </div>
-
-
-              <div className="mt-10">
-                <p className="text-sm md:text-base text-primary-foreground/85 mb-4 leading-relaxed max-w-lg">
-                  Every recommendation we make is built around one simple
-                  question.
-                </p>
-
-                <div className="bg-cream rounded-2xl p-4 md:p-5 flex items-start gap-3 mb-5">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-
-                  <p className="text-sm md:text-base font-semibold text-foreground leading-relaxed">
-                    Can someone realistically continue doing this years from now?
-                  </p>
-                </div>
-
-                <div className="text-sm md:text-base text-primary-foreground/85 space-y-1">
-                  <p>If the answer is no.</p>
-                  <p>We do not recommend it.</p>
-                  <p>Because lasting change matters.</p>
-                </div>
-
-                <p
-                  className="mt-5 text-lg md:text-xl italic text-primary-foreground"
-                  style={{
-                    fontFamily: "var(--font-display, cursive)",
-                  }}
-                >
-                  If it can't last, it isn't DUOFIT.
-                </p>
-              </div>
-
-            </div>
-          </Reveal>
-
         </div>
       </section>
 
-
       {/* THREE CORE SECTIONS */}
-      <section className="container-editorial pb-10 md:pb-14">
+      <section className="container-editorial section-y">
         <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-
-          {/* OUR VISION */}
+          {/* WHAT WE BUILD — FIRST */}
           <Reveal delay={60}>
             <div className="rounded-[1.75rem] bg-muted/60 border border-border/50 p-6 md:p-7 h-full flex flex-col">
+              <div className="mb-6">
+                <h3 className="mt-1">What We Build</h3>
 
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  People don't come to DUOFIT just to lose weight.
+                  <br />
+                  They come to build a healthier life.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-3">
+                {[...whatWeBuildLeft, ...whatWeBuildRight].map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={item.label}
+                      className="flex items-center gap-2.5"
+                    >
+                      <Icon className="h-4 w-4 text-primary shrink-0" />
+                      <span className="text-sm text-foreground">
+                        {item.label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </Reveal>
+
+          {/* OUR VISION — SECOND */}
+          <Reveal delay={120}>
+            <div className="rounded-[1.75rem] bg-muted/60 border border-border/50 p-6 md:p-7 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-11 w-11 rounded-full bg-cream flex items-center justify-center shrink-0">
                   <Flag className="h-5 w-5 text-primary" />
                 </div>
 
                 <div>
-
-                  <h3 className="mt-1 text-lg md:text-xl font-bold text-primary">
-                    Our Vision
-                  </h3>
+                  <h3 className="mt-1">Our Vision</h3>
                 </div>
               </div>
 
               <ul className="space-y-4">
                 {visionItems.map((v) => (
-                  <li
-                    key={v}
-                    className="flex items-start gap-3"
-                  >
+                  <li key={v} className="flex items-start gap-3">
                     <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-1" />
 
                     <span className="text-sm text-foreground leading-relaxed">
@@ -187,23 +136,16 @@ function About() {
                   </li>
                 ))}
               </ul>
-
-
             </div>
           </Reveal>
 
-
-          {/* DUOFIT PRINCIPLES */}
-          <Reveal delay={120}>
+          {/* DUOFIT PRINCIPLES — THIRD */}
+          <Reveal delay={180}>
             <div className="rounded-[1.75rem] bg-muted/60 border border-border/50 p-6 md:p-7 h-full">
-
               <div className="mb-6">
+                <h3 className="mt-1">DUOFIT Principles</h3>
 
-                <h3 className="mt-1 text-lg md:text-xl font-bold text-primary">
-                  DUOFIT Principles
-                </h3>
-
-                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                   These principles guide every decision we make.
                 </p>
               </div>
@@ -224,75 +166,22 @@ function About() {
                   </li>
                 ))}
               </ul>
-
             </div>
           </Reveal>
-
-
-          {/* WHAT WE BUILD */}
-          <Reveal delay={180}>
-            <div className="rounded-[1.75rem] bg-muted/60 border border-border/50 p-6 md:p-7 h-full flex flex-col">
-
-              <div className="mb-6">
-
-                <h3 className="mt-1 text-lg md:text-xl font-bold text-primary">
-                  What We Build
-                </h3>
-
-                <p className="mt-3 text-sm text-foreground/75 leading-relaxed">
-                  People don't come to DUOFIT just to lose weight.
-                  <br />
-                  They come to build a healthier life.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 gap-3">
-                {[
-                  ...whatWeBuildLeft,
-                  ...whatWeBuildRight,
-                ].map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <div
-                      key={item.label}
-                      className="flex items-center gap-2.5"
-                    >
-                      <Icon className="h-4 w-4 text-primary shrink-0" />
-
-                      <span className="text-sm text-foreground">
-                        {item.label}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-
-            </div>
-          </Reveal>
-
         </div>
       </section>
 
-
       {/* FOUNDERS */}
-      <section className="container-editorial pb-10 md:pb-14">
+      <section className="container-editorial section-y">
         <Reveal delay={80}>
           <div className="rounded-[2rem] bg-muted/60 border border-border/50 p-6 md:p-8 lg:p-10">
-
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-7 md:mb-8">
               <div>
-
-                <h2 className="mt-1 text-xl md:text-2xl font-bold text-primary">
-                  The People Behind DUOFIT
-                </h2>
+                <h2 className="mt-1">The People Behind DUOFIT</h2>
               </div>
             </div>
 
-
             <div className="grid md:grid-cols-[1.05fr_0.95fr] gap-7 md:gap-10 lg:gap-14 items-center">
-
               {/* Founder photo */}
               <div className="overflow-hidden rounded-2xl aspect-[4/3] bg-muted">
                 <img
@@ -302,10 +191,8 @@ function About() {
                 />
               </div>
 
-
               {/* Founder text */}
-              <div className="space-y-5 text-sm md:text-base text-foreground/80 leading-relaxed">
-
+              <div className="space-y-5 text-sm md:text-base text-muted-foreground leading-relaxed">
                 <p>
                   DUOFIT was founded by{" "}
                   <span className="font-bold text-foreground">
@@ -327,20 +214,16 @@ function About() {
                   community where better health becomes a natural part of
                   everyday life.
                 </p>
-
               </div>
-
             </div>
           </div>
         </Reveal>
       </section>
 
-
       {/* CLOSING CTA */}
-      <section className="container-editorial pb-14 md:pb-20">
+      <section className="container-editorial section-y">
         <Reveal>
           <div className="rounded-[2rem] bg-muted/60 border border-border/50 p-6 md:p-8 lg:p-9 flex flex-col md:flex-row items-center justify-between gap-6">
-
             <div className="flex items-center gap-4">
               <div className="h-11 w-11 rounded-full bg-cream flex items-center justify-center shrink-0">
                 <Heart className="h-5 w-5 text-primary" />
@@ -354,8 +237,6 @@ function About() {
                 </p>
               </div>
             </div>
-
-         
 
             <Link
               to="/contact"
@@ -372,11 +253,9 @@ function About() {
                 <ArrowRight className="h-4 w-4" />
               </span>
             </Link>
-
           </div>
         </Reveal>
       </section>
-
     </SiteLayout>
   );
 }

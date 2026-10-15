@@ -135,10 +135,10 @@ export function HealthCheck() {
       {/* LANDING */}
       {screen === "landing" && (
         <div className="flex flex-col justify-center flex-1 px-6 py-10 text-center">
-          <h1 className="text-2xl md:text-3xl font-bold text-foreground">
+          <h1>
             Do You Really Know How Healthy You Are?
           </h1>
-          <p className="text-muted-foreground mt-2 text-sm md:text-base">
+          <p className="lead mt-2">
             Or are you simply assuming you are?
           </p>
           <p className="text-sm text-muted-foreground mt-5 max-w-md mx-auto">
@@ -170,7 +170,7 @@ export function HealthCheck() {
           <ProgressBar current={qIndex} total={QUESTIONS.length} />
 
           <div className="flex-1 flex flex-col justify-center py-8">
-            <h2 className="text-lg md:text-xl font-semibold text-foreground text-center mb-8">
+            <h2 className="text-center mb-8 h-compact">
               {question.text}
             </h2>
 
@@ -204,7 +204,7 @@ export function HealthCheck() {
       {/* LEAD CAPTURE */}
       {screen === "lead" && (
         <div className="flex flex-col flex-1 justify-center px-6 py-10">
-          <h2 className="text-xl font-bold text-foreground text-center">
+          <h2 className="text-center h-compact">
             Almost there — where should we send your reflection?
           </h2>
           <p className="text-sm text-muted-foreground text-center mt-2 mb-8">
@@ -263,13 +263,13 @@ export function HealthCheck() {
       {/* RESULTS */}
       {screen === "results" && (
         <div className="flex flex-col flex-1 px-6 py-8">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground text-center mb-6">
+          <h2 className="text-center mb-6 h-compact">
             Your DUOFIT Health Reflection
           </h2>
 
           <div className="space-y-4">
             <div className="border border-border rounded-xl p-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1.5">
+              <p className="eyebrow mb-1.5">
                 Your Greatest Strength
               </p>
               <p className="text-sm font-semibold text-foreground mb-1">
@@ -281,7 +281,7 @@ export function HealthCheck() {
             </div>
 
             <div className="border border-border rounded-xl p-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1.5">
+              <p className="eyebrow mb-1.5">
                 Your Biggest Opportunity
               </p>
               <p className="text-sm font-semibold text-foreground mb-1">
@@ -293,7 +293,7 @@ export function HealthCheck() {
             </div>
 
             <div className="border border-border rounded-xl p-4 bg-muted/40">
-              <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1.5">
+              <p className="eyebrow mb-1.5">
                 One Small Habit to Start Today
               </p>
               <p className="text-sm text-foreground">

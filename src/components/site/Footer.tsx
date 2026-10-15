@@ -37,7 +37,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h5 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-4">
+            <h5 className="eyebrow mb-4">
               Navigation
             </h5>
 
@@ -64,7 +64,7 @@ export function Footer() {
 
           {/* Connect */}
           <div>
-            <h5 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-4">
+            <h5 className="eyebrow mb-4">
               Connect
             </h5>
 

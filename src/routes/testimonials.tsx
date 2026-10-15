@@ -34,14 +34,14 @@ const journeys = [
 function TestimonialsPage() {
   return (
     <SiteLayout>
-      <section className="container-editorial py-16 md:py-24">
+      <section className="container-editorial section-hero">
         <Reveal>
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary block text-center mb-3">
+          <span className="eyebrow block text-center mb-3">
             Real People. Real Progress.
           </span>
         </Reveal>
         <Reveal delay={60}>
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground text-center mb-10 md:mb-12">
+          <h1 className="text-center mb-10 md:mb-12">
             Client Journeys.
           </h1>
         </Reveal>

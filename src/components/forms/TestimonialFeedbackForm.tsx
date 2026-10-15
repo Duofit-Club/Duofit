@@ -43,7 +43,7 @@ function Field({ label, sub, value, onChange, rows = 4 }: {
 
 function SectionHeader({ children }: { children: string }) {
   return (
-    <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-primary border-b border-border pb-3 mb-7">
+    <h3 className="border-b border-border pb-3 mb-7 h-compact">
       {children}
     </h3>
   );
@@ -123,7 +123,7 @@ export function TestimonialFeedbackForm() {
     return (
       <div className="text-center py-16 px-6">
         <CheckCircle2 className="h-12 w-12 text-primary mx-auto mb-4" />
-        <h2 className="text-2xl font-bold text-foreground mb-2">Thank you for sharing your DUOFIT journey.</h2>
+        <h2 className="mb-2 h-compact">Thank you for sharing your DUOFIT journey.</h2>
         <p className="text-sm text-muted-foreground max-w-md mx-auto">
           Your reflection means a lot to us — and to everyone who reads it while deciding to start their own journey.
         </p>
@@ -135,9 +135,9 @@ export function TestimonialFeedbackForm() {
     <form onSubmit={handleSubmit} className="space-y-12">
 
       <div className="text-center">
-        <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">Client Feedback</span>
-        <h1 className="mt-3 text-3xl md:text-4xl font-bold text-foreground italic">Your DUOFIT journey matters.</h1>
-        <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-lg mx-auto leading-relaxed">
+        <span className="eyebrow">Client Feedback</span>
+        <h1 className="mt-3">Your DUOFIT journey matters.</h1>
+        <p className="lead mt-4 mx-auto">
           Take 2 minutes to tell us what has changed for you. Your feedback helps us understand
           the real impact of DUOFIT and, with your permission, may be featured on our website.
         </p>

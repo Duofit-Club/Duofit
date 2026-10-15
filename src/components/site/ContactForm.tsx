@@ -109,10 +109,10 @@ export function ContactForm() {
     return (
       <div className="text-center py-10">
         <div className="text-4xl mb-4">✅</div>
-        <p className="text-xs uppercase tracking-widest text-primary font-semibold mb-2">
+        <p className="eyebrow mb-2">
           Thank you
         </p>
-        <h3 className="font-bold text-2xl">Your message is in.</h3>
+        <h3 className="h-compact">Your message is in.</h3>
         <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
           A coach will reach out within 24 hours to schedule your free consultation.
         </p>

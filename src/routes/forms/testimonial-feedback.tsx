@@ -17,7 +17,7 @@ export const Route = createFileRoute("/forms/testimonial-feedback")({
 function TestimonialFeedbackPage() {
   return (
     <SiteLayout>
-      <section className="container-editorial max-w-2xl py-16 md:py-20">
+      <section className="container-editorial max-w-2xl section-hero">
         <TestimonialFeedbackForm />
       </section>
     </SiteLayout>

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/forms/nutrition")({
 function NutritionPage() {
   return (
     <SiteLayout>
-      <section className="py-20 px-6 max-w-4xl mx-auto">
+      <section className="section-hero px-6 max-w-4xl mx-auto">
         <div className="mb-6">
           <Link
             to="/forms"
@@ -27,7 +27,7 @@ function NutritionPage() {
           </Link>
         </div>
         <div className="mb-10">
-          <h1 className="text-3xl font-bold">
+          <h1>
             Nutrition Intake Form
           </h1>
           <p className="text-muted-foreground mt-3">

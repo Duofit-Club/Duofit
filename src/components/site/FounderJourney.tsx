@@ -585,18 +585,11 @@ export function FounderJourney() {
 
   return (
     <section className="bg-cream border-y border-border">
-      <div className="container-editorial py-12 md:py-24">
+      <div className="container-editorial section-y">
 
         {/* Header */}
         <div ref={headerRef}>
-          <h2
-            className="mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight"
-            style={{
-              opacity: headerVisible ? 1 : 0,
-              transform: headerVisible ? "translateY(0)" : "translateY(20px)",
-              transition: "opacity 0.65s ease 80ms, transform 0.65s ease 80ms",
-            }}
-          >
+          <h2 className="mt-3" style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.65s ease 80ms, transform 0.65s ease 80ms", }}>
             The Journey That Inspired DUOFIT.
           </h2>
           <p

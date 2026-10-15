@@ -56,27 +56,27 @@ const whyChoose = [
 function Contact() {
   return (
     <SiteLayout>
-      <section className="container-editorial pt-10 md:pt-14 pb-16 md:pb-24">
+      <section className="container-editorial section-hero">
         <div className="space-y-8 md:space-y-10">
 
           {/* 1. TOP HEADING AND INTRODUCTION */}
           <div className="max-w-5xl">
             <Reveal>
-              <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+              <span className="eyebrow">
                 Let's Talk About
               </span>
             </Reveal>
 
             <Reveal delay={80}>
-              <h1 className="mt-2 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
-                YOUR HEALTH
+              <h1 className="mt-2">
+                Your Health
                 <br />
-                GOALS.
+                Goals.
               </h1>
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-4 text-base md:text-lg text-foreground/75 leading-relaxed max-w-4xl">
+              <p className="lead mt-4">
                 Whether you're looking to improve fitness, manage weight, build
                 healthier habits or create a healthier lifestyle for your family,
                 we'd love to understand your goals and see how DUOFIT can help.
@@ -87,7 +87,7 @@ function Contact() {
           {/* 2. WHY PEOPLE CHOOSE DUOFIT */}
           <div>
             <Reveal delay={200}>
-              <h2 className="text-sm font-bold uppercase tracking-widest text-primary">
+              <h2>
                 Why People Choose DUOFIT
               </h2>
             </Reveal>
@@ -103,11 +103,11 @@ function Contact() {
                         <Icon className="h-5 w-5 text-primary" />
                       </div>
 
-                      <h3 className="font-bold text-sm md:text-base text-foreground">
+                      <h3 className="h-compact">
                         {item.title}
                       </h3>
 
-                      <p className="mt-2 text-sm text-foreground/75 leading-relaxed">
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -120,7 +120,7 @@ function Contact() {
           {/* 3. CONTACT FORM */}
           <Reveal delay={200}>
             <div className="rounded-xl border border-border bg-card p-5 sm:p-7 md:p-9">
-              <h2 className="text-lg md:text-xl font-bold text-primary uppercase tracking-wide mb-6">
+              <h2 className="mb-6 h-compact">
                 Tell Us About You
               </h2>
 
@@ -134,15 +134,15 @@ function Contact() {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
                 <div className="max-w-2xl">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                  <span className="eyebrow">
                     15-Minute Session
                   </span>
 
-                  <h3 className="mt-2 text-xl md:text-2xl font-bold text-foreground leading-snug">
+                  <h3 className="mt-2 h-compact">
                     Not Sure Yet? Let's Talk First.
                   </h3>
 
-                  <p className="mt-2 text-sm md:text-base text-foreground/75 leading-relaxed">
+                  <p className="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed">
                     A quick, no-pressure conversation to understand your goals
                     and see if DUOFIT is the right fit for you.
                   </p>

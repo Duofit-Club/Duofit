@@ -15,7 +15,7 @@ export function ProgramCard({ program, index }: { program: Program; index: numbe
         </span>
         <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
       </div>
-      <h3 className="font-display text-2xl md:text-3xl mt-8">{program.title}</h3>
+      <h3 className="font-display mt-8">{program.title}</h3>
       <p className="text-primary mt-2 text-sm">{program.tagline}</p>
       <p className="text-muted-foreground mt-5 leading-relaxed text-[15px]">
         {program.description}

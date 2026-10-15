@@ -128,23 +128,20 @@ function Programs() {
     <SiteLayout>
 
       {/* Intro */}
-      <section className="container-editorial pt-12 md:pt-20 lg:pt-24 pb-0">
+      <section className="container-editorial section-hero">
         <div className="min-w-0">
 
           <Reveal delay={120}>
-            <h1
-              className="mt-5 font-bold tracking-[-0.04em] leading-[0.95] text-primary md:whitespace-nowrap"
-              style={{ fontSize: "clamp(2.2rem, 5.2vw, 4.5rem)" }}
-            >
+            <h1 className="mt-5">
               Health Coaching, Designed to{" "}
-              <span className="text-primary">
+              <span>
                 Last.
               </span>
             </h1>
           </Reveal>
 
           <Reveal delay={220}>
-            <p className="mt-6 text-lg md:text-xl lg:text-2xl text-foreground/75 leading-relaxed max-w-6xl">
+            <p className="lead mt-6">
               Whether you're improving your own health or creating healthier routines
               for your family, every DUOFIT program is built around practical
               nutrition, sustainable movement and lasting habits that fit real life.
@@ -159,7 +156,7 @@ function Programs() {
         <section
           key={p.title}
           id={i === 0 ? "personal-health-coaching" : "family-health-habits"}
-          className="container-editorial py-8 md:py-12 scroll-mt-24"
+          className="container-editorial section-y scroll-mt-24"
         >
           <Reveal delay={80}>
             <div
@@ -192,7 +189,7 @@ function Programs() {
                   {/* Left — text */}
                   <Reveal delay={100}>
                     <div>
-                      <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em] leading-[1.05]">
+                      <h2 className="mt-4">
                         {p.title}
                       </h2>
                       <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -218,7 +215,7 @@ function Programs() {
                   {/* Right — What We Cover */}
                   <Reveal delay={160}>
                     <div className="flex flex-col gap-3">
-                      <h3 className="text-sm font-bold uppercase tracking-[0.25em] text-primary mb-1">
+                      <h3 className="mb-1 h-compact">
                         What {i === 0 ? "You" : "Families"} Can Expect
                       </h3>
                       {p.nodes.map(({ label, hint, img }, idx) => {
@@ -257,9 +254,9 @@ function Programs() {
 
       {/* How Duofit Works */}
       <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-16 md:py-24 lg:py-32">
+        <div className="container-editorial section-y">
           <Reveal>
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-[-0.04em] mb-3">How Duofit Works</h2>
+            <h2 className="mt-4 mb-3">How Duofit Works</h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-base md:text-lg text-muted-foreground mb-14 md:mb-20 max-w-2xl leading-relaxed">
@@ -297,7 +294,7 @@ function Programs() {
                         {s.n}
                       </span>
                     </div>
-                    <h4 className="mt-5 text-base lg:text-lg font-bold tracking-wide">{s.t}</h4>
+                    <h4 className="mt-5">{s.t}</h4>
                     <p className="mt-2 text-xs lg:text-sm text-muted-foreground leading-relaxed max-w-[200px]">{s.d}</p>
                   </div>
                 </Reveal>
@@ -321,7 +318,7 @@ function Programs() {
                       </span>
                     </div>
                     <div className="pt-2">
-                      <h4 className="text-lg font-bold">{s.t}</h4>
+                      <h4>{s.t}</h4>
                       <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
                     </div>
                   </div>
@@ -334,9 +331,9 @@ function Programs() {
       </section>
 
       {/* CTA */}
-      <section className="container-editorial py-20 md:py-28 lg:py-36 text-center">
+      <section className="container-editorial text-center section-cta">
         <Reveal>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-[-0.04em] leading-[1.05] mb-6 max-w-4xl mx-auto">
+          <h2 className="mb-6 max-w-4xl mx-auto">
             Start building a healthier lifestyle today.
           </h2>
         </Reveal>

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/forms/monthly-review")({
 function MonthlyReviewPage() {
   return (
     <SiteLayout>
-      <section className="container-editorial py-16">
+      <section className="container-editorial section-hero">
 
         <Link
           to="/forms"
@@ -30,7 +30,7 @@ function MonthlyReviewPage() {
 
         <div className="max-w-4xl mt-8">
 
-          <h1 className="text-4xl font-bold">
+          <h1>
             Monthly Progress Review
           </h1>
 

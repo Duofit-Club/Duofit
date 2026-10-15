@@ -28,12 +28,12 @@ export function MonthlyReviewPreview({
     title: string;
     value: any;
   }) => (
-    <div className="py-6 border-b border-gray-200 last:border-none">
-      <h3 className="text-lg font-semibold text-green-700 mb-3">
+    <div className="py-6 border-b border-border last:border-none">
+      <h3 className="mb-3 h-compact">
         {title}
       </h3>
 
-      <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+      <div className="text-muted-foreground leading-relaxed whitespace-pre-wrap">
         {Array.isArray(value) ? value.join(", ") : value || "-"}
       </div>
     </div>
@@ -48,11 +48,11 @@ export function MonthlyReviewPreview({
 
         <div className="px-8 py-6 border-b">
 
-          <h1 className="text-3xl font-bold text-green-700">
+          <h1>
             Monthly Progress Review
           </h1>
 
-          <p className="text-gray-500 mt-2">
+          <p className="text-muted-foreground mt-2">
             Please review your responses before submitting.
           </p>
 
@@ -105,7 +105,7 @@ export function MonthlyReviewPreview({
 
           <button
             onClick={onClose}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 hover:border-black transition"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border hover:border-primary transition"
           >
             <ArrowLeft className="h-4 w-4" />
             Back
@@ -115,7 +115,7 @@ export function MonthlyReviewPreview({
 
             <button
               onClick={downloadPDF}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-600 text-white hover:bg-green-700 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground hover:brightness-110 transition"
             >
               <Download className="h-4 w-4" />
               Download PDF
@@ -123,7 +123,7 @@ export function MonthlyReviewPreview({
 
             <button
               onClick={onSubmit}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black text-white hover:bg-neutral-800 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background hover:bg-primary transition"
             >
               <CheckCircle2 className="h-4 w-4" />
               Final Submit

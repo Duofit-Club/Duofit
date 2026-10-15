@@ -26,16 +26,16 @@ const testimonials = [
 function Results() {
   return (
     <SiteLayout>
-      <section className="container-editorial pt-12 md:pt-20 lg:pt-24 pb-10 md:pb-16">
+      <section className="container-editorial section-hero">
         <div className="max-w-3xl">
-          <Reveal><span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">— Results</span></Reveal>
+          <Reveal><span className="eyebrow">— Results</span></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-4 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
-              Real Stories.<br /><span className="text-primary">Sustainable Results.</span>
+            <h1 className="mt-4">
+              Real Stories.<br /><span>Sustainable Results.</span>
             </h1>
           </Reveal>
           <Reveal delay={220}>
-            <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="lead mt-5">
               Proof built over months and years — not weeks. Transformations from active professionals and families.
             </p>
           </Reveal>
@@ -43,7 +43,7 @@ function Results() {
       </section>
 
       {/* Transformation Stories */}
-      <section className="container-editorial pb-16 md:pb-24 lg:pb-32 space-y-8 md:space-y-16">
+      <section className="container-editorial space-y-8 md:space-y-16 section-y">
         {[
           { name: "David K.", role: "Executive & Father", quote: "DUOFIT helped me balance high business demands with family needs. I dropped body fat while increasing overall energy for my kids.", metrics: [{ v: "-9 kg", l: "Weight Lost" }, { v: "9+ mo.", l: "Consistency" }, { v: "5.3%", l: "Body Fat ↓" }, { v: "+6 kg", l: "Lean Mass" }] },
           { name: "The Sharma Family", role: "Family Coaching", quote: "Instead of following isolated lifestyle paths, we optimised our kitchen structure together. Family meals became simple, balanced, and stress-free.", metrics: [{ v: "100%", l: "Household Alignment" }, { v: "Zero", l: "Isolated Tracking" }, { v: "6 mo.", l: "Full Habit Stack" }, { v: "3", l: "Members Coached" }] },
@@ -57,13 +57,13 @@ function Results() {
                     <span className="text-xs uppercase tracking-widest text-muted-foreground">Before</span>
                   </div>
                   <div className="aspect-[3/4] bg-primary/10 rounded-sm flex items-center justify-center">
-                    <span className="text-xs uppercase tracking-widest text-primary">After</span>
+                    <span className="eyebrow">After</span>
                   </div>
                 </div>
                 {/* Story */}
                 <div className="md:col-span-2">
-                  <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-1">{story.name}</h3>
-                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">{story.role}</span>
+                  <h3 className="mb-1">{story.name}</h3>
+                  <span className="eyebrow">{story.role}</span>
                   <p className="mt-4 text-base text-muted-foreground leading-relaxed italic">"{story.quote}"</p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-6">
                     {story.metrics.map((m) => (
@@ -82,9 +82,9 @@ function Results() {
 
       {/* Testimonials */}
       <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-14 md:py-24 lg:py-32">
+        <div className="container-editorial section-y">
           <Reveal>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-10 md:mb-16">Client Experiences</h2>
+            <h2 className="mb-10 md:mb-16">Client Experiences</h2>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {testimonials.map((t, i) => (
@@ -108,9 +108,9 @@ function Results() {
       </section>
 
       {/* CTA */}
-      <section className="container-editorial py-16 md:py-24 lg:py-32 text-center">
+      <section className="container-editorial text-center section-cta">
         <Reveal>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">Ready to start your own transformation?</h2>
+          <h2 className="mb-6">Ready to start your own transformation?</h2>
         </Reveal>
         <Reveal delay={120}>
           <Link to="/contact"

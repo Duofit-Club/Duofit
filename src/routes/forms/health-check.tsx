@@ -460,16 +460,16 @@ function HealthCheck() {
     // ── Render ──
     return (
         <SiteLayout>
-            <section className="container-editorial py-12 md:py-20 min-h-[70vh] flex flex-col justify-center">
+            <section className="container-editorial section-hero min-h-[70vh] flex flex-col justify-center">
 
                 {/* LANDING */}
                 {stage === "landing" && (
                     <Reveal>
                         <div className="max-w-xl mx-auto text-center">
-                            <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
+                            <span className="eyebrow">
                                 DUOFIT Health Check™
                             </span>
-                            <h1 className="mt-4 text-3xl md:text-5xl font-bold text-foreground leading-tight">
+                            <h1 className="mt-4">
                                 Do You Really Know<br />How Healthy You Are?
                             </h1>
                             <p className="mt-3 text-base md:text-lg text-muted-foreground">
@@ -523,7 +523,7 @@ function HealthCheck() {
                         </div>
 
                         <Reveal key={QUESTIONS[qIndex].id}>
-                            <h2 className="text-xl md:text-2xl font-bold text-foreground leading-snug mb-7">
+                            <h2 className="mb-7 h-compact">
                                 {QUESTIONS[qIndex].text}
                             </h2>
 
@@ -557,7 +557,7 @@ function HealthCheck() {
                     <Reveal>
                         <div className="max-w-md mx-auto text-center">
                             <CheckCircle2 className="h-10 w-10 text-primary mx-auto mb-4" />
-                            <h2 className="text-2xl font-bold text-foreground mb-2">
+                            <h2 className="mb-2 h-compact">
                                 Your reflection is ready.
                             </h2>
                             <p className="text-sm text-muted-foreground mb-7">
@@ -602,7 +602,7 @@ function HealthCheck() {
                     <Reveal>
                         <div className="max-w-2xl mx-auto">
                             <div className="text-center mb-10">
-                                <span className="text-xs font-bold uppercase tracking-[0.25em] text-primary">
+                                <span className="eyebrow">
                                     Your DUOFIT Health Reflection
                                 </span>
                                 <p className="mt-4 text-base md:text-lg text-muted-foreground italic max-w-md mx-auto">
@@ -618,7 +618,7 @@ function HealthCheck() {
                                     <div className="rounded-2xl border border-primary/25 bg-primary/5 p-6">
                                         <div className="flex items-center gap-2.5 mb-2">
                                             <TrendingUp className="h-4 w-4 text-primary" />
-                                            <span className="text-xs font-bold uppercase tracking-widest text-primary">
+                                            <span className="eyebrow">
                                                 Your Greatest Strength — {PILLAR_LABELS[strengthPillar]}
                                             </span>
                                         </div>
@@ -682,7 +682,7 @@ function HealthCheck() {
                                 <p className="text-xs uppercase tracking-widest text-primary-foreground/70 mb-2">
                                     Based on your reflection
                                 </p>
-                                <h3 className="text-xl md:text-2xl font-bold mb-2">
+                                <h3 className="mb-2 h-compact">
                                     {recommendedProgram.name} could be your next step.
                                 </h3>
                                 <p className="text-sm text-primary-foreground/80 mb-6 max-w-md mx-auto">

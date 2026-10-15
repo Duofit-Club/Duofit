@@ -17,7 +17,7 @@ export const Route = createFileRoute("/health-check")({
 function HealthCheckPage() {
   return (
     <SiteLayout>
-      <section className="min-h-screen px-6 py-16 flex items-center justify-center">
+      <section className="min-h-screen px-6 section-hero flex items-center justify-center">
         <HealthCheck />
       </section>
     </SiteLayout>

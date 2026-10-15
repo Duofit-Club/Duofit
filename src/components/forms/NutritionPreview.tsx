@@ -26,17 +26,17 @@ export function NutritionPreview({
                     ref={previewRef}
                     className="bg-white text-black p-6 rounded-lg"
                 >
-                    <h1 className="text-2xl font-bold text-[#15803d] mb-6">
+                    <h1 className="mb-6">
                         DUOFIT - User Details
                     </h1>
 
                     {Object.entries(data).map(([key, value]) => (
-                        <div key={key} className="border-b border-[#d1d5db] py-3">
-                            <h3 className="font-semibold capitalize">
+                        <div key={key} className="border-b border-border py-3">
+                            <h3 className="capitalize h-compact">
                                 {key.replace(/([A-Z])/g, " $1")}
                             </h3>
 
-                            <p className="text-[#4b5563]">
+                            <p className="text-muted-foreground">
                                 {Array.isArray(value)
                                     ? value.join(", ")
                                     : String(value)}
@@ -45,10 +45,10 @@ export function NutritionPreview({
                     ))}
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-[#d1d5db] mt-6 animate-fade-in-up">
+                <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-border mt-6 animate-fade-in-up">
                     <button
                         onClick={onClose}
-                        className="px-6 py-3 border border-[#d1d5db] rounded-full 
+                        className="px-6 py-3 border border-border rounded-full 
   transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-black"
                     >
                         ← Back
@@ -56,16 +56,16 @@ export function NutritionPreview({
 
                     <button
                         onClick={downloadPDF}
-                        className="px-6 py-3 bg-gradient-to-r from-green-600 to-green-500 
+                        className="px-6 py-3 bg-primary 
   text-white rounded-full font-medium transition-all duration-300 
-  hover:scale-105 hover:shadow-lg hover:shadow-green-500/30"
+  hover:scale-105 hover:shadow-lg hover:shadow-primary/30"
                     >
                         ⬇ Download PDF
                     </button>
 
                     <button
                         onClick={onSubmit}
-                        className="px-6 py-3 bg-gradient-to-r from-black to-neutral-800 
+                        className="px-6 py-3 bg-foreground 
   text-white rounded-full font-medium transition-all duration-300 
   hover:scale-105 hover:shadow-lg hover:shadow-black/30"
                     >

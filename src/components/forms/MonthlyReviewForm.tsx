@@ -88,11 +88,11 @@ export function MonthlyReviewForm() {
     return (
       <div className="rounded-3xl border border-primary/20 bg-primary/5 p-12 text-center">
 
-        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
-          <CheckCircle2 className="h-10 w-10 text-green-600" />
+        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
+          <CheckCircle2 className="h-10 w-10 text-primary" />
         </div>
 
-        <h2 className="text-4xl font-bold">
+        <h2 className="h-compact">
           Thank You!
         </h2>
 
@@ -132,7 +132,7 @@ className="space-y-10"
 
 <div>
 
-<h2 className="text-2xl font-bold">
+<h2 className="h-compact">
 Visible Changes
 </h2>
 
@@ -168,7 +168,7 @@ className="w-full rounded-2xl border border-border bg-background p-5 resize-none
 
 <div>
 
-<h2 className="text-2xl font-bold">
+<h2 className="h-compact">
 Most Valuable Part
 </h2>
 
@@ -238,7 +238,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
 
             <div>
 
-              <h2 className="text-2xl font-bold">
+              <h2 className="h-compact">
                 New Healthy Habits
               </h2>
 
@@ -274,7 +274,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
 
             <div>
 
-              <h2 className="text-2xl font-bold">
+              <h2 className="h-compact">
                 Future Focus
               </h2>
 
@@ -345,7 +345,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
 
             <div>
 
-              <h2 className="text-2xl font-bold">
+              <h2 className="h-compact">
                 Your DUOFIT Journey
               </h2>
 
@@ -375,7 +375,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
 
           <div className="text-center max-w-3xl mx-auto">
 
-            <h3 className="text-3xl font-bold">
+            <h3 className="h-compact">
               Thank You 💚
             </h3>
 
@@ -399,7 +399,7 @@ className="mt-6 w-full rounded-xl border border-border p-4"
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-green-600 px-10 py-4 text-white font-semibold shadow-lg transition-all duration-300 hover:scale-105 disabled:opacity-60"
+            className="inline-flex items-center gap-3 rounded-full bg-primary px-10 py-4 text-white font-semibold shadow-lg transition-all duration-300 hover:scale-105 disabled:opacity-60"
           >
 
             {loading ? (

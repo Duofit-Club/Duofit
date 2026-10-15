@@ -33,7 +33,7 @@ export function Navbar() {
         <nav className="hidden lg:flex items-center gap-7 text-sm">
           {links.map((l) => (
             <Link key={l.to} to={l.to}
-              className="text-xs font-semibold uppercase tracking-widest text-foreground/80 hover:text-foreground transition-colors py-1"
+              className="text-xs font-semibold uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors py-1"
               activeProps={{ className: "text-xs font-medium uppercase tracking-widest text-foreground border-b-2 border-primary" }}
               activeOptions={{ exact: l.to === "/" }}>
               {l.label}

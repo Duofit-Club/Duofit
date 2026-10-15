@@ -195,28 +195,25 @@ function Community() {
     <SiteLayout>
 
       {/* Hero */}
-      <section className="container-editorial pt-12 md:pt-16 pb-8 md:pb-10">
+      <section className="container-editorial section-hero">
   <Reveal delay={120}>
-    <h1
-  className="mt-3 font-bold tracking-[-0.04em] leading-[0.95] text-foreground"
-  style={{ fontSize: "clamp(2.4rem, 5.5vw, 5.25rem)" }}
->
+    <h1 className="mt-3">
   Every Journey Starts Somewhere.
 </h1>
   </Reveal>
   <Reveal delay={240}>
-    <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+    <p className="lead mt-4">
       Better health is built through small consistent actions. From personal lifestyle improvements to community activities, every step forward matters.
     </p>
   </Reveal>
 </section>
 
  {/* Section 2 — Kids Summer Camp */}
-      <section className="container-editorial py-8 md:py-12">
+      <section className="container-editorial section-y">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
-              <h2 className="mt-3 text-2xl md:text-4xl font-bold tracking-tight">
+              <h2 className="mt-3">
                 Building Healthier Habits Through Activity.
               </h2>
             </div>
@@ -261,10 +258,10 @@ function Community() {
               📰
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary mb-1">
+              <p className="eyebrow mb-1">
                 As featured in — Surya News
               </p>
-              <h4 className="font-bold text-foreground text-sm md:text-base leading-snug">
+              <h4>
                 DUOFIT Summer Camp Concludes in Pragathi Nagar
               </h4>
               <p className="text-xs text-muted-foreground mt-1 hidden md:block">
@@ -283,9 +280,9 @@ function Community() {
      
       {/* Section 3 — We're Just Getting Started */}
       <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-16 md:py-24 text-center max-w-3xl mx-auto">
+        <div className="container-editorial section-y text-center max-w-3xl mx-auto">
           <Reveal delay={120}>
-            <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+            <h2 className="mt-4">
               We're Just Getting Started.
             </h2>
           </Reveal>
