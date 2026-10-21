@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronDown } from "lucide-react";
 import {
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   Dumbbell,
   Leaf,
   ShieldCheck,
@@ -11,7 +13,7 @@ import {
   Calendar, Heart,
   MessageCircle,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import { WHATSAPP_NUMBER } from "@/components/site/WhatsAppFab";
@@ -357,6 +359,138 @@ const outcomes = [
   "Better routines you can actually maintain",
   "A healthier lifestyle without feeling overwhelmed",
 ];
+
+type Testimonial = (typeof testimonials)[number];
+
+function TestimonialCarousel({ testimonials }: { testimonials: Testimonial[] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [viewingFullReview, setViewingFullReview] = useState(false);
+  const active = testimonials[activeIndex];
+  const hasLongQuote = active.quote.length > 280;
+
+  useEffect(() => {
+    if (viewingFullReview || testimonials.length < 2) return;
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % testimonials.length);
+    }, 6000);
+    return () => window.clearInterval(timer);
+  }, [viewingFullReview, testimonials.length]);
+
+  const showPrevious = () => {
+    setActiveIndex((current) => (current - 1 + testimonials.length) % testimonials.length);
+    setViewingFullReview(false);
+  };
+
+  const showNext = () => {
+    setActiveIndex((current) => (current + 1) % testimonials.length);
+    setViewingFullReview(false);
+  };
+
+  return (
+    <div className="max-w-3xl mx-auto">
+      <div className="relative rounded-3xl border border-border bg-card p-6 sm:p-8 md:p-10 min-h-[330px] flex flex-col">
+        <Quote className="h-7 w-7 text-primary/40 mb-3 shrink-0" />
+        <div className="flex gap-0.5 mb-4" aria-label="5 out of 5 stars">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+          ))}
+        </div>
+
+        <div className="min-h-[118px]">
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed line-clamp-5">
+            {active.quote}
+          </p>
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="text-sm font-bold text-foreground">{active.name}</p>
+            <p className="text-xs text-muted-foreground mt-0.5">{active.role}</p>
+          </div>
+          {hasLongQuote && (
+            <button
+              type="button"
+              onClick={() => setViewingFullReview(true)}
+              className="text-xs font-bold text-primary underline underline-offset-4 hover:text-primary/75"
+            >
+              View full review
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-5 flex items-center justify-center gap-5">
+        <button
+          type="button"
+          onClick={showPrevious}
+          aria-label="Previous testimonial"
+          className="h-10 w-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+        >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+
+        <div className="flex items-center gap-2" aria-label={`Review ${activeIndex + 1} of ${testimonials.length}`}>
+          {testimonials.map((testimonial, index) => (
+            <button
+              key={testimonial.name}
+              type="button"
+              onClick={() => {
+                setActiveIndex(index);
+                setViewingFullReview(false);
+              }}
+              aria-label={`Show review by ${testimonial.name}`}
+              aria-current={index === activeIndex ? "true" : undefined}
+              className={`h-2.5 rounded-full transition-all ${index === activeIndex ? "w-7 bg-primary" : "w-2.5 bg-border hover:bg-primary/50"}`}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={showNext}
+          aria-label="Next testimonial"
+          className="h-10 w-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+
+      {viewingFullReview && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setViewingFullReview(false);
+          }}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="full-testimonial-title"
+            className="w-full max-w-xl max-h-[85vh] overflow-y-auto rounded-3xl bg-background border border-border p-6 sm:p-8 shadow-2xl"
+          >
+            <Quote className="h-7 w-7 text-primary/40 mb-3" />
+            <div className="flex gap-0.5 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+              ))}
+            </div>
+            <h3 id="full-testimonial-title" className="text-lg font-bold">{active.name}</h3>
+            <p className="text-xs text-muted-foreground mt-1">{active.role}</p>
+            <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed">{active.quote}</p>
+            <button
+              type="button"
+              onClick={() => setViewingFullReview(false)}
+              className="mt-6 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-primary-foreground hover:brightness-110 transition"
+            >
+              Close review
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 function Home() {
   const waUrl = `https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, "")}`;
@@ -709,9 +843,9 @@ function Home() {
         </div>
       </section>
 
-      {/* SECTION 5 — Testimonials (unchanged from before) */}
+      {/* SECTION 5 — Testimonials carousel */}
       <section className="container-editorial section-y">
-        <div className="flex items-end justify-between mb-9 flex-wrap gap-3">
+        <div className="flex items-end justify-between mb-8 flex-wrap gap-3">
           <div>
             <Reveal delay={60}>
               <h2 className="mt-2">What Our Clients Say.</h2>
@@ -726,27 +860,10 @@ function Home() {
             </Link>
           </Reveal>
         </div>
-        <div className="grid sm:grid-cols-2 max-w-3xl mx-auto gap-5">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={100 + i * 80}>
-              <div className="bg-card border border-border rounded-2xl p-6 h-full flex flex-col">
-                <Quote className="h-5 w-5 text-primary/40 mb-2" />
-                <div className="flex gap-0.5 mb-3">
-                  {[...Array(5)].map((_, s) => (
-                    <Star key={s} className="h-3.5 w-3.5 fill-primary text-primary" />
-                  ))}
-                </div>
-                <span className="text-xs font-semibold text-foreground">{t.name}</span>
-                <span className="text-xs text-foreground/60">
-                  {t.role}
-                </span>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {t.quote}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+
+        {testimonials.length > 0 && (
+          <TestimonialCarousel testimonials={testimonials} />
+        )}
       </section>
 
       {/* SECTION 6 — FAQs */}
