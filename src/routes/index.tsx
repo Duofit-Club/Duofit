@@ -80,6 +80,11 @@ const testimonials = [
     name: "Manaswini",
     role: "Corporate Employee",
   },
+  {
+    quote: "I have been working with DUOFIT for the last 4 months, and the journey has been incredible. I used to have energy crashes and fatigue midday, which was alarming considering my work schedule and family requirements. I barely used to make it through the day. After DUOFIT, things changed drastically. I have experienced a radical change in my energy levels, increased strength, better focus, and fewer bouts of migraine. More than anything else, DUOFIT helped me make better food choices even when the options are limited. It's a privilege to know Nitesh and Nikitha, as they have inspired me to make better choices when it comes to health and lifestyle. Their motto is not to crash diet and tire the client out. Their goal is to customize food choices to the client's lifestyle, making it easier to follow through without their support. The best part is that this changed the way food is perceived by my family as well. My son chooses a fruit over a packet of chips. Healthy choices should be a way of life. That is the end goal. I'm glad I'm associated with these wonderful human beings who are promoting health in such a beautiful way.",
+    name: "Manogna",
+    role: "DUOFIT Client",
+  },
 ];
 
 // ── Existing interactive Venn diagram — unchanged from current site ─────
