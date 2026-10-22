@@ -71,17 +71,26 @@ const whyChecklist = [
 // swap in real client quotes before publishing.
 const testimonials = [
   {
+    headline: "A Truly Valuable Learning Experience",
+    personalQuote: "",
+    familyQuote: "",
     quote: "It has been a truly great learning experience. I particularly appreciated how you asked thoughtful and relevant questions that helped me reflect deeply and uncover some of my hidden strengths and traits. Our discussions about practical ways to work on these areas were extremely valuable and actionable.",
     name: "Amrita Das",
     role: "Corporate Professional",
   },
   {
+    headline: "Personalized Coaching for Consistent Energy",
+    personalQuote: "",
+    familyQuote: "",
     quote: "The biggest change for me has been maintaining constant energy levels throughout the day — I used to have energy crashes by afternoon, and evenings were an ordeal. Working with DUOFIT, I've noticed a significant improvement. The experience is extremely different from other fitness apps and coaches — there's no standardized formula here. The diet, workout and nutritional gaps are personalized according to your body composition and the concerns you're actually facing, and that's really the best part.",
     name: "Manaswini",
     role: "Corporate Employee",
   },
   {
-    quote: "I have been working with DUOFIT for the last 4 months, and the journey has been incredible. I used to have energy crashes and fatigue midday, which was alarming considering my work schedule and family requirements. I barely used to make it through the day. After DUOFIT, things changed drastically. I have experienced a radical change in my energy levels, increased strength, better focus, and fewer bouts of migraine. More than anything else, DUOFIT helped me make better food choices even when the options are limited. It's a privilege to know Nitesh and Nikitha, as they have inspired me to make better choices when it comes to health and lifestyle. Their motto is not to crash diet and tire the client out. Their goal is to customize food choices to the client's lifestyle, making it easier to follow through without their support. The best part is that this changed the way food is perceived by my family as well. My son chooses a fruit over a packet of chips. Healthy choices should be a way of life. That is the end goal. I'm glad I'm associated with these wonderful human beings who are promoting health in such a beautiful way.",
+    headline: "A Healthier Life for Me and My Family",
+    personalQuote: "I have been working with DUOFIT for the last 4 months, and the journey has been incredible. I used to have energy crashes and fatigue mid-day, which was alarming considering my work schedule and family requirements. I barely used to make it through the day. After DUOFIT, things changed drastically. I have experienced a radical change in my energy levels, increased strength, better focus, and fewer bouts of migraine. More than anything else, DUOFIT helped me make better food choices even when the options are limited.",
+    familyQuote: "It's a privilege to get to know Nitesh and Nikitha, as they have inspired me to make better choices when it comes to health and lifestyle. Their motto is not to crash diet or tire the client out. Their goal is to make food choices that are customized to the client's lifestyle, making it easier to follow through without their support. The best part is that this changed the way food is perceived by my family as well. My son chooses a fruit over a packet of chips. Healthy choices should be a way of life. That is the end goal. I'm glad I'm associated with these wonderful human beings who are promoting health in such a beautiful way.",
+    quote: "I have been working with DUOFIT for the last 4 months, and the journey has been incredible. I used to have energy crashes and fatigue mid-day, which was alarming considering my work schedule and family requirements. I barely used to make it through the day. After DUOFIT, things changed drastically. I have experienced a radical change in my energy levels, increased strength, better focus, and fewer bouts of migraine. More than anything else, DUOFIT helped me make better food choices even when the options are limited. It's a privilege to get to know Nitesh and Nikitha, as they have inspired me to make better choices when it comes to health and lifestyle. Their motto is not to crash diet or tire the client out. Their goal is to make food choices that are customized to the client's lifestyle, making it easier to follow through without their support. The best part is that this changed the way food is perceived by my family as well. My son chooses a fruit over a packet of chips. Healthy choices should be a way of life. That is the end goal. I'm glad I'm associated with these wonderful human beings who are promoting health in such a beautiful way.",
     name: "Manogna",
     role: "DUOFIT Client",
   },
@@ -395,6 +404,7 @@ function TestimonialCarousel({ testimonials }: { testimonials: Testimonial[] }) 
     <div className="max-w-3xl mx-auto">
       <div className="relative rounded-3xl border border-border bg-card p-6 sm:p-8 md:p-10 min-h-[330px] flex flex-col">
         <Quote className="h-7 w-7 text-primary/40 mb-3 shrink-0" />
+        <h3 className="text-lg md:text-xl font-bold text-foreground mb-3">{active.headline}</h3>
         <div className="flex gap-0.5 mb-4" aria-label="5 out of 5 stars">
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="h-4 w-4 fill-primary text-primary" />
@@ -480,9 +490,23 @@ function TestimonialCarousel({ testimonials }: { testimonials: Testimonial[] }) 
                 <Star key={i} className="h-4 w-4 fill-primary text-primary" />
               ))}
             </div>
-            <h3 id="full-testimonial-title" className="text-lg font-bold">{active.name}</h3>
+            <h3 id="full-testimonial-title" className="text-lg font-bold">{active.headline}</h3>
+            <p className="text-sm font-semibold text-foreground mt-2">{active.name}</p>
             <p className="text-xs text-muted-foreground mt-1">{active.role}</p>
-            <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed">{active.quote}</p>
+            {active.name === "Manogna" ? (
+              <div className="mt-5 space-y-5">
+                <section>
+                  <h4 className="font-bold text-foreground mb-2">Personal Health</h4>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{active.personalQuote}</p>
+                </section>
+                <section>
+                  <h4 className="font-bold text-foreground mb-2">Personal and Family Health</h4>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{active.familyQuote}</p>
+                </section>
+              </div>
+            ) : (
+              <p className="mt-5 text-sm md:text-base text-muted-foreground leading-relaxed">{active.quote}</p>
+            )}
             <button
               type="button"
               onClick={() => setViewingFullReview(false)}
