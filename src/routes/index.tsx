@@ -55,6 +55,13 @@ const programs = [
     desc: "Helping families build healthier routines together through practical nutrition, movement and everyday habits.",
 
   },
+  {
+    slug: "sports-nutrition",
+    icon: Dumbbell,
+    img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&h=400&fit=crop&crop=center",
+    title: "Sports Nutrition",
+    desc: "Nutrition strategies for recreational, competitive and young athletes, aligned with their sport and training demands.",
+  },
 ];
 
 // ── Why DUOFIT checklist ────────────────────────────────────────────────
@@ -253,6 +260,23 @@ const programTiers = [
       "Families who want to create healthier routines and a healthier lifestyle together.",
     viewHref: "/programs#family-health-habits",
   },
+  {
+    n: "03",
+    name: "Sports Nutrition",
+    tagline:
+      "For recreational, competitive and young athletes who want nutrition strategies aligned with their sport and training demands.",
+    highlights: [
+      "Personalised Sports Nutrition",
+      "Pre-, During- & Post-Training Fuelling",
+      "Hydration & Electrolyte Strategies",
+      "Recovery Nutrition",
+      "Competition & Event Preparation",
+      "Nutrition for Growth & Athletic Development",
+    ],
+    bestFor:
+      "Athletes looking for practical nutrition strategies that support training, recovery and athletic development.",
+    viewHref: "/programs#sports-nutrition",
+  },
 ];
 
 // ── Section 4 — 5-step process timeline (replaces Venn diagram entirely) ──
@@ -320,17 +344,40 @@ function ProcessTimeline() {
   );
 }
 
-// ── Section 6 — FAQ accordion ──
-// ⚠️ Draft copy in DUOFIT's established voice — edit freely.
+// ── Section 6 — FAQs ──
 const faqs = [
-  { q: "How is DUOFIT different from a typical diet or workout plan?", a: "DUOFIT looks at your health as a whole rather than focusing on just one goal. Your nutrition, fitness, sleep, energy and everyday habits are interconnected, so we build an approach around your goals, lifestyle and challenges—not a one-size-fits-all plan." },
-  { q: "Do I need to already be fit or healthy to join DUOFIT?", a: "No. DUOFIT is designed for different starting points and fitness levels. Your program is based on where you are today and adapted to your goals, lifestyle and current abilities." },
-  { q: "Which DUOFIT program is right for me?", a: "It depends on the level of support you're looking for. DUOFIT 101 is a structured group program for those looking for guidance, accountability and the fundamentals. DUOFIT Personal is 1:1 coaching for individuals who want a personalised approach built around their specific goals. DUOFIT Family is designed for families who want to build healthier habits together. If you're unsure, you can speak with us and we'll help you identify the right starting point." },
-  { q: "What does a typical week of coaching look like?", a: "This depends on the program you choose. You may have weekly goals, nutrition and movement guidance, coaching sessions, progress reviews and ongoing accountability. With Personal Coaching, your approach and support are tailored specifically to you." },
-  { q: "Can DUOFIT help with weight loss and body recomposition?", a: "Yes. Weight management can be part of your DUOFIT journey, including fat loss, weight loss and body recomposition. We look beyond the number on the scale and consider nutrition, fitness, habits, sleep and lifestyle when building your approach." },
-  { q: "Do I need to follow a strict diet or workout routine?", a: "No. DUOFIT focuses on practical changes that can fit into your lifestyle. Nutrition guidance takes your food preferences and routines into account, while movement recommendations are adapted to your current level and goals." },
-  { q: "How long does it take to see results?", a: "Results vary from person to person and depend on your starting point, goals and consistency. Rather than promising a fixed outcome or timeline, we focus on building sustainable changes and tracking meaningful progress throughout your journey." },
-  { q: "How do I get started?", a: "Choose the DUOFIT program that best fits your needs, or get in touch if you're unsure. We'll understand your goals and help you determine the right next step." },
+  {
+    q: "What makes DUOFIT's approach different?",
+    a: "DUOFIT brings nutrition, movement, recovery and everyday habits together. Rather than using a one-size-fits-all plan, each program is shaped around the individual, family or athlete and their goals, routine and needs.",
+  },
+  {
+    q: "Which DUOFIT program is right for me?",
+    a: "Personal Health Coaching is for individuals who want to improve their health, fitness, energy and everyday habits. Family Health & Habits helps households build healthier routines together. Sports Nutrition is for recreational, competitive and young athletes who want nutrition strategies that match their sport and training demands. If you are unsure, contact us and we can help you identify a suitable starting point.",
+  },
+  {
+    q: "Who can join the Sports Nutrition program?",
+    a: "The program is designed for recreational, competitive and young athletes. Nutrition guidance is aligned with the athlete's sport and training demands, with attention to fuelling, hydration, recovery and athletic development.",
+  },
+  {
+    q: "What does Sports Nutrition cover?",
+    a: "The focus areas include personalised sports nutrition, fuelling before, during and after training, hydration and electrolyte strategies, recovery nutrition, competition and event preparation, and nutrition for growth and athletic development.",
+  },
+  {
+    q: "Is Sports Nutrition only for competitive athletes?",
+    a: "No. Sports Nutrition is also intended for recreational athletes and young athletes. The aim is to align nutrition strategies with the person's sport, training demands and stage of athletic development.",
+  },
+  {
+    q: "How are the DUOFIT programs personalised?",
+    a: "Recommendations are shaped around the goals and circumstances of the person or family. For Sports Nutrition, this includes the athlete's sport and training demands; for Family Health & Habits, it includes household routines and priorities.",
+  },
+  {
+    q: "Do I need to follow a strict diet or workout routine?",
+    a: "DUOFIT focuses on practical guidance that can work alongside real-life routines. The approach is tailored to the program and your needs rather than relying on a generic plan.",
+  },
+  {
+    q: "How do I get started?",
+    a: "Explore the programs and choose the one that best matches your goals. If you are not sure which is suitable, get in touch with DUOFIT so the team can understand what you are looking for and guide you on the next step.",
+  },
 ];
 
 function FaqAccordion() {
@@ -682,9 +729,10 @@ function Home() {
               </h2>
 
               <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed max-w-5xl">
-                Whether you are working on your own health or building healthier
-                routines with your family, DUOFIT programs are designed around
-                practical nutrition, sustainable movement and habits that can last.
+                Whether you are working on your own health, building healthier
+                routines with your family or supporting athletic performance, DUOFIT
+                programs are designed around practical nutrition, sustainable movement
+                and habits that can last.
               </p>
 
             </div>
@@ -705,7 +753,7 @@ function Home() {
 
 
         {/* PROGRAM CARDS */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 w-full">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 w-full">
           {programTiers.map((tier, index) => (
             <Reveal
               key={tier.name}

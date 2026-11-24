@@ -12,7 +12,7 @@ export const Route = createFileRoute("/programs")({
     seo({
       title: "Health Coaching Programs — DUOFIT",
       description:
-        "Practical health coaching designed to help individuals and families improve fitness, nutrition, movement and healthier habits in a sustainable and realistic way.",
+        "Practical health and sports nutrition coaching to help individuals, families and athletes build healthier habits, support training and improve wellbeing.",
       path: "/programs",
     }),
   component: Programs,
@@ -20,9 +20,11 @@ export const Route = createFileRoute("/programs")({
 
 const programs = [
   {
+    slug: "personal-health-coaching",
     title: "Personal Health Coaching",
     tagline: "For individuals looking to improve their health, fitness, energy levels and everyday habits through practical and sustainable lifestyle changes.",
     personalNote: "Every plan is personalized based on your goals, lifestyle, challenges and health priorities.",
+    outcome: null,
     nodes: [
       {
         label: "Weight Management",
@@ -57,9 +59,11 @@ const programs = [
     ],
   },
   {
+    slug: "family-health-habits",
     title: "Family Health & Habits",
     tagline: "For families looking to improve eating habits, activity levels and healthier routines together in a practical and sustainable way.",
     personalNote: "Every family plan is designed around your household routines, schedules and health priorities.",
+    outcome: null,
     nodes: [
       {
         label: "Family Nutrition",
@@ -90,6 +94,45 @@ const programs = [
         label: "Sustainable Health",
         hint: "Create an environment where healthier choices become easier every day.",
         img: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=280&fit=crop&crop=center",
+      },
+    ],
+  },
+  {
+    slug: "sports-nutrition",
+    title: "Sports Nutrition",
+    tagline: "For recreational, competitive and young athletes who want nutrition strategies aligned with their sport and training demands.",
+    personalNote: "Nutrition guidance is shaped around your sport, training schedule, performance goals and individual needs.",
+    outcome: "Better fuelling, recovery and support for athletic development.",
+    nodes: [
+      {
+        label: "Personalised Sports Nutrition",
+        hint: "Nutrition strategies tailored to your sport, training demands and individual goals.",
+        img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Pre-, During- & Post-Training Fuelling",
+        hint: "Plan practical fuelling around training sessions to support performance and recovery.",
+        img: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Hydration & Electrolyte Strategies",
+        hint: "Build hydration strategies that reflect your activity, training conditions and needs.",
+        img: "https://images.unsplash.com/photo-1532634896-26909d0d4b6b?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Recovery Nutrition",
+        hint: "Support post-training recovery with practical, well-timed nutrition choices.",
+        img: "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Competition & Event Preparation",
+        hint: "Prepare a practical nutrition approach for competitions and sporting events.",
+        img: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=280&fit=crop&crop=center",
+      },
+      {
+        label: "Nutrition for Growth & Athletic Development",
+        hint: "Consider the nutrition needs that support growth and athletic development in young athletes.",
+        img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=400&h=280&fit=crop&crop=center",
       },
     ],
   },
@@ -142,9 +185,10 @@ function Programs() {
 
           <Reveal delay={220}>
             <p className="lead mt-6">
-              Whether you're improving your own health or creating healthier routines
-              for your family, every DUOFIT program is built around practical
-              nutrition, sustainable movement and lasting habits that fit real life.
+              Whether you're improving your own health, creating healthier routines
+              for your family or supporting your athletic performance, every DUOFIT
+              program is built around practical nutrition, sustainable movement and
+              lasting habits that fit real life.
             </p>
           </Reveal>
 
@@ -155,7 +199,7 @@ function Programs() {
       {programs.map((p, i) => (
         <section
           key={p.title}
-          id={i === 0 ? "personal-health-coaching" : "family-health-habits"}
+          id={p.slug}
           className="container-editorial section-y scroll-mt-24"
         >
           <Reveal delay={80}>
@@ -172,11 +216,11 @@ function Programs() {
 
               {/* Animated corner accent */}
               <div
-                className={`absolute top-0 ${i === 0 ? "left-0 rounded-br-3xl" : "right-0 rounded-bl-3xl"}
+                className={`absolute top-0 ${i % 2 === 0 ? "left-0 rounded-br-3xl" : "right-0 rounded-bl-3xl"}
             w-1 h-0 group-hover:h-full bg-primary transition-all duration-700 ease-out opacity-60`}
               />
               <div
-                className={`absolute top-0 ${i === 0 ? "left-0" : "right-0"}
+                className={`absolute top-0 ${i % 2 === 0 ? "left-0" : "right-0"}
             h-1 w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out opacity-30`}
               />
 
@@ -198,6 +242,16 @@ function Programs() {
                       <p className="mt-4 text-sm text-primary italic font-medium">
                         {p.personalNote}
                       </p>
+                      {p.outcome && (
+                        <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 px-5 py-4">
+                          <p className="text-[11px] font-bold uppercase tracking-widest text-primary">
+                            Expected Outcome
+                          </p>
+                          <p className="mt-2 text-sm md:text-base font-semibold text-foreground leading-relaxed">
+                            {p.outcome}
+                          </p>
+                        </div>
+                      )}
                       <div className="pt-8">
                         <Link
                           to="/contact"
@@ -216,7 +270,7 @@ function Programs() {
                   <Reveal delay={160}>
                     <div className="flex flex-col gap-3">
                       <h3 className="mb-1 h-compact">
-                        What {i === 0 ? "You" : "Families"} Can Expect
+                        What {p.title === "Family Health & Habits" ? "Families" : p.title === "Sports Nutrition" ? "Athletes" : "You"} Can Expect
                       </h3>
                       {p.nodes.map(({ label, hint, img }, idx) => {
                         const isEven = idx % 2 === 0;
