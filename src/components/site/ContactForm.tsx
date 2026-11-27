@@ -5,13 +5,9 @@ import { toast } from "sonner";
 const WEB3FORMS_KEY = "5f818451-df1b-43db-8385-4f10aa4f9266";
 
 const GOALS = [
-  "Weight Management",
-  "Improve Fitness",
-  "Build Healthier Habits",
-  "Better Energy & Lifestyle",
+  "Personal Health Coaching",
   "Family Health & Habits",
-  "General Health Improvement",
-  "Not Sure Yet",
+  "Sports Nutrition",
 ];
 
 const AREAS = [
